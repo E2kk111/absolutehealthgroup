@@ -76,7 +76,7 @@ const Footer: React.FC = () => {
             <ul className="space-y-4">
               <li>
                 <a href="tel:+14042369566" className="text-white/80 hover:text-white transition-colors">
-                  14042369566
+                  (404)236-9566
                 </a>
               </li>
               <li>
