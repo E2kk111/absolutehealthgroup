@@ -75,19 +75,19 @@ const Footer: React.FC = () => {
             <h3 className="text-xl font-bold mb-6 text-accent">Contact Us</h3>
             <ul className="space-y-4">
               <li>
-                <a href="tel:+1234567890" className="text-white/80 hover:text-white transition-colors">
-                  123-456-7890
+                <a href="tel:+14042369566" className="text-white/80 hover:text-white transition-colors">
+                  14042369566
                 </a>
               </li>
               <li>
-                <a href="mailto:info@transformativecare.com" className="text-white/80 hover:text-white transition-colors">
-                  info@transformativecare.com
+                <a href="mailto:info@absolutehealthgroup.com" className="text-white/80 hover:text-white transition-colors">
+                  info@absolutehealthgroup.com
                 </a>
               </li>
               <li className="text-white/80">
-                123 Healthcare Avenue<br />
-                Suite 200<br />
-                San Francisco, CA 94107
+                1345 wiley rd<br />
+                Suite 111<br />
+                Schaumburg, IL 60169
               </li>
             </ul>
           </div>
