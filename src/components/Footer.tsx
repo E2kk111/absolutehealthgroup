@@ -3,6 +3,13 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const Footer: React.FC = () => {
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  };
+
   const footerLinks = {
     solutions: [
       { name: "Medicare Reimbursement", href: "/solutions/medicare-reimbursement" },
@@ -24,7 +31,7 @@ const Footer: React.FC = () => {
       { name: "Leadership", href: "/about/leadership" },
       { name: "Careers", href: "/about/careers" },
       { name: "Press", href: "/about/press" },
-      { name: "Contact", href: "/#contact" },
+      { name: "Contact", href: "/contact" },
     ]
   };
 
@@ -37,7 +44,11 @@ const Footer: React.FC = () => {
             <ul className="space-y-4">
               {footerLinks.solutions.map((link, index) => (
                 <li key={index}>
-                  <Link to={link.href} className="text-white/80 hover:text-white transition-colors">
+                  <Link 
+                    to={link.href} 
+                    onClick={scrollToTop}
+                    className="text-white/80 hover:text-white transition-colors"
+                  >
                     {link.name}
                   </Link>
                 </li>
@@ -50,7 +61,11 @@ const Footer: React.FC = () => {
             <ul className="space-y-4">
               {footerLinks.resources.map((link, index) => (
                 <li key={index}>
-                  <Link to={link.href} className="text-white/80 hover:text-white transition-colors">
+                  <Link 
+                    to={link.href} 
+                    onClick={scrollToTop}
+                    className="text-white/80 hover:text-white transition-colors"
+                  >
                     {link.name}
                   </Link>
                 </li>
@@ -63,7 +78,11 @@ const Footer: React.FC = () => {
             <ul className="space-y-4">
               {footerLinks.company.map((link, index) => (
                 <li key={index}>
-                  <Link to={link.href} className="text-white/80 hover:text-white transition-colors">
+                  <Link 
+                    to={link.href} 
+                    onClick={scrollToTop}
+                    className="text-white/80 hover:text-white transition-colors"
+                  >
                     {link.name}
                   </Link>
                 </li>
@@ -79,11 +98,6 @@ const Footer: React.FC = () => {
                   (404)236-9566
                 </a>
               </li>
-              <li>
-                <a href="mailto:info@absolutehealthgroup.com" className="text-white/80 hover:text-white transition-colors">
-                  info@absolutehealthgroup.com
-                </a>
-              </li>
               <li className="text-white/80">
                 1345 wiley rd<br />
                 Suite 111<br />
@@ -95,9 +109,9 @@ const Footer: React.FC = () => {
         
         <div className="border-t border-white/10 pt-6 text-center">
           <p className="text-white/60 text-sm">
-            &copy; {new Date().getFullYear()} TransformativeCare. All rights reserved. | 
-            <Link to="/privacy" className="hover:text-white transition-colors ml-1">Privacy Policy</Link> | 
-            <Link to="/terms" className="hover:text-white transition-colors ml-1">Terms of Service</Link>
+            &copy; {new Date().getFullYear()} Absolute Health Group. All rights reserved. | 
+            <Link to="/privacy" onClick={scrollToTop} className="hover:text-white transition-colors ml-1">Privacy Policy</Link> | 
+            <Link to="/terms" onClick={scrollToTop} className="hover:text-white transition-colors ml-1">Terms of Service</Link>
           </p>
         </div>
       </div>

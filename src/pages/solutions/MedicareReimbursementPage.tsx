@@ -55,15 +55,15 @@ const MedicareReimbursementPage: React.FC = () => {
                   Maximize your practice's revenue through optimized Medicare billing and documentation processes.
                 </p>
                 <div className="flex flex-wrap gap-4">
-                  <a href="#demo" className="cta-button">Request Demo</a>
+                  <a href="/contact" className="cta-button">Request Demo</a>
                   <a href="#learn-more" className="cta-button bg-white border-2 border-primary text-primary hover:bg-light">Learn More</a>
                 </div>
               </div>
-              <div className="rounded-lg overflow-hidden shadow-xl">
+              <div className="rounded-lg overflow-hidden shadow-xl group">
                 <img 
-                  src="https://images.unsplash.com/photo-1516574187841-cb9cc2ca948b?auto=format&fit=crop&w=800" 
+                  src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40" 
                   alt="Medicare Reimbursement Software" 
-                  className="w-full h-auto"
+                  className="w-full h-auto transition-all duration-700 ease-out group-hover:scale-110 group-hover:brightness-110 animate-in fade-in slide-in-from-right-10"
                 />
               </div>
             </div>
@@ -98,11 +98,11 @@ const MedicareReimbursementPage: React.FC = () => {
         <section className="py-16 bg-light">
           <div className="container">
             <div className="grid md:grid-cols-2 gap-12 items-center">
-              <div className="rounded-lg overflow-hidden shadow-xl">
+              <div className="rounded-lg overflow-hidden shadow-xl group">
                 <img 
                   src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800" 
                   alt="Software Dashboard" 
-                  className="w-full h-auto"
+                  className="w-full h-auto transition-all duration-700 ease-out group-hover:scale-110 group-hover:brightness-110 animate-in fade-in slide-in-from-left-10"
                 />
               </div>
               <div>

@@ -1,42 +1,41 @@
 
 import React from 'react';
 import FeatureCard from './FeatureCard';
-import { PlusCircle, FileText, BarChart4, CheckCircle, Briefcase, ClipboardList } from 'lucide-react';
 
 const FeaturesSection: React.FC = () => {
   const features = [
     {
-      icon: <PlusCircle />,
+      icon: <img src="https://cdn-icons-png.flaticon.com/128/10565/10565579.png" alt="Medicare Reimbursement" className="w-12 h-12" />,
       title: "Medicare Reimbursement Software",
       description: "Maximize revenue from value-based care programs with our clinician-friendly solution designed for fee-for-value models.",
       link: "/solutions/medicare-reimbursement"
     },
     {
-      icon: <FileText />,
+      icon: <img src="https://cdn-icons-png.flaticon.com/128/18615/18615306.png" alt="Medicare Reimbursement" className="w-12 h-12" />,
       title: "Care Coordination Platform",
       description: "Streamline patient care with our comprehensive coordination software that enhances engagement and improves health outcomes.",
       link: "/solutions/care-coordination"
     },
     {
-      icon: <BarChart4 />,
+      icon: <img src="https://cdn-icons-png.flaticon.com/128/12628/12628368.png" alt="Medicare Reimbursement" className="w-12 h-12" />,
       title: "Healthcare Analytics",
       description: "Make informed care decisions with interactive reports and visualizations that provide real-time insights into patient data.",
       link: "/solutions/healthcare-analytics"
     },
     {
-      icon: <CheckCircle />,
+      icon: <img src="https://cdn-icons-png.flaticon.com/128/17791/17791743.png" alt="Medicare Reimbursement" className="w-12 h-12" />,
       title: "Risk Adjustment Tools",
       description: "Ensure accurate Medicare risk adjustment coding with our decision support system that improves compliance and reduces bottlenecks.",
       link: "/solutions/risk-adjustment"
     },
     {
-      icon: <Briefcase />,
+      icon: <img src="https://cdn-icons-png.flaticon.com/128/14795/14795305.png" alt="Medicare Reimbursement" className="w-12 h-12" />,
       title: "Remote Patient Monitoring",
       description: "Run effective RPM programs with simple devices, extensive data collection, and streamlined clinical workflows that maximize reimbursement.",
       link: "/solutions/remote-patient-monitoring"
     },
     {
-      icon: <ClipboardList />,
+      icon: <img src="https://cdn-icons-png.flaticon.com/128/18367/18367354.png" alt="Medicare Reimbursement" className="w-12 h-12" />,
       title: "Chronic Care Management",
       description: "Support Medicare's core preventive and wellness programs with an integrated solution for chronic condition management.",
       link: "/solutions/chronic-care-management"

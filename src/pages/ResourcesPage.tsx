@@ -111,12 +111,15 @@ const ResourcesPage: React.FC = () => {
             
             <div className="grid md:grid-cols-3 gap-8">
               {featuredResources.map((resource, index) => (
-                <Card key={index} className="overflow-hidden hover:shadow-lg transition-shadow">
-                  <img 
-                    src={resource.imageUrl} 
-                    alt={resource.title} 
-                    className="w-full h-48 object-cover"
-                  />
+                <Card key={index} className="overflow-hidden hover:shadow-lg transition-shadow group">
+                  <div className="overflow-hidden">
+                    <img 
+                      src={resource.imageUrl} 
+                      alt={resource.title} 
+                      className="w-full h-48 object-cover transition-all duration-700 ease-out group-hover:scale-110 group-hover:brightness-110 animate-in fade-in slide-in-from-bottom-10"
+                      style={{ animationDelay: `${index * 100}ms` }}
+                    />
+                  </div>
                   <CardContent className="p-6">
                     <div className="text-sm font-semibold text-secondary mb-2">{resource.type}</div>
                     <h3 className="text-lg font-bold text-primary mb-3">{resource.title}</h3>

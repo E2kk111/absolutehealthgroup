@@ -4,6 +4,7 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Header from "./components/Header";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import AboutPage from "./pages/AboutPage";
@@ -22,6 +23,7 @@ import MedicareGuidesPage from "./pages/MedicareGuidesPage";
 import LeadershipPage from "./pages/company/LeadershipPage";
 import CareersPage from "./pages/company/CareersPage";
 import PressPage from "./pages/company/PressPage";
+import ContactUsPage from "./pages/ContactUsPage";
 
 const queryClient = new QueryClient();
 
@@ -31,34 +33,42 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Index />} />
-          
-          {/* Solutions Routes */}
-          <Route path="/solutions/medicare-reimbursement" element={<MedicareReimbursementPage />} />
-          <Route path="/solutions/care-coordination" element={<CareCoordinationPage />} />
-          <Route path="/solutions/healthcare-analytics" element={<HealthcareAnalyticsPage />} />
-          <Route path="/solutions/risk-adjustment" element={<RiskAdjustmentPage />} />
-          <Route path="/solutions/remote-patient-monitoring" element={<RemotePatientMonitoringPage />} />
-          <Route path="/solutions/chronic-care-management" element={<ChronicCareManagementPage />} />
-          
-          {/* Resources Routes */}
-          <Route path="/resources" element={<ResourcesPage />} />
-          <Route path="/resources/blog" element={<BlogPage />} />
-          <Route path="/resources/case-studies" element={<CaseStudiesPage />} />
-          <Route path="/resources/white-papers" element={<WhitePapersPage />} />
-          <Route path="/resources/webinars" element={<WebinarsPage />} />
-          <Route path="/resources/medicare-guides" element={<MedicareGuidesPage />} />
-          
-          {/* Company Routes */}
-          <Route path="/about" element={<AboutPage />} />
-          <Route path="/about/leadership" element={<LeadershipPage />} />
-          <Route path="/about/careers" element={<CareersPage />} />
-          <Route path="/about/press" element={<PressPage />} />
-          
-          {/* Catch-all route */}
-          <Route path="*" element={<NotFound />} />
-        </Routes>
+        <div className="flex flex-col min-h-screen">
+          <Header />
+          <main className="flex-grow pt-20 md:pt-24">
+            <Routes>
+              <Route path="/" element={<Index />} />
+              
+              {/* Solutions Routes */}
+              <Route path="/solutions/medicare-reimbursement" element={<MedicareReimbursementPage />} />
+              <Route path="/solutions/care-coordination" element={<CareCoordinationPage />} />
+              <Route path="/solutions/healthcare-analytics" element={<HealthcareAnalyticsPage />} />
+              <Route path="/solutions/risk-adjustment" element={<RiskAdjustmentPage />} />
+              <Route path="/solutions/remote-patient-monitoring" element={<RemotePatientMonitoringPage />} />
+              <Route path="/solutions/chronic-care-management" element={<ChronicCareManagementPage />} />
+              
+              {/* Resources Routes */}
+              <Route path="/resources" element={<ResourcesPage />} />
+              <Route path="/resources/blog" element={<BlogPage />} />
+              <Route path="/resources/case-studies" element={<CaseStudiesPage />} />
+              <Route path="/resources/white-papers" element={<WhitePapersPage />} />
+              <Route path="/resources/webinars" element={<WebinarsPage />} />
+              <Route path="/resources/medicare-guides" element={<MedicareGuidesPage />} />
+              
+              {/* Company Routes */}
+              <Route path="/about" element={<AboutPage />} />
+              <Route path="/about/leadership" element={<LeadershipPage />} />
+              <Route path="/about/careers" element={<CareersPage />} />
+              <Route path="/about/press" element={<PressPage />} />
+              
+              {/* Contact Route */}
+              <Route path="/contact" element={<ContactUsPage />} />
+              
+              {/* Catch-all route */}
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </main>
+        </div>
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>

@@ -1,7 +1,15 @@
 
 import React from 'react';
+import { Link } from 'react-router-dom';
+
 
 const CTASection: React.FC = () => {
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  };
   return (
     <section className="py-16 md:py-20 bg-primary text-white text-center" id="demo">
       <div className="container">
@@ -9,7 +17,13 @@ const CTASection: React.FC = () => {
         <p className="text-lg md:text-xl opacity-90 mb-8 max-w-3xl mx-auto">
           Schedule a personalized demonstration to see how our solutions can optimize your Medicare reimbursement and improve patient outcomes.
         </p>
-        <a href="#request-demo" className="cta-button bg-white text-primary hover:bg-light">Request Demo</a>
+        <Link 
+          to="/contact"
+          onClick={scrollToTop}     
+          className="cta-button bg-white text-primary hover:bg-light"
+        >
+          Request Demo
+        </Link>
       </div>
     </section>
   );

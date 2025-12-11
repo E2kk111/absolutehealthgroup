@@ -12,6 +12,13 @@ interface FeatureCardProps {
 const FeatureCard: React.FC<FeatureCardProps> = ({ icon, title, description, link }) => {
   const routePath = link || "/solutions/medicare-reimbursement";
   
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  };
+  
   return (
     <div className="feature-card">
       <div className="icon-container">
@@ -20,7 +27,7 @@ const FeatureCard: React.FC<FeatureCardProps> = ({ icon, title, description, lin
       <div className="card-content">
         <h3>{title}</h3>
         <p>{description}</p>
-        <Link to={routePath} className="learn-more">Learn More →</Link>
+        <Link to={routePath} onClick={scrollToTop} className="learn-more">Learn More →</Link>
       </div>
     </div>
   );

@@ -1,6 +1,7 @@
 
 import React from 'react';
 import dashboardImage from '../assets/dashboard.jpg';
+import { handleSmoothScroll } from '../utils/smoothScroll';
 
 const SolutionsSection: React.FC = () => {
   const solutionItems = [
@@ -23,7 +24,7 @@ const SolutionsSection: React.FC = () => {
   ];
 
   return (
-    <section className="py-16 md:py-20 bg-light" id="learn-more">
+    <section className="py-16 md:py-20 bg-light" id="explore">
       <div className="container">
         <div className="flex flex-col lg:flex-row gap-12 items-center">
           <div className="lg:w-1/2">
@@ -45,15 +46,21 @@ const SolutionsSection: React.FC = () => {
               ))}
             </div>
             
-            <a href="#explore" className="cta-button">Explore Solutions</a>
+            <a 
+              href="#solutions" 
+              onClick={(e) => handleSmoothScroll(e, 'solutions')}
+              className="cta-button"
+            >
+              Explore Solutions
+            </a>
           </div>
           
           <div className="lg:w-1/2">
-            <div className="rounded-lg overflow-hidden shadow-xl">
+            <div className="rounded-lg overflow-hidden shadow-xl group">
               <img 
-                src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=800" 
+                src="https://media.istockphoto.com/id/1005529820/photo/doctor-presenting-value-based-healthcare-model.jpg?b=1&s=612x612&w=0&k=20&c=-uKqeTdVbuYkRmGwI9wsFslBgTL0DhywXxFE7tWXbwo=" 
                 alt="Dashboard Analytics" 
-                className="w-full h-auto"
+                className="w-full h-auto transition-all duration-700 ease-out group-hover:scale-110 group-hover:brightness-110 animate-in fade-in slide-in-from-right-10"
               />
             </div>
           </div>
