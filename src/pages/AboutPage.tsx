@@ -1,98 +1,193 @@
 
 import React from 'react';
+import Header from '../components/Header';
 import Footer from '../components/Footer';
-import { Card, CardContent } from '../components/ui/card';
-import { Users, Award, Heart, BarChart } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { Target, Eye, AlertCircle, Map, Users, TrendingUp, ArrowRight } from 'lucide-react';
+import { scrollToTop } from '../utils/smoothScroll';
 
 const AboutPage: React.FC = () => {
-  const values = [
-    {
-      icon: <Users className="w-10 h-10 text-primary" />,
-      title: "Patient-Centered",
-      description: "We put patients at the center of everything we do, focusing on solutions that improve their experience and outcomes."
-    },
-    {
-      icon: <Award className="w-10 h-10 text-primary" />,
-      title: "Excellence",
-      description: "We strive for excellence in all aspects of our work, from product development to customer support."
-    },
-    {
-      icon: <Heart className="w-10 h-10 text-primary" />,
-      title: "Compassion",
-      description: "We understand the challenges healthcare providers face and approach our work with empathy and understanding."
-    },
-    {
-      icon: <BarChart className="w-10 h-10 text-primary" />,
-      title: "Innovation",
-      description: "We continuously push the boundaries of what's possible in healthcare technology to solve complex problems."
-    }
-  ];
-
   return (
-    <>
-      <section className="py-16 md:py-24 bg-light">
-        <div className="container">
-          <div className="max-w-3xl mx-auto text-center mb-12">
-            <h1 className="text-4xl md:text-5xl font-bold text-primary mb-6">About Our Group</h1>
-            <p className="text-lg text-gray-700">
-              We're on a mission to improve healthcare outcomes for both patients and healthcare providers through innovative technology solutions and services.
-            </p>
+    <div className="flex flex-col min-h-screen">
+      <Header />
+      <main className="flex-grow">
+        {/* Hero Section */}
+        <section className="relative py-24 md:py-32 lg:py-40 bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 text-white overflow-hidden">
+          <div className="absolute inset-0">
+            <video
+              src="overview.mp4"
+              autoPlay
+              loop
+              muted
+              className='w-full h-full object-cover opacity-30'
+              style={{ width: '100%', height: '100%' }}
+              playsInline
+            />
           </div>
-        </div>
-      </section>
-
-      <section className="py-16">
-        <div className="container">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div>
-              <h2 className="text-3xl font-bold text-primary mb-6">Our Story</h2>
-              <p className="text-gray-700 mb-4">
-                Founded in 2018, <b>Absolute Health Group</b> emerged from a simple observation: healthcare providers needed better technology to succeed in value-based care models.
-              </p>
-              <p className="text-gray-700 mb-4">
-                Our founding team of physicians, engineers, and healthcare executives came together with a shared vision of creating solutions that would make quality care more accessible and sustainable.
-              </p>
-              <p className="text-gray-700">
-                Today, we serve hundreds of healthcare organizations across the country, helping them navigate the complex world of Medicare reimbursement while improving patient outcomes.
-              </p>
-            </div>
-            <div className="rounded-lg overflow-hidden shadow-xl group">
-              <img 
-                src="https://media.istockphoto.com/id/1490803677/photo/top-view-of-a-group-of-multiethnic-medical-professionals-including-doctors-surgeons-and.jpg?b=1&s=612x612&w=0&k=20&c=svQnUJ6JIdXTrdMEKz0tQjyQbnIK4Lwv9T2lcE6ZMwo=" 
-                alt="Healthcare team meeting" 
-                className="w-full h-auto transition-all duration-700 ease-out group-hover:scale-110 group-hover:brightness-110 animate-in fade-in slide-in-from-right-10"
-              />
+          <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 via-purple-600/20 to-blue-600/20 animate-gradient-x" />
+          <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]" />
+          <div className="container relative z-10">
+            <div className="max-w-4xl mx-auto text-center">
+              <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold mb-6 bg-gradient-to-r from-white via-blue-100 to-white bg-clip-text text-transparent leading-tight">
+                About Absolute Health Group
+              </h1>
+              <div className="flex items-center justify-center gap-2 mt-8">
+                <div className="h-1 w-12 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full" />
+                <div className="h-1 w-8 bg-gradient-to-r from-purple-500 to-blue-500 rounded-full" />
+                <div className="h-1 w-12 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full" />
+              </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <section className="py-16 bg-light">
-        <div className="container">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-primary mb-4">Our Values</h2>
-            <p className="text-gray-700 max-w-2xl mx-auto">
-              These core principles guide everything we do at Absolute Health Group.
-            </p>
+        {/* Mission */}
+        <section className="py-20 md:py-28 bg-gradient-to-b from-slate-50 via-white to-slate-50 relative overflow-hidden">
+          <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808008_1px,transparent_1px),linear-gradient(to_bottom,#80808008_1px,transparent_1px)] bg-[size:24px_24px]" />
+          <div className="container relative z-10">
+            <div className="max-w-5xl mx-auto">
+              <div className="flex items-start gap-8 group">
+                <div className="w-20 h-20 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl flex items-center justify-center flex-shrink-0 shadow-lg group-hover:scale-110 transition-transform duration-200">
+                  <Target className="text-white" size={36} />
+                </div>
+                <div className="flex-1">
+                  <h2 className="text-4xl md:text-5xl font-extrabold text-slate-900 mb-6 bg-gradient-to-r from-slate-900 via-blue-900 to-slate-900 bg-clip-text text-transparent">Mission</h2>
+                  <p className="text-xl text-slate-700 leading-relaxed">
+                    To deliver accessible, tech-enabled healthcare that improves patient outcomes while aligning payment models with value rather than volume.
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
-          
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            {values.map((value, index) => (
-              <Card key={index} className="text-center">
-                <CardContent className="pt-6">
-                  <div className="mx-auto mb-4 flex items-center justify-center">
-                    {value.icon}
-                  </div>
-                  <h3 className="text-xl font-bold text-primary mb-2">{value.title}</h3>
-                  <p className="text-gray-600">{value.description}</p>
-                </CardContent>
-              </Card>
-            ))}
+        </section>
+
+        {/* Vision */}
+        <section className="py-20 md:py-28 bg-gradient-to-b from-white via-slate-50 to-white">
+          <div className="container">
+            <div className="max-w-5xl mx-auto">
+              <div className="flex items-start gap-8 group">
+                <div className="w-20 h-20 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl flex items-center justify-center flex-shrink-0 shadow-lg group-hover:scale-110 transition-transform duration-200">
+                  <Eye className="text-white" size={36} />
+                </div>
+                <div className="flex-1">
+                  <h2 className="text-4xl md:text-5xl font-extrabold text-slate-900 mb-6 bg-gradient-to-r from-slate-900 via-blue-900 to-slate-900 bg-clip-text text-transparent">Vision</h2>
+                  <p className="text-xl text-slate-700 leading-relaxed">
+                    A national healthcare system where predictive AI catches issues early, personalized navigation guides every patient, and payment models reward outcomes that matter.
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+
+        {/* The Problem We Solve */}
+        <section className="py-20 md:py-28 bg-gradient-to-b from-slate-50 via-white to-slate-50 relative overflow-hidden">
+          <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808008_1px,transparent_1px),linear-gradient(to_bottom,#80808008_1px,transparent_1px)] bg-[size:24px_24px]" />
+          <div className="container relative z-10">
+            <div className="max-w-5xl mx-auto">
+              <div className="flex items-start gap-8 group">
+                <div className="w-20 h-20 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl flex items-center justify-center flex-shrink-0 shadow-lg group-hover:scale-110 transition-transform duration-200">
+                  <AlertCircle className="text-white" size={36} />
+                </div>
+                <div className="flex-1">
+                  <h2 className="text-4xl md:text-5xl font-extrabold text-slate-900 mb-6 bg-gradient-to-r from-slate-900 via-blue-900 to-slate-900 bg-clip-text text-transparent">The Problem We Solve</h2>
+                  <p className="text-xl text-slate-700 mb-4 leading-relaxed">
+                    Healthcare delivery is fragmented, reactive, and misaligned. Patients struggle to navigate complex systems, providers face administrative burdens, and payment models don't reward outcomes.
+                  </p>
+                  <p className="text-xl text-slate-700 leading-relaxed">
+                    Absolute Health Group addresses these challenges through integrated care delivery, AI-powered clinical intelligence, and outcomes-aligned financial models.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* The AION Roadmap */}
+        <section className="py-20 md:py-28 bg-gradient-to-b from-white via-slate-50 to-white">
+          <div className="container">
+            <div className="max-w-5xl mx-auto">
+              <div className="flex items-start gap-8 group">
+                <div className="w-20 h-20 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl flex items-center justify-center flex-shrink-0 shadow-lg group-hover:scale-110 transition-transform duration-200">
+                  <Map className="text-white" size={36} />
+                </div>
+                <div className="flex-1">
+                  <h2 className="text-4xl md:text-5xl font-extrabold text-slate-900 mb-6 bg-gradient-to-r from-slate-900 via-blue-900 to-slate-900 bg-clip-text text-transparent">The AION Roadmap</h2>
+                  <p className="text-xl text-slate-700 mb-6 leading-relaxed">
+                    Our national roadmap for intelligent healthcare delivery includes:
+                  </p>
+                  <ul className="space-y-3 text-xl text-slate-700">
+                    {[
+                      "Hybrid care delivery (clinic, mobile, home)",
+                      "AI-powered clinical intelligence",
+                      "Personalized patient navigation",
+                      "Outcomes-based reimbursement (RegFi)",
+                      "National advocacy through AdvocateIQ™"
+                    ].map((item, idx) => (
+                      <li key={idx} className="flex items-start group/item">
+                        <span className="w-2 h-2 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full mr-4 mt-2 flex-shrink-0 group-hover/item:scale-150 transition-transform" />
+                        <span className="leading-relaxed">{item}</span>
+                    </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Leadership Team */}
+        <section className="py-20 md:py-28 bg-gradient-to-b from-slate-50 via-white to-slate-50 relative overflow-hidden">
+          <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808008_1px,transparent_1px),linear-gradient(to_bottom,#80808008_1px,transparent_1px)] bg-[size:24px_24px]" />
+          <div className="container relative z-10">
+            <div className="max-w-5xl mx-auto">
+              <div className="flex items-start gap-8 group">
+                <div className="w-20 h-20 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl flex items-center justify-center flex-shrink-0 shadow-lg group-hover:scale-110 transition-transform duration-200">
+                  <Users className="text-white" size={36} />
+                </div>
+                <div className="flex-1">
+                  <h2 className="text-4xl md:text-5xl font-extrabold text-slate-900 mb-6 bg-gradient-to-r from-slate-900 via-blue-900 to-slate-900 bg-clip-text text-transparent">Leadership Team</h2>
+                  <p className="text-xl text-slate-700 mb-6 leading-relaxed">
+                    Our team combines clinical expertise, technology innovation, and healthcare operations experience.
+                  </p>
+                  <Link
+                    to="/about/leadership"
+                    onClick={() => {
+                      setTimeout(() => {
+                        scrollToTop();
+                      }, 100);
+                    }}
+                    className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-6 py-3 rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all duration-200"
+                  >
+                    Meet the Leadership Team
+                    <ArrowRight size={18} />
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Our Impact */}
+        <section className="py-20 md:py-28 bg-gradient-to-b from-white via-slate-50 to-white">
+          <div className="container">
+            <div className="max-w-5xl mx-auto">
+              <div className="flex items-start gap-8 group">
+                <div className="w-20 h-20 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl flex items-center justify-center flex-shrink-0 shadow-lg group-hover:scale-110 transition-transform duration-200">
+                  <TrendingUp className="text-white" size={36} />
+                </div>
+                <div className="flex-1">
+                  <h2 className="text-4xl md:text-5xl font-extrabold text-slate-900 mb-6 bg-gradient-to-r from-slate-900 via-blue-900 to-slate-900 bg-clip-text text-transparent">Our Impact</h2>
+                  <p className="text-xl text-slate-700 leading-relaxed">
+                    Metrics and outcomes demonstrating our commitment to improving healthcare delivery and patient outcomes.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
       <Footer />
-    </>
+    </div>
   );
 };
 

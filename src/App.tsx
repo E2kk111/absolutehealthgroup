@@ -20,6 +20,16 @@ import ChronicCareManagementPage from "./pages/solutions/ChronicCareManagementPa
 import WhitePapersPage from "./pages/WhitePapersPage";
 import WebinarsPage from "./pages/WebinarsPage";
 import MedicareGuidesPage from "./pages/MedicareGuidesPage";
+import TechnologyPage from "./pages/TechnologyPage";
+import ClinicPage from "./pages/ClinicPage";
+import HybridClinicsPage from "./pages/clinic/HybridClinicsPage";
+import MobileClinicsPage from "./pages/clinic/MobileClinicsPage";
+import CareAtHomePage from "./pages/clinic/CareAtHomePage";
+import CareNavigationPage from "./pages/clinic/CareNavigationPage";
+import AIONClinicalIntelligencePage from "./pages/technology/AIONClinicalIntelligencePage";
+import AIONNavigatorPage from "./pages/technology/AIONNavigatorPage";
+import AIONFinancePage from "./pages/technology/AIONFinancePage";
+import PodcastPage from "./pages/PodcastPage";
 import LeadershipPage from "./pages/company/LeadershipPage";
 import CareersPage from "./pages/company/CareersPage";
 import PressPage from "./pages/company/PressPage";
@@ -39,13 +49,12 @@ const App = () => (
             <Routes>
               <Route path="/" element={<Index />} />
               
-              {/* Solutions Routes */}
-              <Route path="/solutions/medicare-reimbursement" element={<MedicareReimbursementPage />} />
-              <Route path="/solutions/care-coordination" element={<CareCoordinationPage />} />
-              <Route path="/solutions/healthcare-analytics" element={<HealthcareAnalyticsPage />} />
-              <Route path="/solutions/risk-adjustment" element={<RiskAdjustmentPage />} />
-              <Route path="/solutions/remote-patient-monitoring" element={<RemotePatientMonitoringPage />} />
-              <Route path="/solutions/chronic-care-management" element={<ChronicCareManagementPage />} />
+              {/* Clinic Routes */}
+              <Route path="/clinic" element={<ClinicPage />} />
+              <Route path="/clinic/hybrid-clinics" element={<HybridClinicsPage />} />
+              <Route path="/clinic/mobile-clinics" element={<MobileClinicsPage />} />
+              <Route path="/clinic/care-at-home" element={<CareAtHomePage />} />
+              <Route path="/clinic/care-navigation" element={<CareNavigationPage />} />
               
               {/* Resources Routes */}
               <Route path="/resources" element={<ResourcesPage />} />
@@ -55,10 +64,19 @@ const App = () => (
               <Route path="/resources/webinars" element={<WebinarsPage />} />
               <Route path="/resources/medicare-guides" element={<MedicareGuidesPage />} />
               
+              {/* Technology Routes */}
+              <Route path="/technology" element={<TechnologyPage />} />
+              <Route path="/technology/aion-clinical-intelligence" element={<AIONClinicalIntelligencePage />} />
+              <Route path="/technology/aion-navigator" element={<AIONNavigatorPage />} />
+              <Route path="/technology/aion-finance" element={<AIONFinancePage />} />
+              
+              {/* Podcast Route */}
+              <Route path="/podcast" element={<PodcastPage />} />
+              
               {/* Company Routes */}
               <Route path="/about" element={<AboutPage />} />
               <Route path="/about/leadership" element={<LeadershipPage />} />
-              <Route path="/about/careers" element={<CareersPage />} />
+              <Route path="/careers" element={<CareersPage />} />
               <Route path="/about/press" element={<PressPage />} />
               
               {/* Contact Route */}

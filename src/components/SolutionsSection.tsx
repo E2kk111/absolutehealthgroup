@@ -57,9 +57,12 @@ const SolutionsSection: React.FC = () => {
           
           <div className="lg:w-1/2">
             <div className="rounded-lg overflow-hidden shadow-xl group">
-              <img 
-                src="https://media.istockphoto.com/id/1005529820/photo/doctor-presenting-value-based-healthcare-model.jpg?b=1&s=612x612&w=0&k=20&c=-uKqeTdVbuYkRmGwI9wsFslBgTL0DhywXxFE7tWXbwo=" 
-                alt="Dashboard Analytics" 
+              <video 
+                src="https://dm0qx8t0i9gc9.cloudfront.net/watermarks/video/rS5r4eB/1266328__326fea413ef4f274b64746fc47fbbe06__P360.mp4"
+                autoPlay
+                loop
+                muted
+                playsInline
                 className="w-full h-auto transition-all duration-700 ease-out group-hover:scale-110 group-hover:brightness-110 animate-in fade-in slide-in-from-right-10"
               />
             </div>

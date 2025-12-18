@@ -132,29 +132,35 @@ const BlogPage: React.FC = () => {
       <Header />
       <main className="flex-grow">
         {/* Hero Section */}
-        <section className="relative py-16 md:py-24 bg-gradient-to-r from-primary to-primary/90 text-white">
-          <div className="absolute inset-0 bg-black/20" />
-          <div className="container relative">
-            <div className="max-w-3xl mx-auto text-center">
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 animate-fade-in">
+        <section className="relative py-24 md:py-32 lg:py-40 bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 text-white overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 via-purple-600/20 to-blue-600/20 animate-gradient-x" />
+          <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]" />
+          <div className="container relative z-10">
+            <div className="max-w-4xl mx-auto text-center">
+              <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold mb-6 bg-gradient-to-r from-white via-blue-100 to-white bg-clip-text text-transparent leading-tight">
                 Insights & Expertise
               </h1>
-              <p className="text-xl opacity-95 mb-8 animate-slide-up">
+              <p className="text-xl md:text-2xl mb-8 text-blue-100 font-light">
                 Stay ahead with the latest on healthcare technology, Medicare reimbursement, and practice optimization
               </p>
               
               {/* Search Bar */}
-              <div className="max-w-2xl mx-auto animate-slide-up" style={{ animationDelay: "200ms" }}>
+              <div className="max-w-2xl mx-auto">
                 <div className="relative">
-                  <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400" size={20} />
+                  <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-slate-400" size={20} />
                   <input
                     type="text"
                     placeholder="Search articles, topics, or keywords..."
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
-                    className="w-full pl-12 pr-4 py-4 rounded-lg text-dark placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-secondary"
+                    className="w-full pl-12 pr-4 py-4 rounded-xl text-slate-900 placeholder-slate-500 bg-white/90 backdrop-blur-sm border border-white/20 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-white shadow-lg"
                   />
                 </div>
+              </div>
+              <div className="flex items-center justify-center gap-2 mt-8">
+                <div className="h-1 w-12 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full" />
+                <div className="h-1 w-8 bg-gradient-to-r from-purple-500 to-blue-500 rounded-full" />
+                <div className="h-1 w-12 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full" />
               </div>
             </div>
           </div>

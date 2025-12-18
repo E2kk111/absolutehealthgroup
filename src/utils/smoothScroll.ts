@@ -28,3 +28,13 @@ export const handleSmoothScroll = (
   smoothScrollTo(targetId, offset);
 };
 
+/**
+ * Scroll to top of the page
+ * Used when navigating to a new page via React Router
+ */
+export const scrollToTop = () => {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  });
+};

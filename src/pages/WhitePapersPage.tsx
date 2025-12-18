@@ -8,7 +8,7 @@ const WhitePapersPage: React.FC = () => {
     <div className="flex flex-col min-h-screen">
       <Header />
       <main className="flex-grow">
-        <section className="py-16 md:py-24 bg-light">
+        <section className="py-24 md:py-32 lg:py-40 bg-light">
           <div className="container">
             <div className="max-w-3xl mx-auto text-center mb-12">
               <h1 className="text-4xl md:text-5xl font-bold text-primary mb-6">White Papers</h1>

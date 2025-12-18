@@ -1,5 +1,6 @@
 
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { ArrowRight, Sparkles, Zap, Heart, Activity } from 'lucide-react';
 import { handleSmoothScroll } from '../utils/smoothScroll';
 
@@ -9,16 +10,15 @@ const HeroSection: React.FC = () => {
 
   // Background videos array - healthcare videos that flow/rotate
   const backgroundVideos = [
-    "https://media.istockphoto.com/id/2230920203/video/close-up-of-hands-using-a-healthcare-app-to-schedule-a-doctors-visit-selecting-a-provider.mp4?b=1&s=192_srp&k=20&c=dOeMbgq4HdbtLOVNRNUXe-TVPmiAuHHnxzFy0dktM9w=",
-    "https://media.istockphoto.com/id/1424794714/video/asian-woman-appointment-consulting-doctor-visit-on-mobile-app-at-home-telemedicine.mp4?b=1&s=192_srp&k=20&c=Xns5p-k4NYVX4-4GSHkJxnDgBH0gBtAjwobIYFpyRcc=",
-    "https://media.istockphoto.com/id/1326196672/video/young-asian-woman-receive-medicine-pharmacy-medical-box-home-delivery.mp4?b=1&s=192_srp&k=20&c=Ix2Kb3FjzJLYC5gWphuJhfjU0Zbg7k9hUSV0ZyuMO7w=",
-    "https://media.istockphoto.com/id/1385274032/video/drug-distribution-group-insurance-for-remote-work-workforce-welfare.mp4?b=1&s=192_srp&k=20&c=h2Ana6VoqxxR8BqS8zN0QUCw1KE8zYtcEdaLJzMO31U=",
-    "https://media.istockphoto.com/id/1483063706/video/woman-using-health-tech-in-real-life.mp4?b=1&s=192_srp&k=20&c=dxf-5kM4VD2pyfQiJyU45vy5neGzjJqo7xgr1EN9jlc=",
-    "https://media.istockphoto.com/id/493999803/video/coordination-of-movements-training-in-hospital.mp4?b=1&s=192_srp&k=20&c=iVgC1XLilRnTu6nDBF3mpO8qt6vjybV5razxRhmrOMc=",
-    "https://media.istockphoto.com/id/2163814073/video/hospital-doctor-using-spreadsheet-for-billing-codes-on-desktop.mp4?b=1&s=192_srp&k=20&c=boFZ4Aq0OWnpkAatqRNIwdo9jOPxLMZer3YLUpj4n3w=",
-    "https://media.istockphoto.com/id/2188975024/video/an-elderly-medical-professor-is-imparting-his-expertise-and-skills-to-the-new-generation-of.mp4?b=1&s=192_srp&k=20&c=s4EMP8eqWEt2XbF1t9gs7Y3M3dlc_MRFEZGBfl8xbdI=",
-    "https://media.istockphoto.com/id/1483952257/video/woman-using-pulse-oximeter-measuring-heart-rate-pulse-monitoring-heartbeat-with-smartphone.mp4?b=1&s=192_srp&k=20&c=C4gbrnG0pmS21x0GETuZWs1h79sWEgHKQEBgiaVS_jw=",
-    "https://media.istockphoto.com/id/1398924098/video/man-talking-with-doctor-on-video-call.mp4?b=1&s=192_srp&k=20&c=Kb55eRUgoQPxGg3W5mIZ-iocWWwXXqw1kj5bhEC0hqs=",
+    "https://dm0qx8t0i9gc9.cloudfront.net/watermarks/video/BgrICs-NZj4hksnn3/videoblocks-nurse-wearing-headset-with-sensors-during-neuoroscience-experiment-in-medical-conference-team-monitor-shows-modern-brain-study-while-team-of-scientist-adjusts-the-device-working-in-hospital-boardroom_h0j6uetsd__fba577a86e40e8fd0c57fbcd4a3cea7b__P360.mp4",
+    "https://dm0qx8t0i9gc9.cloudfront.net/watermarks/video/Bo-ziHq_jlbqx8330/videoblocks-pharmacy09_bmyqhrfx3__44bc4de7432f6e53f0f8767cfba3c767__P360.mp4",
+    "https://dm0qx8t0i9gc9.cloudfront.net/watermarks/video/MPaEbz-/v1-0019-20241014-pm-chukhlomin-medical-meeting-3-studio-crossmedia00000000-g79g6vghz9__5cbe70be736ff4281bdee2a9eddfb20d__P360.mp4",
+    "https://dm0qx8t0i9gc9.cloudfront.net/watermarks/video/BgrICs-NZj4hksnn3/videoblocks-61e6cd4ace7d0651dce042bb_rwnjlvaay__e50ecd1ce1a23de79a59355be7f40075__P360.mp4",
+    "https://dm0qx8t0i9gc9.cloudfront.net/watermarks/video/BgrICs-NZj4hksnn3/videoblocks-641d92226326c401774e76f2_hltxk0nbn__760ba1f9f65375a59c22e5d55c73c3f0__P360.mp4",
+    "https://dm0qx8t0i9gc9.cloudfront.net/watermarks/video/BgrICs-NZj4hksnn3/videoblocks-61d7fe0b2a335c6b5643ec92_rdqcormay__5f2b09aabd4687ab1cde6cfeee503e40__P360.mp4",
+    "https://dm0qx8t0i9gc9.cloudfront.net/watermarks/video/Hc_TvUoHMjcyusz29/videoblocks-643d2026b5da720db9d404f0_brsd6lyx3__ae1ddb3f6493dc7985e2ff9aa553e176__P360.mp4",
+    "https://dm0qx8t0i9gc9.cloudfront.net/watermarks/video/MPaEbz-/v1-0019-20250211-pm-chukhlomin-diabetic-medical-office-4-studio-crossmedia00000000-wlr6wv82b9__628a0b76825a302e617817f90000d3d3__P360.mp4",
+    "https://dm0qx8t0i9gc9.cloudfront.net/watermarks/video/r7xJMA473lgvqwmwr/videoblocks-20240313_spcv-xtxc__79eb254f6931f231521bdd90364a78ea__P360.mp4",
   ];
 
   useEffect(() => {
@@ -146,50 +146,46 @@ const HeroSection: React.FC = () => {
           {/* Mobile: Badge moved to top, but with better spacing */}
           <div className="order-1 inline-flex items-center gap-2 bg-white/20 backdrop-blur-md px-3 py-1.5 md:px-4 md:py-2 rounded-full mb-4 md:mb-8 border border-white/30 animate-in fade-in duration-1000 hover:bg-white/30 hover:scale-105 transition-all duration-300 cursor-default self-center">
             <Sparkles className="w-3 h-3 md:w-4 md:h-4 text-secondary animate-spin" style={{ animationDuration: '3s' }} />
-            <span className="text-xs md:text-sm font-semibold text-white drop-shadow-lg">Innovative Healthcare Solutions</span>
+            <span className="text-xs md:text-sm font-semibold text-white drop-shadow-lg">AION Stacks™</span>
           </div>
           
           {/* Mobile: Main heading with optimized spacing */}
           <h1 className="order-2 hero-title text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black leading-[1.1] mb-4 md:mb-8 text-white animate-in fade-in slide-in-from-bottom-10 duration-1000 delay-200 px-2 group-hover:scale-105 transition-transform duration-500">
             <span className="block mb-1 md:mb-2 hero-text-shadow hover:scale-90 inline-block transition-transform duration-300 cursor-default">
-              Transformative
+              Absolute Health Group
             </span>
             <span className="block hero-gradient-text hover:scale-90 inline-block transition-transform duration-300 cursor-default">
-                 Care
-            </span>
-            <span className="block text-2xl sm:text-4xl md:text-5xl lg:text-6xl mt-2 md:mt-4 font-extrabold hero-text-shadow hover:scale-90 inline-block transition-transform duration-300 cursor-default">
-              for a Healthier Tomorrow
+              Care   &    Intelligence    Advocacy
             </span>
           </h1>
           
           {/* Mobile: Description with better spacing */}
           <p className="order-3 text-sm sm:text-lg md:text-xl lg:text-2xl text-white hero-text-shadow mb-6 md:mb-12 leading-relaxed max-w-4xl mx-auto px-2 md:px-4 animate-in fade-in slide-in-from-bottom-10 duration-1000 delay-300 hover:text-white transition-colors duration-300">
-            Tech-enabled, data-driven healthcare solutions that optimize reimbursement and improve patient outcomes. Elevate your practice with our innovative Medicare software suite.
+            A unified ecosystem delivering hybrid care, AI-powered clinical intelligence, and a national roadmap for accessible healthcare.
           </p>
           
           {/* Mobile: CTA buttons with better mobile layout */}
           <div className="order-4 flex flex-col sm:flex-row gap-3 sm:gap-6 justify-center items-stretch sm:items-center animate-in fade-in slide-in-from-bottom-10 duration-1000 delay-500 px-2 md:px-4 mb-8 md:mb-0">
-            <a 
-              href="/about" 
+            <Link 
+              to="/clinic" 
               className="group cta-button text-sm sm:text-base md:text-lg px-6 sm:px-8 md:px-10 py-2.5 sm:py-3 md:py-4 text-center flex items-center justify-center gap-2 hover:shadow-glow-lg transform hover:scale-110 hover:-translate-y-1 transition-all duration-300 w-full sm:w-auto relative overflow-hidden"
             >
               <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000"></span>
               <span className="relative z-10 flex items-center gap-2">
-                About Our Group
+                Explore Care Delivery
                 <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-2 transition-transform duration-300" />
               </span>
-            </a>
-            <a 
-              href="#solutions" 
-              onClick={(e) => handleSmoothScroll(e, 'solutions')}
+            </Link>
+            <Link 
+              to="/technology" 
               className="cta-button secondary text-sm sm:text-base md:text-lg px-6 sm:px-8 md:px-10 py-2.5 sm:py-3 md:py-4 text-center group flex items-center justify-center gap-2 transform hover:scale-110 hover:-translate-y-1 transition-all duration-300 w-full sm:w-auto relative overflow-hidden"
             >
               <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000"></span>
               <span className="relative z-10 flex items-center gap-2">
-                Go to Solutions
+                Discover AION Stacks
                 <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-2 transition-transform duration-300" />
               </span>
-            </a>
+            </Link>
           </div>
         </div>
       </div>
