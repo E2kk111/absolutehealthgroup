@@ -1,13 +1,42 @@
 
-import React from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import { Link } from 'react-router-dom';
-import { Heart, Users, Home, Briefcase, ArrowRight } from 'lucide-react';
+import { Heart, Users, Home, Briefcase, ArrowRight, CheckCircle2 } from 'lucide-react';
 import { Card, CardContent } from '../../components/ui/card';
 import { scrollToTop } from '../../utils/smoothScroll';
 
 const CareersPage: React.FC = () => {
+  const [isVisible, setIsVisible] = useState<{ [key: string]: boolean }>({});
+  const sectionRefs = useRef<{ [key: string]: HTMLDivElement | null }>({});
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setIsVisible((prev) => ({
+              ...prev,
+              [entry.target.id]: true,
+            }));
+          }
+        });
+      },
+      { threshold: 0.1, rootMargin: '0px 0px -100px 0px' }
+    );
+
+    Object.values(sectionRefs.current).forEach((ref) => {
+      if (ref) observer.observe(ref);
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
+  const setRef = (id: string) => (el: HTMLDivElement | null) => {
+    sectionRefs.current[id] = el;
+  };
+
   const benefits = [
     "Competitive salary and equity",
     "Comprehensive health benefits",
@@ -34,7 +63,7 @@ const CareersPage: React.FC = () => {
     },
     {
       id: 3,
-      title: "Product Manager - AION Stacks",
+      title: "Product Manager - AptusCore™ Health OS",
       department: "Product",
       location: "Remote",
       type: "Full-time"
@@ -46,7 +75,7 @@ const CareersPage: React.FC = () => {
       <Header />
       <main className="flex-grow">
         {/* Hero Section */}
-        <section className="relative py-24 md:py-32 lg:py-40 bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 text-white overflow-hidden">
+        <section className="relative min-h-[90vh] flex items-center justify-center bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 text-white overflow-hidden group">
           <div className="absolute inset-0">
             <img
               src="https://plus.unsplash.com/premium_photo-1681843126728-04eab730febe?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fENhcmVlcnMlMjBhdCUyMEFic29sdXRlJTIwSGVhbHRoJTIwR3JvdXB8ZW58MHx8MHx8fDA%3D"
@@ -77,15 +106,19 @@ const CareersPage: React.FC = () => {
         </section>
 
         {/* Culture */}
-        <section className="py-20 md:py-28 bg-gradient-to-b from-slate-50 via-white to-slate-50 relative overflow-hidden">
+        <section 
+          id="culture"
+          ref={setRef('culture')}
+          className="py-20 md:py-28 bg-gradient-to-b from-slate-50 via-white to-slate-50 relative overflow-hidden"
+        >
           <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808008_1px,transparent_1px),linear-gradient(to_bottom,#80808008_1px,transparent_1px)] bg-[size:24px_24px]" />
           <div className="container relative z-10">
             <div className="max-w-5xl mx-auto">
               <div className="text-center mb-16">
-                <h2 className="text-4xl md:text-5xl font-extrabold text-slate-900 mb-4 bg-gradient-to-r from-slate-900 via-blue-900 to-slate-900 bg-clip-text text-transparent">
+                <h2 className={`text-4xl md:text-5xl lg:text-6xl font-extrabold text-slate-900 mb-4 bg-gradient-to-r from-slate-900 via-blue-900 to-slate-900 bg-clip-text text-transparent transition-all duration-1000 ${isVisible['culture'] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
                   Our Culture
                 </h2>
-                <p className="text-lg text-slate-600 max-w-2xl mx-auto">
+                <p className={`text-lg md:text-xl text-slate-600 max-w-2xl mx-auto transition-all duration-1000 delay-200 ${isVisible['culture'] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
                   What makes us unique
                 </p>
               </div>
@@ -138,27 +171,33 @@ const CareersPage: React.FC = () => {
         </section>
 
         {/* Benefits */}
-        <section className="py-20 md:py-28 bg-gradient-to-b from-white via-slate-50 to-white relative overflow-hidden">
+        <section 
+          id="benefits"
+          ref={setRef('benefits')}
+          className="py-20 md:py-28 bg-gradient-to-b from-white via-slate-50 to-white relative overflow-hidden"
+        >
           <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808008_1px,transparent_1px),linear-gradient(to_bottom,#80808008_1px,transparent_1px)] bg-[size:24px_24px]" />
           <div className="container relative z-10">
             <div className="max-w-5xl mx-auto">
               <div className="text-center mb-16">
-                <h2 className="text-4xl md:text-5xl font-extrabold text-slate-900 mb-4 bg-gradient-to-r from-slate-900 via-blue-900 to-slate-900 bg-clip-text text-transparent">
+                <h2 className={`text-4xl md:text-5xl lg:text-6xl font-extrabold text-slate-900 mb-4 bg-gradient-to-r from-slate-900 via-blue-900 to-slate-900 bg-clip-text text-transparent transition-all duration-1000 ${isVisible['benefits'] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
                   Benefits
                 </h2>
-                <p className="text-lg text-slate-600 max-w-2xl mx-auto">
+                <p className={`text-lg md:text-xl text-slate-600 max-w-2xl mx-auto transition-all duration-1000 delay-200 ${isVisible['benefits'] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
                   Comprehensive benefits package for our team
                 </p>
               </div>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {benefits.map((benefit, index) => (
-                  <div
+                  <Card
                     key={index}
-                    className="flex items-center gap-4 p-6 bg-white/80 backdrop-blur-xl rounded-xl border-0 shadow-lg hover:shadow-xl transition-all duration-300 group"
+                    className={`flex items-center gap-4 p-6 border-0 shadow-lg hover:shadow-xl transition-all duration-500 bg-white/90 backdrop-blur-xl group hover:scale-105 hover:-translate-y-1 relative overflow-hidden ${isVisible['benefits'] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+                    style={{ transitionDelay: `${index * 100}ms` }}
                   >
-                    <span className="w-2 h-2 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full flex-shrink-0 group-hover:scale-150 transition-transform" />
-                    <span className="text-slate-700 text-lg font-medium">{benefit}</span>
-                  </div>
+                    <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-blue-500/10 to-purple-600/10 rounded-full blur-2xl group-hover:opacity-20 transition-opacity duration-500" />
+                    <div className="w-2 h-2 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full flex-shrink-0 group-hover:scale-150 transition-transform duration-300 relative z-10" />
+                    <span className="text-slate-700 text-lg font-medium group-hover:text-blue-600 transition-colors relative z-10">{benefit}</span>
+                  </Card>
                 ))}
               </div>
             </div>
@@ -166,22 +205,32 @@ const CareersPage: React.FC = () => {
         </section>
 
         {/* Job Listings */}
-        <section className="py-20 md:py-28 bg-gradient-to-b from-slate-50 via-white to-slate-50 relative overflow-hidden">
+        <section 
+          id="positions"
+          ref={setRef('positions')}
+          className="py-20 md:py-28 bg-gradient-to-b from-slate-50 via-white to-slate-50 relative overflow-hidden"
+        >
           <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808008_1px,transparent_1px),linear-gradient(to_bottom,#80808008_1px,transparent_1px)] bg-[size:24px_24px]" />
           <div className="container relative z-10">
             <div className="max-w-5xl mx-auto">
               <div className="text-center mb-16">
-                <h2 className="text-4xl md:text-5xl font-extrabold text-slate-900 mb-4 bg-gradient-to-r from-slate-900 via-blue-900 to-slate-900 bg-clip-text text-transparent">
+                <h2 className={`text-4xl md:text-5xl lg:text-6xl font-extrabold text-slate-900 mb-4 bg-gradient-to-r from-slate-900 via-blue-900 to-slate-900 bg-clip-text text-transparent transition-all duration-1000 ${isVisible['positions'] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
                   Open Positions
                 </h2>
-                <p className="text-lg text-slate-600 max-w-2xl mx-auto">
+                <p className={`text-lg md:text-xl text-slate-600 max-w-2xl mx-auto transition-all duration-1000 delay-200 ${isVisible['positions'] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
                   Join our team and make a difference
                 </p>
               </div>
               <div className="space-y-6">
-                {jobListings.map((job) => (
-                  <Card key={job.id} className="border-0 shadow-lg hover:shadow-2xl transition-all duration-300 bg-white/80 backdrop-blur-xl group">
-                    <CardContent className="p-8">
+                {jobListings.map((job, index) => (
+                  <Card 
+                    key={job.id} 
+                    className={`border-0 shadow-lg hover:shadow-2xl transition-all duration-500 bg-white/90 backdrop-blur-xl group hover:scale-105 hover:-translate-y-2 relative overflow-hidden ${isVisible['positions'] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+                    style={{ transitionDelay: `${index * 150}ms` }}
+                  >
+                    <div className="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-blue-600 to-purple-600" />
+                    <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-blue-500/10 to-purple-600/10 rounded-full blur-2xl group-hover:opacity-20 transition-opacity duration-500" />
+                    <CardContent className="p-8 relative z-10">
                       <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
                         <div className="flex-1">
                           <h3 className="text-2xl font-extrabold text-slate-900 mb-3 group-hover:text-blue-600 transition-colors">{job.title}</h3>
@@ -200,10 +249,13 @@ const CareersPage: React.FC = () => {
                               scrollToTop();
                             }, 100);
                           }}
-                          className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-6 py-3 rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all duration-200"
+                          className="group/btn inline-flex items-center gap-2 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-6 py-3 rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 relative overflow-hidden"
                         >
-                          Apply Now
-                          <ArrowRight size={18} />
+                          <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent translate-x-[-100%] group-hover/btn:translate-x-[100%] transition-transform duration-1000"></span>
+                          <span className="relative z-10 flex items-center gap-2">
+                            Apply Now
+                            <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform duration-300" />
+                          </span>
                         </Link>
                       </div>
                     </CardContent>
@@ -215,27 +267,32 @@ const CareersPage: React.FC = () => {
         </section>
 
         {/* Apply Form Section */}
-        <section className="py-20 md:py-28 bg-gradient-to-b from-white via-slate-50 to-white relative overflow-hidden">
+        <section 
+          id="apply"
+          ref={setRef('apply')}
+          className="py-20 md:py-28 bg-gradient-to-b from-white via-slate-50 to-white relative overflow-hidden"
+        >
           <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808008_1px,transparent_1px),linear-gradient(to_bottom,#80808008_1px,transparent_1px)] bg-[size:24px_24px]" />
           <div className="container relative z-10">
             <div className="max-w-3xl mx-auto">
               <div className="text-center mb-12">
-                <h2 className="text-4xl md:text-5xl font-extrabold text-slate-900 mb-4 bg-gradient-to-r from-slate-900 via-blue-900 to-slate-900 bg-clip-text text-transparent">
+                <h2 className={`text-4xl md:text-5xl lg:text-6xl font-extrabold text-slate-900 mb-4 bg-gradient-to-r from-slate-900 via-blue-900 to-slate-900 bg-clip-text text-transparent transition-all duration-1000 ${isVisible['apply'] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
                   Don't see a role that fits?
                 </h2>
-                <p className="text-lg text-slate-600 max-w-2xl mx-auto">
+                <p className={`text-lg md:text-xl text-slate-600 max-w-2xl mx-auto transition-all duration-1000 delay-200 ${isVisible['apply'] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
                   We're always looking for talented individuals. Send us your resume and we'll keep you in mind for future opportunities.
                 </p>
               </div>
-              <div className="bg-white/80 backdrop-blur-xl rounded-2xl border-0 shadow-xl p-8 md:p-12">
-                <form className="space-y-6">
+              <Card className={`bg-white/90 backdrop-blur-xl rounded-2xl border-0 shadow-xl p-8 md:p-12 group hover:scale-105 hover:-translate-y-2 transition-all duration-500 relative overflow-hidden ${isVisible['apply'] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+                <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-blue-500/10 to-purple-600/10 rounded-full blur-2xl group-hover:opacity-20 transition-opacity duration-500" />
+                <form className="space-y-6 relative z-10">
                   <div>
                     <label className="block text-base font-semibold text-slate-900 mb-3">
                       Full Name
                     </label>
                     <input
                       type="text"
-                      className="w-full px-4 py-3 border-2 border-slate-300 rounded-xl bg-white/90 backdrop-blur-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all duration-200 shadow-sm hover:shadow-md"
+                      className="w-full px-4 py-3 border-2 border-slate-300 rounded-xl bg-white/90 backdrop-blur-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all duration-300 shadow-sm hover:shadow-md hover:border-blue-300"
                     />
                   </div>
                   <div>
@@ -244,7 +301,7 @@ const CareersPage: React.FC = () => {
                     </label>
                     <input
                       type="email"
-                      className="w-full px-4 py-3 border-2 border-slate-300 rounded-xl bg-white/90 backdrop-blur-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all duration-200 shadow-sm hover:shadow-md"
+                      className="w-full px-4 py-3 border-2 border-slate-300 rounded-xl bg-white/90 backdrop-blur-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all duration-300 shadow-sm hover:shadow-md hover:border-blue-300"
                     />
                   </div>
                   <div>
@@ -253,17 +310,18 @@ const CareersPage: React.FC = () => {
                     </label>
                     <input
                       type="file"
-                      className="w-full px-4 py-3 border-2 border-slate-300 rounded-xl bg-white/90 backdrop-blur-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all duration-200 shadow-sm hover:shadow-md file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-gradient-to-r file:from-blue-600 file:to-purple-600 file:text-white hover:file:from-blue-700 hover:file:to-purple-700 file:cursor-pointer file:transition-all"
+                      className="w-full px-4 py-3 border-2 border-slate-300 rounded-xl bg-white/90 backdrop-blur-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all duration-300 shadow-sm hover:shadow-md hover:border-blue-300 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-gradient-to-r file:from-blue-600 file:to-purple-600 file:text-white hover:file:from-blue-700 hover:file:to-purple-700 file:cursor-pointer file:transition-all"
                     />
                   </div>
                   <button
                     type="submit"
-                    className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-6 py-4 rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all duration-200"
+                    className="group/btn w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-6 py-4 rounded-xl font-semibold shadow-lg hover:shadow-xl hover:shadow-blue-500/50 transition-all duration-300 hover:scale-105 relative overflow-hidden"
                   >
-                    Submit Application
+                    <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent translate-x-[-100%] group-hover/btn:translate-x-[100%] transition-transform duration-1000"></span>
+                    <span className="relative z-10">Submit Application</span>
                   </button>
                 </form>
-              </div>
+              </Card>
             </div>
           </div>
         </section>

@@ -146,7 +146,7 @@ const HeroSection: React.FC = () => {
           {/* Mobile: Badge moved to top, but with better spacing */}
           <div className="order-1 inline-flex items-center gap-2 bg-white/20 backdrop-blur-md px-3 py-1.5 md:px-4 md:py-2 rounded-full mb-4 md:mb-8 border border-white/30 animate-in fade-in duration-1000 hover:bg-white/30 hover:scale-105 transition-all duration-300 cursor-default self-center">
             <Sparkles className="w-3 h-3 md:w-4 md:h-4 text-secondary animate-spin" style={{ animationDuration: '3s' }} />
-            <span className="text-xs md:text-sm font-semibold text-white drop-shadow-lg">AION Stacks™</span>
+            <span className="text-xs md:text-sm font-semibold text-white drop-shadow-lg">AptusCore™</span>
           </div>
           
           {/* Mobile: Main heading with optimized spacing */}
@@ -155,13 +155,13 @@ const HeroSection: React.FC = () => {
               Absolute Health Group
             </span>
             <span className="block hero-gradient-text hover:scale-90 inline-block transition-transform duration-300 cursor-default">
-              Care   &    Intelligence    Advocacy
+              Navigation   &    Intelligence    Care
             </span>
           </h1>
           
           {/* Mobile: Description with better spacing */}
           <p className="order-3 text-sm sm:text-lg md:text-xl lg:text-2xl text-white hero-text-shadow mb-6 md:mb-12 leading-relaxed max-w-4xl mx-auto px-2 md:px-4 animate-in fade-in slide-in-from-bottom-10 duration-1000 delay-300 hover:text-white transition-colors duration-300">
-            A unified ecosystem delivering hybrid care, AI-powered clinical intelligence, and a national roadmap for accessible healthcare.
+            Navigation-led care, intelligent automation, and precision health plans keeping people healthier at home and out of the hospital.
           </p>
           
           {/* Mobile: CTA buttons with better mobile layout */}
@@ -172,7 +172,7 @@ const HeroSection: React.FC = () => {
             >
               <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000"></span>
               <span className="relative z-10 flex items-center gap-2">
-                Explore Care Delivery
+                Explore TransformativeCare™
                 <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-2 transition-transform duration-300" />
               </span>
             </Link>
@@ -182,7 +182,7 @@ const HeroSection: React.FC = () => {
             >
               <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000"></span>
               <span className="relative z-10 flex items-center gap-2">
-                Discover AION Stacks
+                Discover AptusCore™
                 <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-2 transition-transform duration-300" />
               </span>
             </Link>

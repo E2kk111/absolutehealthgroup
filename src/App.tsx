@@ -11,24 +11,16 @@ import AboutPage from "./pages/AboutPage";
 import ResourcesPage from "./pages/ResourcesPage";
 import BlogPage from "./pages/BlogPage";
 import CaseStudiesPage from "./pages/CaseStudiesPage";
-import MedicareReimbursementPage from "./pages/solutions/MedicareReimbursementPage";
-import CareCoordinationPage from "./pages/solutions/CareCoordinationPage";
-import HealthcareAnalyticsPage from "./pages/solutions/HealthcareAnalyticsPage";
-import RiskAdjustmentPage from "./pages/solutions/RiskAdjustmentPage";
-import RemotePatientMonitoringPage from "./pages/solutions/RemotePatientMonitoringPage";
-import ChronicCareManagementPage from "./pages/solutions/ChronicCareManagementPage";
 import WhitePapersPage from "./pages/WhitePapersPage";
 import WebinarsPage from "./pages/WebinarsPage";
 import MedicareGuidesPage from "./pages/MedicareGuidesPage";
 import TechnologyPage from "./pages/TechnologyPage";
+import OurSolutionsPage from "./pages/technology/OurSolutionsPage";
 import ClinicPage from "./pages/ClinicPage";
 import HybridClinicsPage from "./pages/clinic/HybridClinicsPage";
 import MobileClinicsPage from "./pages/clinic/MobileClinicsPage";
 import CareAtHomePage from "./pages/clinic/CareAtHomePage";
 import CareNavigationPage from "./pages/clinic/CareNavigationPage";
-import AIONClinicalIntelligencePage from "./pages/technology/AIONClinicalIntelligencePage";
-import AIONNavigatorPage from "./pages/technology/AIONNavigatorPage";
-import AIONFinancePage from "./pages/technology/AIONFinancePage";
 import PodcastPage from "./pages/PodcastPage";
 import LeadershipPage from "./pages/company/LeadershipPage";
 import CareersPage from "./pages/company/CareersPage";
@@ -66,9 +58,7 @@ const App = () => (
               
               {/* Technology Routes */}
               <Route path="/technology" element={<TechnologyPage />} />
-              <Route path="/technology/aion-clinical-intelligence" element={<AIONClinicalIntelligencePage />} />
-              <Route path="/technology/aion-navigator" element={<AIONNavigatorPage />} />
-              <Route path="/technology/aion-finance" element={<AIONFinancePage />} />
+              <Route path="/technology/our-solutions" element={<OurSolutionsPage />} />
               
               {/* Podcast Route */}
               <Route path="/podcast" element={<PodcastPage />} />

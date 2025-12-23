@@ -277,7 +277,7 @@ const PodcastPage: React.FC = () => {
       <Header />
       <main className={`flex-grow ${currentEpisode !== null ? 'pb-24 md:pb-0' : ''}`}>
         {/* Hero Section */}
-        <section className="relative py-24 md:py-32 lg:py-40 bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 text-white overflow-hidden">
+        <section className="relative min-h-[90vh] flex items-center justify-center bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 text-white overflow-hidden group">
           {/* Background Video */}
           <div className="absolute inset-0">
             <video
@@ -297,10 +297,10 @@ const PodcastPage: React.FC = () => {
                 <Headphones className="text-white" size={36} />
               </div>
               <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold mb-6 bg-gradient-to-r from-white via-blue-100 to-white bg-clip-text text-transparent leading-tight">
-                Healthcare Innovation Podcast
+                The Absolute Health Podcast
               </h1>
               <p className="text-xl md:text-2xl mb-8 text-blue-100 font-light max-w-2xl mx-auto">
-                Conversations about the future of healthcare. Exploring innovation, technology, and real-world impact.
+                Where clinical innovators, frontline leaders, and policy architects talk about building the future of care.
               </p>
             </div>
           </div>
@@ -482,19 +482,48 @@ const PodcastPage: React.FC = () => {
           </div>
         </section>
 
-        {/* About Section */}
+        {/* What Listeners Can Expect */}
         <section className="py-16 md:py-20 bg-gradient-to-b from-slate-50 to-white">
           <div className="container">
-            <div className="max-w-3xl mx-auto text-center">
-              <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900 mb-6">
-                About Our Podcast
+            <div className="max-w-4xl mx-auto">
+              <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900 mb-8 text-center">
+                What Listeners Can Expect
               </h2>
-              <p className="text-lg text-slate-700 leading-relaxed mb-6">
-                Join us for insightful conversations about healthcare innovation, technology, and transformation. We bring together thought leaders, practitioners, and innovators to explore how technology, policy, and care delivery are reshaping healthcare.
-              </p>
-              <p className="text-lg text-slate-700 leading-relaxed">
-                Each episode dives deep into real-world applications, challenges, and opportunities in healthcare transformation. Tune in to learn from experts and discover the latest trends shaping the future of healthcare.
-              </p>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+                <Card className="border-0 shadow-lg">
+                  <CardContent className="p-6">
+                    <h3 className="text-xl font-bold text-slate-900 mb-3">Expert Conversations</h3>
+                    <p className="text-slate-600">Medical directors, NPs/PAs, digital health founders, health-system executives, and policy thinkers.</p>
+                  </CardContent>
+                </Card>
+                <Card className="border-0 shadow-lg">
+                  <CardContent className="p-6">
+                    <h3 className="text-xl font-bold text-slate-900 mb-3">Case Studies & Real Outcomes</h3>
+                    <p className="text-slate-600">What actually works in navigation, chronic-care programs, and home-based care models.</p>
+                  </CardContent>
+                </Card>
+                <Card className="border-0 shadow-lg">
+                  <CardContent className="p-6">
+                    <h3 className="text-xl font-bold text-slate-900 mb-3">Technology Deep Dives</h3>
+                    <p className="text-slate-600">AI-driven workflows, interoperability, automation, and data-driven transformation.</p>
+                  </CardContent>
+                </Card>
+                <Card className="border-0 shadow-lg">
+                  <CardContent className="p-6">
+                    <h3 className="text-xl font-bold text-slate-900 mb-3">Future of Healthcare</h3>
+                    <p className="text-slate-600">Payment models, care redesign, workforce evolution, and the shifting post-acute landscape.</p>
+                  </CardContent>
+                </Card>
+              </div>
+              <div className="bg-gradient-to-br from-blue-50 to-purple-50 rounded-2xl p-8 border border-blue-100">
+                <h3 className="text-2xl font-bold text-slate-900 mb-4">Why We Created This</h3>
+                <p className="text-lg text-slate-700 leading-relaxed mb-4">
+                  Healthcare is undergoing its biggest redesign in decades.
+                </p>
+                <p className="text-lg text-slate-700 leading-relaxed">
+                  This podcast is where leaders come to unpack it—honestly, clearly, and with a focus on what actually moves outcomes.
+                </p>
+              </div>
             </div>
           </div>
         </section>

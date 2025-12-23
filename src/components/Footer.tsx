@@ -19,9 +19,8 @@ const Footer: React.FC = () => {
       { name: "Care Navigation", href: "/clinic/care-navigation" }
     ],
     technology: [
-      { name: "AION Clinical Intelligence", href: "/technology/aion-clinical-intelligence" },
-      { name: "AION Navigator", href: "/technology/aion-navigator" },
-      { name: "AION Finance (RegFi)", href: "/technology/aion-finance" }
+      { name: "AptusCore™ Health OS", href: "/technology" },
+      { name: "Solutions", href: "/technology/our-solutions" }
     ],
     company: [
       { name: "About", href: "/about" },
@@ -96,9 +95,8 @@ const Footer: React.FC = () => {
                 </a>
               </li>
               <li className="text-white/80">
-                1345 wiley rd<br />
-                Suite 111<br />
-                Schaumburg, IL 60169
+                11680 Great Oaks Way Alpharetta,<br />
+                GA 30022<br />
               </li>
             </ul>
             <div className="mt-6">
@@ -161,7 +159,7 @@ const Footer: React.FC = () => {
               <Link to="/privacy" onClick={scrollToTop} className="hover:text-blue-400 transition-colors ml-1">Privacy Policy</Link> | 
               <Link to="/terms" onClick={scrollToTop} className="hover:text-blue-400 transition-colors ml-1">Terms of Service</Link>
               <br className="md:hidden" />
-              <span className="md:ml-2 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent font-semibold">Powered by AION Stacks™</span>
+              <span className="md:ml-2 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent font-semibold">Powered by AptusCore™</span>
             </p>
           </div>
         </div>
