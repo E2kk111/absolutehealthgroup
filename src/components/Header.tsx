@@ -16,7 +16,10 @@ import {
   Briefcase,
   Mail,
   Cpu,
-  Sparkles
+  Sparkles,
+  Heart,
+  Eye,
+  Link2
 } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
 import {
@@ -25,6 +28,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
+import { Label } from 'recharts';
 
 const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -124,15 +128,16 @@ const Header: React.FC = () => {
   const isAtTopOfHero = isHomePage && scrollY < 100;
 
   const clinic = [
-    { path: '/clinic/hybrid-clinics', label: 'Hybrid Clinics', icon: Building2 },
-    { path: '/clinic/mobile-clinics', label: 'Mobile Clinics', icon: Truck },
-    { path: '/clinic/care-at-home', label: 'Care-At-Home', icon: Home },
-    { path: '/clinic/care-navigation', label: 'Care Navigation', icon: Navigation },
+    { path: '/clinic/whole-person-navigation', label: 'Whole Person Navigation', icon: Navigation, gradient: 'from-blue-500 to-blue-600' },
+    { path: '/clinic/chronic-condition-optimization', label: 'Chronic Condition Optimization', icon: Heart, gradient: 'from-purple-500 to-purple-600' },
+    { path: '/clinic/care-at-home', label: 'Care at Home Pathways', icon: Home, gradient: 'from-green-500 to-green-600' },
   ];
 
   const technology = [
-    { path: '/technology', label: 'AptusCore™ Health OS', icon: Cpu },
-    { path: '/technology/our-solutions', label: 'Solutions', icon: Sparkles },
+    { path: '/technology/ai-generative', label: 'AI & Generative AI', icon: Brain, gradient: 'from-blue-500 to-cyan-500' },
+    { path: '/technology/ar-vr', label: 'AR/VR', icon: Eye, gradient: 'from-green-500 to-emerald-500' },
+    { path: '/technology/blockchain', label: 'Blockchain', icon: Link2, gradient: 'from-orange-500 to-red-500' },
+    { path: '/technology/iomt', label: 'IoMT', icon: Headphones, gradient: 'from-teal-500 to-cyan-500' },
   ];
 
   return (
@@ -196,18 +201,21 @@ const Header: React.FC = () => {
                   </DropdownMenuTrigger>
                   <DropdownMenuContent 
                     align="start" 
-                    className="w-64 bg-white/95 backdrop-blur-xl border border-blue-100/50 shadow-2xl transition-all duration-500 ease-out data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[state=open]:duration-500 data-[state=closed]:duration-300 rounded-xl overflow-hidden"
+                    className="w-80 bg-white/95 backdrop-blur-xl border border-blue-100/50 shadow-2xl transition-all duration-500 ease-out data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[state=open]:duration-500 data-[state=closed]:duration-300 rounded-xl overflow-hidden p-2"
                     onMouseEnter={handleClinicMouseEnter}
                     onMouseLeave={handleClinicMouseLeave}
                   >
                     {clinic.map((item, index) => {
                       const IconComponent = item.icon;
+                      const handleClick = () => {
+                        scrollToTop();
+                      };
                       return (
                         <DropdownMenuItem key={item.path} asChild>
                           <Link 
                             to={item.path}
-                            onClick={scrollToTop}
-                            className="cursor-pointer hover:bg-gradient-to-r hover:from-blue-50 hover:to-purple-50 transition-all duration-300 ease-in-out flex items-center gap-3 h-12 px-4 whitespace-nowrap group/item relative overflow-hidden"
+                            onClick={handleClick}
+                            className="cursor-pointer hover:bg-gradient-to-r hover:from-blue-50 hover:to-purple-50 transition-all duration-300 ease-in-out flex items-center gap-4 h-20 px-4 whitespace-nowrap group/item relative overflow-hidden rounded-lg"
                             style={{
                               animationDelay: `${index * 50}ms`,
                               animationDuration: '300ms',
@@ -215,8 +223,10 @@ const Header: React.FC = () => {
                             }}
                           >
                             <div className="absolute inset-0 bg-gradient-to-r from-blue-600/5 via-purple-600/5 to-blue-600/5 opacity-0 group-hover/item:opacity-100 transition-opacity duration-300" />
-                            <IconComponent className="w-5 h-5 text-blue-600 flex-shrink-0 transition-all duration-300 group-hover/item:scale-110 group-hover/item:rotate-3 relative z-10" />
-                            <span className="truncate text-slate-700 group-hover/item:text-blue-600 font-medium transition-colors duration-300 relative z-10">{item.label}</span>
+                            <div className={`flex-shrink-0 w-12 h-12 bg-gradient-to-br ${item.gradient} rounded-xl flex items-center justify-center shadow-lg group-hover/item:scale-110 group-hover/item:rotate-3 transition-all duration-300 relative z-10`}>
+                              <IconComponent className="w-7 h-7 text-white" />
+                            </div>
+                            <span className="truncate text-slate-700 group-hover/item:text-blue-600 font-semibold text-base transition-colors duration-300 relative z-10">{item.label}</span>
                           </Link>
                         </DropdownMenuItem>
                       );
@@ -230,14 +240,20 @@ const Header: React.FC = () => {
                 onMouseLeave={handleTechnologyMouseLeave}
               >
                 <DropdownMenu open={isTechnologyHovered} onOpenChange={setIsTechnologyHovered} modal={false}>
-                  <DropdownMenuTrigger className="text-slate-800 hover:text-blue-600 md:text-xs sm:text-sm lg:text-lg font-semibold transition-all duration-300 flex items-center gap-1 outline-none hover:scale-105 relative group">
-                    <span className="relative z-10">Technology</span>
-                    <ChevronDown className={`h-4 w-4 transition-all duration-300 ${isTechnologyHovered ? 'rotate-180 text-blue-600' : 'text-slate-600 group-hover:text-blue-600'}`} />
-                    <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-600 to-purple-600 transition-all duration-300 group-hover:w-full" />
+                  <DropdownMenuTrigger asChild>
+                    <Link
+                      to="/technology"
+                      onClick={scrollToTop}
+                      className="text-slate-800 hover:text-blue-600 md:text-xs sm:text-sm lg:text-lg font-semibold transition-all duration-300 flex items-center gap-1 outline-none hover:scale-105 relative group"
+                    >
+                      <span className="relative z-10">Technology</span>
+                      <ChevronDown className={`h-4 w-4 transition-all duration-300 ${isTechnologyHovered ? 'rotate-180 text-blue-600' : 'text-slate-600 group-hover:text-blue-600'}`} />
+                      <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-600 to-purple-600 transition-all duration-300 group-hover:w-full" />
+                    </Link>
                   </DropdownMenuTrigger>
                   <DropdownMenuContent 
                     align="start" 
-                    className="w-64 bg-white/95 backdrop-blur-xl border border-blue-100/50 shadow-2xl transition-all duration-500 ease-out data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[state=open]:duration-500 data-[state=closed]:duration-300 rounded-xl overflow-hidden"
+                    className="w-80 bg-white/95 backdrop-blur-xl border border-blue-100/50 shadow-2xl transition-all duration-500 ease-out data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[state=open]:duration-500 data-[state=closed]:duration-300 rounded-xl overflow-hidden p-2"
                     onMouseEnter={handleTechnologyMouseEnter}
                     onMouseLeave={handleTechnologyMouseLeave}
                   >
@@ -248,7 +264,7 @@ const Header: React.FC = () => {
                           <Link 
                             to={item.path}
                             onClick={scrollToTop}
-                            className="cursor-pointer hover:bg-gradient-to-r hover:from-blue-50 hover:to-purple-50 transition-all duration-300 ease-in-out flex items-center gap-3 h-12 px-4 whitespace-nowrap group/item relative overflow-hidden"
+                            className="cursor-pointer hover:bg-gradient-to-r hover:from-blue-50 hover:to-purple-50 transition-all duration-300 ease-in-out flex items-center gap-4 h-20 px-4 whitespace-nowrap group/item relative overflow-hidden rounded-lg"
                             style={{
                               animationDelay: `${index * 50}ms`,
                               animationDuration: '300ms',
@@ -256,8 +272,10 @@ const Header: React.FC = () => {
                             }}
                           >
                             <div className="absolute inset-0 bg-gradient-to-r from-blue-600/5 via-purple-600/5 to-blue-600/5 opacity-0 group-hover/item:opacity-100 transition-opacity duration-300" />
-                            <IconComponent className="w-5 h-5 text-blue-600 flex-shrink-0 transition-all duration-300 group-hover/item:scale-110 group-hover/item:rotate-3 relative z-10" />
-                            <span className="truncate text-slate-700 group-hover/item:text-blue-600 font-medium transition-colors duration-300 relative z-10">{item.label}</span>
+                            <div className={`flex-shrink-0 w-12 h-12 bg-gradient-to-br ${item.gradient} rounded-xl flex items-center justify-center shadow-lg group-hover/item:scale-110 group-hover/item:rotate-3 transition-all duration-300 relative z-10`}>
+                              <IconComponent className="w-7 h-7 text-white" />
+                            </div>
+                            <span className="truncate text-slate-700 group-hover/item:text-blue-600 font-semibold text-base transition-colors duration-300 relative z-10">{item.label}</span>
                           </Link>
                         </DropdownMenuItem>
                       );
@@ -265,6 +283,14 @@ const Header: React.FC = () => {
                   </DropdownMenuContent>
                 </DropdownMenu>
               </div>
+              <Link 
+                to="/our-solutions"
+                onClick={scrollToTop}
+                className="text-slate-800 hover:text-blue-600 md:text-xs sm:text-sm lg:text-lg font-semibold transition-all duration-300 hover:scale-105 relative group"
+              >
+                <span className="relative z-10">Products</span>
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-600 to-purple-600 transition-all duration-300 group-hover:w-full" />
+              </Link>
               <Link 
                 to="/podcast"
                 onClick={scrollToTop}
@@ -281,14 +307,14 @@ const Header: React.FC = () => {
                 <span className="relative z-10">About</span>
                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-600 to-purple-600 transition-all duration-300 group-hover:w-full" />
               </Link>
-              <Link 
+              {/* <Link 
                 to="/careers"
                 onClick={scrollToTop}
                 className="text-slate-800 hover:text-blue-600 md:text-xs sm:text-sm lg:text-lg font-semibold transition-all duration-300 hover:scale-105 relative group"
               >
                 <span className="relative z-10">Careers</span>
                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-600 to-purple-600 transition-all duration-300 group-hover:w-full" />
-              </Link>
+              </Link> */}
             </div>
             <Link 
               to="/contact" 
@@ -331,26 +357,29 @@ const Header: React.FC = () => {
                     </button>
                   </div>
                   {isClinicOpen && (
-                    <div className="pl-4 mt-2 flex flex-col gap-2 overflow-hidden animate-in slide-in-from-top-2 fade-in-0 duration-400 ease-out">
+                    <div className="pl-4 mt-2 flex flex-col gap-3 overflow-hidden animate-in slide-in-from-top-2 fade-in-0 duration-400 ease-out">
                       {clinic.map((item, index) => {
                         const IconComponent = item.icon;
+                        const handleClick = () => {
+                          setIsMenuOpen(false);
+                          scrollToTop();
+                        };
                         return (
                           <Link
                             key={item.path}
                             to={item.path}
-                            className="text-blue-600 hover:text-blue-700 hover:bg-gradient-to-r hover:from-blue-50 hover:to-purple-50 transition-all duration-300 ease-in-out py-2.5 px-4 rounded-xl flex items-center gap-3 h-12 whitespace-nowrap animate-in fade-in-0 slide-in-from-left-2 active:scale-95 group/item border border-transparent hover:border-blue-100/50"
+                            className="text-blue-600 hover:text-blue-700 hover:bg-gradient-to-r hover:from-blue-50 hover:to-purple-50 transition-all duration-300 ease-in-out py-4 px-4 rounded-xl flex items-center gap-4 h-20 whitespace-nowrap animate-in fade-in-0 slide-in-from-left-2 active:scale-95 group/item border border-transparent hover:border-blue-100/50"
                             style={{
                               animationDelay: `${index * 50}ms`,
                               animationDuration: '300ms',
                               animationFillMode: 'both'
                             }}
-                            onClick={() => {
-                              setIsMenuOpen(false);
-                              scrollToTop();
-                            }}
+                            onClick={handleClick}
                           >
-                            <IconComponent className="w-5 h-5 text-blue-600 flex-shrink-0 transition-all duration-300 group-hover/item:scale-110 group-hover/item:rotate-3" />
-                            <span className="truncate font-medium">{item.label}</span>
+                            <div className={`flex-shrink-0 w-12 h-12 bg-gradient-to-br ${item.gradient} rounded-xl flex items-center justify-center shadow-lg group-hover/item:scale-110 group-hover/item:rotate-3 transition-all duration-300`}>
+                              <IconComponent className="w-7 h-7 text-white" />
+                            </div>
+                            <span className="truncate font-semibold text-base">{item.label}</span>
                           </Link>
                         );
                       })}
@@ -359,12 +388,16 @@ const Header: React.FC = () => {
                 </div>
                 <div className="animate-in fade-in-0 slide-in-from-left-2" style={{ animationDelay: '100ms', animationDuration: '400ms', animationFillMode: 'both' }}>
                   <div className="flex items-center justify-between w-full bg-gradient-to-r from-blue-50/50 to-purple-50/50 rounded-xl p-2 border border-blue-100/50">
-                    <button
-                      onClick={() => setIsTechnologyOpen(!isTechnologyOpen)}
-                      className="text-blue-600 hover:text-blue-700 font-semibold transition-all duration-300 ease-in-out py-2 flex-1 flex items-center justify-start rounded-lg px-3 active:scale-95"
+                    <Link
+                      to="/technology"
+                      onClick={() => {
+                        scrollToTop();
+                        setIsMenuOpen(false);
+                      }}
+                      className="text-blue-600 hover:text-blue-700 font-semibold transition-all duration-300 ease-in-out py-2 flex-1 rounded-lg px-3 active:scale-95"
                     >
                       Technology
-                    </button>
+                    </Link>
                     <button
                       onClick={() => setIsTechnologyOpen(!isTechnologyOpen)}
                       className="text-blue-600 hover:text-blue-700 hover:bg-white/50 transition-all duration-300 ease-in-out py-2 px-3 rounded-lg active:scale-95"
@@ -374,14 +407,14 @@ const Header: React.FC = () => {
                     </button>
                   </div>
                   {isTechnologyOpen && (
-                    <div className="pl-4 mt-2 flex flex-col gap-2 overflow-hidden animate-in slide-in-from-top-2 fade-in-0 duration-400 ease-out">
+                    <div className="pl-4 mt-2 flex flex-col gap-3 overflow-hidden animate-in slide-in-from-top-2 fade-in-0 duration-400 ease-out">
                       {technology.map((item, index) => {
                         const IconComponent = item.icon;
                         return (
                           <Link
                             key={item.path}
                             to={item.path}
-                            className="text-blue-600 hover:text-blue-700 hover:bg-gradient-to-r hover:from-blue-50 hover:to-purple-50 transition-all duration-300 ease-in-out py-2.5 px-4 rounded-xl flex items-center gap-3 h-12 whitespace-nowrap animate-in fade-in-0 slide-in-from-left-2 active:scale-95 group/item border border-transparent hover:border-blue-100/50"
+                            className="text-blue-600 hover:text-blue-700 hover:bg-gradient-to-r hover:from-blue-50 hover:to-purple-50 transition-all duration-300 ease-in-out py-4 px-4 rounded-xl flex items-center gap-4 h-20 whitespace-nowrap animate-in fade-in-0 slide-in-from-left-2 active:scale-95 group/item border border-transparent hover:border-blue-100/50"
                             style={{
                               animationDelay: `${index * 50}ms`,
                               animationDuration: '300ms',
@@ -392,8 +425,10 @@ const Header: React.FC = () => {
                               scrollToTop();
                             }}
                           >
-                            <IconComponent className="w-5 h-5 text-blue-600 flex-shrink-0 transition-all duration-300 group-hover/item:scale-110 group-hover/item:rotate-3" />
-                            <span className="truncate font-medium">{item.label}</span>
+                            <div className={`flex-shrink-0 w-12 h-12 bg-gradient-to-br ${item.gradient} rounded-xl flex items-center justify-center shadow-lg group-hover/item:scale-110 group-hover/item:rotate-3 transition-all duration-300`}>
+                              <IconComponent className="w-7 h-7 text-white" />
+                            </div>
+                            <span className="truncate font-semibold text-base">{item.label}</span>
                           </Link>
                         );
                       })}

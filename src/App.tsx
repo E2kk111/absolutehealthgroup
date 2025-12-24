@@ -8,24 +8,21 @@ import Header from "./components/Header";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import AboutPage from "./pages/AboutPage";
-import ResourcesPage from "./pages/ResourcesPage";
-import BlogPage from "./pages/BlogPage";
-import CaseStudiesPage from "./pages/CaseStudiesPage";
-import WhitePapersPage from "./pages/WhitePapersPage";
-import WebinarsPage from "./pages/WebinarsPage";
-import MedicareGuidesPage from "./pages/MedicareGuidesPage";
 import TechnologyPage from "./pages/TechnologyPage";
-import OurSolutionsPage from "./pages/technology/OurSolutionsPage";
+import OurSolutionsPage from "./pages/OurSolutionsPage";
+import ARVRPage from "./pages/technology/ARVRPage";
+import BlockchainPage from "./pages/technology/BlockchainPage";
 import ClinicPage from "./pages/ClinicPage";
-import HybridClinicsPage from "./pages/clinic/HybridClinicsPage";
-import MobileClinicsPage from "./pages/clinic/MobileClinicsPage";
 import CareAtHomePage from "./pages/clinic/CareAtHomePage";
-import CareNavigationPage from "./pages/clinic/CareNavigationPage";
 import PodcastPage from "./pages/PodcastPage";
 import LeadershipPage from "./pages/company/LeadershipPage";
 import CareersPage from "./pages/company/CareersPage";
 import PressPage from "./pages/company/PressPage";
 import ContactUsPage from "./pages/ContactUsPage";
+import WholePersonNavigationPage from "./pages/clinic/WholePersonNavigationPage";
+import ChronicConditionOptimizationPage from "./pages/clinic/ChronicConditionOptimizationPage";
+import AIGenerativeAIPage from "./pages/technology/AIGenerativeAIPage";
+import IOMTPage from "./pages/technology/IOMTPage";
 
 const queryClient = new QueryClient();
 
@@ -43,23 +40,20 @@ const App = () => (
               
               {/* Clinic Routes */}
               <Route path="/clinic" element={<ClinicPage />} />
-              <Route path="/clinic/hybrid-clinics" element={<HybridClinicsPage />} />
-              <Route path="/clinic/mobile-clinics" element={<MobileClinicsPage />} />
               <Route path="/clinic/care-at-home" element={<CareAtHomePage />} />
-              <Route path="/clinic/care-navigation" element={<CareNavigationPage />} />
+              <Route path="/clinic/whole-person-navigation" element={<WholePersonNavigationPage />} />
+              <Route path="/clinic/chronic-condition-optimization" element={<ChronicConditionOptimizationPage />} />
               
-              {/* Resources Routes */}
-              <Route path="/resources" element={<ResourcesPage />} />
-              <Route path="/resources/blog" element={<BlogPage />} />
-              <Route path="/resources/case-studies" element={<CaseStudiesPage />} />
-              <Route path="/resources/white-papers" element={<WhitePapersPage />} />
-              <Route path="/resources/webinars" element={<WebinarsPage />} />
-              <Route path="/resources/medicare-guides" element={<MedicareGuidesPage />} />
               
               {/* Technology Routes */}
               <Route path="/technology" element={<TechnologyPage />} />
-              <Route path="/technology/our-solutions" element={<OurSolutionsPage />} />
               
+              <Route path="/technology/ar-vr" element={<ARVRPage />} />
+              <Route path="/technology/blockchain" element={<BlockchainPage />} />
+              <Route path="/technology/ai-generative" element={<AIGenerativeAIPage />} />
+              <Route path="/technology/iomt" element={<IOMTPage />} />
+              {/* Solutions */}
+              <Route path="/our-solutions" element={<OurSolutionsPage />} />
               {/* Podcast Route */}
               <Route path="/podcast" element={<PodcastPage />} />
               

@@ -104,7 +104,7 @@ const PodcastEpisodesSection: React.FC = () => {
                     onClick={scrollToTop}
                     className="text-blue-600 hover:text-purple-600 font-semibold text-sm transition-all duration-300 flex items-center gap-1 hover:gap-2"
                   >
-                    Listen
+                    Go to Podcast
                     <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
                   </Link>
                 </div>

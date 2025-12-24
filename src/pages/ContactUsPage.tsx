@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import emailjs from '@emailjs/browser';
 import { toast } from 'sonner';
+import Header from '../components/Header';
 import Footer from '../components/Footer';
 import { Card, CardContent } from '../components/ui/card';
 import { Input } from '../components/ui/input';
@@ -9,26 +10,35 @@ import { Button } from '../components/ui/button';
 import { Label } from '../components/ui/label';
 import { Mail, Send, Sparkles, Phone, MapPin, User } from 'lucide-react';
 import { scrollToTop } from '../utils/smoothScroll';
-import { useScrollAnimation } from '../hooks/useScrollAnimation';
 
 const ContactUsPage: React.FC = () => {
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-  const { isVisible, sectionRefs } = useScrollAnimation();
+  const [isVisible, setIsVisible] = useState<{ [key: string]: boolean }>({});
+  const sectionRefs = useRef<{ [key: string]: HTMLDivElement | null }>({});
 
   useEffect(() => {
     scrollToTop();
   }, []);
 
   useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      setMousePosition({
-        x: (e.clientX / window.innerWidth) * 100,
-        y: (e.clientY / window.innerHeight) * 100,
-      });
-    };
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setIsVisible((prev) => ({
+              ...prev,
+              [entry.target.id]: true,
+            }));
+          }
+        });
+      },
+      { threshold: 0.1, rootMargin: '0px 0px -100px 0px' }
+    );
 
-    window.addEventListener('mousemove', handleMouseMove);
-    return () => window.removeEventListener('mousemove', handleMouseMove);
+    Object.values(sectionRefs.current).forEach((ref) => {
+      if (ref) observer.observe(ref);
+    });
+
+    return () => observer.disconnect();
   }, []);
 
   const setRef = (id: string) => (el: HTMLDivElement | null) => {
@@ -104,56 +114,68 @@ const ContactUsPage: React.FC = () => {
   };
 
   return (
-    <>
-      <section className="relative min-h-[90vh] flex items-center justify-center bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 text-white overflow-hidden group">
-        {/* Animated Gradient Overlays */}
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 via-purple-600/20 to-blue-600/20 animate-gradient-x" />
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]" />
-        
-        {/* Floating Animated Shapes */}
-        <div 
-          className="absolute top-20 right-10 w-48 h-48 md:w-72 md:h-72 bg-blue-500/20 rounded-full blur-3xl animate-pulse-glow opacity-50 md:opacity-100"
-          style={{ 
-            transform: `translate(${(mousePosition.x - 50) * 0.1}px, ${(mousePosition.y - 50) * 0.1}px)`,
-            transition: 'transform 0.3s ease-out'
-          }}
-        />
-        <div 
-          className="absolute bottom-20 left-10 w-64 h-64 md:w-96 md:h-96 bg-purple-500/20 rounded-full blur-3xl animate-pulse-glow opacity-50 md:opacity-100"
-          style={{ 
-            animationDelay: '2s',
-            transform: `translate(${(mousePosition.x - 50) * -0.15}px, ${(mousePosition.y - 50) * -0.15}px)`,
-            transition: 'transform 0.3s ease-out'
-          }}
-        />
-        
-        <div className="container relative z-10 py-24 md:py-32 lg:py-40">
-          <div className="max-w-5xl mx-auto text-center">
-            {/* Badge */}
-            <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-xl px-4 py-2 rounded-full mb-8 border border-white/20 animate-in fade-in slide-in-from-top-10 duration-1000">
-              <Sparkles className="w-4 h-4 text-yellow-300 animate-spin" style={{ animationDuration: '3s' }} />
-              <span className="text-sm font-semibold text-white">Get In Touch</span>
-            </div>
-            
-            {/* Main Heading */}
-            <h1 className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black mb-6 bg-gradient-to-r from-white via-blue-100 to-purple-100 bg-clip-text text-transparent leading-tight animate-in fade-in slide-in-from-bottom-10 duration-1000 delay-200">
-              Contact Us
-            </h1>
-            
-            {/* Subtitle */}
-            <p className="text-xl md:text-2xl lg:text-3xl mb-6 text-blue-100 font-light animate-in fade-in slide-in-from-bottom-10 duration-1000 delay-300">
-              Have a question or want to learn more? We'd love to hear from you.
-            </p>
-            
-            {/* Decorative Dots */}
-            <div className="flex items-center justify-center gap-2 mt-12 animate-in fade-in duration-1000 delay-400">
-              <div className="h-1.5 w-12 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full animate-pulse" />
-              <div className="h-1.5 w-8 bg-gradient-to-r from-purple-500 to-blue-500 rounded-full animate-pulse" style={{ animationDelay: '0.2s' }} />
-              <div className="h-1.5 w-12 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full animate-pulse" style={{ animationDelay: '0.4s' }} />
+    <div className="flex flex-col min-h-screen">
+      <Header />
+      <main className="flex-grow">
+        {/* Hero Section - 2-column layout, responsive height */}
+        <section 
+          id="hero"
+          ref={setRef('hero')}
+          className="relative min-h-[600px] md:h-[780px] flex items-center bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 text-white overflow-hidden"
+        >
+          {/* Animated Background Video */}
+          <div className="absolute inset-0">
+            <video
+              src="https://dm0qx8t0i9gc9.cloudfront.net/watermarks/video/SAdzhvVH9l2f2jhj6/videoblocks-email-box-animation_spc-ocqin__d3e49570750e92cf8ce77a5e6ea421c7__P360.mp4"
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="w-full h-full object-cover opacity-30"
+            />
+          </div>
+          
+          {/* Animated Gradient Overlays */}
+          <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 via-purple-600/20 to-blue-600/20 animate-gradient-x" />
+          <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]" />
+          
+          {/* Mobile: Stronger dark overlay for better text contrast */}
+          <div className="absolute inset-0 bg-black/40 md:bg-black/20" />
+          
+          <div className="container relative z-10 py-8 md:py-12 px-4 sm:px-6">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center">
+              {/* Left Column */}
+              <div className={`transition-all duration-1000 relative z-20 ${isVisible['hero'] ? 'opacity-100 translate-y-10' : 'opacity-0 translate-y-10'}`}>
+                {/* H1 */}
+                <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[58px] font-semibold mb-4 md:mb-6 leading-tight text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)] md:drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)]">
+                  Contact Us
+                </h1>
+                
+                {/* H3 */}
+                <h3 className="text-lg sm:text-xl md:text-2xl lg:text-[30px] font-medium mb-4 md:mb-6 text-blue-200 leading-relaxed drop-shadow-[0_2px_6px_rgba(0,0,0,0.8)] md:drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)]">
+                  Have a question or want to learn more? We'd love to hear from you.
+                </h3>
+              
+                {/* Body */}
+                <p className="text-sm sm:text-base md:text-[17px] mb-6 md:mb-8 text-gray-200 md:text-gray-300 leading-relaxed drop-shadow-[0_1px_4px_rgba(0,0,0,0.8)] md:drop-shadow-[0_1px_2px_rgba(0,0,0,0.5)]">
+                  Get in touch with our team to discuss how we can help transform your healthcare delivery.
+                </p>
+              </div>
+              
+              {/* Right Column - Image Placeholder */}
+              <div className={`transition-all duration-1000 delay-200 mt-8 lg:mt-0 ${isVisible['hero'] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+                <div className="relative rounded-xl md:rounded-2xl overflow-hidden bg-gradient-to-br from-blue-500/20 to-purple-500/20 backdrop-blur-sm border border-white/10 h-[300px] sm:h-[350px] md:h-[400px] lg:h-full lg:min-h-[400px] flex items-center justify-center">
+                  <img
+                    src="https://media.istockphoto.com/id/2207338172/photo/medical-professional-using-a-tablet-with-virtual-new-email-notification-business-e-mail.webp?a=1&b=1&s=612x612&w=0&k=20&c=CZ00OdWZoSyGmAp1GUE0IHxH5Wf6VAy6CO02PTFoaTM="
+                    alt="Contact Us"
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
       <section 
         id="contact-form"
@@ -162,7 +184,7 @@ const ContactUsPage: React.FC = () => {
       >
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808008_1px,transparent_1px),linear-gradient(to_bottom,#80808008_1px,transparent_1px)] bg-[size:24px_24px]" />
         <div className="container relative z-10">
-          <div className={`grid md:grid-cols-2 gap-8 lg:gap-12 items-start transition-all duration-1000 ${isVisible['contact-form'] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+          <div className={`grid md:grid-cols-2 gap-8 lg:gap-12 items-start transition-all duration-1000 ${isVisible['contact-form'] ? 'opacity-100 translate-y-10' : 'opacity-0 translate-y-10'}`}>
             {/* Contact Form - Left Side */}
             <div>
               <Card className="border-0 shadow-xl bg-white/90 backdrop-blur-xl group hover:shadow-2xl transition-all duration-500 hover:scale-[1.02]">
@@ -306,9 +328,10 @@ const ContactUsPage: React.FC = () => {
             </div>
           </div>
         </div>
-      </section>
+        </section>
+      </main>
       <Footer />
-    </>
+    </div>
   );
 };
 

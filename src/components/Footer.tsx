@@ -2,6 +2,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Facebook, Twitter, Linkedin, Instagram, Youtube } from 'lucide-react';
+import { link } from 'fs';
 
 const Footer: React.FC = () => {
   const scrollToTop = () => {
@@ -13,20 +14,23 @@ const Footer: React.FC = () => {
 
   const footerLinks = {
     clinic: [
-      { name: "Hybrid Clinics", href: "/clinic/hybrid-clinics" },
-      { name: "Mobile Clinics", href: "/clinic/mobile-clinics" },
-      { name: "Care-At-Home", href: "/clinic/care-at-home" },
-      { name: "Care Navigation", href: "/clinic/care-navigation" }
+      { name: "Whole Person Navigation", href: "/clinic/whole-person-navigation" },
+      { name: "Chronic Condition Optimization", href: "#programs" },
+      { name: "Care-at-Home Pathways", href: "/clinic/care-at-home" }
     ],
     technology: [
-      { name: "AptusCore™ Health OS", href: "/technology" },
-      { name: "Solutions", href: "/technology/our-solutions" }
+      { name: "AI & Generative AI", href: "/technology/ai-generative"},
+      { name: "AR & VR", href: "/technology/ar-vr"},
+      { name: "Blockchain", href: "/technology/blockchain"},
+      { name: "IoMT", href: "/technology/iomt"},
+      
     ],
+
     company: [
       { name: "About", href: "/about" },
-      { name: "Careers", href: "/careers" },
+      { name: "Products", href: "/our-solutions" },
       { name: "Podcast", href: "/podcast" },
-      { name: "Contact", href: "/contact" }
+      { name: "Careers", href: "/careers" },
     ]
   };
 

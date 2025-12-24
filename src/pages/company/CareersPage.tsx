@@ -74,32 +74,79 @@ const CareersPage: React.FC = () => {
     <div className="flex flex-col min-h-screen">
       <Header />
       <main className="flex-grow">
-        {/* Hero Section */}
-        <section className="relative min-h-[90vh] flex items-center justify-center bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 text-white overflow-hidden group">
+        {/* Hero Section - 2-column layout, responsive height */}
+        <section 
+          id="hero"
+          ref={setRef('hero')}
+          className="relative min-h-[600px] md:h-[780px] flex items-center bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 text-white overflow-hidden"
+        >
+          {/* Animated Background Video */}
           <div className="absolute inset-0">
-            <img
-              src="https://plus.unsplash.com/premium_photo-1681843126728-04eab730febe?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fENhcmVlcnMlMjBhdCUyMEFic29sdXRlJTIwSGVhbHRoJTIwR3JvdXB8ZW58MHx8MHx8fDA%3D"
-              alt="Careers"
-              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 opacity-30"
+            <video
+              src="https://dm0qx8t0i9gc9.cloudfront.net/watermarks/video/qmraJpx/m1254v053-4k-yfy42xc-gf__d6a08e1355b64e1ebb951b18d405a416__P360.mp4"
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="w-full h-full object-cover opacity-30"
             />
           </div>
+          
+          {/* Animated Gradient Overlays */}
           <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 via-purple-600/20 to-blue-600/20 animate-gradient-x" />
           <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]" />
-          <div className="container relative z-10">
-            <div className="max-w-4xl mx-auto text-center">
-              <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-blue-500/20 to-purple-500/20 backdrop-blur-xl rounded-2xl mb-8 border border-white/10 shadow-2xl">
-                <Briefcase className="text-white" size={36} />
+          
+          {/* Mobile: Stronger dark overlay for better text contrast */}
+          <div className="absolute inset-0 bg-black/40 md:bg-black/20" />
+          
+          <div className="container relative z-10 py-8 md:py-12 px-4 sm:px-6">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center">
+              {/* Left Column */}
+              <div className={`transition-all duration-1000 relative z-20 ${isVisible['hero'] ? 'opacity-100 translate-y-10' : 'opacity-0 translate-y-10'}`}>
+                {/* H1 */}
+                <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[58px] font-semibold mb-4 md:mb-6 leading-tight text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)] md:drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)]">
+                  Careers at Absolute Health Group
+                </h1>
+                
+                {/* H3 */}
+                <h3 className="text-lg sm:text-xl md:text-2xl lg:text-[30px] font-medium mb-4 md:mb-6 text-blue-200 leading-relaxed drop-shadow-[0_2px_6px_rgba(0,0,0,0.8)] md:drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)]">
+                  Join us in transforming healthcare delivery.
+                </h3>
+              
+                {/* Body */}
+                <p className="text-sm sm:text-base md:text-[17px] mb-6 md:mb-8 text-gray-200 md:text-gray-300 leading-relaxed drop-shadow-[0_1px_4px_rgba(0,0,0,0.8)] md:drop-shadow-[0_1px_2px_rgba(0,0,0,0.5)]">
+                  Build the future of healthcare with a team that's passionate about improving patient outcomes.
+                </p>
+                
+                {/* CTA Row */}
+                <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
+                  <Link
+                    to="#positions"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      document.getElementById('positions')?.scrollIntoView({ behavior: 'smooth' });
+                    }}
+                    className="group inline-flex items-center justify-center gap-2 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-6 py-3 sm:px-8 sm:py-4 rounded-xl text-sm sm:text-base font-semibold shadow-2xl hover:shadow-blue-500/50 transition-all duration-300 hover:scale-105 relative overflow-hidden"
+                  >
+                    <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000"></span>
+                    <span className="relative z-10 flex items-center gap-2">
+                      View Open Positions
+                      <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-2 transition-transform duration-300" />
+                    </span>
+                  </Link>
+                </div>
               </div>
-              <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold mb-6 bg-gradient-to-r from-white via-blue-100 to-white bg-clip-text text-transparent leading-tight">
-                Careers at Absolute Health Group
-              </h1>
-              <p className="text-xl md:text-2xl mb-6 text-blue-100 font-light">
-                Join us in transforming healthcare delivery
-              </p>
-              <div className="flex items-center justify-center gap-2 mt-8">
-                <div className="h-1 w-12 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full" />
-                <div className="h-1 w-8 bg-gradient-to-r from-purple-500 to-blue-500 rounded-full" />
-                <div className="h-1 w-12 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full" />
+              
+              {/* Right Column - Image Placeholder */}
+              <div className={`transition-all duration-1000 delay-200 mt-8 lg:mt-0 ${isVisible['hero'] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+                <div className="relative rounded-xl md:rounded-2xl overflow-hidden bg-gradient-to-br from-blue-500/20 to-purple-500/20 backdrop-blur-sm border border-white/10 h-[300px] sm:h-[350px] md:h-[400px] lg:h-full lg:min-h-[400px] flex items-center justify-center">
+                  <img
+                    src="https://media.istockphoto.com/id/1217753666/photo/medical-experts-and-businessmen-having-a-meeting-in-the-office.webp?a=1&b=1&s=612x612&w=0&k=20&c=X-_xtydO-yEBwCXIY4-hNlQ9pck_qfvBSesF0xNrjZk="
+                    alt="Careers"
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
+                </div>
               </div>
             </div>
           </div>
@@ -174,7 +221,7 @@ const CareersPage: React.FC = () => {
         <section 
           id="benefits"
           ref={setRef('benefits')}
-          className="py-20 md:py-28 bg-gradient-to-b from-white via-slate-50 to-white relative overflow-hidden"
+          className="py-20 md:py-28 bg-gradient-to-b from-white via-blue-50/30 to-white relative overflow-hidden"
         >
           <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808008_1px,transparent_1px),linear-gradient(to_bottom,#80808008_1px,transparent_1px)] bg-[size:24px_24px]" />
           <div className="container relative z-10">
@@ -270,7 +317,7 @@ const CareersPage: React.FC = () => {
         <section 
           id="apply"
           ref={setRef('apply')}
-          className="py-20 md:py-28 bg-gradient-to-b from-white via-slate-50 to-white relative overflow-hidden"
+          className="py-20 md:py-28 bg-gradient-to-b from-white via-blue-50/30 to-white relative overflow-hidden"
         >
           <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808008_1px,transparent_1px),linear-gradient(to_bottom,#80808008_1px,transparent_1px)] bg-[size:24px_24px]" />
           <div className="container relative z-10">

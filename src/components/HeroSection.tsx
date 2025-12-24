@@ -46,7 +46,7 @@ const HeroSection: React.FC = () => {
 
 
   return (
-    <section className="relative h-screen flex items-center justify-center overflow-hidden -mt-20 md:-mt-24 group">
+    <section className="relative min-h-[600px] md:h-screen flex items-center justify-center overflow-hidden -mt-20 md:-mt-24 group">
       
       {/* Flowing Background Videos */}
       <div className="absolute inset-0">
@@ -72,8 +72,8 @@ const HeroSection: React.FC = () => {
       {/* Animated gradient overlay */}
       <div className="absolute inset-0 animated-bg opacity-40"></div>
       
-      {/* Additional dark overlay */}
-      <div className="absolute inset-0 bg-black/50"></div>
+      {/* Additional dark overlay - stronger on mobile */}
+      <div className="absolute inset-0 bg-black/60 md:bg-black/50"></div>
       
       {/* Animated shapes with more movement - Reduced size on mobile */}
       <div 
@@ -141,26 +141,26 @@ const HeroSection: React.FC = () => {
       </div>
       
       {/* Rest of your content remains the same */}
-      <div className="container relative z-10 pt-16 md:pt-24 flex flex-col items-center justify-center text-center min-h-screen px-4 sm:px-6 lg:px-8">
+      <div className="container relative z-10 pt-12 sm:pt-16 md:pt-24 flex flex-col items-center justify-center text-center min-h-[600px] md:min-h-screen px-4 sm:px-6 lg:px-8">
         <div className="max-w-6xl mx-auto w-full flex flex-col">
           {/* Mobile: Badge moved to top, but with better spacing */}
           <div className="order-1 inline-flex items-center gap-2 bg-white/20 backdrop-blur-md px-3 py-1.5 md:px-4 md:py-2 rounded-full mb-4 md:mb-8 border border-white/30 animate-in fade-in duration-1000 hover:bg-white/30 hover:scale-105 transition-all duration-300 cursor-default self-center">
             <Sparkles className="w-3 h-3 md:w-4 md:h-4 text-secondary animate-spin" style={{ animationDuration: '3s' }} />
-            <span className="text-xs md:text-sm font-semibold text-white drop-shadow-lg">AptusCore™</span>
+            <span className="text-xs md:text-sm font-semibold text-white drop-shadow-lg">TransformativeCare™</span>
           </div>
           
           {/* Mobile: Main heading with optimized spacing */}
-          <h1 className="order-2 hero-title text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black leading-[1.1] mb-4 md:mb-8 text-white animate-in fade-in slide-in-from-bottom-10 duration-1000 delay-200 px-2 group-hover:scale-105 transition-transform duration-500">
-            <span className="block mb-1 md:mb-2 hero-text-shadow hover:scale-90 inline-block transition-transform duration-300 cursor-default">
+          <h1 className="order-2 hero-title text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black leading-[1.1] mb-4 md:mb-8 text-white animate-in fade-in slide-in-from-bottom-10 duration-1000 delay-200 px-2 group-hover:scale-105 transition-transform duration-500 relative z-20">
+            <span className="block mb-1 md:mb-2 hover:scale-90 inline-block transition-transform duration-300 cursor-default drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)] md:drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)]">
               Absolute Health Group
             </span>
-            <span className="block hero-gradient-text hover:scale-90 inline-block transition-transform duration-300 cursor-default">
+            <span className="block hover:scale-90 inline-block transition-transform duration-300 cursor-default bg-gradient-to-r from-blue-200 via-purple-200 to-cyan-200 bg-clip-text text-transparent drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)] md:drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)]">
               Navigation   &    Intelligence    Care
             </span>
           </h1>
           
           {/* Mobile: Description with better spacing */}
-          <p className="order-3 text-sm sm:text-lg md:text-xl lg:text-2xl text-white hero-text-shadow mb-6 md:mb-12 leading-relaxed max-w-4xl mx-auto px-2 md:px-4 animate-in fade-in slide-in-from-bottom-10 duration-1000 delay-300 hover:text-white transition-colors duration-300">
+          <p className="order-3 text-sm sm:text-lg md:text-xl lg:text-2xl text-white mb-6 md:mb-12 leading-relaxed max-w-4xl mx-auto px-2 md:px-4 animate-in fade-in slide-in-from-bottom-10 duration-1000 delay-300 hover:text-white transition-colors duration-300 relative z-20 drop-shadow-[0_2px_6px_rgba(0,0,0,0.9)] md:drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)]">
             Navigation-led care, intelligent automation, and precision health plans keeping people healthier at home and out of the hospital.
           </p>
           
@@ -172,7 +172,7 @@ const HeroSection: React.FC = () => {
             >
               <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000"></span>
               <span className="relative z-10 flex items-center gap-2">
-                Explore TransformativeCare™
+                Explore Clinics
                 <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-2 transition-transform duration-300" />
               </span>
             </Link>
@@ -182,7 +182,7 @@ const HeroSection: React.FC = () => {
             >
               <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000"></span>
               <span className="relative z-10 flex items-center gap-2">
-                Discover AptusCore™
+                Discover Technology
                 <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-2 transition-transform duration-300" />
               </span>
             </Link>

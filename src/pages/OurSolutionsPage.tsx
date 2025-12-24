@@ -3,17 +3,13 @@ import React, { useState, useEffect, useRef } from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import { Card, CardContent } from '../components/ui/card';
-import { ArrowRight, Play, ChevronLeft, ChevronRight, MessageSquare, FileText, Code, Headphones, Pause, X } from 'lucide-react';
+import { ArrowRight, ChevronLeft, ChevronRight, ExternalLink, Sparkles, Zap, Shield, Brain, Code, CheckCircle2 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { scrollToTop } from '../utils/smoothScroll';
 
-const PodcastPage: React.FC = () => {
+const OurSolutionsPage: React.FC = () => {
   const [isVisible, setIsVisible] = useState<{ [key: string]: boolean }>({});
   const [currentCarouselIndex, setCurrentCarouselIndex] = useState(0);
-  const [isAudioPlayerOpen, setIsAudioPlayerOpen] = useState(false);
-  const [currentPlayingIndex, setCurrentPlayingIndex] = useState<number | null>(null);
-  const [isPlaying, setIsPlaying] = useState(false);
-  const audioRef = useRef<HTMLAudioElement | null>(null);
   const sectionRefs = useRef<{ [key: string]: HTMLDivElement | null }>({});
 
   useEffect(() => {
@@ -42,94 +38,77 @@ const PodcastPage: React.FC = () => {
     sectionRefs.current[id] = el;
   };
 
-  // Featured Series - Carousel items
-  const featuredSeries = [
+  // Featured Solutions - Carousel items
+  const featuredSolutions = [
     {
-      title: "Navigation-First Clinic",
-      description: "Exploring how navigation-led care models transform patient outcomes and care coordination.",
-      image: "https://media.istockphoto.com/id/2206651452/photo/doctor-on-air-providing-expert-health-advice-and-answers-health-related-questions-through.webp?a=1&b=1&s=612x612&w=0&k=20&c=xNaD9WO0zCk32l7J4JTFm7LPXn570mveNE3sXf_n3uo=",
-      audioUrl: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"
+      title: "DermaIQ™",
+      description: "Wound full care navigation app using AI-powered image analysis for accurate diagnosis and treatment planning.",
+      image: "/dermaiq.png",
+      url: "https://dermaiq.org",
+      gradient: "from-blue-500 to-cyan-500"
     },
     {
-      title: "Economics of Home-Based Care",
-      description: "Deep dives into the financial models and value propositions of care-at-home programs.",
-      image: "https://media.istockphoto.com/id/2218741148/photo/golden-retro-microphone-with-financial-candlestick-graph.webp?a=1&b=1&s=612x612&w=0&k=20&c=VHKkgkLtaWT_nof7HVSEKEHuYGokNv83cCFT9IoY_II=",
-      audioUrl: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3"
+      title: "CardioSafe™",
+      description: "Cardiac early warnings through predictive analytics, helping prevent cardiovascular events before they occur.",
+      image: "https://media.istockphoto.com/id/2154976961/photo/woman-hand-hold-phone-with-app-heart-and-activity-screen.webp?a=1&b=1&s=612x612&w=0&k=20&c=HWRTgcD8nmwzypjtyyPylSBb194zVVFJGaCqnHHdI9A=",
+      url: "https://app.cardiosafe.com",
+      gradient: "from-red-500 to-pink-500"
     },
     {
-      title: "Chronic Care Ecosystem",
-      description: "Understanding how integrated care systems manage complex chronic conditions effectively.",
-      image: "https://media.istockphoto.com/id/1396477577/photo/let-me-explain.webp?a=1&b=1&s=612x612&w=0&k=20&c=hxAJ6RwyYE6oz14JeNdaGjz398K1Rd_20UIdhmUDynM=",
-      audioUrl: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3"
+      title: "LiverSafe™",
+      description: "Drug safety insights and liver function monitoring to ensure optimal medication management and patient safety.",
+      image: "https://media.istockphoto.com/id/1487886497/photo/mental-health-concept-woman-using-mobile-application-to-checking-healing-and-practicing-mind.webp?a=1&b=1&s=612x612&w=0&k=20&c=7KMB1aCEo9ag2awlWBXfzXCpHR7476L4woMXxIdZrFg=",
+      url: "https://app.liversafe.com",
+      gradient: "from-green-500 to-emerald-500"
     },
     {
-      title: "Data & AI",
-      description: "How artificial intelligence and data analytics are reshaping healthcare delivery.",
-      image: "https://plus.unsplash.com/premium_photo-1682126196145-d23f2022a8dd?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8ZGF0YSUyMGFuYWx5dGljc3xlbnwwfHwwfHx8MA%3D%3D",
-      audioUrl: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3"
+      title: "Aion PGx™",
+      description: "Genomic therapy matching for personalized medicine, optimizing treatments based on individual genetic profiles.",
+      image: "https://media.istockphoto.com/id/2213558171/photo/man-using-a-mobile-app-for-pediatrics.webp?a=1&b=1&s=612x612&w=0&k=20&c=N5b-5UTdEMkPO9U9ivzlPaNh281zJk4UA2Mbx3qiqm4=",
+      url: "https://app.aionpgx.com",
+      gradient: "from-purple-500 to-indigo-500"
     },
     {
-      title: "Workforce Transformation",
-      description: "The evolving role of healthcare professionals in modern care delivery models.",
-      image: "https://images.unsplash.com/photo-1615714901965-277d5a9f11d1?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8aGVhbHRoY2FyZSUyMGFwcCUyMHBvZGNhc3R8ZW58MHx8MHx8fDA%3D",
-      audioUrl: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-5.mp3"
+      title: "DoseAI™",
+      description: "Autonomous dosing recommendations based on patient data, ensuring precise medication administration.",
+      image: "https://media.istockphoto.com/id/1543830891/photo/close-up-of-a-senior-woman-ordering-medicines-online-using-a-mobile-app.webp?a=1&b=1&s=612x612&w=0&k=20&c=VzuYd9Mzqy8QuHDJxDQ1P-Rtxox8JNszTRMlIvNifJU=",
+      url: "https://app.doseai.com",
+      gradient: "from-orange-500 to-amber-500"
+    },
+    {
+      title: "Aion Patch™",
+      description: "Therapeutic skin delivery system with smart monitoring capabilities for advanced dermatological care.",
+      image: "https://images.unsplash.com/photo-1659806361928-087a8f07f431?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fFRoZXJhcGV1dGljJTIwc2tpbiUyMGRlbGl2ZXJ5JTIwYXBwJTIwd2l0aCUyMHNtYXJ0JTIwbW9uaXRvcmluZ3xlbnwwfHwwfHx8MA%3D%3D",
+      url: "https://app.aionpatch.com",
+      gradient: "from-pink-500 to-rose-500"
+    },
+    {
+      title: "Aion Care™",
+      description: "Telepresence + autonomous workflows for remote care, enabling comprehensive virtual healthcare delivery.",
+      image: "https://media.istockphoto.com/id/1922985256/photo/serious-black-doctor-and-lady-patient-cry-on-big-phone-screen-isolated-on-blue-background.webp?a=1&b=1&s=612x612&w=0&k=20&c=luIqMkQkMdYzTIsDs3Tjv24zaOrN1_UqLqc0fkol-Rs=",
+      url: "https://app.aioncare.com",
+      gradient: "from-cyan-500 to-blue-500"
     }
   ];
 
-  const handlePlayClick = (index: number) => {
-    if (currentPlayingIndex === index && isPlaying) {
-      // Pause if same episode is playing
-      audioRef.current?.pause();
-      setIsPlaying(false);
-    } else {
-      // Play new episode
-      setCurrentPlayingIndex(index);
-      setIsAudioPlayerOpen(true);
-      setIsPlaying(true);
-      // Audio will be handled by the audio element
-    }
-  };
-
-  const handlePause = () => {
-    audioRef.current?.pause();
-    setIsPlaying(false);
-  };
-
-  const handlePlay = () => {
-    audioRef.current?.play();
-    setIsPlaying(true);
-  };
-
-  const handleClosePlayer = () => {
-    audioRef.current?.pause();
-    setIsAudioPlayerOpen(false);
-    setIsPlaying(false);
-    setCurrentPlayingIndex(null);
+  const handleOpenSolution = (url: string) => {
+    window.open(url, '_blank', 'noopener,noreferrer');
   };
 
   const nextCarousel = () => {
-    setCurrentCarouselIndex((prev) => (prev + 1) % featuredSeries.length);
+    setCurrentCarouselIndex((prev) => (prev + 1) % featuredSolutions.length);
   };
 
   const prevCarousel = () => {
-    setCurrentCarouselIndex((prev) => (prev - 1 + featuredSeries.length) % featuredSeries.length);
+    setCurrentCarouselIndex((prev) => (prev - 1 + featuredSolutions.length) % featuredSolutions.length);
   };
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentCarouselIndex((prev) => (prev + 1) % featuredSeries.length);
+      setCurrentCarouselIndex((prev) => (prev + 1) % featuredSolutions.length);
     }, 5000);
     return () => clearInterval(interval);
   }, []);
-
-  // Auto-play audio when player opens
-  useEffect(() => {
-    if (isAudioPlayerOpen && audioRef.current && currentPlayingIndex !== null) {
-      audioRef.current.play().catch((error) => {
-        console.error('Error playing audio:', error);
-      });
-    }
-  }, [isAudioPlayerOpen, currentPlayingIndex]);
 
   return (
     <div className="flex flex-col min-h-screen">
@@ -144,7 +123,7 @@ const PodcastPage: React.FC = () => {
           {/* Animated Background Video */}
           <div className="absolute inset-0">
             <video
-              src="https://dm0qx8t0i9gc9.cloudfront.net/watermarks/video/BPDPkANXukm1vn7si/videoblocks-521z_as438_bclcbry135__1584f7beae534d827e280f4ab27f056a__P360.mp4"
+              src="https://dm0qx8t0i9gc9.cloudfront.net/watermarks/video/BgrICs-NZj4hksnn3/66e7e5735ae8cc2aea7b58e4-gg4r92n1zj__a116a2762eda66bf6547493ac7e218af__P360.mp4"
               autoPlay
               loop
               muted
@@ -166,33 +145,33 @@ const PodcastPage: React.FC = () => {
               <div className={`transition-all duration-1000 relative z-20 ${isVisible['hero'] ? 'opacity-100 translate-y-10' : 'opacity-0 translate-y-10'}`}>
                 {/* H1 */}
                 <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[58px] font-semibold mb-4 md:mb-6 leading-tight text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)] md:drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)]">
-                  The Absolute Health Podcast
+                  Our Products
                 </h1>
                 
                 {/* H3 */}
                 <h3 className="text-lg sm:text-xl md:text-2xl lg:text-[30px] font-medium mb-4 md:mb-6 text-blue-200 leading-relaxed drop-shadow-[0_2px_6px_rgba(0,0,0,0.8)] md:drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)]">
-                  Where innovators and frontline leaders discuss the future of care.
+                  AI-powered clinical solutions transforming healthcare delivery.
                 </h3>
                 
                 {/* Body */}
                 <p className="text-sm sm:text-base md:text-[17px] mb-6 md:mb-8 text-gray-200 md:text-gray-300 leading-relaxed drop-shadow-[0_1px_4px_rgba(0,0,0,0.8)] md:drop-shadow-[0_1px_2px_rgba(0,0,0,0.5)]">
-                  Join the conversation shaping the next generation of healthcare delivery.
+                  Discover innovative healthcare technologies designed to improve patient outcomes and streamline clinical workflows.
                 </p>
                 
                 {/* CTA Row */}
                 <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
                   <Link
-                    to="#featured-series"
+                    to="#featured-solutions"
                     onClick={(e) => {
                       e.preventDefault();
-                      document.getElementById('featured-series')?.scrollIntoView({ behavior: 'smooth' });
+                      document.getElementById('featured-solutions')?.scrollIntoView({ behavior: 'smooth' });
                     }}
                     className="group inline-flex items-center justify-center gap-2 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-6 py-3 sm:px-8 sm:py-4 rounded-xl text-sm sm:text-base font-semibold shadow-2xl hover:shadow-blue-500/50 transition-all duration-300 hover:scale-105 relative overflow-hidden"
                   >
                     <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000"></span>
                     <span className="relative z-10 flex items-center gap-2">
-                      Listen Now
-                      <Play className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-2 transition-transform duration-300" />
+                      Explore Solutions
+                      <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-2 transition-transform duration-300" />
                     </span>
                   </Link>
                   <Link
@@ -201,34 +180,33 @@ const PodcastPage: React.FC = () => {
                     className="group inline-flex items-center justify-center gap-2 border-2 border-white text-white hover:bg-white/10 px-6 py-3 sm:px-8 sm:py-4 rounded-xl text-sm sm:text-base font-semibold transition-all duration-300 hover:scale-105 relative overflow-hidden"
                   >
                     <span className="relative z-10 flex items-center gap-2">
-                      Subscribe
+                      Get Started
                       <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-2 transition-transform duration-300" />
                     </span>
                   </Link>
                 </div>
               </div>
               
-              {/* Right Column - Podcast Cover + Waveform */}
+              {/* Right Column - Solution Icon + Visual */}
               <div className={`transition-all duration-1000 delay-200 mt-8 lg:mt-0 ${isVisible['hero'] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
                 <div className="relative rounded-xl md:rounded-2xl overflow-hidden bg-gradient-to-br from-blue-500/20 to-purple-500/20 backdrop-blur-sm border border-white/10 h-[300px] sm:h-[350px] md:h-[400px] lg:h-full lg:min-h-[400px] flex flex-col items-center justify-center p-6 md:p-8">
                   <div className="w-40 h-40 sm:w-48 sm:h-48 md:w-64 md:h-64 rounded-xl md:rounded-2xl bg-gradient-to-br from-blue-600 to-purple-600 mb-4 md:mb-6 flex items-center justify-center shadow-2xl">
-                    <Headphones className="w-20 h-20 sm:w-24 sm:h-24 md:w-32 md:h-32 text-white" />
+                    <Sparkles className="w-20 h-20 sm:w-24 sm:h-24 md:w-32 md:h-32 text-white" />
                   </div>
-                  {/* Waveform visualization */}
-                  <div className="flex items-end gap-1 h-12 md:h-16">
-                    {[...Array(20)].map((_, i) => (
+                  {/* Animated dots visualization */}
+                  <div className="flex items-center justify-center gap-2 h-12 md:h-16">
+                    {[...Array(12)].map((_, i) => (
                       <div
                         key={i}
-                        className="w-1.5 md:w-2 bg-white/60 rounded-full animate-pulse"
+                        className="w-2 h-2 md:w-3 md:h-3 bg-white/60 rounded-full animate-pulse"
                         style={{
-                          height: `${Math.random() * 60 + 20}%`,
                           animationDelay: `${i * 0.1}s`,
-                          animationDuration: '1s'
+                          animationDuration: '1.5s'
                         }}
                       />
                     ))}
                   </div>
-                  <p className="text-white/70 text-xs md:text-sm mt-3 md:mt-4">Cover + Waveform</p>
+                  <p className="text-white/70 text-xs md:text-sm mt-3 md:mt-4">AI-Powered Solutions</p>
                 </div>
               </div>
             </div>
@@ -251,21 +229,21 @@ const PodcastPage: React.FC = () => {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {[
                 {
-                  icon: MessageSquare,
-                  title: "Expert Conversations",
-                  description: "Medical directors, NPs/PAs, digital health founders, health-system executives, and policy thinkers share their insights.",
+                  icon: Brain,
+                  title: "AI-Powered Intelligence",
+                  description: "Advanced artificial intelligence and machine learning algorithms that analyze patient data, predict outcomes, and provide clinical decision support.",
                   gradient: "from-blue-500 to-blue-600"
                 },
                 {
-                  icon: FileText,
-                  title: "Case Studies",
-                  description: "Real-world examples of what works in navigation, chronic-care programs, and home-based care models.",
+                  icon: Shield,
+                  title: "Secure & Compliant",
+                  description: "Enterprise-grade security with HIPAA compliance, ensuring patient data protection and regulatory adherence across all solutions.",
                   gradient: "from-purple-500 to-purple-600"
                 },
                 {
-                  icon: Code,
-                  title: "Technology Deep Dives",
-                  description: "AI-driven workflows, interoperability, automation, and data-driven transformation in healthcare.",
+                  icon: Zap,
+                  title: "Seamless Integration",
+                  description: "Easy integration with existing EHR systems, workflows, and healthcare infrastructure for minimal disruption and maximum efficiency.",
                   gradient: "from-green-500 to-green-600"
                 }
               ].map((item, index) => {
@@ -291,20 +269,20 @@ const PodcastPage: React.FC = () => {
           </div>
         </section>
 
-        {/* Featured Series - Carousel */}
+        {/* Featured Solutions - Carousel */}
         <section 
-          id="featured-series"
-          ref={setRef('featured-series')}
+          id="featured-solutions"
+          ref={setRef('featured-solutions')}
           className="py-20 md:py-28 bg-gradient-to-b from-white via-blue-50/30 to-white relative overflow-hidden"
         >
           <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808008_1px,transparent_1px),linear-gradient(to_bottom,#80808008_1px,transparent_1px)] bg-[size:24px_24px]" />
           <div className="container relative z-10">
             <div className="text-center mb-16">
-              <h2 className={`text-4xl md:text-5xl lg:text-6xl font-extrabold text-slate-900 mb-4 bg-gradient-to-r from-slate-900 via-blue-900 to-slate-900 bg-clip-text text-transparent transition-all duration-1000 ${isVisible['featured-series'] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-                Featured Series
+              <h2 className={`text-4xl md:text-5xl lg:text-6xl font-extrabold text-slate-900 mb-4 bg-gradient-to-r from-slate-900 via-blue-900 to-slate-900 bg-clip-text text-transparent transition-all duration-1000 ${isVisible['featured-solutions'] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+                Featured Solutions
               </h2>
-              <p className={`text-lg md:text-xl text-slate-600 max-w-2xl mx-auto transition-all duration-1000 delay-200 ${isVisible['featured-series'] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-                Explore our curated collection of podcast series
+              <p className={`text-lg md:text-xl text-slate-600 max-w-2xl mx-auto transition-all duration-1000 delay-200 ${isVisible['featured-solutions'] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+                Explore our curated collection of innovative healthcare solutions
               </p>
             </div>
             <div className="relative max-w-6xl mx-auto">
@@ -314,14 +292,14 @@ const PodcastPage: React.FC = () => {
                   className="flex transition-transform duration-500 ease-in-out"
                   style={{ transform: `translateX(-${currentCarouselIndex * 100}%)` }}
                 >
-                  {featuredSeries.map((series, index) => (
+                  {featuredSolutions.map((solution, index) => (
                     <div key={index} className="min-w-full flex justify-center px-4">
                       <Card className="border-0 shadow-lg hover:shadow-2xl bg-white/90 backdrop-blur-xl w-[420px] h-[520px] overflow-hidden group hover:scale-105 hover:-translate-y-2 transition-all duration-500 relative">
                         <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-blue-500/10 to-purple-500/10 rounded-full blur-2xl group-hover:opacity-20 transition-opacity duration-500" />
                         <div className="relative h-[320px] overflow-hidden bg-gradient-to-br from-blue-50 to-purple-50">
                           <img
-                            src={series.image}
-                            alt={series.title}
+                            src={solution.image}
+                            alt={solution.title}
                             className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                           />
                           <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
@@ -329,22 +307,21 @@ const PodcastPage: React.FC = () => {
                             <button
                               onClick={(e) => {
                                 e.stopPropagation();
-                                handlePlayClick(index);
+                                handleOpenSolution(solution.url);
                               }}
                               className="w-16 h-16 bg-gradient-to-br from-blue-600 to-purple-600 rounded-full flex items-center justify-center shadow-lg group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 hover:from-blue-700 hover:to-purple-700"
                             >
-                              {currentPlayingIndex === index && isPlaying ? (
-                                <Pause className="text-white" size={28} fill="currentColor" />
-                              ) : (
-                                <Play className="text-white ml-1" size={28} fill="currentColor" />
-                              )}
+                              <ExternalLink className="text-white" size={28} />
                             </button>
                           </div>
                         </div>
                         <CardContent className="p-8 relative overflow-hidden">
                           <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-blue-500/10 to-purple-500/10 rounded-full blur-2xl group-hover:opacity-20 transition-opacity duration-500" />
-                          <h3 className="text-2xl font-extrabold text-slate-900 mb-4 group-hover:text-blue-600 transition-colors relative z-10">{series.title}</h3>
-                          <p className="text-slate-600 text-base leading-relaxed line-clamp-4 relative z-10">{series.description}</p>
+                          <div className={`w-12 h-12 bg-gradient-to-br ${solution.gradient} rounded-xl flex items-center justify-center mb-4 shadow-lg group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 relative z-10`}>
+                            <Code className="text-white" size={24} />
+                          </div>
+                          <h3 className="text-2xl font-extrabold text-slate-900 mb-4 group-hover:text-blue-600 transition-colors relative z-10">{solution.title}</h3>
+                          <p className="text-slate-600 text-base leading-relaxed line-clamp-4 relative z-10">{solution.description}</p>
                         </CardContent>
                       </Card>
                     </div>
@@ -361,7 +338,7 @@ const PodcastPage: React.FC = () => {
                   <ChevronLeft className="text-slate-700" size={24} />
                 </button>
                 <div className="flex gap-2">
-                  {featuredSeries.map((_, index) => (
+                  {featuredSolutions.map((_, index) => (
                     <button
                       key={index}
                       onClick={() => setCurrentCarouselIndex(index)}
@@ -382,144 +359,96 @@ const PodcastPage: React.FC = () => {
           </div>
         </section>
 
-        {/* Why This Podcast - width 880, center alignment */}
+        {/* Why Our Solutions - width 880, center alignment */}
         <section 
-          id="why-this-podcast"
-          ref={setRef('why-this-podcast')}
+          id="why-our-solutions"
+          ref={setRef('why-our-solutions')}
           className="py-20 md:py-28 bg-gradient-to-b from-white via-blue-50/30 to-white relative overflow-hidden"
         >
           <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808008_1px,transparent_1px),linear-gradient(to_bottom,#80808008_1px,transparent_1px)] bg-[size:24px_24px]" />
           <div className="container relative z-10">
-            <div className={`max-w-[880px] mx-auto text-center transition-all duration-1000 ${isVisible['why-this-podcast'] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+            <div className={`max-w-[880px] mx-auto text-center transition-all duration-1000 ${isVisible['why-our-solutions'] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
               <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-slate-900 mb-8 bg-gradient-to-r from-slate-900 via-blue-900 to-slate-900 bg-clip-text text-transparent">
-                Why This Podcast
+                Why Our Products
               </h2>
               <div className="space-y-6 text-lg md:text-xl text-slate-700 leading-relaxed">
                 <p>
-                  Healthcare is undergoing its biggest redesign in decades.
+                  Healthcare technology is evolving faster than ever, and clinicians need tools that work seamlessly with their existing workflows.
                 </p>
                 <p>
-                  This podcast is where leaders come to unpack it—honestly, clearly, and with a focus on what actually moves outcomes.
+                  Our products are designed by healthcare professionals, for healthcare professionals—with a focus on what actually improves patient outcomes and reduces administrative burden.
                 </p>
                 <p>
-                  Where innovators and frontline leaders discuss the future of care, sharing insights that matter for clinicians, administrators, and anyone building the next generation of healthcare delivery.
+                  From AI-powered diagnostics to personalized medicine platforms, we're building the next generation of clinical tools that make care delivery more intelligent, efficient, and effective.
                 </p>
               </div>
             </div>
           </div>
         </section>
 
-        {/* Platforms */}
+        {/* Key Benefits */}
         <section 
-          id="platforms"
-          ref={setRef('platforms')}
+          id="key-benefits"
+          ref={setRef('key-benefits')}
           className="py-20 md:py-28 bg-gradient-to-b from-slate-50 via-white to-slate-50 relative overflow-hidden"
         >
           <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808008_1px,transparent_1px),linear-gradient(to_bottom,#80808008_1px,transparent_1px)] bg-[size:24px_24px]"></div>
           <div className="container relative z-10">
             <div className="text-center mb-12">
-              <h2 className={`text-4xl md:text-5xl lg:text-6xl font-extrabold text-slate-900 mb-4 bg-gradient-to-r from-slate-900 via-blue-900 to-slate-900 bg-clip-text text-transparent transition-all duration-1000 ${isVisible['platforms'] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-                Available on
+              <h2 className={`text-4xl md:text-5xl lg:text-6xl font-extrabold text-slate-900 mb-4 bg-gradient-to-r from-slate-900 via-blue-900 to-slate-900 bg-clip-text text-transparent transition-all duration-1000 ${isVisible['key-benefits'] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+                Key Benefits
               </h2>
             </div>
-            <div className="flex flex-wrap items-center justify-center gap-8 md:gap-12">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
               {[
                 { 
-                  name: "Apple Podcasts", 
-                  logo: "https://cdn-icons-png.flaticon.com/128/831/831299.png",
-                  gradient: "from-blue-500 to-blue-600",
-                  url: "https://podcasts.apple.com"
+                  text: "Improved diagnostic accuracy",
+                  gradient: "from-blue-500 to-blue-600"
                 },
                 { 
-                  name: "Spotify", 
-                  logo: "https://cdn-icons-png.flaticon.com/128/2111/2111624.png",
-                  gradient: "from-green-500 to-green-600",
-                  url: "https://open.spotify.com"
+                  text: "Reduced administrative burden",
+                  gradient: "from-purple-500 to-purple-600"
                 },
                 { 
-                  name: "Google Podcasts", 
-                  logo: "https://cdn-icons-png.flaticon.com/128/2111/2111615.png",
-                  gradient: "from-purple-500 to-purple-600",
-                  url: "https://podcasts.google.com"
+                  text: "Enhanced patient outcomes",
+                  gradient: "from-green-500 to-green-600"
+                },
+                { 
+                  text: "Streamlined workflows",
+                  gradient: "from-orange-500 to-orange-600"
+                },
+                { 
+                  text: "Cost-effective solutions",
+                  gradient: "from-pink-500 to-pink-600"
+                },
+                { 
+                  text: "Scalable infrastructure",
+                  gradient: "from-cyan-500 to-cyan-600"
                 }
-              ].map((platform, index) => (
-                <a
+              ].map((benefit, index) => (
+                <Card
                   key={index}
-                  href={platform.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="block"
+                  className={`group border-0 shadow-lg hover:shadow-2xl transition-all duration-500 bg-white/90 backdrop-blur-xl hover:scale-105 hover:-translate-y-2 cursor-pointer relative overflow-hidden ${isVisible['key-benefits'] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+                  style={{ transitionDelay: `${index * 100}ms` }}
                 >
-                  <Card
-                    className={`group border-0 shadow-lg hover:shadow-2xl transition-all duration-500 bg-white/90 backdrop-blur-xl hover:scale-105 hover:-translate-y-2 cursor-pointer relative overflow-hidden ${isVisible['platforms'] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
-                    style={{ transitionDelay: `${index * 100}ms` }}
-                  >
-                    <CardContent className="p-8 relative overflow-hidden">
-                      <div className={`absolute top-0 right-0 w-32 h-32 bg-gradient-to-br ${platform.gradient} opacity-10 rounded-full blur-2xl group-hover:opacity-20 transition-opacity duration-500`} />
-                      <div className="mb-4 relative z-10 flex items-center justify-center">
-                        <img 
-                          src={platform.logo} 
-                          alt={platform.name}
-                          className="w-24 h-24 object-contain group-hover:scale-110 transition-transform duration-300"
-                        />
+                  <CardContent className="p-6 relative overflow-hidden">
+                    <div className={`absolute top-0 right-0 w-32 h-32 bg-gradient-to-br ${benefit.gradient} opacity-10 rounded-full blur-2xl group-hover:opacity-20 transition-opacity duration-500`} />
+                    <div className="flex items-center gap-4 relative z-10">
+                      <div className={`w-10 h-10 bg-gradient-to-br ${benefit.gradient} rounded-lg flex items-center justify-center shadow-lg group-hover:scale-110 group-hover:rotate-3 transition-all duration-300`}>
+                        <CheckCircle2 className="text-white" size={20} />
                       </div>
-                      <h3 className="text-xl font-semibold text-slate-900 group-hover:text-blue-600 transition-colors relative z-10 text-center">{platform.name}</h3>
-                    </CardContent>
-                  </Card>
-                </a>
+                      <h3 className="text-lg font-semibold text-slate-900 group-hover:text-blue-600 transition-colors">{benefit.text}</h3>
+                    </div>
+                  </CardContent>
+                </Card>
               ))}
             </div>
           </div>
         </section>
-
-        {/* Audio Player Modal */}
-        {isAudioPlayerOpen && currentPlayingIndex !== null && (
-          <div className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-            <div className="bg-white rounded-2xl shadow-2xl max-w-2xl w-full p-8 relative">
-              <button
-                onClick={handleClosePlayer}
-                className="absolute top-4 right-4 w-10 h-10 rounded-full bg-slate-100 hover:bg-slate-200 flex items-center justify-center transition-colors"
-              >
-                <X className="text-slate-700" size={20} />
-              </button>
-              
-              <div className="flex flex-col md:flex-row gap-6 mb-6">
-                <div className="flex-shrink-0">
-                  <img
-                    src={featuredSeries[currentPlayingIndex].image}
-                    alt={featuredSeries[currentPlayingIndex].title}
-                    className="w-48 h-48 rounded-xl object-cover shadow-lg"
-                  />
-                </div>
-                <div className="flex-1">
-                  <h3 className="text-2xl font-extrabold text-slate-900 mb-2">
-                    {featuredSeries[currentPlayingIndex].title}
-                  </h3>
-                  <p className="text-slate-600 mb-4">
-                    {featuredSeries[currentPlayingIndex].description}
-                  </p>
-                </div>
-              </div>
-
-              <div className="space-y-4">
-                <audio
-                  ref={audioRef}
-                  src={featuredSeries[currentPlayingIndex].audioUrl}
-                  onEnded={() => setIsPlaying(false)}
-                  onPlay={() => setIsPlaying(true)}
-                  onPause={() => setIsPlaying(false)}
-                  className="w-full"
-                  controls
-                  autoPlay
-                />
-              </div>
-            </div>
-          </div>
-        )}
       </main>
       <Footer />
     </div>
   );
 };
 
-export default PodcastPage;
+export default OurSolutionsPage;
