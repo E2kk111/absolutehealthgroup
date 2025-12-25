@@ -98,8 +98,8 @@ const AboutPage: React.FC = () => {
     },
     {
       year: "2022",
-      title: "AptusCore™ Platform",
-      description: "Launched AptusCore™ Health OS, our unified platform for intelligent care coordination.",
+      title: "Technology™ Platform",
+      description: "Launched Technology™ Health OS, our unified platform for intelligent care coordination.",
       icon: Zap
     },
     {

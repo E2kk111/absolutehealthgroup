@@ -63,7 +63,7 @@ const CareersPage: React.FC = () => {
     },
     {
       id: 3,
-      title: "Product Manager - AptusCore™ Health OS",
+      title: "Product Manager - Technology™ Health OS",
       department: "Product",
       location: "Remote",
       type: "Full-time"

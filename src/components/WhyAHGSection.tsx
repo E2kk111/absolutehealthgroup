@@ -36,7 +36,7 @@ const WhyAHGSection: React.FC = () => {
     {
       icon: Brain,
       title: "Intelligent Automation",
-      description: "AptusCore™ removes friction across the entire care journey",
+      description: "Our tech removes friction across the entire care journey",
       gradient: "from-purple-500 to-purple-600"
     },
     {

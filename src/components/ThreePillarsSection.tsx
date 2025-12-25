@@ -39,7 +39,7 @@ const ThreePillarsSection: React.FC = () => {
     },
     {
       icon: Brain,
-      title: "AptusCore™ Health OS",
+      title: "Technology",
       subtitle: "Unified layer connecting data, care delivery, and intelligent automation",
       description: "The technology stack removing friction across the entire care journey.",
       link: "/technology",

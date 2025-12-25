@@ -163,7 +163,7 @@ const Footer: React.FC = () => {
               <Link to="/privacy" onClick={scrollToTop} className="hover:text-blue-400 transition-colors ml-1">Privacy Policy</Link> | 
               <Link to="/terms" onClick={scrollToTop} className="hover:text-blue-400 transition-colors ml-1">Terms of Service</Link>
               <br className="md:hidden" />
-              <span className="md:ml-2 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent font-semibold">Powered by AptusCore™</span>
+              <span className="md:ml-2 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent font-semibold">Powered by TransformativeCare™</span>
             </p>
           </div>
         </div>

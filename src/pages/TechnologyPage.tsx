@@ -103,7 +103,7 @@ const TechnologyPage: React.FC = () => {
               <div className={`transition-all duration-1000 relative z-20 ${isVisible['hero'] ? 'opacity-100 translate-y-10' : 'opacity-0 translate-y-10'}`}>
                 {/* H1 */}
                 <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[58px] font-semibold mb-4 md:mb-6 leading-tight text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)] md:drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)]">
-                  AptusCore™ Health Operating System
+                  Healthcare Operating System
                 </h1>
                 
                 {/* BodyLarge */}
@@ -209,7 +209,7 @@ const TechnologyPage: React.FC = () => {
                 Architecture Canvas
               </h2>
               <p className={`text-lg md:text-xl text-slate-600 max-w-2xl mx-auto transition-all duration-1000 delay-200 ${isVisible['architecture'] ? 'opacity-100 translate-y-10' : 'opacity-0 translate-y-10'}`}>
-                How data flows through AptusCore™ to deliver intelligent care coordination
+                How data flows through our team to deliver intelligent care coordination
               </p>
             </div>
             
@@ -261,7 +261,7 @@ const TechnologyPage: React.FC = () => {
                 </div>
               </div>
 
-              {/* AptusCore Engine Section */}
+              {/* CoreTech Engine Section */}
               <div className="mb-12">
                 <Card className="border-0 shadow-2xl bg-gradient-to-br from-blue-600 via-purple-600 to-blue-600 overflow-hidden group hover:scale-[1.02] transition-all duration-500 relative">
                   <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent animate-gradient-x" />
@@ -271,7 +271,7 @@ const TechnologyPage: React.FC = () => {
                         <Brain className="text-white" size={40} />
                       </div>
                       <div>
-                        <h3 className="text-4xl font-extrabold text-white mb-2">AptusCore™ Engine</h3>
+                        <h3 className="text-4xl font-extrabold text-white mb-2">Core Engine</h3>
                         <p className="text-white/90 text-lg">Unified Processing & Intelligence Layer</p>
                       </div>
                     </div>
@@ -430,17 +430,17 @@ const TechnologyPage: React.FC = () => {
           <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808008_1px,transparent_1px),linear-gradient(to_bottom,#80808008_1px,transparent_1px)] bg-[size:24px_24px]" />
           <div className="container relative z-10">
             <div className={`grid grid-cols-1 lg:grid-cols-2 gap-12 items-start transition-all duration-1000 ${isVisible['benefits'] ? 'opacity-100 translate-y-10' : 'opacity-0 translate-y-10'}`}>
-              {/* Left - Why AptusCore Matters */}
+              {/* Left - Why CoreTech Matters */}
               <div>
                 <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-slate-900 mb-8 bg-gradient-to-r from-slate-900 via-blue-900 to-slate-900 bg-clip-text text-transparent">
-                  Why AptusCore Matters
+                  Why Technology Matters
                 </h2>
                 <div className="space-y-6">
                   <p className="text-xl text-slate-700 leading-relaxed">
                     Care teams shouldn't drown in admin work. Patients shouldn't navigate a maze. Health systems shouldn't struggle to integrate tools.
                   </p>
                   <p className="text-xl text-slate-700 leading-relaxed">
-                    AptusCore™ brings everything together—quietly, intelligently, and in the background—so clinicians can focus on care and patients can focus on living.
+                    Our Technology team brings everything together—quietly, intelligently, and in the background—so clinicians can focus on care and patients can focus on living.
                   </p>
                 </div>
               </div>
@@ -501,7 +501,7 @@ const TechnologyPage: React.FC = () => {
               </h2>
               
               <p className="text-lg md:text-xl text-white/90 mb-10 max-w-2xl mx-auto">
-                Join leading healthcare organizations leveraging AptusCore™ to deliver intelligent, coordinated care at scale.
+                Join leading healthcare organizations leveraging our Technology team to deliver intelligent, coordinated care at scale.
               </p>
               
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
