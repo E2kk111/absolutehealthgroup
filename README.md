@@ -52,7 +52,7 @@ git clone <repository-url>
 cd absolutehealthgroup
 
 # Install dependencies
-npm install
+npm ci
 
 # Start development server
 npm run dev
@@ -122,3 +122,46 @@ Private project - All rights reserved by Absolute Health Group
 ## 🤝 Contributing
 
 This is a private project. For internal development guidelines, please refer to the team documentation.
+
+## VMS Healthspan concept page
+
+`/vms-healthspan` presents the five-domain framework and proposed AION/MCP
+integrations. The sample score is a mock illustration; no scoring, patient-data
+connection, clinical assessment or executable MCP tools are implemented.
+
+### Validation
+
+Use Node.js 22 and the committed npm lockfile:
+
+```sh
+npm ci
+npm run typecheck
+npm run lint
+npm run build
+```
+
+GitHub Actions runs these checks on pull requests and main. Lint currently has
+non-blocking warnings in existing shared UI and solution/podcast components.
+
+### Contact configuration
+
+Set `VITE_RECEIVER_EMAIL` to the public inquiry address if overriding
+`info@absolutehealthgroup.com`. Configure `VITE_EMAILJS_SERVICE_ID`,
+`VITE_EMAILJS_TEMPLATE_ID` and `VITE_EMAILJS_PUBLIC_KEY` for EmailJS delivery.
+All `VITE_` values are public browser configuration; never place secrets there.
+Without EmailJS configuration, the form opens a pre-addressed email draft and
+retains entered text. It does not claim that the email was sent.
+
+### Before public release
+
+- Confirm the intended inquiry mailbox and deployed EmailJS configuration.
+- Verify direct load/refresh of `/vms-healthspan`, both section anchors, the
+  contact CTA, keyboard focus, and layouts at mobile/tablet/desktop widths.
+- Publish approved privacy and terms content before restoring those footer
+  links; the old links pointed to unimplemented routes. Do not collect health
+  records through the general inquiry form.
+- Obtain content-owner review of availability and clinical-claims wording.
+
+Local build, TypeScript and lint checks passed during the readiness fixes.
+Browser smoke/visual checks could not run because Chromium was unavailable and
+its download failed. These checks remain outstanding; no test inquiry was sent.
