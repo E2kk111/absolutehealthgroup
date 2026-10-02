@@ -2,7 +2,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Facebook, Twitter, Linkedin, Instagram, Youtube } from 'lucide-react';
-import { link } from 'fs';
 
 const Footer: React.FC = () => {
   const scrollToTop = () => {
@@ -29,6 +28,7 @@ const Footer: React.FC = () => {
     company: [
       { name: "About", href: "/about" },
       { name: "Products", href: "/our-solutions" },
+      { name: "VMS Healthspan", href: "/vms-healthspan" },
       { name: "Podcast", href: "/podcast" },
       { name: "Careers", href: "/careers" },
     ]
@@ -159,9 +159,7 @@ const Footer: React.FC = () => {
         <div className="border-t border-white/20 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-white/70 text-sm text-center md:text-left">
-              &copy; {new Date().getFullYear()} Absolute Health Group. All rights reserved. | 
-              <Link to="/privacy" onClick={scrollToTop} className="hover:text-blue-400 transition-colors ml-1">Privacy Policy</Link> | 
-              <Link to="/terms" onClick={scrollToTop} className="hover:text-blue-400 transition-colors ml-1">Terms of Service</Link>
+              &copy; {new Date().getFullYear()} Absolute Health Group. All rights reserved.
               <br className="md:hidden" />
               <span className="md:ml-2 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent font-semibold">Powered by TransformativeCare™</span>
             </p>

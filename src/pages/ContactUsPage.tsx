@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import emailjs from '@emailjs/browser';
 import { toast } from 'sonner';
-import Header from '../components/Header';
 import Footer from '../components/Footer';
 import { Card, CardContent } from '../components/ui/card';
 import { Input } from '../components/ui/input';
@@ -54,7 +53,7 @@ const ContactUsPage: React.FC = () => {
   const EMAILJS_SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID || 'your_service_id';
   const EMAILJS_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID || 'your_template_id';
   const EMAILJS_PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY || 'your_public_key';
-  const RECIPIENT_EMAIL = import.meta.env.RECEIVER_EMAIL;
+  const RECIPIENT_EMAIL = import.meta.env.VITE_RECEIVER_EMAIL?.trim() || 'info@absolutehealthgroup.com';
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -72,9 +71,6 @@ const ContactUsPage: React.FC = () => {
         toast.success('Opening your email client...', {
           description: 'Please send the email from your email client.',
         });
-        setName('');
-        setEmail('');
-        setMessage('');
         setIsSubmitting(false);
         return;
       }
@@ -115,7 +111,6 @@ const ContactUsPage: React.FC = () => {
 
   return (
     <div className="flex flex-col min-h-screen">
-      <Header />
       <main className="flex-grow">
         {/* Hero Section - 2-column layout, responsive height */}
         <section 
@@ -192,6 +187,7 @@ const ContactUsPage: React.FC = () => {
                   <h2 className="text-3xl font-extrabold text-slate-900 mb-6 bg-gradient-to-r from-slate-900 via-blue-900 to-slate-900 bg-clip-text text-transparent">
                     Send us a Message
                   </h2>
+                  <p className="mb-6 text-sm text-slate-600">For general inquiries only. Please do not include medical records, symptoms or other sensitive health information.</p>
                   <form onSubmit={handleSubmit} className="space-y-6">
                     <div className="space-y-2">
                       <Label htmlFor="name" className="text-base font-semibold text-slate-900">
