@@ -61,6 +61,15 @@ const tiers = [
   {name:"Scale",price:"Site + Enterprise",desc:"Implementation + platform capacity + included Workflow Units™ + overage classes + integrations/FDE + Prove/Economics premium analytics.",cta:"Talk to Enterprise"},
 ];
 
+const marketValueMetrics = [
+  {name:"Governed Work Completed™", text:"Primary operating north star: completed healthcare work with authority, evidence and defined completion criteria."},
+  {name:"Revenue / Workflow Unit", text:"Connect recurring software economics to completed work rather than raw model consumption."},
+  {name:"Contribution / Workflow Unit", text:"Revenue less compute, tools, human review and other variable Cost-to-Goal™ inputs."},
+  {name:"Evidence Completion Rate", text:"Measures whether governed work produces the evidence needed for care, payment, quality and audit."},
+  {name:"Outcome per Dollar of Compute", text:"Links AI infrastructure spend to healthcare and operating outcomes rather than token volume."},
+  {name:"Cost-to-Goal™", text:"Total resources required to complete the defined healthcare or regulatory objective."},
+];
+
 export default function CareInABoxPage(){
  return <div className="bg-white text-slate-950">
   <section className="relative overflow-hidden bg-gradient-to-br from-slate-950 via-blue-950 to-cyan-800 text-white">
@@ -187,6 +196,23 @@ export default function CareInABoxPage(){
    <div className="mt-10 grid gap-6 md:grid-cols-3">{tiers.map((t,i)=><div key={t.name} className={"rounded-2xl border p-7 "+(i===1?"border-blue-600 bg-blue-950 text-white":"border-slate-200 bg-white")}><h3 className="text-xl font-black">{t.name}</h3><div className="mt-4 text-3xl font-black">{t.price}</div><p className={"mt-3 leading-6 "+(i===1?"text-blue-100":"text-slate-600")}>{t.desc}</p><Link to="/contact" className={"mt-7 inline-flex items-center gap-2 rounded-xl px-5 py-3 font-bold "+(i===1?"bg-amber-400 text-slate-950":"bg-blue-700 text-white")}>{t.cta}<ArrowRight className="h-4 w-4"/></Link></div>)}</div>
    <p className="mt-6 text-sm text-slate-500">Proposed commercial pricing. Final pricing depends on population, integrations, implementation scope, workflow complexity, governance and support. Reimbursement, savings, clinical outcomes and technology performance are not guaranteed.</p>
   </section>
+
+  <section className="bg-slate-950 text-white"><div className="mx-auto max-w-7xl px-6 py-20">
+   <p className="font-bold uppercase tracking-widest text-cyan-300">GitHealth™ Market Value</p>
+   <h2 className="mt-2 text-4xl font-black">Healthcare does not need another way to pay for AI tokens.</h2>
+   <p className="mt-4 max-w-5xl text-xl leading-8 text-slate-300">It needs an economic system for paying for governed, measurable work produced with AI. GitHealth converts model activity into accountable Workflow Units™, evidence, outcomes and enterprise economics.</p>
+   <div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-3">{marketValueMetrics.map(x=><div key={x.name} className="rounded-2xl border border-white/10 bg-white/5 p-6"><h3 className="text-xl font-black text-white">{x.name}</h3><p className="mt-3 text-sm leading-6 text-slate-300">{x.text}</p></div>)}</div>
+   <div className="mt-10 rounded-3xl border border-cyan-300/20 bg-cyan-300/10 p-8">
+    <div className="text-sm font-black uppercase tracking-widest text-cyan-200">Machine economics</div>
+    <div className="mt-4 text-lg font-black leading-9">Workflow Unit™ → Agent Execution → Model / Token Cost → Tools / APIs → Human Authority → Evidence → Outcome → Revenue → Cost-to-Goal™ → Contribution → ROI</div>
+    <p className="mt-4 max-w-5xl text-sm leading-6 text-cyan-50">Tokens are a COGS telemetry variable, not the product. Commercial contracts sit above the unit economics through implementation, platform/site capacity, included Workflow Units, metered overage, complex workflow classes, FDE/integrations and Prove™ / Economics™ analytics.</p>
+   </div>
+   <div className="mt-8 flex flex-wrap gap-4">
+    <a href="https://githealth-market-value.adabakadiri.chatgpt.site" target="_blank" rel="noreferrer" className="rounded-xl bg-amber-400 px-6 py-3 font-black text-slate-950">OPEN GITHEALTH MARKET VALUE</a>
+    <Link to="/contact" className="rounded-xl border border-white/30 px-6 py-3 font-black text-white">DISCUSS ENTERPRISE CAPACITY</Link>
+   </div>
+   <p className="mt-6 text-xs leading-5 text-slate-400">Market-value examples and economic models are strategic planning tools. Pricing, margins, savings and outcomes require validation with actual deployment data and customer-specific contracts.</p>
+  </div></section>
 
   <section className="bg-blue-950 text-white"><div className="mx-auto max-w-7xl px-6 py-20">
    <p className="font-bold uppercase tracking-widest text-cyan-300">Distribution engine</p><h2 className="mt-2 text-4xl font-black">Authority content becomes paid intelligent work.</h2>
