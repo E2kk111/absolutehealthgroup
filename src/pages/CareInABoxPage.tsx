@@ -8,6 +8,7 @@ const audiences = [
   { name:"Medical Groups", offer:"PIN / CHI / APCM opportunity analysis", product:"Care-at-Home-in-a-Box™" },
   { name:"Wound Care", offer:"Documentation + LCD reimbursement assessment", product:"Wound Care-in-a-Box™" },
   { name:"Value-Based Care", offer:"Total-cost-of-care opportunity assessment", product:"Enterprise Care-in-a-Box™" },
+  { name:"Hospitality / Mobile Care", offer:"Governed hydration + recovery service-line assessment", product:"Hydration & Recovery Care-in-a-Box™" },
 ];
 
 const applications = [
@@ -18,13 +19,14 @@ const applications = [
   { name:"Burn Recovery-in-a-Box™", tag:"Burn + Reconstruction + Recovery", icon:HeartPulse, text:"Connected burn, wound, reconstruction, orthopedic and rehabilitation recovery workflows." },
   { name:"Wound Care / WoundOS™", tag:"Tissue Repair Intelligence", icon:ShieldCheck, text:"Assessment, wound intelligence, documentation integrity, specialty coordination and outcomes." },
   { name:"RuralCare AI™", tag:"Care Anywhere", icon:Home, text:"Community clinicians connected to virtual specialists, longitudinal records and coordinated care." },
-  { name:"Regenerative & Longevity", tag:"Governed Clinical Workflow", icon:Brain, text:"Eligibility, evidence review, authorized treatment, IV hydration and recovery services, longitudinal monitoring and measured outcomes." },
+  { name:"Regenerative & Longevity", tag:"Governed Clinical Workflow", icon:Brain, text:"Eligibility, evidence review, authorized treatment, longitudinal monitoring and measured outcomes." },
+  { name:"Hydration & Recovery", tag:"Mobile / On-Site Clinical Service", icon:HeartPulse, text:"Clinician-governed hydration workflows with screening, authorization, administration, monitoring, documentation and escalation." },
 ];
 
 const clinicalNetwork = [
   { name:"PAC Solutions", role:"Physician authority + specialty network" },
   { name:"Joint & Neuro", role:"Continuous rehabilitation + functional outcomes" },
-  { name:"DermalQ™ / WoundMetric™", role:"Measurement + wound intelligence" },
+  { name:"DermalQ™", role:"Objective wound measurement + clinical evidence" },
   { name:"WoundOS™", role:"Tissue-repair operating system" },
   { name:"Hydration & Recovery Services", role:"Mobile / on-site IV hydration workflows with clinical screening, protocols and authorized administration" },
   { name:"Specialists + Devices + Products", role:"Permissioned clinical resources when appropriate" },
@@ -161,9 +163,9 @@ export default function CareInABoxPage(){
    <h2 className="mt-2 text-4xl font-black">Provider reimbursement is not GitHealth revenue.</h2>
    <p className="mt-4 max-w-4xl text-lg text-slate-600">Illustrative unit economics show how GitHealth can enable and govern a qualifying provider workflow while keeping the provider payment pathway separate from GitHealth's software economics.</p>
    <div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-5">
-    {[["Provider allowed amount","$30.00"],["Illustrative GitHealth fee","$3.00"],["Variable Cost-to-Goal™","$0.50"],["GitHealth contribution","$2.50"],["Variable contribution margin","83.3%"]].map(([k,v])=><div key={k} className="rounded-2xl bg-white p-6 shadow-sm"><div className="text-sm font-bold text-slate-500">{k}</div><div className="mt-2 text-3xl font-black text-blue-950">{v}</div></div>)}
+    {[["Provider allowed amount","$30.00"],["Illustrative practitioner labor","($15.00)"],["Illustrative GitHealth allocation","($3.00)"],["Provider remainder before other costs","$12.00"],["GitHealth variable Cost-to-Goal™","($0.50)"],["GitHealth contribution","$2.50"],["GitHealth variable contribution margin","83.3%"]].map(([k,v])=><div key={k} className="rounded-2xl bg-white p-6 shadow-sm"><div className="text-sm font-bold text-slate-500">{k}</div><div className="mt-2 text-3xl font-black text-blue-950">{v}</div></div>)}
    </div>
-   <p className="mt-6 text-sm leading-6 text-slate-500">Illustrative planning assumptions, not observed production economics or a guarantee of reimbursement or margin. The $30 ACCESS CMP allowed amount belongs to the eligible billing provider, not GitHealth. Actual Medicare payment and provider economics may vary based on eligibility, service requirements, adjustments, billing expense, denials and other costs. GitHealth pricing shown here is hypothetical.</p>
+   <p className="mt-6 text-sm leading-6 text-slate-500">Illustrative planning assumptions, not observed production economics or a guarantee of reimbursement or margin. The $30 ACCESS CMP allowed amount belongs to the eligible billing provider, not GitHealth. CMS currently permits eligible practitioners to bill G0676, G0677 or G0678 when the applicable requirements are met; qualifying first-time onboarding support may add $10 with modifier AC. Actual Medicare payment and provider economics vary with eligibility, geography, sequestration, service requirements, billing expense, denials and other costs. GitHealth pricing shown here is hypothetical. <a className="font-bold text-blue-700 underline" href="https://www.cms.gov/priorities/innovation/access-co-management-payment-cmp-billing-guidance" target="_blank" rel="noreferrer">CMS billing guidance</a>.</p>
   </div></section>
 
   <section className="bg-white"><div className="mx-auto max-w-7xl px-6 py-20">
@@ -184,7 +186,7 @@ export default function CareInABoxPage(){
    </div>
    <div className="mt-8 rounded-2xl bg-blue-950 p-7 text-white">
     <div className="text-sm font-bold uppercase tracking-widest text-cyan-300">Illustrative economic flow</div>
-    <div className="mt-3 text-xl font-black">PIN payment pathway → Provider → Navigator work + GitHealth Workflow Unit™ → Evidence → Outcome</div>
+    <div className="mt-3 text-xl font-black">PIN payment pathway → Provider → Navigator work + GitHealth Workflow Unit™ → Evidence → Outcome → Payment Proof</div>
     <p className="mt-3 text-sm leading-6 text-blue-100">G0024 may support additional 30-minute PIN time when requirements are met. It should be metered as an additional workflow class rather than assumed automatically.</p>
    </div>
    <p className="mt-6 text-sm leading-6 text-slate-500">Illustrative planning assumptions only. The $87.18 reference is the CY 2026 national non-facility amount for G0023; actual Medicare payment varies by locality, site of service, provider status, deductible/coinsurance, payer rules and other adjustments. The $30 navigator labor assumption, $9 GitHealth allocation and $1.50 Cost-to-Goal™ are internal economic assumptions, not CMS rates. PIN requires an initiating visit and a qualifying serious, high-risk condition; model-overlap rules also matter.</p>
@@ -196,7 +198,7 @@ export default function CareInABoxPage(){
    <p className="mt-3 text-2xl font-black text-amber-300">2028 Is the Deadline. 2027 Is the Build Year.</p>
    <p className="mt-5 max-w-5xl text-lg text-blue-100">Launch CJR-X readiness without building the 90-day recovery infrastructure yourself. The hospital keeps its brand, patients, orthopedic team and clinical authority; Care-in-a-Box provides the recovery operating layer underneath.</p>
    <div className="mt-8 rounded-2xl border border-white/15 bg-white/5 p-7 text-center text-lg font-black leading-9">IDENTIFY → PREPARE → PROCEDURE → TRANSITION → RECOVER → MONITOR → MEASURE → PROVE</div>
-   <p className="mt-5 text-sm leading-6 text-blue-200">CJR-X is scheduled to begin January 1, 2028 and is designed as a nationwide mandatory episode-based payment model for most qualifying IPPS hospitals, subject to CMS exclusions and final model requirements. Independent solution; not affiliated with or endorsed by CMS.</p>
+   <p className="mt-5 text-sm leading-6 text-blue-200">CMS states CJR-X will be mandatory nationwide and begin January 1, 2028. Participating hospitals will be accountable for coordinated, affordable care from the joint-replacement procedure through the first 90 days of recovery. Independent solution; not affiliated with or endorsed by CMS. <a className="font-bold text-cyan-200 underline" href="https://www.cms.gov/priorities/innovation/innovation-models/cjr-x" target="_blank" rel="noreferrer">CMS CJR-X model page</a>.</p>
   </div></section>
 
   <section className="mx-auto max-w-7xl px-6 py-20">
