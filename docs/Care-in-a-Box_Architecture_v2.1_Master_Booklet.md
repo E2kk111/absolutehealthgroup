@@ -1,3 +1,5 @@
+> **SUPERSEDED:** This v2.1 document is retained for history. The canonical architecture is now **Care-in-a-Box™ Architecture v2.0** in `docs/Care-in-a-Box_Architecture_v2.0_Canonical_Master.md`. Do not use this file as the current product hierarchy or economic model.
+
 # Care-in-a-Box™ Architecture v2.1 — Master Booklet
 
 **Absolute Health Group**  

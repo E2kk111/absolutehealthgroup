@@ -8,19 +8,18 @@ const audiences = [
   { name:"Medical Groups", offer:"PIN / CHI / APCM opportunity analysis", product:"Care-at-Home-in-a-Box™" },
   { name:"Wound Care", offer:"Documentation + LCD reimbursement assessment", product:"Wound Care-in-a-Box™" },
   { name:"Value-Based Care", offer:"Total-cost-of-care opportunity assessment", product:"Enterprise Care-in-a-Box™" },
-  { name:"Hospitality / Mobile Care", offer:"Governed hydration + recovery service-line assessment", product:"Hydration & Recovery Care-in-a-Box™" },
 ];
 
 const applications = [
-  { name:"Specialty Care-in-a-Box™", tag:"Institutional Specialty Access", icon:Stethoscope, text:"Physician-led specialty pathways without building the specialty infrastructure internally." },
-  { name:"Recovery / Joint & Neuro", tag:"Continuous Rehabilitation", icon:Activity, text:"Facility-to-home rehabilitation, functional measurement and a longitudinal Recovery Record™." },
-  { name:"ACCESS Senior Care", tag:"Chronic Care + Co-Management", icon:Sparkles, text:"Senior and chronic-care workflows, PCP coordination, evidence and payment-pathway support." },
+  { name:"Specialty Care-in-a-Box™", tag:"Institutional Specialty Access", icon:Stethoscope, text:"Flagship institutional platform for physician-led specialty pathways without building the specialty infrastructure internally." },
+  { name:"PIN-in-a-Box™", tag:"Recurring Navigation", icon:Workflow, text:"Principal illness navigation workflows with evidence, human authority, longitudinal coordination and Workflow Unit economics." },
+  { name:"ACCESS Care-in-a-Box™", tag:"Co-Management Workflows", icon:Sparkles, text:"ACCESS care-update review, coordination, evidence and co-management workflow infrastructure." },
   { name:"CJR-X Recovery-in-a-Box™", tag:"90-Day Orthopedic Episodes", icon:Building2, text:"Readiness, transitions, recovery, quality measurement and episode-economics infrastructure." },
   { name:"Burn Recovery-in-a-Box™", tag:"Burn + Reconstruction + Recovery", icon:HeartPulse, text:"Connected burn, wound, reconstruction, orthopedic and rehabilitation recovery workflows." },
-  { name:"Wound Care / WoundOS™", tag:"Tissue Repair Intelligence", icon:ShieldCheck, text:"Assessment, wound intelligence, documentation integrity, specialty coordination and outcomes." },
-  { name:"RuralCare AI™", tag:"Care Anywhere", icon:Home, text:"Community clinicians connected to virtual specialists, longitudinal records and coordinated care." },
-  { name:"Regenerative & Longevity", tag:"Governed Clinical Workflow", icon:Brain, text:"Eligibility, evidence review, authorized treatment, longitudinal monitoring and measured outcomes." },
-  { name:"Hydration & Recovery", tag:"Mobile / On-Site Clinical Service", icon:HeartPulse, text:"Clinician-governed hydration workflows with screening, authorization, administration, monitoring, documentation and escalation." },
+  { name:"Wound Care-in-a-Box™", tag:"WoundOS + DermalQ", icon:ShieldCheck, text:"Assessment, wound intelligence, documentation integrity, specialty coordination and outcomes." },
+  { name:"RuralCare AI™", tag:"Distributed Specialty Care", icon:Home, text:"Community clinicians connected to virtual specialists, longitudinal records and coordinated care." },
+  { name:"Senior Care-in-a-Box™", tag:"Healthy Aging + Specialty Access", icon:Activity, text:"Longitudinal senior-care workflows combining specialty access, navigation, monitoring and escalation." },
+  { name:"Regenerative / Longevity", tag:"Governed Clinical Workflows", icon:Brain, text:"Eligibility, evidence review, authorized treatment, longitudinal monitoring and service lines such as clinician-governed hydration where appropriate." },
 ];
 
 const clinicalNetwork = [
@@ -28,7 +27,6 @@ const clinicalNetwork = [
   { name:"Joint & Neuro", role:"Continuous rehabilitation + functional outcomes" },
   { name:"DermalQ™", role:"Objective wound measurement + clinical evidence" },
   { name:"WoundOS™", role:"Tissue-repair operating system" },
-  { name:"Hydration & Recovery Services", role:"Mobile / on-site IV hydration workflows with clinical screening, protocols and authorized administration" },
   { name:"Specialists + Devices + Products", role:"Permissioned clinical resources when appropriate" },
 ];
 
@@ -53,9 +51,10 @@ const aionStack = [
   {name:"AION™", role:"Healthcare Intelligence + Authority", flow:"Clinical • Operational • Financial"},
   {name:"PolicyPulse™", role:"Regulatory Intelligence", flow:"Observe → Detect → Compare → Interpret → Approve"},
   {name:"RegOS™", role:"Regulatory Control Plane", flow:"Version → Apply → Execute → Monitor → Prove"},
-  {name:"GitHealth™", role:"Governed Execution + Metering", flow:"Connect → Normalize → Govern → Execute → Prove → Measure"},
+  {name:"GitHealth™", role:"Governed Execution + Economic Metering", flow:"Connect → Normalize → Govern → Execute → Prove → Measure"},
   {name:"ShieldAI™", role:"Evidence Integrity", flow:"Completeness → Consistency → Rule Match → Authority Check"},
-  {name:"Prove™ + Economics™", role:"Proof + Value", flow:"Evidence → Payment → Outcome → Cost-to-Goal™ → ROI"},
+  {name:"Prove™", role:"Evidence + Provenance", flow:"Source → Authority → Action → Outcome → Payment"},
+  {name:"Economics™", role:"Workflow Economics", flow:"Workflow Units → Cost-to-Goal™ → Margin → ROI"},
 ];
 
 const tiers = [
@@ -81,12 +80,30 @@ export default function CareInABoxPage(){
      <div className="mb-5 inline-flex rounded-full border border-cyan-300/30 bg-cyan-300/10 px-4 py-2 text-sm font-semibold text-cyan-100">ABSOLUTE HEALTH GROUP · INSTITUTIONAL CARE DELIVERY</div>
      <h1 className="text-5xl font-black tracking-tight md:text-7xl">Care-in-a-Box™</h1>
      <p className="mt-4 text-2xl font-semibold text-cyan-200">Deploy. Connect. Care. Measure. Prove. Scale.</p>
-     <p className="mt-6 max-w-4xl text-xl leading-8 text-blue-100">Bring specialty care into your organization — without building the specialty infrastructure yourself. Customers buy care programs and completed work. GitHealth™ governs, proves and measures the infrastructure underneath.</p>
+     <p className="mt-6 max-w-4xl text-xl leading-8 text-blue-100">Bring specialty care into your organization — without building the specialty infrastructure yourself. Care-in-a-Box™ is what the customer buys; intelligence, regulatory control, governed execution, evidence and economics operate underneath.</p>
+     <p className="mt-5 max-w-5xl text-sm font-bold uppercase tracking-wider text-cyan-200">Delivered by Absolute Health Group™ · Intelligence + Authority by AION™ · Governed Execution by GitHealth™</p>
      <div className="mt-7 grid max-w-4xl gap-3 text-base font-bold sm:grid-cols-2"><div>✓ Your Brand. Your Patients. Your Clinical Authority.</div><div>✓ Our Infrastructure Underneath.</div></div>
      <div className="mt-9 flex flex-wrap gap-4"><a href="#opportunity" className="rounded-xl bg-amber-400 px-6 py-3 font-bold text-slate-950">Get an Opportunity Assessment</a><a href="#applications" className="rounded-xl border border-white/30 px-6 py-3 font-bold">Explore Care Programs</a></div>
     </div>
    </div>
   </section>
+
+  <section className="bg-slate-950 text-white"><div className="mx-auto max-w-7xl px-6 py-16">
+   <div className="grid gap-8 lg:grid-cols-2 lg:items-center">
+    <div>
+     <p className="font-bold uppercase tracking-widest text-cyan-300">Architecture v2.0 · Canonical Master Story</p>
+     <div className="mt-5 space-y-2 text-2xl font-black md:text-3xl">
+      <div>CAPTURE THE EVIDENCE</div><div>UNDERSTAND THE PATIENT</div><div>KNOW THE RULES</div><div>COORDINATE THE CARE</div><div>PROTECT THE PAYMENT</div><div>PROVE THE OUTCOME</div>
+     </div>
+    </div>
+    <div>
+     <h2 className="text-3xl font-black">One institutional care platform. Multiple applications. One governed execution layer. One measurable economic engine.</h2>
+     <div className="mt-6 space-y-2 text-sm leading-6 text-slate-300">
+      <p><strong className="text-white">Care-in-a-Box™</strong> creates the work.</p><p><strong className="text-white">AION™</strong> understands and authorizes the work.</p><p><strong className="text-white">PolicyPulse™</strong> knows when the rules change.</p><p><strong className="text-white">RegOS™</strong> controls which rules execute.</p><p><strong className="text-white">GitHealth™</strong> governs and meters the work.</p><p><strong className="text-white">ShieldAI™</strong> makes the evidence defensible.</p><p><strong className="text-white">Prove™</strong> establishes what happened.</p><p><strong className="text-white">Economics™</strong> determines whether it created value.</p>
+     </div>
+    </div>
+   </div>
+  </div></section>
 
   <section className="border-b bg-white"><div className="mx-auto max-w-7xl px-6 py-10">
    <p className="text-center text-2xl font-black text-blue-950">A code is not coverage. Coverage is not payment. Payment is not proof. <span className="text-cyan-700">GitHealth connects all four.</span></p>
@@ -107,7 +124,7 @@ export default function CareInABoxPage(){
   <section id="applications" className="mx-auto max-w-7xl px-6 py-20">
    <p className="font-bold uppercase tracking-widest text-blue-700">Market / Distribution Layer</p>
    <h2 className="mt-2 text-4xl font-black">One institutional platform. Multiple care applications.</h2>
-   <p className="mt-4 max-w-4xl text-lg text-slate-600">A hospital administrator sees Care-in-a-Box. A wound center sees WoundOS/DermalQ. A rehab organization sees Joint & Neuro. A rural organization sees RuralCare AI. Each enters the same governed operating infrastructure underneath.</p>
+   <p className="mt-4 max-w-4xl text-lg text-slate-600">Specialty Care-in-a-Box™ is the flagship institutional deployment model. PIN, ACCESS, CJR-X, Burn, Wound, Rural, Senior and Regenerative/Longevity are applications of the same platform. Recovery, brain, cardiac, care-at-home, post-acute and behavioral capabilities remain clinical modules and workflows rather than separate top-level products.</p>
    <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-4">{applications.map(a=>{const Icon=a.icon;return <article key={a.name} className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm"><Icon className="h-8 w-8 text-blue-700"/><h3 className="mt-5 text-xl font-black">{a.name}</h3><p className="mt-1 font-semibold text-cyan-700">{a.tag}</p><p className="mt-4 text-sm leading-6 text-slate-600">{a.text}</p></article>})}</div>
   </section>
 
@@ -117,36 +134,16 @@ export default function CareInABoxPage(){
    <p className="mt-8 max-w-5xl text-sm leading-6 text-blue-200">Regenerative products, devices and manufacturer claims remain separate from GitHealth authority. Product eligibility, regulatory status, intended use, evidence and reimbursement must be independently validated for the specific workflow.</p>
   </div></section>
 
-  <section className="bg-cyan-50"><div className="mx-auto max-w-7xl px-6 py-20">
-   <p className="font-bold uppercase tracking-widest text-blue-700">New Clinical Service Line</p>
-   <h2 className="mt-2 text-4xl font-black">Mobile IV Hydration & Recovery</h2>
-   <p className="mt-4 max-w-5xl text-lg leading-8 text-slate-600">A governed clinical service line inside Care-in-a-Box™ — not another standalone technology brand. The initial offer centers on clinician-governed IV fluids and electrolyte support for appropriate patients, delivered through mobile, on-site or facility-based workflows.</p>
-   <div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
-    {[
-      ["Dehydration Hydration","IV fluids + electrolytes for clinically appropriate hydration support."],
-      ["Recovery Hydration","Hydration support in recovery contexts where IV therapy is clinically appropriate."],
-      ["Mobile / On-Site Delivery","Home, hospitality, employer, event and partner-site deployment subject to applicable requirements."],
-      ["Longitudinal Integration","Screening, consent, administration record, monitoring, follow-up, outcomes and escalation in the governed record."],
-    ].map(([k,v])=><div key={k} className="rounded-2xl border border-cyan-100 bg-white p-6 shadow-sm"><h3 className="text-xl font-black text-blue-950">{k}</h3><p className="mt-3 text-sm leading-6 text-slate-600">{v}</p></div>)}
-   </div>
-   <div className="mt-8 rounded-3xl bg-blue-950 p-8 text-white">
-    <div className="text-sm font-black uppercase tracking-widest text-cyan-300">Governed Care-in-a-Box™ workflow</div>
-    <div className="mt-4 text-lg font-black leading-9">REQUEST → SCREEN → AUTHORIZE → PREPARE → ADMINISTER → MONITOR → DOCUMENT → FOLLOW-UP → PROVE</div>
-    <p className="mt-4 max-w-5xl text-sm leading-6 text-blue-100">Commercial pathways can include direct-pay mobile services, memberships, facility and hospitality programs, and employer/event services. Patient selection, ordering/prescribing, sourcing, staffing, scope of practice and emergency protocols remain jurisdiction- and setting-specific.</p>
-   </div>
-   <p className="mt-6 text-xs leading-5 text-slate-500">No clinical outcome or reimbursement guarantee is implied. Absolute Health protocols, eligibility criteria, formulations, staffing and claims language require appropriate clinical and regulatory validation before deployment.</p>
-  </div></section>
-
   <section className="bg-slate-950 text-white"><div className="mx-auto max-w-7xl px-6 py-20">
-   <p className="font-bold uppercase tracking-widest text-cyan-300">Architecture v2.1</p>
+   <p className="font-bold uppercase tracking-widest text-cyan-300">Architecture v2.0</p>
    <h2 className="mt-2 text-4xl font-black">One operating system. Multiple distribution applications. One measurable economic engine.</h2>
-   <p className="mt-4 max-w-5xl text-lg text-slate-300">Care-in-a-Box™ is the commercial front door. AION™ provides intelligence and authority. PolicyPulse™ watches policy lifecycle. RegOS™ controls which approved rules may execute. GitHealth™ executes and meters governed work. ShieldAI™ tests evidence integrity. Prove™ and Economics™ establish what happened and whether it created value.</p>
+   <p className="mt-4 max-w-5xl text-lg text-slate-300">Care-in-a-Box™ is the commercial front door. AION™ remains above GitHealth conceptually because it is the intelligence and authority architecture; GitHealth™ is the governed execution substrate. Operationally they form a loop: GitHealth supplies context and evidence → AION establishes authority → RegOS supplies executable regulatory controls → GitHealth executes and records the result. ShieldAI™, Prove™ and Economics™ test defensibility, preserve provenance and measure value.</p>
    <div className="mt-10 grid gap-4 lg:grid-cols-6">{aionStack.map((x,i)=><div key={x.name} className="rounded-2xl border border-white/10 bg-white/5 p-5"><div className="text-xs font-black text-cyan-300">0{i+1}</div><h3 className="mt-2 text-lg font-black">{x.name}</h3><p className="mt-2 text-sm font-semibold text-blue-100">{x.role}</p><p className="mt-3 text-xs leading-5 text-slate-300">{x.flow}</p></div>)}</div>
    <div className="mt-8 rounded-2xl border border-amber-300/30 bg-amber-300/10 p-6"><div className="font-black text-amber-200">Regulatory safety boundary</div><p className="mt-2 text-sm leading-6 text-amber-50">PolicyPulse may detect proposed or future policy and generate readiness analysis, but proposed rules do not silently become production authority. Regulatory objects move through PROPOSED → FINAL / FUTURE EFFECTIVE → ACTIVE → SUPERSEDED → RETIRED, with source, jurisdiction, effective dates, applicability, executable logic, supersession history and approval record.</p></div>
   </div></section>
 
   <section className="mx-auto max-w-7xl px-6 py-20">
-   <p className="font-bold uppercase tracking-widest text-blue-700">GitHealth™ — Healthcare Intelligence OS</p>
+   <p className="font-bold uppercase tracking-widest text-blue-700">GitHealth™ — Governed Execution + Economic Metering</p>
    <h2 className="mt-2 text-4xl font-black">Completed work outside. Governed execution underneath.</h2>
    <p className="mt-4 max-w-4xl text-lg text-slate-600">Patients and frontline teams should not have to buy or understand tokens. GitHealth executes and meters the work while AION™ enforces authority and Prove™ preserves the evidence trail.</p>
    <div className="mt-10 grid gap-4 md:grid-cols-3 lg:grid-cols-6">{workflow.map((x,i)=><div key={x} className="rounded-2xl border border-slate-200 p-5"><div className="text-sm font-black text-blue-700">0{i+1}</div><div className="mt-2 text-lg font-black">{x}</div></div>)}</div>
@@ -214,8 +211,28 @@ export default function CareInABoxPage(){
    <div className="mt-8 rounded-3xl bg-slate-950 p-8 text-white"><h3 className="text-2xl font-black">LTACH Value Map</h3><p className="mt-4 text-sm leading-7 text-slate-300">Referral Leakage → Capacity / Throughput → Avoidable Bed-Days → Recovery Velocity / ALOS → Labor Productivity → Payment Variance → Denials / Documentation → Quality / Readmissions → Cost-Report Variance → Gross Opportunity → Risk-Adjusted Recoverable Opportunity → Deployment Cost → Cost-to-Goal™ → ROI</p></div>
   </section>
 
+  <section className="bg-cyan-50"><div className="mx-auto max-w-7xl px-6 py-20">
+   <p className="font-bold uppercase tracking-widest text-blue-700">Workflow Economics</p>
+   <h2 className="mt-2 text-4xl font-black">Provider reimbursement ≠ GitHealth revenue.</h2>
+   <p className="mt-4 max-w-5xl text-lg text-slate-600">PIN and ACCESS illustrate the same economic principle: provider payment belongs to the applicable clinical/payment pathway; GitHealth monetizes governed infrastructure through platform capacity and Workflow Units™.</p>
+   <div className="mt-10 overflow-hidden rounded-3xl border border-cyan-100 bg-white shadow-sm">
+    <div className="grid md:grid-cols-3">
+     <div className="p-6 font-black text-slate-500">Economic dimension</div><div className="p-6 font-black text-blue-950">PIN-in-a-Box™</div><div className="p-6 font-black text-blue-950">ACCESS Care-in-a-Box™</div>
+     {[
+       ["Buyer","PCP / MSO / Senior Living","PCP / FQHC / RHC / Senior Living"],
+       ["Economic type","Recurring navigation","Co-management micro-workflow"],
+       ["Provider payment","Applicable PIN payment pathway","$30 reference CMP pathway"],
+       ["GitHealth monetization","Subscription + Workflow Units","Subscription + Workflow Units"],
+       ["Economic objective","Navigation contribution + scale","Low Cost-to-Goal + high-volume work"],
+       ["ROI","Recurring care-management ROI","Workflow ROI"],
+     ].map(([a,b,d])=><div key={a} className="contents"><div className="border-t p-6 text-sm font-bold text-slate-500">{a}</div><div className="border-t p-6 text-sm text-slate-700">{b}</div><div className="border-t p-6 text-sm text-slate-700">{d}</div></div>)}
+    </div>
+   </div>
+   <p className="mt-5 text-xs leading-5 text-slate-500">ACCESS CMP reference: CMS lists G0676, G0677 and G0678 at a $30 allowed amount before applicable geographic and Medicare payment adjustments. PIN payment varies by code, locality, setting and other Medicare payment factors; verify the current fee schedule before contracting or billing.</p>
+  </div></section>
+
   <section id="pricing" className="mx-auto max-w-7xl px-6 py-20">
-   <p className="font-bold uppercase tracking-widest text-blue-700">Commercial motion</p><h2 className="mt-2 text-4xl font-black">Assessment → Pilot → Recurring Work → Scale</h2>
+   <p className="font-bold uppercase tracking-widest text-blue-700">Commercial motion</p><h2 className="mt-2 text-4xl font-black">Implementation → Platform Capacity → Workflow Units → Enterprise Expansion</h2>
    <div className="mt-10 grid gap-6 md:grid-cols-3">{tiers.map((t,i)=><div key={t.name} className={"rounded-2xl border p-7 "+(i===1?"border-blue-600 bg-blue-950 text-white":"border-slate-200 bg-white")}><h3 className="text-xl font-black">{t.name}</h3><div className="mt-4 text-3xl font-black">{t.price}</div><p className={"mt-3 leading-6 "+(i===1?"text-blue-100":"text-slate-600")}>{t.desc}</p><Link to="/contact" className={"mt-7 inline-flex items-center gap-2 rounded-xl px-5 py-3 font-bold "+(i===1?"bg-amber-400 text-slate-950":"bg-blue-700 text-white")}>{t.cta}<ArrowRight className="h-4 w-4"/></Link></div>)}</div>
    <p className="mt-6 text-sm text-slate-500">Proposed commercial pricing. Final pricing depends on population, integrations, implementation scope, workflow complexity, governance and support. Reimbursement, savings, clinical outcomes and technology performance are not guaranteed.</p>
   </section>
@@ -242,6 +259,15 @@ export default function CareInABoxPage(){
    <div className="mt-8 rounded-2xl border border-white/15 bg-white/5 p-7 text-center text-lg font-black leading-9 text-blue-50">CONTENT → LEAD → VALUE / WORKFLOW ASSESSMENT → PILOT → DEPLOYMENT → WORKFLOW UNITS → GOVERNED EXECUTIONS → EVIDENCE → OUTCOMES → ROI → CASE STUDY → MORE CLIENTS</div>
    <p className="mt-6 max-w-4xl text-blue-100">The white paper establishes authority. Buyer-specific briefs earn the meeting. The Opportunity Assessment creates the first transaction. Recurring governed workflows create software usage, evidence and measurable economics.</p>
   </div></section>
+
+  <section className="mx-auto max-w-7xl px-6 py-20">
+   <p className="font-bold uppercase tracking-widest text-blue-700">National Commercial Wedges</p>
+   <h2 className="mt-2 text-4xl font-black">Two wedges. One institutional architecture.</h2>
+   <div className="mt-10 grid gap-6 lg:grid-cols-2">
+    <div className="rounded-3xl border border-slate-200 p-8 shadow-sm"><div className="text-sm font-black uppercase tracking-widest text-cyan-700">Health Systems + Orthopedics</div><h3 className="mt-3 text-2xl font-black">CJR-X Recovery-in-a-Box™</h3><p className="mt-4 text-slate-600">The national campaign: episode readiness, 90-day recovery, quality, evidence and economics for joint-replacement episodes.</p></div>
+    <div className="rounded-3xl border border-slate-200 p-8 shadow-sm"><div className="text-sm font-black uppercase tracking-widest text-purple-700">Complex-Recovery Hospitals</div><h3 className="mt-3 text-2xl font-black">Precision Recovery Health™ / LTACH OS™</h3><p className="mt-4 text-slate-600">The deepest AION institutional demonstration: Value Diagnostic, recovery intelligence, multidisciplinary operations, payment integrity and longitudinal outcomes.</p></div>
+   </div>
+  </section>
 
   <section className="mx-auto max-w-7xl px-6 py-20"><div className="rounded-3xl bg-gradient-to-r from-blue-950 to-cyan-800 p-10 text-white md:p-14"><Workflow className="h-10 w-10 text-cyan-300"/><h2 className="mt-4 text-4xl font-black">Tell us the care problem. We deploy the box.</h2><p className="mt-5 max-w-3xl text-blue-100">Start with one workflow, one population and one site. We map the opportunity, configure the operating model, preserve human authority, measure the work and scale what proves value.</p><Link to="/contact" className="mt-8 inline-flex items-center gap-2 rounded-xl bg-amber-400 px-7 py-4 font-black text-slate-950">START AN OPPORTUNITY ASSESSMENT <ArrowRight className="h-4 w-4"/></Link></div></section>
 
