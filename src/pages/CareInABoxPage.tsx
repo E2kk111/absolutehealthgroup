@@ -110,6 +110,30 @@ export default function CareInABoxPage(){
    <p className="mt-6 text-sm leading-6 text-slate-500">Illustrative planning assumptions, not observed production economics or a guarantee of reimbursement or margin. The $30 ACCESS CMP allowed amount belongs to the eligible billing provider, not GitHealth. Actual Medicare payment and provider economics may vary based on eligibility, service requirements, adjustments, billing expense, denials and other costs. GitHealth pricing shown here is hypothetical.</p>
   </div></section>
 
+  <section className="bg-white"><div className="mx-auto max-w-7xl px-6 py-20">
+   <p className="font-bold uppercase tracking-widest text-blue-700">Reference Economics · Principal Illness Navigation</p>
+   <h2 className="mt-2 text-4xl font-black">PIN Workflow Unit™</h2>
+   <p className="mt-4 max-w-4xl text-lg text-slate-600">For G0023, CMS defines the base PIN service as 60 minutes per calendar month by certified or trained auxiliary personnel under practitioner direction. Using the CY 2026 national non-facility amount of approximately $87.18 as the reference point, GitHealth can meter the navigation workflow separately from the provider reimbursement.</p>
+   <div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+    {[
+      ["Provider reference amount","$87.18"],
+      ["Illustrative navigator labor","($30.00)"],
+      ["GitHealth usage allocation","($9.00)"],
+      ["Provider remainder before other costs","$48.18"],
+      ["GitHealth workflow revenue","$9.00"],
+      ["GitHealth variable Cost-to-Goal™","($1.50)"],
+      ["GitHealth contribution","$7.50"],
+      ["GitHealth variable contribution margin","83.3%"],
+    ].map(([k,v])=><div key={k} className="rounded-2xl border border-slate-200 bg-slate-50 p-6"><div className="text-sm font-bold text-slate-500">{k}</div><div className="mt-2 text-3xl font-black text-blue-950">{v}</div></div>)}
+   </div>
+   <div className="mt-8 rounded-2xl bg-blue-950 p-7 text-white">
+    <div className="text-sm font-bold uppercase tracking-widest text-cyan-300">Illustrative economic flow</div>
+    <div className="mt-3 text-xl font-black">PIN payment pathway → Provider → Navigator work + GitHealth Workflow Unit™ → Evidence → Outcome</div>
+    <p className="mt-3 text-sm leading-6 text-blue-100">G0024 may support additional 30-minute PIN time when requirements are met. It should be metered as an additional workflow class rather than assumed automatically.</p>
+   </div>
+   <p className="mt-6 text-sm leading-6 text-slate-500">Illustrative planning assumptions only. The $87.18 reference is the CY 2026 national non-facility amount for G0023; actual Medicare payment varies by locality, site of service, provider status, deductible/coinsurance, payer rules and other adjustments. The $30 navigator labor assumption, $9 GitHealth allocation and $1.50 Cost-to-Goal™ are internal economic assumptions, not CMS rates. PIN requires an initiating visit and a qualifying serious, high-risk condition; model-overlap rules also matter.</p>
+  </div></section>
+
   <section id="pricing" className="mx-auto max-w-7xl px-6 py-20">
    <p className="font-bold uppercase tracking-widest text-blue-700">Commercial motion</p><h2 className="mt-2 text-4xl font-black">Assessment → Pilot → Recurring Work → Scale</h2>
    <div className="mt-10 grid gap-6 md:grid-cols-3">{tiers.map((t,i)=><div key={t.name} className={"rounded-2xl border p-7 "+(i===1?"border-blue-600 bg-blue-950 text-white":"border-slate-200 bg-white")}><h3 className="text-xl font-black">{t.name}</h3><div className="mt-4 text-3xl font-black">{t.price}</div><p className={"mt-3 leading-6 "+(i===1?"text-blue-100":"text-slate-600")}>{t.desc}</p><Link to="/contact" className={"mt-7 inline-flex items-center gap-2 rounded-xl px-5 py-3 font-bold "+(i===1?"bg-amber-400 text-slate-950":"bg-blue-700 text-white")}>{t.cta}<ArrowRight className="h-4 w-4"/></Link></div>)}</div>
