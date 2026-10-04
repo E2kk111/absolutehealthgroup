@@ -18,7 +18,7 @@ const applications = [
   { name:"Burn Recovery-in-a-Box™", tag:"Burn + Reconstruction + Recovery", icon:HeartPulse, text:"Connected burn, wound, reconstruction, orthopedic and rehabilitation recovery workflows." },
   { name:"Wound Care / WoundOS™", tag:"Tissue Repair Intelligence", icon:ShieldCheck, text:"Assessment, wound intelligence, documentation integrity, specialty coordination and outcomes." },
   { name:"RuralCare AI™", tag:"Care Anywhere", icon:Home, text:"Community clinicians connected to virtual specialists, longitudinal records and coordinated care." },
-  { name:"Regenerative & Longevity", tag:"Governed Clinical Workflow", icon:Brain, text:"Eligibility, evidence review, authorized treatment, longitudinal monitoring and measured outcomes." },
+  { name:"Regenerative & Longevity", tag:"Governed Clinical Workflow", icon:Brain, text:"Eligibility, evidence review, authorized treatment, IV hydration and recovery services, longitudinal monitoring and measured outcomes." },
 ];
 
 const clinicalNetwork = [
@@ -26,6 +26,7 @@ const clinicalNetwork = [
   { name:"Joint & Neuro", role:"Continuous rehabilitation + functional outcomes" },
   { name:"DermalQ™ / WoundMetric™", role:"Measurement + wound intelligence" },
   { name:"WoundOS™", role:"Tissue-repair operating system" },
+  { name:"Hydration & Recovery Services", role:"Mobile / on-site IV hydration workflows with clinical screening, protocols and authorized administration" },
   { name:"Specialists + Devices + Products", role:"Permissioned clinical resources when appropriate" },
 ];
 
@@ -114,8 +115,28 @@ export default function CareInABoxPage(){
    <p className="mt-8 max-w-5xl text-sm leading-6 text-blue-200">Regenerative products, devices and manufacturer claims remain separate from GitHealth authority. Product eligibility, regulatory status, intended use, evidence and reimbursement must be independently validated for the specific workflow.</p>
   </div></section>
 
+  <section className="bg-cyan-50"><div className="mx-auto max-w-7xl px-6 py-20">
+   <p className="font-bold uppercase tracking-widest text-blue-700">New Clinical Service Line</p>
+   <h2 className="mt-2 text-4xl font-black">Mobile IV Hydration & Recovery</h2>
+   <p className="mt-4 max-w-5xl text-lg leading-8 text-slate-600">A governed clinical service line inside Care-in-a-Box™ — not another standalone technology brand. The initial offer centers on clinician-governed IV fluids and electrolyte support for appropriate patients, delivered through mobile, on-site or facility-based workflows.</p>
+   <div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+    {[
+      ["Dehydration Hydration","IV fluids + electrolytes for clinically appropriate hydration support."],
+      ["Recovery Hydration","Hydration support in recovery contexts where IV therapy is clinically appropriate."],
+      ["Mobile / On-Site Delivery","Home, hospitality, employer, event and partner-site deployment subject to applicable requirements."],
+      ["Longitudinal Integration","Screening, consent, administration record, monitoring, follow-up, outcomes and escalation in the governed record."],
+    ].map(([k,v])=><div key={k} className="rounded-2xl border border-cyan-100 bg-white p-6 shadow-sm"><h3 className="text-xl font-black text-blue-950">{k}</h3><p className="mt-3 text-sm leading-6 text-slate-600">{v}</p></div>)}
+   </div>
+   <div className="mt-8 rounded-3xl bg-blue-950 p-8 text-white">
+    <div className="text-sm font-black uppercase tracking-widest text-cyan-300">Governed Care-in-a-Box™ workflow</div>
+    <div className="mt-4 text-lg font-black leading-9">REQUEST → SCREEN → AUTHORIZE → PREPARE → ADMINISTER → MONITOR → DOCUMENT → FOLLOW-UP → PROVE</div>
+    <p className="mt-4 max-w-5xl text-sm leading-6 text-blue-100">Commercial pathways can include direct-pay mobile services, memberships, facility and hospitality programs, and employer/event services. Patient selection, ordering/prescribing, sourcing, staffing, scope of practice and emergency protocols remain jurisdiction- and setting-specific.</p>
+   </div>
+   <p className="mt-6 text-xs leading-5 text-slate-500">No clinical outcome or reimbursement guarantee is implied. Absolute Health protocols, eligibility criteria, formulations, staffing and claims language require appropriate clinical and regulatory validation before deployment.</p>
+  </div></section>
+
   <section className="bg-slate-950 text-white"><div className="mx-auto max-w-7xl px-6 py-20">
-   <p className="font-bold uppercase tracking-widest text-cyan-300">Architecture v2.0</p>
+   <p className="font-bold uppercase tracking-widest text-cyan-300">Architecture v2.1</p>
    <h2 className="mt-2 text-4xl font-black">One operating system. Multiple distribution applications. One measurable economic engine.</h2>
    <p className="mt-4 max-w-5xl text-lg text-slate-300">Care-in-a-Box™ is the commercial front door. AION™ provides intelligence and authority. PolicyPulse™ watches policy lifecycle. RegOS™ controls which approved rules may execute. GitHealth™ executes and meters governed work. ShieldAI™ tests evidence integrity. Prove™ and Economics™ establish what happened and whether it created value.</p>
    <div className="mt-10 grid gap-4 lg:grid-cols-6">{aionStack.map((x,i)=><div key={x.name} className="rounded-2xl border border-white/10 bg-white/5 p-5"><div className="text-xs font-black text-cyan-300">0{i+1}</div><h3 className="mt-2 text-lg font-black">{x.name}</h3><p className="mt-2 text-sm font-semibold text-blue-100">{x.role}</p><p className="mt-3 text-xs leading-5 text-slate-300">{x.flow}</p></div>)}</div>
