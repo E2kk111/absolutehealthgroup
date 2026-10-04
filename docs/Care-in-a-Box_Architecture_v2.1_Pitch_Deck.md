@@ -125,7 +125,7 @@ These are proposed commercial prices, not CMS reimbursement amounts.
 - **CJR-X Recovery-in-a-Box™:** national health-system wedge.
 - **Precision Recovery / LTACH OS™:** complex-recovery institutional wedge.
 - **Wound Care-in-a-Box™:** specialty evidence and payment-integrity wedge.
-- **Hydration & Recovery:** fast service-line deployment wedge.
+- **Hydration & Recovery:** fast service-line deployment wedge with jurisdiction-specific clinical, pharmacy, staffing and emergency-response controls.
 
 Distribution flywheel:
 
