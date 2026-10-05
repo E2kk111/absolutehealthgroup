@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import emailjs from '@emailjs/browser';
 import { toast } from 'sonner';
 import Footer from '../components/Footer';
@@ -10,7 +11,15 @@ import { Label } from '../components/ui/label';
 import { Mail, Send, Sparkles, Phone, MapPin, User } from 'lucide-react';
 import { scrollToTop } from '../utils/smoothScroll';
 
+const buyerTypes = [
+  'Independent Physician', 'Health Systems', 'Senior Living', 'Post-Acute Care',
+  'Medical Groups', 'Wound Care', 'Value-Based Care',
+];
+
 const ContactUsPage: React.FC = () => {
+  const [searchParams] = useSearchParams();
+  const requestedBuyer = searchParams.get('buyer') || '';
+  const buyer = buyerTypes.includes(requestedBuyer) ? requestedBuyer : '';
   const [isVisible, setIsVisible] = useState<{ [key: string]: boolean }>({});
   const sectionRefs = useRef<{ [key: string]: HTMLDivElement | null }>({});
 
@@ -59,14 +68,16 @@ const ContactUsPage: React.FC = () => {
     e.preventDefault();
     setIsSubmitting(true);
 
+    const inquiryMessage = buyer ? `Inquiry type: ${buyer}\n\n${message}` : message;
+
     try {
       // Check if EmailJS is properly configured
       if (EMAILJS_SERVICE_ID === 'your_service_id' || 
           EMAILJS_TEMPLATE_ID === 'your_template_id' || 
           EMAILJS_PUBLIC_KEY === 'your_public_key') {
         // Fallback: Use mailto link if EmailJS is not configured
-        const subject = encodeURIComponent('Contact Form Submission');
-        const body = encodeURIComponent(`Name: ${name}\nFrom: ${email}\n\nMessage:\n${message}`);
+        const subject = encodeURIComponent(buyer ? `Contact Form Submission — ${buyer}` : 'Contact Form Submission');
+        const body = encodeURIComponent(`Name: ${name}\nFrom: ${email}\n\nMessage:\n${inquiryMessage}`);
         window.location.href = `mailto:${RECIPIENT_EMAIL}?subject=${subject}&body=${body}`;
         toast.success('Opening your email client...', {
           description: 'Please send the email from your email client.',
@@ -80,7 +91,9 @@ const ContactUsPage: React.FC = () => {
         to_email: RECIPIENT_EMAIL,
         from_name: name,
         from_email: email,
-        message: message,
+        // Include context in the existing message variable so current templates retain it.
+        message: inquiryMessage,
+        buyer,
         reply_to: email,
       };
 
@@ -157,14 +170,12 @@ const ContactUsPage: React.FC = () => {
                 </p>
               </div>
               
-              {/* Right Column - Image Placeholder */}
+              {/* Bundled illustration avoids third-party image failures. */}
               <div className={`transition-all duration-1000 delay-200 mt-8 lg:mt-0 ${isVisible['hero'] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
                 <div className="relative rounded-xl md:rounded-2xl overflow-hidden bg-gradient-to-br from-blue-500/20 to-purple-500/20 backdrop-blur-sm border border-white/10 h-[300px] sm:h-[350px] md:h-[400px] lg:h-full lg:min-h-[400px] flex items-center justify-center">
-                  <img
-                    src="https://media.istockphoto.com/id/2207338172/photo/medical-professional-using-a-tablet-with-virtual-new-email-notification-business-e-mail.webp?a=1&b=1&s=612x612&w=0&k=20&c=CZ00OdWZoSyGmAp1GUE0IHxH5Wf6VAy6CO02PTFoaTM="
-                    alt="Contact Us"
-                    className="w-full h-full object-cover"
-                  />
+                  <div aria-hidden="true" className="flex h-40 w-40 items-center justify-center rounded-3xl border border-white/30 bg-white/10 shadow-2xl sm:h-48 sm:w-48">
+                    <Mail className="h-24 w-24 text-blue-100 sm:h-28 sm:w-28" strokeWidth={1.25} />
+                  </div>
                   <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
                 </div>
               </div>
@@ -188,6 +199,7 @@ const ContactUsPage: React.FC = () => {
                     Send us a Message
                   </h2>
                   <p className="mb-6 text-sm text-slate-600">For general inquiries only. Please do not include medical records, symptoms or other sensitive health information.</p>
+                  {buyer && <p className="mb-6 rounded-lg bg-blue-50 p-4 text-sm font-semibold text-blue-900">Inquiry type: {buyer}</p>}
                   <form onSubmit={handleSubmit} className="space-y-6">
                     <div className="space-y-2">
                       <Label htmlFor="name" className="text-base font-semibold text-slate-900">

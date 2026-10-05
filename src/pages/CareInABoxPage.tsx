@@ -124,7 +124,7 @@ export default function CareInABoxPage(){
    <p className="text-center text-2xl font-black text-blue-950">A code is not coverage. Coverage is not payment. Payment is not proof. <span className="text-cyan-700">GitHealth connects all four.</span></p>
   </div></section>
 
-  <section id="opportunity" className="mx-auto max-w-7xl px-6 py-20">
+  <section id="opportunity" className="scroll-mt-36 mx-auto max-w-7xl px-6 py-20">
    <p className="font-bold uppercase tracking-widest text-blue-700">Start with your workflow</p>
    <h2 className="mt-2 text-4xl font-black">What are you trying to improve?</h2>
    <p className="mt-4 max-w-4xl text-lg text-slate-600">Choose your operating environment. We turn the problem into a Care-in-a-Box Opportunity Report: population → workflow → coverage/coding → documentation → operating cost → illustrative economics → measures → recommended pilot.</p>
@@ -136,7 +136,7 @@ export default function CareInABoxPage(){
    <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-4">{rails.map((r,i)=><div key={r.name} className="rounded-2xl bg-white p-6 shadow-sm"><div className="text-sm font-black text-blue-700">RAIL {i+1}</div><h3 className="mt-2 text-xl font-black">{r.name}</h3><p className="mt-3 text-sm leading-6 text-slate-600">{r.text}</p></div>)}</div>
   </div></section>
 
-  <section id="applications" className="mx-auto max-w-7xl px-6 py-20">
+  <section id="applications" className="scroll-mt-36 mx-auto max-w-7xl px-6 py-20">
    <p className="font-bold uppercase tracking-widest text-blue-700">Market / Distribution Layer</p>
    <h2 className="mt-2 text-4xl font-black">One institutional platform. Multiple care applications.</h2>
    <p className="mt-4 max-w-4xl text-lg text-slate-600">Specialty Care-in-a-Box™ is the flagship institutional deployment model. PIN, ACCESS, CJR-X, Burn, Wound, Rural, Senior and Regenerative/Longevity are applications of the same platform. Recovery, brain, cardiac, care-at-home, post-acute and behavioral capabilities remain clinical modules and workflows rather than separate top-level products.</p>
@@ -277,7 +277,7 @@ export default function CareInABoxPage(){
    <p className="mt-5 text-xs leading-5 text-slate-500">ACCESS CMP reference: CMS lists G0676, G0677 and G0678 at a $30 allowed amount before applicable geographic and Medicare payment adjustments. PIN payment varies by code, locality, setting and other Medicare payment factors; verify the current fee schedule before contracting or billing.</p>
   </div></section>
 
-  <section id="pricing" className="mx-auto max-w-7xl px-6 py-20">
+  <section id="pricing" className="scroll-mt-36 mx-auto max-w-7xl px-6 py-20">
    <p className="font-bold uppercase tracking-widest text-blue-700">Commercial motion</p><h2 className="mt-2 text-4xl font-black">Implementation → Platform Capacity → Workflow Units → Enterprise Expansion</h2>
    <div className="mt-10 grid gap-6 md:grid-cols-3">{tiers.map((t,i)=><div key={t.name} className={"rounded-2xl border p-7 "+(i===1?"border-blue-600 bg-blue-950 text-white":"border-slate-200 bg-white")}><h3 className="text-xl font-black">{t.name}</h3><div className="mt-4 text-3xl font-black">{t.price}</div><p className={"mt-3 leading-6 "+(i===1?"text-blue-100":"text-slate-600")}>{t.desc}</p><Link to="/contact" className={"mt-7 inline-flex items-center gap-2 rounded-xl px-5 py-3 font-bold "+(i===1?"bg-amber-400 text-slate-950":"bg-blue-700 text-white")}>{t.cta}<ArrowRight className="h-4 w-4"/></Link></div>)}</div>
    <p className="mt-6 text-sm text-slate-500">Proposed commercial pricing. Final pricing depends on population, integrations, implementation scope, workflow complexity, governance and support. Reimbursement, savings, clinical outcomes and technology performance are not guaranteed.</p>
