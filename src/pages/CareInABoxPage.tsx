@@ -48,14 +48,29 @@ const workflowClasses = [
 ];
 
 const aionStack = [
-  {name:"AION™", role:"Healthcare Intelligence + Authority", flow:"Clinical • Operational • Financial"},
+  {name:"AION Health™", role:"Clinical Navigation Intelligence Company", flow:"Enterprise ecosystem + intelligence company"},
+  {name:"Medical Navigator AI™", role:"Clinical Navigation Operating System™", flow:"Detect → Assess → Predict → Navigate → Authorize → Execute → Measure → Prove → Learn"},
+  {name:"AION Intelligence + Authority™", role:"Governed Reasoning + Authority", flow:"Evidence → Reasoning → Rules → Human Authority"},
   {name:"PolicyPulse™", role:"Regulatory Intelligence", flow:"Observe → Detect → Compare → Interpret → Approve"},
   {name:"RegOS™", role:"Regulatory Control Plane", flow:"Version → Apply → Execute → Monitor → Prove"},
   {name:"GitHealth™", role:"Governed Execution + Economic Metering", flow:"Connect → Normalize → Govern → Execute → Prove → Measure"},
-  {name:"ShieldAI™", role:"Evidence Integrity", flow:"Completeness → Consistency → Rule Match → Authority Check"},
-  {name:"Prove™", role:"Evidence + Provenance", flow:"Source → Authority → Action → Outcome → Payment"},
-  {name:"Economics™", role:"Workflow Economics", flow:"Workflow Units → Cost-to-Goal™ → Margin → ROI"},
+  {name:"ShieldAI™ / Prove™ / Economics™", role:"Evidence Integrity + Provenance + Value", flow:"Defensibility → Evidence → Outcome → Cost-to-Goal™ → ROI"},
 ];
+
+const navigatorDomains = [
+  {name:"AION Therapeutics™", question:"What advanced therapeutic pathway is appropriate, under what evidence and governance constraints?"},
+  {name:"AION Financial Health™", question:"What financial barrier is preventing care, what intervention is available, and did resolving it restore care?"},
+  {name:"DermalQ™", question:"What is preventing wound healing, and what should happen next?"},
+  {name:"CardioSafe™", question:"What cardiovascular risk or care gap requires action?"},
+  {name:"NeuroNavigator™", question:"What neurologic or cognitive trajectory requires intervention?"},
+  {name:"MetaboLean™", question:"What metabolic risk or treatment opportunity is emerging?"},
+  {name:"LiverSafe™", question:"What hepatic risk or treatment constraint matters now?"},
+  {name:"OncoNavigator™", question:"What oncology pathway, surveillance or escalation is appropriate?"},
+  {name:"HealthLink™", question:"Which provider or network action is required to move care forward?"},
+  {name:"CarePlix™", question:"What remote-care signal requires navigation or escalation?"},
+];
+
+const navigatorLoop = ["Detect","Assess","Predict","Navigate","Human Authorize","Execute","Measure","Prove","Learn"];
 
 const tiers = [
   {name:"Opportunity Assessment",price:"$10K–$25K",desc:"30 days · population analysis · workflow map · coverage/coding review · reimbursement model · documentation gaps · ROI model · implementation plan",cta:"Start Assessment"},
@@ -81,7 +96,7 @@ export default function CareInABoxPage(){
      <h1 className="text-5xl font-black tracking-tight md:text-7xl">Care-in-a-Box™</h1>
      <p className="mt-4 text-2xl font-semibold text-cyan-200">Deploy. Connect. Care. Measure. Prove. Scale.</p>
      <p className="mt-6 max-w-4xl text-xl leading-8 text-blue-100">Bring specialty care into your organization — without building the specialty infrastructure yourself. Care-in-a-Box™ is what the customer buys; intelligence, regulatory control, governed execution, evidence and economics operate underneath.</p>
-     <p className="mt-5 max-w-5xl text-sm font-bold uppercase tracking-wider text-cyan-200">Delivered by Absolute Health Group™ · Intelligence + Authority by AION™ · Governed Execution by GitHealth™</p>
+     <p className="mt-5 max-w-5xl text-sm font-bold uppercase tracking-wider text-cyan-200">Delivered by Absolute Health Group™ · Clinical Navigation by Medical Navigator AI™ · Intelligence + Authority by AION™ · Governed Execution by GitHealth™</p>
      <div className="mt-7 grid max-w-4xl gap-3 text-base font-bold sm:grid-cols-2"><div>✓ Your Brand. Your Patients. Your Clinical Authority.</div><div>✓ Our Infrastructure Underneath.</div></div>
      <div className="mt-9 flex flex-wrap gap-4"><a href="#opportunity" className="rounded-xl bg-amber-400 px-6 py-3 font-bold text-slate-950">Get an Opportunity Assessment</a><a href="#applications" className="rounded-xl border border-white/30 px-6 py-3 font-bold">Explore Care Programs</a></div>
     </div>
@@ -99,7 +114,7 @@ export default function CareInABoxPage(){
     <div>
      <h2 className="text-3xl font-black">One institutional care platform. Multiple applications. One governed execution layer. One measurable economic engine.</h2>
      <div className="mt-6 space-y-2 text-sm leading-6 text-slate-300">
-      <p><strong className="text-white">Care-in-a-Box™</strong> creates the work.</p><p><strong className="text-white">AION™</strong> understands and authorizes the work.</p><p><strong className="text-white">PolicyPulse™</strong> knows when the rules change.</p><p><strong className="text-white">RegOS™</strong> controls which rules execute.</p><p><strong className="text-white">GitHealth™</strong> governs and meters the work.</p><p><strong className="text-white">ShieldAI™</strong> makes the evidence defensible.</p><p><strong className="text-white">Prove™</strong> establishes what happened.</p><p><strong className="text-white">Economics™</strong> determines whether it created value.</p>
+      <p><strong className="text-white">Care-in-a-Box™</strong> creates and operationalizes the work.</p><p><strong className="text-white">Medical Navigator AI™</strong> detects barriers, predicts trajectory and navigates what happens next.</p><p><strong className="text-white">AION Intelligence + Authority™</strong> governs reasoning, evidence and authority.</p><p><strong className="text-white">PolicyPulse™</strong> knows when the rules change.</p><p><strong className="text-white">RegOS™</strong> controls which approved rules execute.</p><p><strong className="text-white">GitHealth™</strong> governs and meters execution.</p><p><strong className="text-white">ShieldAI™ / Prove™</strong> make the evidence defensible and establish what happened.</p><p><strong className="text-white">Economics™</strong> determines whether it created value.</p>
      </div>
     </div>
    </div>
@@ -134,26 +149,57 @@ export default function CareInABoxPage(){
    <p className="mt-8 max-w-5xl text-sm leading-6 text-blue-200">Regenerative products, devices and manufacturer claims remain separate from GitHealth authority. Product eligibility, regulatory status, intended use, evidence and reimbursement must be independently validated for the specific workflow.</p>
   </div></section>
 
+  <section className="bg-white"><div className="mx-auto max-w-7xl px-6 py-20">
+   <p className="font-bold uppercase tracking-widest text-blue-700">AION Health™ · Flagship Product Experience</p>
+   <h2 className="mt-2 text-4xl font-black">Medical Navigator AI™</h2>
+   <p className="mt-2 text-2xl font-bold text-cyan-700">The Clinical Navigation Operating System™</p>
+   <p className="mt-5 max-w-5xl text-xl leading-8 text-slate-700">Intelligence that finds what is preventing better care — and navigates what happens next.</p>
+   <div className="mt-8 rounded-3xl bg-slate-950 p-8 text-white">
+    <div className="text-sm font-black uppercase tracking-widest text-cyan-300">Navigation, Not Notification.</div>
+    <div className="mt-5 grid gap-3 sm:grid-cols-3 lg:grid-cols-9">{navigatorLoop.map((x,i)=><div key={x} className={"rounded-xl border p-4 text-center "+(x==="Human Authorize"?"border-amber-300 bg-amber-300/10":"border-white/10 bg-white/5")}><div className="text-xs font-black text-cyan-300">{String(i+1).padStart(2,"0")}</div><div className="mt-2 text-sm font-black">{x}</div></div>)}</div>
+    <p className="mt-6 text-sm leading-6 text-slate-300"><strong className="text-amber-200">Forbidden Edge:</strong> Medical Navigator may detect, assess, predict, rank, recommend, navigate, draft and prepare. Consequential clinical actions remain subject to appropriate human or physician authority; the system does not independently sign orders, transmit prescriptions or procedure requests, or enter final diagnoses without required attestation.</p>
+   </div>
+   <div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-5">{navigatorDomains.map(d=><div key={d.name} className="rounded-2xl border border-slate-200 p-5 shadow-sm"><h3 className="font-black text-blue-950">{d.name}</h3><p className="mt-3 text-sm leading-6 text-slate-600">{d.question}</p></div>)}</div>
+   <div className="mt-8 rounded-2xl border border-cyan-200 bg-cyan-50 p-7"><h3 className="text-xl font-black text-blue-950">Universal navigation question</h3><p className="mt-3 text-lg font-semibold text-slate-700">What is preventing this patient from reaching the next appropriate state of care?</p><p className="mt-3 text-sm leading-6 text-slate-600">Medical Navigator reasons across disease, treatment, access, financial, social, medication, utilization and care-gap signals, then routes the next action through evidence, rules and human authority.</p></div>
+  </div></section>
+
   <section className="bg-slate-950 text-white"><div className="mx-auto max-w-7xl px-6 py-20">
    <p className="font-bold uppercase tracking-widest text-cyan-300">Architecture v2.0</p>
    <h2 className="mt-2 text-4xl font-black">One operating system. Multiple distribution applications. One measurable economic engine.</h2>
-   <p className="mt-4 max-w-5xl text-lg text-slate-300">Care-in-a-Box™ is the commercial front door. AION™ remains above GitHealth conceptually because it is the intelligence and authority architecture; GitHealth™ is the governed execution substrate. Operationally they form a loop: GitHealth supplies context and evidence → AION establishes authority → RegOS supplies executable regulatory controls → GitHealth executes and records the result. ShieldAI™, Prove™ and Economics™ test defensibility, preserve provenance and measure value.</p>
-   <div className="mt-10 grid gap-4 lg:grid-cols-6">{aionStack.map((x,i)=><div key={x.name} className="rounded-2xl border border-white/10 bg-white/5 p-5"><div className="text-xs font-black text-cyan-300">0{i+1}</div><h3 className="mt-2 text-lg font-black">{x.name}</h3><p className="mt-2 text-sm font-semibold text-blue-100">{x.role}</p><p className="mt-3 text-xs leading-5 text-slate-300">{x.flow}</p></div>)}</div>
+   <p className="mt-4 max-w-5xl text-lg text-slate-300">Care-in-a-Box™ is Absolute Health Group's commercial deployment platform. AION Health™ is the clinical navigation intelligence company; Medical Navigator AI™ is the flagship operating experience at the moment of decision. AION Intelligence + Authority™ governs reasoning and authority, while GitHealth™ is the governed execution substrate. Operationally: GitHealth supplies context and evidence → Medical Navigator detects, assesses, predicts and navigates → AION establishes authority → RegOS supplies executable controls → authorized humans approve consequential actions → GitHealth executes and records the result → Prove and Economics measure what happened and whether it created value.</p>
+   <div className="mt-10 grid gap-4 md:grid-cols-2 lg:grid-cols-4">{aionStack.map((x,i)=><div key={x.name} className="rounded-2xl border border-white/10 bg-white/5 p-5"><div className="text-xs font-black text-cyan-300">0{i+1}</div><h3 className="mt-2 text-lg font-black">{x.name}</h3><p className="mt-2 text-sm font-semibold text-blue-100">{x.role}</p><p className="mt-3 text-xs leading-5 text-slate-300">{x.flow}</p></div>)}</div>
    <div className="mt-8 rounded-2xl border border-amber-300/30 bg-amber-300/10 p-6"><div className="font-black text-amber-200">Regulatory safety boundary</div><p className="mt-2 text-sm leading-6 text-amber-50">PolicyPulse may detect proposed or future policy and generate readiness analysis, but proposed rules do not silently become production authority. Regulatory objects move through PROPOSED → FINAL / FUTURE EFFECTIVE → ACTIVE → SUPERSEDED → RETIRED, with source, jurisdiction, effective dates, applicability, executable logic, supersession history and approval record.</p></div>
   </div></section>
 
   <section className="mx-auto max-w-7xl px-6 py-20">
    <p className="font-bold uppercase tracking-widest text-blue-700">GitHealth™ — Governed Execution + Economic Metering</p>
    <h2 className="mt-2 text-4xl font-black">Completed work outside. Governed execution underneath.</h2>
-   <p className="mt-4 max-w-4xl text-lg text-slate-600">Patients and frontline teams should not have to buy or understand tokens. GitHealth executes and meters the work while AION™ enforces authority and Prove™ preserves the evidence trail.</p>
+   <p className="mt-4 max-w-4xl text-lg text-slate-600">Patients and frontline teams should not have to buy or understand tokens. Medical Navigator AI™ determines what needs attention and what should happen next; AION Intelligence + Authority™ governs the reasoning boundary; GitHealth executes and meters the work; Prove™ preserves the evidence trail.</p>
    <div className="mt-10 grid gap-4 md:grid-cols-3 lg:grid-cols-6">{workflow.map((x,i)=><div key={x} className="rounded-2xl border border-slate-200 p-5"><div className="text-sm font-black text-blue-700">0{i+1}</div><div className="mt-2 text-lg font-black">{x}</div></div>)}</div>
    <div className="mt-10 grid gap-6 lg:grid-cols-2">
     <div className="rounded-3xl bg-slate-950 p-8 text-white"><Database className="h-9 w-9 text-cyan-300"/><h3 className="mt-4 text-2xl font-black">GitHealth Workflow Unit™</h3><p className="mt-3 text-slate-300">One completed governed healthcare workflow with defined inputs, evidence requirements, authority controls, execution steps and completion criteria.</p><div className="mt-6 text-sm font-bold text-cyan-200">Workflow Unit → Agent Execution → Model/Tokens → Tools/APIs → Human Authority → Evidence → Outcome → Revenue → Cost-to-Goal™</div></div>
     <div className="rounded-3xl border border-slate-200 p-8"><BarChart3 className="h-9 w-9 text-blue-700"/><h3 className="mt-4 text-2xl font-black">GitHealth Economics™</h3><p className="mt-3 text-slate-600">Meters completed work, revenue/workflow, compute and tool cost, human-review cost, contribution, exception rate, evidence completion, Revenue per Million Tokens and Cost-to-Goal™.</p><p className="mt-5 font-black text-blue-950">The product is governed, measurable work. Tokens are COGS telemetry.</p></div>
    </div>
    <div className="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-5">{workflowClasses.map(x=><div key={x.name} className="rounded-2xl border border-slate-200 p-5"><div className="text-sm font-black text-blue-700">{x.name}</div><div className="mt-2 font-black">{x.label}</div><p className="mt-2 text-xs leading-5 text-slate-500">{x.example}</p></div>)}</div>
-   <div className="mt-8 rounded-3xl bg-slate-950 p-8 text-white"><div className="flex items-start gap-4"><LockKeyhole className="mt-1 h-8 w-8 text-cyan-300"/><div><h3 className="text-2xl font-black">AION™: intelligence + authority.</h3><p className="mt-2 max-w-4xl text-slate-300">Agents may observe, organize, recommend and prepare work within permissioned workflows. Consequential clinical, payment and PHI actions remain subject to appropriate authority, policy and human review.</p></div></div></div>
+   <div className="mt-8 rounded-3xl bg-slate-950 p-8 text-white"><div className="flex items-start gap-4"><LockKeyhole className="mt-1 h-8 w-8 text-cyan-300"/><div><h3 className="text-2xl font-black">AION Intelligence + Authority™: the governed reasoning boundary.</h3><p className="mt-2 max-w-4xl text-slate-300">Medical Navigator and domain agents may observe, organize, assess, predict, recommend, navigate and prepare work within permissioned workflows. Consequential clinical, payment and PHI actions remain subject to applicable policy, authority and human review.</p></div></div></div>
   </section>
+
+  <section className="bg-gradient-to-br from-blue-950 to-slate-950 text-white"><div className="mx-auto max-w-7xl px-6 py-20">
+   <p className="font-bold uppercase tracking-widest text-cyan-300">AION Financial Health™ · Financial-to-Clinical Intelligence</p>
+   <h2 className="mt-2 text-4xl font-black">Find the financial barrier. Restore the care.</h2>
+   <p className="mt-4 max-w-5xl text-lg text-blue-100">A financial signal is not a clinical conclusion. Medical Navigator connects verified financial context to a model-generated risk estimate, a human-reviewed navigation pathway and a measurable care-restoration outcome.</p>
+   <div className="mt-10 grid gap-4 md:grid-cols-2 lg:grid-cols-4">{[
+    ["Signal","Medical debt + documented household hardship"],
+    ["Clinical context","Diabetes + overdue follow-up"],
+    ["Prediction","Model-generated elevated risk of continued care disengagement"],
+    ["Navigation","Financial assistance, coverage, payment assistance or CBO pathway"],
+    ["Human authority","Navigator verifies circumstances and engages the patient"],
+    ["Clinical restoration","Appointment completed → HbA1c obtained → treatment plan updated"],
+    ["Proof","Signal → rule → recommendation → human action → intervention → outcome"],
+    ["KPI","Care Restoration Rate™"],
+   ].map(([k,v])=><div key={k} className="rounded-2xl border border-white/10 bg-white/5 p-5"><div className="text-xs font-black uppercase tracking-widest text-cyan-300">{k}</div><p className="mt-3 text-sm leading-6 text-blue-50">{v}</p></div>)}</div>
+   <div className="mt-8 rounded-2xl border border-cyan-300/20 bg-cyan-300/10 p-6"><div className="font-black text-cyan-200">Care Restoration Rate™</div><p className="mt-2 text-sm text-cyan-50">Previously delayed or overdue care completed ÷ financially vulnerable patients receiving intervention. Supporting measures can include time-to-restoration, barrier resolution, appointment completion, clinical follow-through and Cost-to-Restored-Care™.</p></div>
+  </div></section>
 
   <section className="bg-slate-50"><div className="mx-auto max-w-7xl px-6 py-20">
    <p className="font-bold uppercase tracking-widest text-blue-700">Reference Economics · ACCESS CMP</p>
