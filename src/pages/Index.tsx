@@ -1,10 +1,7 @@
-
 import React from 'react';
 import HeroSection from '../components/HeroSection';
 import ThreePillarsSection from '../components/ThreePillarsSection';
-import WhyAHGSection from '../components/WhyAHGSection';
 import TechnologyWorkflowSection from '../components/TechnologyWorkflowSection';
-import PodcastEpisodesSection from '../components/PodcastEpisodesSection';
 import WhoWeServeSection from '../components/WhoWeServeSection';
 import Footer from '../components/Footer';
 
@@ -13,9 +10,7 @@ const Index: React.FC = () => {
     <>
       <HeroSection />
       <ThreePillarsSection />
-      <WhyAHGSection />
       <TechnologyWorkflowSection />
-      <PodcastEpisodesSection />
       <WhoWeServeSection />
       <Footer />
     </>
