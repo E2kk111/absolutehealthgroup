@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowRight, Boxes, ChartNoAxesCombined, Compass, FileCheck2, Gauge, Search } from 'lucide-react';
+import { ArrowRight, Boxes, BarChart3, Compass, FileCheck2, Gauge, Search } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const solutions = [
@@ -39,7 +39,7 @@ const solutions = [
     link: '/technology',
   },
   {
-    icon: ChartNoAxesCombined,
+    icon: BarChart3,
     title: 'Economics™',
     label: 'Prove the value',
     description: 'Connect Workflow Units, Cost-to-Goal and attributable realized value to understand the economics of completed healthcare work.',
