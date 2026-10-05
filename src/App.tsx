@@ -24,6 +24,7 @@ import AIGenerativeAIPage from "./pages/technology/AIGenerativeAIPage";
 import IOMTPage from "./pages/technology/IOMTPage";
 import CareInABoxPage from "./pages/CareInABoxPage";
 import VMSHealthspanPage from "./pages/VMSHealthspanPage";
+import IndependentPhysicianPage from "./pages/IndependentPhysicianPage";
 
 const queryClient = new QueryClient();
 
@@ -55,6 +56,7 @@ const App = () => (
               {/* Solutions */}
               <Route path="/our-solutions" element={<OurSolutionsPage />} />
               <Route path="/care-in-a-box" element={<CareInABoxPage />} />
+              <Route path="/independent-physician" element={<IndependentPhysicianPage />} />
               <Route path="/vms-healthspan" element={<VMSHealthspanPage />} />
 
               {/* Podcast Route */}
