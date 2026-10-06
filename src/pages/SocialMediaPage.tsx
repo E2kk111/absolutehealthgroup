@@ -1,0 +1,17 @@
+import { Link } from "react-router-dom";
+import { ArrowRight, Linkedin, Instagram, Facebook, MessageCircle } from "lucide-react";
+import Footer from "../components/Footer";
+
+const posts=[
+ {c:"LinkedIn",I:Linkedin,h:"Put Your Healthcare Workload to Work.",b:"Healthcare organizations do not need another AI dashboard. They need completed work. Care-in-a-Box™ identifies the care problem. GitHealth™ operates governed workflows. Medical Navigator AI™ navigates what happens next. AION™ preserves evidence, rules and human authority. Work → Evidence → Outcome → Economics."},
+ {c:"LinkedIn",I:Linkedin,h:"Care-in-a-Box™ is what the customer deploys.",b:"GitHealth™ is what the customer operates. Medical Navigator AI™ navigates the work. AION™ governs intelligence and authority. Prove™ establishes what happened. ZScore™ benchmarks performance. Economics™ determines whether it created value."},
+ {c:"Instagram",I:Instagram,h:"Navigation, Not Notification.",b:"The goal is not another alert. The goal is to identify what is preventing a patient from reaching the next appropriate state of care — then navigate the next step while preserving human authority."},
+ {c:"Facebook",I:Facebook,h:"Bring specialty care into your organization.",b:"Care-in-a-Box™ helps organizations deploy specialty-care workflows without building every piece of infrastructure internally. Configure the program. Coordinate the care. Preserve the evidence. Measure the outcome."},
+ {c:"Campaign",I:MessageCircle,h:"Tell us the care problem. We deploy the box.",b:"From orthopedic recovery and wound care to senior living, post-acute recovery and chronic-care workflows, Care-in-a-Box™ turns a defined healthcare problem into a governed, measurable deployment."}
+];
+
+export default function SocialMediaPage(){return <div className="bg-slate-50 text-slate-950">
+ <section className="border-b bg-white"><div className="mx-auto max-w-7xl px-6 py-20"><p className="font-black uppercase tracking-[.2em] text-blue-700">Distribution Studio</p><h1 className="mt-4 text-5xl font-black md:text-6xl">Social Media Campaign</h1><p className="mt-5 max-w-3xl text-xl leading-8 text-slate-600">Campaign-ready messages built around one operating story: deploy the care, operate the work, preserve authority and prove the outcome.</p></div></section>
+ <section className="mx-auto max-w-7xl px-6 py-16"><div className="grid gap-6 lg:grid-cols-2">{posts.map((p,i)=><article key={i} className="rounded-3xl border border-slate-200 bg-white p-7 shadow-sm"><div className="flex items-center gap-3 text-blue-700"><p.I className="h-6 w-6"/><span className="text-sm font-black uppercase tracking-[.16em]">{p.c}</span></div><h2 className="mt-5 text-2xl font-black">{p.h}</h2><p className="mt-4 leading-7 text-slate-600">{p.b}</p></article>)}</div></section>
+ <section className="bg-blue-950 text-white"><div className="mx-auto max-w-7xl px-6 py-14"><h2 className="text-3xl font-black">One story. Multiple distribution formats.</h2><p className="mt-3 max-w-3xl text-blue-100">Use the newsletter for executive depth, the blog for thought leadership, the flyer for meetings and outreach, and social posts to drive qualified traffic to the operating platform.</p><Link to="/care-in-a-box" className="mt-7 inline-flex items-center gap-2 rounded-xl bg-cyan-300 px-5 py-3 font-black text-blue-950">Explore Care-in-a-Box™ <ArrowRight className="h-4 w-4"/></Link></div></section><Footer/>
+ </div>}
