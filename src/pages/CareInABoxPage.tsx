@@ -13,7 +13,7 @@ const audiences = [
 const applications = [
   { name:"Specialty Care-in-a-Box™", tag:"Institutional Specialty Access", icon:Stethoscope, text:"Flagship institutional platform for physician-led specialty pathways without building the specialty infrastructure internally." },
   { name:"PIN-in-a-Box™", tag:"Recurring Navigation", icon:Workflow, text:"Principal illness navigation workflows with evidence, human authority, longitudinal coordination and Workflow Unit economics." },
-  { name:"ACCESS Care-in-a-Box™", tag:"Co-Management Workflows", icon:Sparkles, text:"ACCESS care-update review, coordination, evidence and co-management workflow infrastructure." },
+  { name:"ACCESS Care-in-a-Box™", tag:"Co-Management Workflows", icon:Sparkles, text:"CMS-aligned ACCESS Care Update review, track/diagnosis validation, ≥5-minute practitioner workflow, coordination evidence, claim controls and co-management economics." },
   { name:"CJR-X Recovery-in-a-Box™", tag:"90-Day Orthopedic Episodes", icon:Building2, text:"Readiness, transitions, recovery, quality measurement and episode-economics infrastructure." },
   { name:"Burn Recovery-in-a-Box™", tag:"Burn + Reconstruction + Recovery", icon:HeartPulse, text:"Connected burn, wound, reconstruction, orthopedic and rehabilitation recovery workflows." },
   { name:"Wound Care-in-a-Box™", tag:"WoundOS + DermalQ", icon:ShieldCheck, text:"Assessment, wound intelligence, documentation integrity, specialty coordination and outcomes." },
@@ -202,13 +202,56 @@ export default function CareInABoxPage(){
   </div></section>
 
   <section className="bg-slate-50"><div className="mx-auto max-w-7xl px-6 py-20">
-   <p className="font-bold uppercase tracking-widest text-blue-700">Reference Economics · ACCESS CMP</p>
-   <h2 className="mt-2 text-4xl font-black">Provider reimbursement is not GitHealth revenue.</h2>
-   <p className="mt-4 max-w-4xl text-lg text-slate-600">Illustrative unit economics show how GitHealth can enable and govern a qualifying provider workflow while keeping the provider payment pathway separate from GitHealth's software economics.</p>
-   <div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-5">
-    {[["Provider allowed amount","$30.00"],["Illustrative practitioner labor","($15.00)"],["Illustrative GitHealth allocation","($3.00)"],["Provider remainder before other costs","$12.00"],["GitHealth variable Cost-to-Goal™","($0.50)"],["GitHealth contribution","$2.50"],["GitHealth variable contribution margin","83.3%"]].map(([k,v])=><div key={k} className="rounded-2xl bg-white p-6 shadow-sm"><div className="text-sm font-bold text-slate-500">{k}</div><div className="mt-2 text-3xl font-black text-blue-950">{v}</div></div>)}
+   <p className="font-bold uppercase tracking-widest text-blue-700">ACCESS Care-in-a-Box™ · CMS CMP Workflow</p>
+   <h2 className="mt-2 text-4xl font-black">Turn the ACCESS Care Update into governed, billable co-management work.</h2>
+   <p className="mt-4 max-w-5xl text-lg leading-8 text-slate-600">CMS describes the Co-Management Payment as compensation for eligible Medicare Part B practitioners who review an ACCESS Care Update and perform related care-coordination activity for a beneficiary enrolled in an ACCESS track. Care-in-a-Box™ maps those requirements into a visible workflow with evidence, human authority, claim controls and payment proof.</p>
+
+   <div className="mt-10 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+    {[
+      ["G0676","eCKM / CKM","$30 allowed amount"],
+      ["G0677","MSK","$30 allowed amount"],
+      ["G0678","Behavioral Health","$30 allowed amount"],
+      ["AC modifier","First qualifying G-code per track","+$10 onboarding support"],
+    ].map(([code,track,amount])=><div key={code} className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm"><div className="text-sm font-black text-blue-700">{code}</div><div className="mt-2 text-xl font-black text-blue-950">{track}</div><div className="mt-3 text-sm font-bold text-cyan-700">{amount}</div></div>)}
    </div>
-   <p className="mt-6 text-sm leading-6 text-slate-500">Illustrative planning assumptions, not observed production economics or a guarantee of reimbursement or margin. The $30 ACCESS CMP allowed amount belongs to the eligible billing provider, not GitHealth. CMS currently permits eligible practitioners to bill G0676, G0677 or G0678 when the applicable requirements are met; qualifying first-time onboarding support may add $10 with modifier AC. Actual Medicare payment and provider economics vary with eligibility, geography, sequestration, service requirements, billing expense, denials and other costs. GitHealth pricing shown here is hypothetical. <a className="font-bold text-blue-700 underline" href="https://www.cms.gov/priorities/innovation/access-co-management-payment-cmp-billing-guidance" target="_blank" rel="noreferrer">CMS billing guidance</a>.</p>
+
+   <div className="mt-10 rounded-3xl bg-blue-950 p-8 text-white">
+    <div className="text-sm font-black uppercase tracking-widest text-cyan-300">GitHealth Workflow Unit™ · ACCESS CMP</div>
+    <div className="mt-6 grid gap-3 md:grid-cols-4 lg:grid-cols-8">
+     {["Care Update","Track + Diagnosis","Practitioner Review","≥5 Minutes","Coordination Action","Human Authority","Evidence + Claim","Prove + Economics"].map((x,i)=><div key={x} className="rounded-xl border border-white/10 bg-white/5 p-4"><div className="text-xs font-black text-cyan-300">{String(i+1).padStart(2,"0")}</div><div className="mt-2 text-sm font-black">{x}</div></div>)}
+    </div>
+    <p className="mt-6 text-sm leading-6 text-blue-100">A qualifying CMP requires review of the ACCESS Care Update plus at least one care-coordination activity and at least 5 minutes total practitioner time. The workflow should preserve the Care Update, qualifying track/diagnosis, documented review, coordination activity, date of service, rendering/billing identity and claim evidence.</p>
+   </div>
+
+   <div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+    {[
+      ["Frequency","Up to 3 CMPs every 12 months, per beneficiary, per ACCESS track."],
+      ["Multiple tracks","Multiple tracks may be billed when distinct review and coordination work is performed for each track."],
+      ["Onboarding","AC may be billed only once per billing provider, per beneficiary, per ACCESS track."],
+      ["Cost sharing","CMS states beneficiary cost-sharing does not apply to CMP services."],
+      ["Diagnosis control","At least one diagnosis on the claim must correspond to a qualifying condition for the applicable ACCESS track."],
+      ["Claim unit","Report one unit per claim line for ACCESS CMP services."],
+      ["Evidence control","Documentation of the electronically shared ACCESS clinical update review is required to support each CMP claim."],
+      ["Setting expansion","FQHCs, RHCs and pharmacies with specialty code A5 became eligible October 1, 2026, subject to CMS requirements."],
+    ].map(([k,v])=><div key={k} className="rounded-2xl border border-slate-200 bg-white p-6"><div className="text-sm font-black uppercase tracking-wider text-blue-700">{k}</div><p className="mt-3 text-sm leading-6 text-slate-600">{v}</p></div>)}
+   </div>
+
+   <div className="mt-10 rounded-3xl border border-cyan-200 bg-cyan-50 p-8">
+    <div className="text-sm font-black uppercase tracking-widest text-cyan-800">FQHC / RHC deployment</div>
+    <h3 className="mt-2 text-2xl font-black text-blue-950">Institutional claim pathway effective October 1, 2026.</h3>
+    <p className="mt-3 max-w-5xl text-sm leading-6 text-slate-700">CMS states Medicare-enrolled FQHCs and RHCs may bill ACCESS CMP for dates of service on or after October 1, 2026. Their CMP claims are submitted as institutional claims using 837I (or CMS-1450/UB-04 when eligible for paper submission), with type of bill 77X for FQHCs and 71X for RHCs.</p>
+   </div>
+
+   <div className="mt-10">
+    <p className="font-bold uppercase tracking-widest text-blue-700">Reference economics</p>
+    <h3 className="mt-2 text-3xl font-black">Provider reimbursement is not GitHealth revenue.</h3>
+    <p className="mt-4 max-w-4xl text-slate-600">The CMS allowed amount belongs to the eligible billing provider. GitHealth monetizes governed infrastructure through platform capacity and Workflow Units™, not by representing the provider's Medicare payment as software revenue.</p>
+    <div className="mt-7 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+     {[["Provider allowed amount","$30.00"],["Illustrative GitHealth allocation","$3.00"],["Illustrative variable Cost-to-Goal™","$0.50"],["Illustrative GitHealth contribution","$2.50"]].map(([k,v])=><div key={k} className="rounded-2xl bg-white p-6 shadow-sm"><div className="text-sm font-bold text-slate-500">{k}</div><div className="mt-2 text-3xl font-black text-blue-950">{v}</div></div>)}
+    </div>
+   </div>
+
+   <p className="mt-7 text-sm leading-6 text-slate-500">CMS source last modified October 5, 2026. CMS lists G0676, G0677 and G0678 at a $30 allowed amount and modifier AC at +$10 for qualifying initial onboarding support. CMS states payment is subject to the applicable 2% sequestration reduction and geographic adjustment. The GitHealth allocation and Cost-to-Goal™ figures above are illustrative planning assumptions, not CMS rates, observed production economics, or guarantees of reimbursement or margin. Independent solution; not affiliated with or endorsed by CMS. <a className="font-bold text-blue-700 underline" href="https://www.cms.gov/priorities/innovation/access-co-management-payment-cmp-billing-guidance" target="_blank" rel="noreferrer">Read the CMS ACCESS CMP billing guidance</a>.</p>
   </div></section>
 
   <section className="bg-white"><div className="mx-auto max-w-7xl px-6 py-20">
