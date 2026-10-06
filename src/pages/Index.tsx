@@ -74,11 +74,6 @@ const Index: React.FC = () => (
    ].map(x=><div key={x.t} className="rounded-2xl border border-slate-200 p-6"><x.I className="h-8 w-8 text-blue-700"/><h3 className="mt-4 text-xl font-black">{x.t}</h3><p className="mt-3 leading-6 text-slate-600">{x.d}</p></div>)}</div>
   </section>
 
-  <section className="bg-slate-950 text-white"><div className="mx-auto max-w-7xl px-6 py-20">
-   <p className="font-black uppercase tracking-[.2em] text-cyan-300">Architecture · Depth on demand</p><h2 className="mt-3 text-4xl font-black">The infrastructure underneath the operating surface.</h2>
-   <div className="mt-10 grid gap-4 md:grid-cols-3 lg:grid-cols-6">{["Medical Navigator AI™","AION Intelligence + Authority™","PolicyPulse™","RegOS™","GitHealth™","Prove™ · ZScore™ · Economics™"].map((x,i)=><div key={x} className="rounded-2xl border border-white/10 bg-white/[.04] p-5"><div className="text-xs font-black text-cyan-300">LAYER {i+1}</div><div className="mt-3 font-black">{x}</div></div>)}</div>
-  </div></section>
-
   <section className="mx-auto max-w-7xl px-6 py-20">
    <p className="font-black uppercase tracking-[.2em] text-blue-700">How we start</p>
    <h2 className="mt-3 text-4xl font-black md:text-5xl">Assess. Pilot. Scale.</h2>
@@ -90,6 +85,11 @@ const Index: React.FC = () => (
    </div>
    <div className="mt-10 rounded-3xl bg-blue-700 p-8 text-white md:flex md:items-center md:justify-between md:gap-8"><div><h3 className="text-3xl font-black">Tell us the population. Tell us the care problem.</h3><p className="mt-3 max-w-3xl text-blue-100">We’ll show you the opportunity, the Care-in-a-Box™ to deploy, what it should take to operate, and how we will measure whether it worked.</p></div><Link to="/contact?topic=Opportunity%20Assessment" className="mt-6 inline-flex shrink-0 items-center gap-2 rounded-xl bg-white px-6 py-3 font-black text-blue-950 md:mt-0">Assess Your Population <ArrowRight className="h-4 w-4"/></Link></div>
   </section>
+  <section className="bg-slate-950 text-white"><div className="mx-auto max-w-7xl px-6 py-20">
+   <p className="font-black uppercase tracking-[.2em] text-cyan-300">Architecture · Depth on demand</p><h2 className="mt-3 text-4xl font-black">The infrastructure underneath the operating surface.</h2>
+   <div className="mt-10 grid gap-4 md:grid-cols-3 lg:grid-cols-6">{["Medical Navigator AI™","AION Intelligence + Authority™","PolicyPulse™","RegOS™","GitHealth™","Prove™ · ZScore™ · Economics™"].map((x,i)=><div key={x} className="rounded-2xl border border-white/10 bg-white/[.04] p-5"><div className="text-xs font-black text-cyan-300">LAYER {i+1}</div><div className="mt-3 font-black">{x}</div></div>)}</div>
+  </div></section>
+
   <Footer />
  </div>
 );
