@@ -25,60 +25,25 @@ import IOMTPage from "./pages/technology/IOMTPage";
 import CareInABoxPage from "./pages/CareInABoxPage";
 import VMSHealthspanPage from "./pages/VMSHealthspanPage";
 import IndependentPhysicianPage from "./pages/IndependentPhysicianPage";
+import BlogPage from "./pages/BlogPage";
+import NewsletterPage from "./pages/NewsletterPage";
+import FlyerPage from "./pages/FlyerPage";
+import SocialMediaPage from "./pages/SocialMediaPage";
 
 const queryClient = new QueryClient();
 
 const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <BrowserRouter>
-        <div className="flex flex-col min-h-screen">
-          <Header />
-          <main className="flex-grow pt-20 md:pt-24">
-            <Routes>
-              <Route path="/" element={<Index />} />
-
-              {/* Clinic Routes */}
-              <Route path="/clinic" element={<ClinicPage />} />
-              <Route path="/clinic/care-at-home" element={<CareAtHomePage />} />
-              <Route path="/clinic/whole-person-navigation" element={<WholePersonNavigationPage />} />
-              <Route path="/clinic/chronic-condition-optimization" element={<ChronicConditionOptimizationPage />} />
-
-              {/* Technology Routes */}
-              <Route path="/technology" element={<TechnologyPage />} />
-              <Route path="/technology/ar-vr" element={<ARVRPage />} />
-              <Route path="/technology/blockchain" element={<BlockchainPage />} />
-              <Route path="/technology/ai-generative" element={<AIGenerativeAIPage />} />
-              <Route path="/technology/iomt" element={<IOMTPage />} />
-
-              {/* Solutions */}
-              <Route path="/our-solutions" element={<OurSolutionsPage />} />
-              <Route path="/care-in-a-box" element={<CareInABoxPage />} />
-              <Route path="/independent-physician" element={<IndependentPhysicianPage />} />
-              <Route path="/vms-healthspan" element={<VMSHealthspanPage />} />
-
-              {/* Podcast Route */}
-              <Route path="/podcast" element={<PodcastPage />} />
-
-              {/* Company Routes */}
-              <Route path="/about" element={<AboutPage />} />
-              <Route path="/about/leadership" element={<LeadershipPage />} />
-              <Route path="/careers" element={<CareersPage />} />
-              <Route path="/about/press" element={<PressPage />} />
-
-              {/* Contact Route */}
-              <Route path="/contact" element={<ContactUsPage />} />
-
-              {/* Catch-all route */}
-              <Route path="*" element={<NotFound />} />
-            </Routes>
-          </main>
-        </div>
-      </BrowserRouter>
-    </TooltipProvider>
-  </QueryClientProvider>
+ <QueryClientProvider client={queryClient}><TooltipProvider><Toaster/><Sonner/><BrowserRouter>
+  <div className="flex min-h-screen flex-col"><Header/><main className="flex-grow pt-20 md:pt-24"><Routes>
+   <Route path="/" element={<Index/>}/>
+   <Route path="/clinic" element={<ClinicPage/>}/><Route path="/clinic/care-at-home" element={<CareAtHomePage/>}/><Route path="/clinic/whole-person-navigation" element={<WholePersonNavigationPage/>}/><Route path="/clinic/chronic-condition-optimization" element={<ChronicConditionOptimizationPage/>}/>
+   <Route path="/technology" element={<TechnologyPage/>}/><Route path="/technology/ar-vr" element={<ARVRPage/>}/><Route path="/technology/blockchain" element={<BlockchainPage/>}/><Route path="/technology/ai-generative" element={<AIGenerativeAIPage/>}/><Route path="/technology/iomt" element={<IOMTPage/>}/>
+   <Route path="/our-solutions" element={<OurSolutionsPage/>}/><Route path="/care-in-a-box" element={<CareInABoxPage/>}/><Route path="/independent-physician" element={<IndependentPhysicianPage/>}/><Route path="/vms-healthspan" element={<VMSHealthspanPage/>}/>
+   <Route path="/newsletter" element={<NewsletterPage/>}/><Route path="/blog" element={<BlogPage/>}/><Route path="/flyer" element={<FlyerPage/>}/><Route path="/social-media" element={<SocialMediaPage/>}/>
+   <Route path="/podcast" element={<PodcastPage/>}/>
+   <Route path="/about" element={<AboutPage/>}/><Route path="/about/leadership" element={<LeadershipPage/>}/><Route path="/careers" element={<CareersPage/>}/><Route path="/about/press" element={<PressPage/>}/>
+   <Route path="/contact" element={<ContactUsPage/>}/><Route path="*" element={<NotFound/>}/>
+  </Routes></main></div>
+ </BrowserRouter></TooltipProvider></QueryClientProvider>
 );
-
 export default App;
