@@ -1,16 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, BarChart3, ClipboardList, DollarSign, FileCheck2, LayoutDashboard, Settings, ShieldCheck, Target, Users, Workflow } from 'lucide-react';
+import { ArrowRight, BarChart3, ClipboardList, DollarSign, FileCheck2, FileText, ShieldCheck, Target, Users, Workflow } from 'lucide-react';
 
 const consoleNav = [
-  { icon: LayoutDashboard, label: 'Overview', active: true },
-  { icon: Target, label: 'Opportunities' },
+  { icon: Target, label: 'Opportunities', active: true },
   { icon: Users, label: 'Populations' },
   { icon: ClipboardList, label: 'Care Programs' },
   { icon: Workflow, label: 'Workflows' },
   { icon: FileCheck2, label: 'Evidence' },
   { icon: BarChart3, label: 'Outcomes' },
   { icon: DollarSign, label: 'Economics' },
+  { icon: FileText, label: 'Reports' },
 ];
 
 const HeroSection: React.FC = () => {
@@ -29,7 +29,7 @@ const HeroSection: React.FC = () => {
               <span className="block text-blue-600">Workload to Work.</span>
             </h1>
             <p className="mt-7 text-xl md:text-2xl leading-relaxed text-slate-700 max-w-2xl">
-              Without building the specialty infrastructure yourself. Start with one population and one care problem—we help you assess the opportunity, deploy the program, coordinate the work and measure the result.
+              Identify healthcare value. Deploy governed workflows. Preserve human authority. Prove the outcome.
             </p>
             <div className="mt-9 flex flex-col sm:flex-row gap-4">
               <Link to="/contact?buyer=Population%20Opportunity%20Assessment" className="inline-flex items-center justify-center gap-2 rounded-xl bg-blue-600 hover:bg-blue-700 text-white px-7 py-4 font-bold text-lg shadow-lg shadow-blue-600/20 transition-all hover:-translate-y-0.5">
@@ -64,9 +64,6 @@ const HeroSection: React.FC = () => {
                       <Icon className="w-4 h-4" /><span>{label}</span>
                     </div>
                   ))}
-                </div>
-                <div className="mt-6 border-t border-white/10 pt-3">
-                  <div className="flex items-center gap-2.5 px-3 py-2.5 text-sm text-slate-400"><Settings className="w-4 h-4" /><span>Settings</span></div>
                 </div>
               </aside>
 
