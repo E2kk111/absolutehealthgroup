@@ -29,8 +29,12 @@ const Index: React.FC = () => (
      <h1 className="mt-5 text-5xl font-black tracking-tight md:text-7xl">Put Your Healthcare Workload to Work.</h1>
      <p className="mt-6 max-w-2xl text-xl leading-8 text-slate-300">Identify healthcare value. Deploy governed workflows. Preserve human authority. Prove the outcome.</p>
      <div className="mt-8 flex flex-wrap gap-4">
-      <Link to="/contact?topic=Opportunity%20Assessment" className="inline-flex items-center gap-2 rounded-xl bg-cyan-300 px-6 py-3 font-black text-slate-950">Run an Opportunity Assessment <ArrowRight className="h-4 w-4"/></Link>
+      <Link to="/contact?topic=Opportunity%20Assessment" className="inline-flex items-center gap-2 rounded-xl bg-cyan-300 px-6 py-3 font-black text-slate-950">Assess Your Population <ArrowRight className="h-4 w-4"/></Link>
       <Link to="/care-in-a-box#applications" className="rounded-xl border border-white/20 px-6 py-3 font-black">Explore Care Programs</Link>
+     </div>
+     <div className="mt-6 max-w-2xl rounded-2xl border border-white/10 bg-white/[.05] p-4">
+      <div className="text-sm font-black text-white">Start with an Opportunity Assessment.</div>
+      <div className="mt-1 text-sm leading-6 text-slate-300">We map the population, care gap, required workflows, evidence requirements, implementation scope and modeled economics—then give you a prioritized deployment plan.</div>
      </div>
      <p className="mt-6 text-xs leading-5 text-slate-400">GitHealth supports governed workflow execution and decision support. Consequential clinical decisions remain with appropriately authorized humans.</p>
     </div>
@@ -70,14 +74,22 @@ const Index: React.FC = () => (
    ].map(x=><div key={x.t} className="rounded-2xl border border-slate-200 p-6"><x.I className="h-8 w-8 text-blue-700"/><h3 className="mt-4 text-xl font-black">{x.t}</h3><p className="mt-3 leading-6 text-slate-600">{x.d}</p></div>)}</div>
   </section>
 
+  <section className="mx-auto max-w-7xl px-6 py-20">
+   <p className="font-black uppercase tracking-[.2em] text-blue-700">How we start</p>
+   <h2 className="mt-3 text-4xl font-black md:text-5xl">Assess. Pilot. Scale.</h2>
+   <p className="mt-5 max-w-3xl text-lg leading-8 text-slate-600">You should know what problem we are solving, what gets deployed and how success will be measured before committing to enterprise scale.</p>
+   <div className="mt-10 grid gap-5 md:grid-cols-3">
+    <div className="rounded-3xl border border-slate-200 p-7"><div className="text-sm font-black text-blue-700">01 · ASSESS</div><h3 className="mt-3 text-2xl font-black">Population Opportunity Assessment</h3><p className="mt-3 leading-7 text-slate-600">Define the population, care gap, workflows, evidence, authority boundaries, implementation scope and modeled economics.</p></div>
+    <div className="rounded-3xl border border-slate-200 p-7"><div className="text-sm font-black text-blue-700">02 · PILOT</div><h3 className="mt-3 text-2xl font-black">90-Day Deployment</h3><p className="mt-3 leading-7 text-slate-600">Run one defined program with a measurable baseline, governed workflow, human authority and agreed success criteria.</p></div>
+    <div className="rounded-3xl border border-slate-200 p-7"><div className="text-sm font-black text-blue-700">03 · SCALE</div><h3 className="mt-3 text-2xl font-black">Site → Multi-Site → Enterprise</h3><p className="mt-3 leading-7 text-slate-600">Expand only after the operating model, evidence, outcomes and economics support the next deployment.</p></div>
+   </div>
+   <div className="mt-10 rounded-3xl bg-blue-700 p-8 text-white md:flex md:items-center md:justify-between md:gap-8"><div><h3 className="text-3xl font-black">Tell us the population. Tell us the care problem.</h3><p className="mt-3 max-w-3xl text-blue-100">We’ll show you the opportunity, the Care-in-a-Box™ to deploy, what it should take to operate, and how we will measure whether it worked.</p></div><Link to="/contact?topic=Opportunity%20Assessment" className="mt-6 inline-flex shrink-0 items-center gap-2 rounded-xl bg-white px-6 py-3 font-black text-blue-950 md:mt-0">Assess Your Population <ArrowRight className="h-4 w-4"/></Link></div>
+  </section>
   <section className="bg-slate-950 text-white"><div className="mx-auto max-w-7xl px-6 py-20">
    <p className="font-black uppercase tracking-[.2em] text-cyan-300">Architecture · Depth on demand</p><h2 className="mt-3 text-4xl font-black">The infrastructure underneath the operating surface.</h2>
    <div className="mt-10 grid gap-4 md:grid-cols-3 lg:grid-cols-6">{["Medical Navigator AI™","AION Intelligence + Authority™","PolicyPulse™","RegOS™","GitHealth™","Prove™ · ZScore™ · Economics™"].map((x,i)=><div key={x} className="rounded-2xl border border-white/10 bg-white/[.04] p-5"><div className="text-xs font-black text-cyan-300">LAYER {i+1}</div><div className="mt-3 font-black">{x}</div></div>)}</div>
   </div></section>
 
-  <section className="mx-auto max-w-7xl px-6 py-20"><div className="grid gap-6 md:grid-cols-4">
-   {[["Newsletter","The Care Infrastructure Brief","/newsletter"],["Blog","Care infrastructure, explained.","/blog"],["Flyer","Institutional Care-in-a-Box overview.","/flyer"],["Social Media","Campaign-ready messages and distribution.","/social-media"]].map(x=><Link key={x[0]} to={x[2]} className="rounded-2xl border border-slate-200 p-6 transition hover:-translate-y-1 hover:shadow-lg"><div className="text-xs font-black uppercase tracking-[.16em] text-blue-700">{x[0]}</div><div className="mt-3 text-lg font-black">{x[1]}</div><div className="mt-5 inline-flex items-center gap-2 text-sm font-black text-blue-700">Open <ArrowRight className="h-4 w-4"/></div></Link>)}
-  </div></section>
   <Footer />
  </div>
 );
