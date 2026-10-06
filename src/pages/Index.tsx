@@ -1,7 +1,7 @@
 import React from 'react';
 import HeroSection from '../components/HeroSection';
 import CarePortfolioSection from '../components/CarePortfolioSection';
-import ThreePillarsSection from '../components/ThreePillarsSection';
+import CareProgramsSection from '../components/CareProgramsSection';\nimport ThreePillarsSection from '../components/ThreePillarsSection';
 import TechnologyWorkflowSection from '../components/TechnologyWorkflowSection';
 import WhoWeServeSection from '../components/WhoWeServeSection';\nimport CTASection from '../components/CTASection';
 import Footer from '../components/Footer';
