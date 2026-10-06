@@ -53,12 +53,12 @@ const ThreePillarsSection: React.FC = () => {
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808008_1px,transparent_1px),linear-gradient(to_bottom,#80808008_1px,transparent_1px)] bg-[size:28px_28px]" />
       <div className="container relative z-10">
         <div className="max-w-4xl mx-auto text-center mb-14">
-          <p className="text-sm font-bold tracking-[0.2em] uppercase text-blue-600 mb-3">Start with the job to be done</p>
+          <p className="text-sm font-bold tracking-[0.2em] uppercase text-blue-600 mb-3">A simpler way to deploy specialty care</p>
           <h2 className="text-4xl md:text-6xl font-black tracking-tight text-slate-950">
-            Problem → Product → Outcome → Proof → Economics
+            Tell us the population. Tell us the problem. We build the care program.
           </h2>
           <p className="mt-5 text-lg md:text-xl text-slate-600">
-            The buyer sees the problem, the deployable product and the measurable result first. The intelligence architecture stays underneath.
+            You do not need to buy an AI platform or assemble a new specialty stack. Care-in-a-Box™ packages the workflows, coordination, evidence and measurement needed to launch and operate the program.
           </p>
         </div>
 
@@ -87,13 +87,13 @@ const ThreePillarsSection: React.FC = () => {
 
         <div className="mt-12 rounded-2xl bg-slate-950 text-white p-7 md:p-9 flex flex-col md:flex-row md:items-center md:justify-between gap-6">
           <div>
-            <p className="text-cyan-300 font-bold text-sm uppercase tracking-[0.16em]">The enterprise proposition</p>
+            <p className="text-cyan-300 font-bold text-sm uppercase tracking-[0.16em]">The client proposition</p>
             <p className="mt-2 text-xl md:text-2xl font-bold max-w-4xl">
-              Give us one patient population and one care problem. We identify the opportunity, govern the work, preserve human authority, prove what happened and measure realized value.
+              Give us one patient population and one care problem. We show you the opportunity, the program to deploy, what it should take to operate, and how we will measure whether it worked.
             </p>
           </div>
           <Link to="/contact" className="shrink-0 inline-flex items-center justify-center gap-2 rounded-xl bg-white text-slate-950 px-6 py-3 font-bold hover:bg-cyan-50 transition-colors">
-            Start a conversation <ArrowRight className="w-4 h-4" />
+            Assess your population <ArrowRight className="w-4 h-4" />
           </Link>
         </div>
       </div>
