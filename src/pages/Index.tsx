@@ -1,9 +1,10 @@
 import React from 'react';
 import HeroSection from '../components/HeroSection';
 import CarePortfolioSection from '../components/CarePortfolioSection';
-import CareProgramsSection from '../components/CareProgramsSection';\nimport ThreePillarsSection from '../components/ThreePillarsSection';
+import ThreePillarsSection from '../components/ThreePillarsSection';
 import TechnologyWorkflowSection from '../components/TechnologyWorkflowSection';
-import WhoWeServeSection from '../components/WhoWeServeSection';\nimport CTASection from '../components/CTASection';
+import WhoWeServeSection from '../components/WhoWeServeSection';
+import CTASection from '../components/CTASection';
 import Footer from '../components/Footer';
 
 const Index: React.FC = () => {
@@ -14,6 +15,7 @@ const Index: React.FC = () => {
       <ThreePillarsSection />
       <TechnologyWorkflowSection />
       <WhoWeServeSection />
+      <CTASection />
       <Footer />
     </>
   );
