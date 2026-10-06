@@ -42,7 +42,24 @@ const CarePortfolioSection: React.FC = () => (
         ))}
       </div>
 
-      <div className="mt-10 rounded-2xl bg-slate-50 border border-slate-200 p-6 md:p-8 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
+      <div className="mt-8 rounded-2xl border border-blue-200 bg-blue-50 p-6 md:p-8">
+        <p className="text-sm font-bold uppercase tracking-[0.16em] text-blue-700">Current CMS opportunity · ACCESS</p>
+        <h3 className="mt-2 text-2xl font-black text-slate-950">Turn a new payment pathway into an operable care-coordination workflow.</h3>
+        <p className="mt-3 text-slate-700 leading-relaxed max-w-5xl">
+          CMS currently allows eligible practitioners to bill ACCESS Co-Management Payment codes for qualifying care-update review and related coordination. The workflow requires documented review, at least one qualifying care-coordination activity and at least five minutes of practitioner time. GitHealth can organize the evidence and workflow around those requirements while the clinician remains the clinical authority and CMS remains the payment authority.
+        </p>
+        <div className="mt-5 flex flex-wrap gap-3 text-sm font-bold">
+          <span className="rounded-full bg-white border border-blue-200 px-3 py-1.5">G0676 · eCKM / CKM</span>
+          <span className="rounded-full bg-white border border-blue-200 px-3 py-1.5">G0677 · MSK</span>
+          <span className="rounded-full bg-white border border-blue-200 px-3 py-1.5">G0678 · BH</span>
+          <span className="rounded-full bg-white border border-blue-200 px-3 py-1.5">$30 allowed amount before applicable adjustments</span>
+        </div>
+        <a href="https://www.cms.gov/priorities/innovation/access-co-management-payment-cmp-billing-guidance" target="_blank" rel="noreferrer" className="mt-5 inline-flex items-center gap-2 text-blue-700 font-bold hover:text-blue-900">
+          Review CMS billing guidance <ArrowRight className="w-4 h-4" />
+        </a>
+      </div>
+
+      <div className="mt-8 rounded-2xl bg-slate-50 border border-slate-200 p-6 md:p-8 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
         <div>
           <p className="font-black text-slate-950 text-xl">Not sure which box fits?</p>
           <p className="mt-2 text-slate-600">Start with the population and care problem. The Opportunity Assessment maps the recommended program, workflows, evidence requirements, implementation scope and modeled economics.</p>
