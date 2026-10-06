@@ -44,7 +44,7 @@ const Index: React.FC = () => (
   </section>
 
   <section className="border-b bg-white"><div className="mx-auto max-w-7xl px-6 py-10"><div className="grid gap-5 md:grid-cols-4">
-   {[["Care-in-a-Box™","What the customer deploys."],["GitHealth™","What the customer operates."],["Medical Navigator AI™","What navigates the work."],["AION™","What governs intelligence + authority."]].map(x=><div key={x[0]}><div className="font-black text-blue-950">{x[0]}</div><div className="mt-1 text-sm text-slate-600">{x[1]}</div></div>)}
+   {[["Care-in-a-Box™","What the customer deploys."],["GitHealth™","What the customer operates."],["Medical Navigator AI™","What navigates the work."],["AION™","What evaluates governed rules."]].map(x=><div key={x[0]}><div className="font-black text-blue-950">{x[0]}</div><div className="mt-1 text-sm text-slate-600">{x[1]}</div></div>)}
   </div></div></section>
 
   <section className="mx-auto max-w-7xl px-6 py-20">
@@ -53,6 +53,18 @@ const Index: React.FC = () => (
    <div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-3">{programs.map(p=><article key={p[0]} className="rounded-2xl border border-slate-200 p-6 shadow-sm"><Stethoscope className="h-7 w-7 text-blue-700"/><h3 className="mt-4 text-xl font-black">{p[0]}</h3><p className="mt-3 leading-6 text-slate-600">{p[1]}</p></article>)}</div>
    <Link to="/care-in-a-box" className="mt-8 inline-flex items-center gap-2 font-black text-blue-700">View the full Care-in-a-Box portfolio <ArrowRight className="h-4 w-4"/></Link>
   </section>
+
+  <section className="border-y border-blue-100 bg-blue-50/70"><div className="mx-auto max-w-7xl px-6 py-12">
+   <div className="grid gap-8 lg:grid-cols-[1fr_auto] lg:items-center">
+    <div>
+     <p className="text-xs font-black uppercase tracking-[.2em] text-blue-700">Current CMS opportunity · ACCESS Co-Management</p>
+     <h2 className="mt-3 text-3xl font-black">A payment pathway only matters if your team can operate it.</h2>
+     <p className="mt-4 max-w-4xl leading-7 text-slate-700">Current CMS guidance allows eligible practitioners to bill G0676, G0677 or G0678 for qualifying ACCESS care-update review plus related care coordination. The allowed amount is $30 before applicable adjustments, the workflow requires at least five minutes of practitioner time, and the service may be payable up to three times in 12 months per beneficiary per ACCESS track. GitHealth can organize the workflow and evidence around those requirements; clinicians retain clinical authority and CMS retains payment authority.</p>
+     <p className="mt-3 text-xs text-slate-500">Program eligibility, diagnosis, documentation, frequency, claim submission and payment requirements still apply. This is not a payment guarantee.</p>
+    </div>
+    <a href="https://www.cms.gov/priorities/innovation/access-co-management-payment-cmp-billing-guidance" target="_blank" rel="noreferrer" className="inline-flex items-center justify-center gap-2 rounded-xl bg-blue-700 px-5 py-3 font-black text-white">Review CMS Guidance <ArrowRight className="h-4 w-4"/></a>
+   </div>
+  </div></section>
 
   <section className="bg-slate-50"><div className="mx-auto max-w-7xl px-6 py-20">
    <p className="font-black uppercase tracking-[.2em] text-blue-700">Workflow / Operations</p><h2 className="mt-3 text-4xl font-black">From opportunity to completed governed work.</h2>
@@ -72,7 +84,17 @@ const Index: React.FC = () => (
 
   <section className="bg-slate-950 text-white"><div className="mx-auto max-w-7xl px-6 py-20">
    <p className="font-black uppercase tracking-[.2em] text-cyan-300">Architecture · Depth on demand</p><h2 className="mt-3 text-4xl font-black">The infrastructure underneath the operating surface.</h2>
-   <div className="mt-10 grid gap-4 md:grid-cols-3 lg:grid-cols-6">{["Medical Navigator AI™","AION Intelligence + Authority™","PolicyPulse™","RegOS™","GitHealth™","Prove™ · ZScore™ · Economics™"].map((x,i)=><div key={x} className="rounded-2xl border border-white/10 bg-white/[.04] p-5"><div className="text-xs font-black text-cyan-300">LAYER {i+1}</div><div className="mt-3 font-black">{x}</div></div>)}</div>
+   <div className="mt-10 grid gap-4 md:grid-cols-3 lg:grid-cols-6">{["Medical Navigator AI™","AION™ · Governed Rule Evaluation","PolicyPulse™","RegOS™","GitHealth™","Prove™ · ZScore™ · Economics™"].map((x,i)=><div key={x} className="rounded-2xl border border-white/10 bg-white/[.04] p-5"><div className="text-xs font-black text-cyan-300">LAYER {i+1}</div><div className="mt-3 font-black">{x}</div></div>)}</div>
+  </div></section>
+
+  <section className="bg-slate-50"><div className="mx-auto max-w-7xl px-6 py-20">
+   <p className="font-black uppercase tracking-[.2em] text-blue-700">How clients start</p>
+   <h2 className="mt-3 text-4xl font-black">Assess. Pilot. Scale.</h2>
+   <p className="mt-5 max-w-4xl text-lg leading-8 text-slate-600">Start small enough to prove the operating model, but with enough real workflow to measure what changed. The first deliverable is a population-specific plan—not a generic software demo.</p>
+   <div className="mt-10 grid gap-5 md:grid-cols-3">
+    {[["01","Opportunity Assessment","Map the population, care problem, governing requirements, workflow burden, baseline and modeled economics."],["02","90-Day Pilot","Deploy one bounded Care-in-a-Box™ program with defined success criteria, evidence requirements and human authority."],["03","Site / Enterprise Scale","Expand only after the workflow, outcomes and economics are measurable enough to justify broader deployment."]].map(x=><div key={x[0]} className="rounded-2xl border border-slate-200 bg-white p-7 shadow-sm"><div className="text-sm font-black text-cyan-700">{x[0]}</div><h3 className="mt-3 text-xl font-black">{x[1]}</h3><p className="mt-3 leading-6 text-slate-600">{x[2]}</p></div>)}
+   </div>
+   <Link to="/contact?topic=Opportunity%20Assessment" className="mt-8 inline-flex items-center gap-2 rounded-xl bg-blue-700 px-6 py-3 font-black text-white">Assess Your Population <ArrowRight className="h-4 w-4"/></Link>
   </div></section>
 
   <section className="mx-auto max-w-7xl px-6 py-20"><div className="grid gap-6 md:grid-cols-4">
