@@ -29,14 +29,14 @@ const HeroSection: React.FC = () => {
               <span className="block text-blue-600">Workload to Work.</span>
             </h1>
             <p className="mt-7 text-xl md:text-2xl leading-relaxed text-slate-700 max-w-2xl">
-              Identify healthcare value. Deploy governed workflows. Preserve human authority. Prove the outcome.
+              Without building the specialty infrastructure yourself. Start with one population and one care problem—we help you assess the opportunity, deploy the program, coordinate the work and measure the result.
             </p>
             <div className="mt-9 flex flex-col sm:flex-row gap-4">
-              <Link to="/contact" className="inline-flex items-center justify-center gap-2 rounded-xl bg-blue-600 hover:bg-blue-700 text-white px-7 py-4 font-bold text-lg shadow-lg shadow-blue-600/20 transition-all hover:-translate-y-0.5">
-                Get a Demo <ArrowRight className="w-5 h-5" />
+              <Link to="/contact?buyer=Population%20Opportunity%20Assessment" className="inline-flex items-center justify-center gap-2 rounded-xl bg-blue-600 hover:bg-blue-700 text-white px-7 py-4 font-bold text-lg shadow-lg shadow-blue-600/20 transition-all hover:-translate-y-0.5">
+                Assess Your Population <ArrowRight className="w-5 h-5" />
               </Link>
               <Link to="/care-in-a-box" className="inline-flex items-center justify-center gap-2 rounded-xl border border-slate-300 bg-white hover:border-blue-300 hover:bg-blue-50 text-slate-900 px-7 py-4 font-bold text-lg transition-all">
-                See How It Works <ArrowRight className="w-5 h-5" />
+                Explore Care-in-a-Box™ <ArrowRight className="w-5 h-5" />
               </Link>
             </div>
             <div className="mt-10 grid grid-cols-2 gap-x-6 gap-y-5 max-w-xl">
