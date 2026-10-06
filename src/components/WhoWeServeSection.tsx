@@ -1,6 +1,6 @@
 
 import React, { useEffect, useState, useRef } from 'react';
-import { Users, Stethoscope, Building, FileText, Lightbulb, TrendingUp } from 'lucide-react';
+import { Building2, Hospital, House, Stethoscope, Network, HeartPulse } from 'lucide-react';
 import { Card, CardContent } from './ui/card';
 
 const WhoWeServeSection: React.FC = () => {
@@ -27,12 +27,12 @@ const WhoWeServeSection: React.FC = () => {
   }, []);
 
   const audiences = [
-    { icon: Users, title: "Patients", gradient: "from-blue-500 to-blue-600" },
-    { icon: Stethoscope, title: "Providers", gradient: "from-purple-500 to-purple-600" },
-    { icon: Building, title: "Health systems", gradient: "from-green-500 to-green-600" },
-    { icon: FileText, title: "Policymakers", gradient: "from-orange-500 to-orange-600" },
-    { icon: Lightbulb, title: "Innovators", gradient: "from-pink-500 to-pink-600" },
-    { icon: TrendingUp, title: "Investors", gradient: "from-indigo-500 to-indigo-600" }
+    { icon: Building2, title: "Senior Living", description: "Bring coordinated specialty and chronic-care programs closer to residents.", gradient: "from-blue-500 to-blue-600" },
+    { icon: Hospital, title: "Post-Acute Care", description: "Support recovery, transitions, documentation and specialty access across SNF, LTACH and IRF settings.", gradient: "from-purple-500 to-purple-600" },
+    { icon: House, title: "Home-Based Care", description: "Extend monitoring, navigation and care workflows into the home.", gradient: "from-green-500 to-green-600" },
+    { icon: Network, title: "Health Systems & ACOs", description: "Deploy population-specific programs with governed workflows, evidence and measurement.", gradient: "from-orange-500 to-orange-600" },
+    { icon: Stethoscope, title: "Physician Groups", description: "Add specialty-care infrastructure while preserving licensed clinical authority and patient relationships.", gradient: "from-pink-500 to-pink-600" },
+    { icon: HeartPulse, title: "Rehab & Specialty Networks", description: "Turn clinical expertise into a connected, measurable program that can scale across sites.", gradient: "from-indigo-500 to-indigo-600" }
   ];
 
   return (
@@ -44,10 +44,10 @@ const WhoWeServeSection: React.FC = () => {
       <div className="container relative z-10">
         <div className="text-center mb-16">
           <h2 className={`text-4xl md:text-5xl lg:text-6xl font-extrabold text-slate-900 mb-4 bg-gradient-to-r from-slate-900 via-blue-900 to-slate-900 bg-clip-text text-transparent transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-            Who We Serve
+            Built for organizations responsible for real care
           </h2>
           <p className={`text-lg md:text-xl text-slate-600 max-w-2xl mx-auto transition-all duration-1000 delay-200 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-            Our solutions benefit everyone in the healthcare ecosystem
+            Start with the setting you operate and the population you serve. We configure the care program around the work your team actually needs to complete.
           </p>
         </div>
         
@@ -65,7 +65,7 @@ const WhoWeServeSection: React.FC = () => {
                   <div className={`w-16 h-16 bg-gradient-to-br ${audience.gradient} rounded-xl flex items-center justify-center mx-auto mb-4 shadow-lg group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 relative z-10`}>
                     <IconComponent className="text-white" size={32} />
                   </div>
-                  <h3 className="text-lg font-extrabold text-slate-900 group-hover:text-blue-600 transition-colors relative z-10">{audience.title}</h3>
+                  <h3 className="text-lg font-extrabold text-slate-900 group-hover:text-blue-600 transition-colors relative z-10">{audience.title}</h3>\n                  <p className="mt-2 text-sm text-slate-600 leading-relaxed relative z-10">{audience.description}</p>
                 </CardContent>
               </Card>
             );

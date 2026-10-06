@@ -1,81 +1,97 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { Database, Brain, CheckCircle2, ArrowRight as ArrowRightIcon, ArrowDown } from 'lucide-react';
-import { Card } from './ui/card';
+import React from 'react';
+import { ArrowDown, ArrowRight, BrainCircuit, CircleDollarSign, FileCheck2, Navigation, ShieldCheck, Stethoscope, Workflow } from 'lucide-react';
+
+const steps = [
+  { icon: Navigation, title: 'Medical Navigator™', text: 'Coordinates the workflow', tone: 'bg-blue-600' },
+  { icon: BrainCircuit, title: 'AION™', text: 'Evaluates deterministic rules', tone: 'bg-violet-600' },
+  { icon: Stethoscope, title: 'Human Authority', text: 'Authorizes consequential actions', tone: 'bg-amber-500' },
+  { icon: Workflow, title: 'GitHealth Runtime™', text: 'Executes governed work', tone: 'bg-slate-900' },
+  { icon: FileCheck2, title: 'Prove™ + ZScore™', text: 'Establishes evidence + measures performance', tone: 'bg-cyan-600' },
+  { icon: CircleDollarSign, title: 'CTG + Economics™', text: 'Measures cost + attributable value', tone: 'bg-emerald-600' },
+];
 
 const TechnologyWorkflowSection: React.FC = () => {
-  const [isVisible, setIsVisible] = useState(false);
-  const sectionRef = useRef<HTMLDivElement | null>(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setIsVisible(true);
-          }
-        });
-      },
-      { threshold: 0.1, rootMargin: '0px 0px -100px 0px' }
-    );
-
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-
-    return () => observer.disconnect();
-  }, []);
-
   return (
-    <section 
-      ref={sectionRef}
-      className="py-20 md:py-28 bg-gradient-to-b from-white via-blue-50/30 to-white relative overflow-hidden"
-    >
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808008_1px,transparent_1px),linear-gradient(to_bottom,#80808008_1px,transparent_1px)] bg-[size:24px_24px]" />
+    <section className="py-20 md:py-28 bg-slate-50 relative overflow-hidden">
       <div className="container relative z-10">
-        <div className="text-center mb-16">
-          <h2 className={`text-4xl md:text-5xl lg:text-6xl font-extrabold text-slate-900 mb-4 bg-gradient-to-r from-slate-900 via-blue-900 to-slate-900 bg-clip-text text-transparent transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-10' : 'opacity-0 translate-y-10'}`}>
-            Technology Workflow
+        <div className="max-w-4xl mx-auto text-center">
+          <p className="text-sm font-bold tracking-[0.2em] uppercase text-violet-600 mb-3">How GitHealth works</p>
+          <h2 className="text-4xl md:text-6xl font-black tracking-tight text-slate-950">
+            Govern the workflow. Preserve authority. Prove the result.
           </h2>
-          <p className={`text-lg md:text-xl text-slate-600 max-w-2xl mx-auto transition-all duration-1000 delay-200 ${isVisible ? 'opacity-100 translate-y-10' : 'opacity-0 translate-y-10'}`}>
-            How our technology transforms healthcare delivery
+          <p className="mt-5 text-lg md:text-xl text-slate-600">
+            The architecture is sophisticated underneath so the operating experience can stay simple on the surface.
           </p>
         </div>
 
-        <div className={`max-w-5xl mx-auto transition-all duration-1000 delay-300 ${isVisible ? 'opacity-100 translate-y-10' : 'opacity-0 translate-y-10'}`}>
-          <Card className="border-0 shadow-xl bg-gradient-to-br from-slate-50 to-blue-50/30 p-8 md:p-12">
-            <h3 className="text-2xl font-extrabold text-slate-900 mb-6 text-center">How It Works</h3>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
-              <div className="text-center">
-                <div className="w-20 h-20 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl flex items-center justify-center mx-auto mb-4 shadow-lg group-hover:scale-110 transition-all duration-300">
-                  <Database className="text-white" size={36} />
+        <div className="mt-14 grid grid-cols-1 md:grid-cols-6 gap-3 items-stretch">
+          {steps.map((step, index) => {
+            const Icon = step.icon;
+            return (
+              <React.Fragment key={step.title}>
+                <div className="md:col-span-1 rounded-2xl bg-white border border-slate-200 p-5 shadow-sm text-center">
+                  <div className={`w-12 h-12 ${step.tone} rounded-xl mx-auto flex items-center justify-center`}>
+                    <Icon className="w-6 h-6 text-white" />
+                  </div>
+                  <h3 className="mt-4 font-black text-slate-950 leading-tight">{step.title}</h3>
+                  <p className="mt-2 text-sm text-slate-600">{step.text}</p>
                 </div>
-                <h4 className="font-semibold text-slate-900 mb-2 text-lg">1. Collect</h4>
-                <p className="text-slate-600 text-sm">Data from all sources is collected and normalized</p>
-              </div>
-              <div className="flex justify-center">
-                <ArrowRightIcon className="w-8 h-8 text-blue-600 hidden md:block" />
-                <ArrowDown className="w-8 h-8 text-blue-600 md:hidden" />
-              </div>
-              <div className="text-center">
-                <div className="w-20 h-20 bg-gradient-to-br from-purple-500 to-purple-600 rounded-xl flex items-center justify-center mx-auto mb-4 shadow-lg group-hover:scale-110 transition-all duration-300">
-                  <Brain className="text-white" size={36} />
-                </div>
-                <h4 className="font-semibold text-slate-900 mb-2 text-lg">2. Process</h4>
-                <p className="text-slate-600 text-sm">AI and automation process data to generate insights</p>
-              </div>
-              <div className="flex justify-center">
-                <ArrowRightIcon className="w-8 h-8 text-blue-600 hidden md:block" />
-                <ArrowDown className="w-8 h-8 text-blue-600 md:hidden" />
-              </div>
-              <div className="text-center">
-                <div className="w-20 h-20 bg-gradient-to-br from-green-500 to-green-600 rounded-xl flex items-center justify-center mx-auto mb-4 shadow-lg group-hover:scale-110 transition-all duration-300">
-                  <CheckCircle2 className="text-white" size={36} />
-                </div>
-                <h4 className="font-semibold text-slate-900 mb-2 text-lg">3. Deliver</h4>
-                <p className="text-slate-600 text-sm">Actionable outputs drive better care coordination</p>
+                {index < steps.length - 1 && (
+                  <div className="hidden" aria-hidden="true">
+                    <ArrowRight />
+                    <ArrowDown />
+                  </div>
+                )}
+              </React.Fragment>
+            );
+          })}
+        </div>
+
+        <div className="mt-8 flex items-center justify-center gap-3 text-sm md:text-base font-bold text-slate-700">
+          <ShieldCheck className="w-5 h-5 text-emerald-600" />
+          <span>Models suggest. AION™ evaluates. Licensed professionals authorize. GitHealth™ proves.</span>
+        </div>
+
+        <div className="mt-14 grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-8">
+          <div className="rounded-3xl bg-slate-950 text-white p-8 md:p-10">
+            <p className="text-cyan-300 font-bold uppercase tracking-[0.16em] text-sm">Economic flywheel</p>
+            <h3 className="mt-3 text-3xl md:text-4xl font-black">Optimize for verified client value — not token consumption.</h3>
+            <p className="mt-5 text-slate-300 text-lg leading-relaxed">
+              Tokens are a variable cost inside the workflow. Workflow Units are the production unit. Verified goals are the output.
+              GitHealth measures what it costs to reach the goal and what attributable value the completed work creates.
+            </p>
+            <div className="mt-7 rounded-2xl border border-white/15 bg-white/[0.06] p-6">
+              <p className="text-sm text-slate-300 font-bold uppercase tracking-wider">Value Efficiency</p>
+              <div className="mt-4 text-center">
+                <div className="text-xl md:text-2xl font-black">Verified Attributable Value</div>
+                <div className="h-px bg-cyan-300/70 my-3" />
+                <div className="text-xl md:text-2xl font-black">Total Cost-to-Goal</div>
               </div>
             </div>
-          </Card>
+          </div>
+
+          <div className="rounded-3xl bg-white border border-slate-200 p-8 md:p-10 shadow-sm">
+            <p className="text-blue-600 font-bold uppercase tracking-[0.16em] text-sm">What improves as we scale</p>
+            <div className="mt-6 space-y-5">
+              {[
+                ['↓', 'AI cost / Workflow Unit'],
+                ['↓', 'Human minutes / Workflow Unit'],
+                ['↓', 'Exception rate + Cost-to-Goal'],
+                ['↑', 'Evidence completion + human leverage'],
+                ['↑', 'Attributable value + contribution / Workflow Unit'],
+              ].map(([direction, label]) => (
+                <div key={label} className="flex items-center gap-4 border-b border-slate-100 pb-4 last:border-0">
+                  <span className={`w-9 h-9 rounded-full flex items-center justify-center font-black ${direction === '↑' ? 'bg-emerald-50 text-emerald-700' : 'bg-blue-50 text-blue-700'}`}>
+                    {direction}
+                  </span>
+                  <span className="font-bold text-slate-800">{label}</span>
+                </div>
+              ))}
+            </div>
+            <p className="mt-7 text-sm text-slate-500">
+              Economic outputs are measured from customer-specific evidence and assumptions. Modeled opportunities are not guarantees of clinical outcome, coverage, payment or ROI.
+            </p>
+          </div>
         </div>
       </div>
     </section>
@@ -83,4 +99,3 @@ const TechnologyWorkflowSection: React.FC = () => {
 };
 
 export default TechnologyWorkflowSection;
-
