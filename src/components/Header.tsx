@@ -15,6 +15,7 @@ const insights=[
  ["Podcast","/podcast"],
 ];
 const resources=[
+ ["AION Intelligence","/aion-intelligence"],
  ["Institutional Flyer","/flyer"],
  ["Technology","/technology"],
  ["Clinic","/clinic"],
