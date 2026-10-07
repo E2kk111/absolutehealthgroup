@@ -63,7 +63,7 @@ export default function AIONIntelligencePage(){
     [FileCheck2,"Evidence by Design","Define required inputs, evidence, authority and completion criteria."],
     [BrainCircuit,"Policy Lifecycle","Analyze proposed rules without silently making them production authority."],
     [BarChart3,"Economic Metering","Workflow Units™, Cost-to-Goal™, contribution and ROI make operations measurable."]
-   ].map(([I,t,d]:any)=><div key={t} className="rounded-3xl border border-white/10 bg-white/[.035] p-7"><I className="h-8 w-8 text-cyan-300"/><h3 className="mt-5 text-xl font-black">{t}</h3><p className="mt-3 leading-7 text-slate-400">{d}</p></div>)}</div>
+   ].map(([I,t,d])=><div key={t as string} className="rounded-3xl border border-white/10 bg-white/[.035] p-7"><I className="h-8 w-8 text-cyan-300"/><h3 className="mt-5 text-xl font-black">{t}</h3><p className="mt-3 leading-7 text-slate-400">{d}</p></div>)}</div>
   </div></section>
 
   <section className="bg-white text-slate-950"><div className="mx-auto max-w-7xl px-6 py-24">
