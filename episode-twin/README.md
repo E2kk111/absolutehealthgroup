@@ -77,3 +77,23 @@ The later scenario engine should compare assumptions for three post-acute transi
 The proposed 25–50 episode, one-organization pilot requires verified agreements, security, integrations and clinical oversight. Its first outcomes are workflow completion, evidence completeness, timeliness and review burden. Readmissions remain exploratory until reliable baseline/follow-up data and an appropriate analysis exist.
 
 Progressia may communicate approved aggregate findings once evidence exists. This synthetic package is a technology demonstration, not an outcomes case study.
+
+## WorldOS interactive prototype — October 8 update
+
+Run `npm ci`, `npm run dev`, then open `/worldos`.
+
+The new React dashboard implements one synthetic episode and three deterministic discharge alternatives. It calculates a fixed seven-day resource window, with adjustable fictional costs and explicit ±20% sensitivity. It does not predict clinical outcomes or use MiroFish/VILYA code, live multi-agent models, EHRs or payer connections.
+
+The AION **demonstration** workflow logs evidence confirmations, scenario and assumption changes, held/denied approvals, human-role approval, and simulated execution. Approval binds to scenario/version, expires in 15 minutes, and is revoked by edits. AI-role approval/execution is denied. Handoff creates a simulated record only; no patient action or message is sent.
+
+Events and snapshots are SHA-256 chained, saved in localStorage, verified on reload, and exportable as JSON. Role selection is not authentication. A browser owner can rewrite and rehash local state. There is no production AION integration, immutable remote storage, signed clinician identity, or independent proof of care. These remain release prerequisites for real operations.
+
+Run all 23 domain tests with:
+
+```sh
+node --experimental-strip-types --test episode-twin/tests/*.test.mjs
+```
+
+The foundation HTTP/PostgreSQL adapter remains pending. The visual prototype advances M1-07 for a single synthetic episode without completing the full application-level M1 acceptance criteria.
+
+Validation for this update: 23 local domain tests passed; TypeScript and production build passed; new/modified application files passed scoped ESLint. Full repository lint remains blocked by a pre-existing `no-explicit-any` in `src/pages/AIONIntelligencePage.tsx`. Browser checks passed in headless Chromium at 1440px and 390px: evidence hold, evidence toggles, AI denial, human approval, simulated handoff, reload persistence, JSON export, edit invalidation, no horizontal mobile overflow, and no runtime errors. Desktop and mobile screenshots were visually inspected. Remote CI and deployment status must be checked separately.

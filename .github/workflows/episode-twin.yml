@@ -1,10 +1,10 @@
 name: Episode Twin reference tests
 on:
   pull_request:
-    paths: ['episode-twin/**', '.github/workflows/episode-twin.yml']
+    paths: ['episode-twin/**', 'src/features/worldos/**', 'src/pages/WorldOSPage.tsx', 'src/pages/worldos.css', '.github/workflows/episode-twin.yml']
   push:
     branches: [main]
-    paths: ['episode-twin/**', '.github/workflows/episode-twin.yml']
+    paths: ['episode-twin/**', 'src/features/worldos/**', 'src/pages/WorldOSPage.tsx', 'src/pages/worldos.css', '.github/workflows/episode-twin.yml']
 permissions:
   contents: read
 jobs:
@@ -15,4 +15,4 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
-      - run: node --test episode-twin/tests/*.test.mjs
+      - run: node --experimental-strip-types --test episode-twin/tests/*.test.mjs
