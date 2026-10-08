@@ -4,6 +4,7 @@ import { ChevronDown, Menu, X } from "lucide-react";
 
 const programs=[
  ["Care-in-a-Box™","/care-in-a-box"],
+ ["DermalQ™ Wound Intelligence","/dermalq"],
  ["Independent Physicians","/independent-physician"],
  ["VMS Healthspan","/vms-healthspan"],
  ["All Solutions","/our-solutions"],
