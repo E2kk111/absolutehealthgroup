@@ -16,7 +16,7 @@ const applications = [
   { name:"ACCESS Care-in-a-Box™", tag:"Co-Management Workflows", icon:Sparkles, text:"CMS-aligned ACCESS Care Update review, track/diagnosis validation, ≥5-minute practitioner workflow, coordination evidence, claim controls and co-management economics." },
   { name:"CJR-X Recovery-in-a-Box™", tag:"90-Day Orthopedic Episodes", icon:Building2, text:"Readiness, transitions, recovery, quality measurement and episode-economics infrastructure." },
   { name:"Burn Recovery-in-a-Box™", tag:"Burn + Reconstruction + Recovery", icon:HeartPulse, text:"Connected burn, wound, reconstruction, orthopedic and rehabilitation recovery workflows." },
-  { name:"Wound Care-in-a-Box™", tag:"WoundOS + DermalQ", icon:ShieldCheck, text:"Assessment, wound intelligence, documentation integrity, specialty coordination and outcomes." },
+  { name:"Wound Care-in-a-Box™", tag:"WoundOS + DermalQ", icon:ShieldCheck, text:"Assessment, DermalQ™ image intelligence, clinician-reviewed infection flags, documentation integrity, specialty coordination and outcomes." },
   { name:"RuralCare AI™", tag:"Distributed Specialty Care", icon:Home, text:"Community clinicians connected to virtual specialists, longitudinal records and coordinated care." },
   { name:"Senior Care-in-a-Box™", tag:"Healthy Aging + Specialty Access", icon:Activity, text:"Longitudinal senior-care workflows combining specialty access, navigation, monitoring and escalation." },
   { name:"Regenerative / Longevity", tag:"Governed Clinical Workflows", icon:Brain, text:"Eligibility, evidence review, authorized treatment, longitudinal monitoring and service lines such as clinician-governed hydration where appropriate." },
