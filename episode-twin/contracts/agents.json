@@ -1,0 +1,75 @@
+{
+  "version": "m1-synthetic-v1",
+  "implemented": [
+    "deterministic_intake_normalization",
+    "evidence_source_validation"
+  ],
+  "agents": [
+    {
+      "name": "Intake",
+      "phase": "M1 reference",
+      "tools": [
+        "episode:create",
+        "episode:read"
+      ],
+      "output": "synthetic episode draft",
+      "may_approve": false
+    },
+    {
+      "name": "Evidence Integrity",
+      "phase": "M1 reference",
+      "tools": [
+        "episode:read",
+        "evidence:add"
+      ],
+      "output": "source validation result",
+      "may_approve": false
+    },
+    {
+      "name": "Care Transition",
+      "phase": "later",
+      "tools": [
+        "episode:read",
+        "task:propose"
+      ],
+      "output": "proposed tasks",
+      "may_approve": false
+    },
+    {
+      "name": "PolicyPulse",
+      "phase": "later",
+      "tools": [
+        "policy:read",
+        "episode:read"
+      ],
+      "output": "versioned rule evaluation",
+      "may_approve": false
+    },
+    {
+      "name": "Scenario",
+      "phase": "later",
+      "tools": [
+        "episode:read",
+        "scenario:write"
+      ],
+      "output": "assumptions and sensitivity ranges",
+      "may_approve": false
+    },
+    {
+      "name": "Proof & Economics",
+      "phase": "later",
+      "tools": [
+        "audit:read",
+        "economic:read"
+      ],
+      "output": "estimated vs verified evidence bundle",
+      "may_approve": false
+    }
+  ],
+  "prohibited": [
+    "clinical_execution",
+    "billing_submission",
+    "self_approval",
+    "permission_elevation"
+  ]
+}
