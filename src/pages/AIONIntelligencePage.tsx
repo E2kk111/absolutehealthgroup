@@ -18,7 +18,7 @@ const cases=[
  ["Senior Living Intelligence","Senior communities","Bring specialty access, monitoring, navigation and care-team coordination into the community."],
  ["ACCESS Operations","Independent physicians","Organize applicable co-management workflows, evidence and completion controls around physician authority."],
  ["Episode Recovery","CJR-X health systems","Orchestrate preparation, transition, recovery, monitoring, measurement and proof across the episode."],
- ["Wound Intelligence","Wound programs","Connect assessment, healing trajectory, documentation, escalation and Cost-to-Heal™."],
+ ["Wound Intelligence","Wound programs","Connect SDK-documented segmentation, clinical review, longitudinal healing evidence, policy-aware documentation and Cost-to-Heal™."],
  ["Opportunity Intelligence","Enterprise buyers","Quantify workflow leakage, care gaps, evidence burden and modeled economics before deployment."]
 ];
 

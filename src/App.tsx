@@ -30,13 +30,14 @@ import NewsletterPage from "./pages/NewsletterPage";
 import FlyerPage from "./pages/FlyerPage";
 import SocialMediaPage from "./pages/SocialMediaPage";
 import AIONIntelligencePage from "./pages/AIONIntelligencePage";
+import DermalQPage from "./pages/DermalQPage";
 
 const queryClient = new QueryClient();
 
 const App = () => (
  <QueryClientProvider client={queryClient}><TooltipProvider><Toaster/><Sonner/><BrowserRouter>
   <div className="flex min-h-screen flex-col"><Header/><main className="flex-grow pt-20 md:pt-24"><Routes>
-   <Route path="/" element={<Index/>}/><Route path="/aion-intelligence" element={<AIONIntelligencePage/>}/>
+   <Route path="/" element={<Index/>}/><Route path="/aion-intelligence" element={<AIONIntelligencePage/>}/><Route path="/dermalq" element={<DermalQPage/>}/>
    <Route path="/clinic" element={<ClinicPage/>}/><Route path="/clinic/care-at-home" element={<CareAtHomePage/>}/><Route path="/clinic/whole-person-navigation" element={<WholePersonNavigationPage/>}/><Route path="/clinic/chronic-condition-optimization" element={<ChronicConditionOptimizationPage/>}/>
    <Route path="/technology" element={<TechnologyPage/>}/><Route path="/technology/ar-vr" element={<ARVRPage/>}/><Route path="/technology/blockchain" element={<BlockchainPage/>}/><Route path="/technology/ai-generative" element={<AIGenerativeAIPage/>}/><Route path="/technology/iomt" element={<IOMTPage/>}/>
    <Route path="/our-solutions" element={<OurSolutionsPage/>}/><Route path="/care-in-a-box" element={<CareInABoxPage/>}/><Route path="/independent-physician" element={<IndependentPhysicianPage/>}/><Route path="/vms-healthspan" element={<VMSHealthspanPage/>}/>
