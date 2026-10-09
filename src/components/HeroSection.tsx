@@ -111,8 +111,8 @@ const HeroSection: React.FC = () => {
 
                   <div className="rounded-2xl border border-slate-200 bg-white p-5">
                     <p className="text-xs font-bold text-slate-500 uppercase tracking-wider">Value Efficiency</p>
-                    <div className="mt-2 text-4xl font-black text-slate-950">3.18×</div>
-                    <p className="mt-1 text-xs text-slate-500">Attributable value ÷ Cost-to-Goal</p>
+                    <div className="mt-2 text-4xl font-black text-slate-950">4.18×</div>
+                    <p className="mt-1 text-xs text-slate-500">Verified attributable value ÷ Cost-to-Goal</p>
                     <div className="mt-6 space-y-3 text-sm">
                       <div className="flex justify-between gap-3"><span className="text-slate-500">Attributable Value</span><strong>$4.6M</strong></div>
                       <div className="flex justify-between gap-3"><span className="text-slate-500">Cost-to-Goal</span><strong>($1.1M)</strong></div>
