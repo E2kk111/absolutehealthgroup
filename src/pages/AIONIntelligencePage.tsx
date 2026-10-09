@@ -58,12 +58,12 @@ export default function AIONIntelligencePage(){
 
   <section className="bg-[#05070b]"><div className="mx-auto max-w-7xl px-6 py-24">
    <p className="text-sm font-black uppercase tracking-[.24em] text-cyan-300">The proof model</p><h2 className="mt-4 max-w-4xl text-4xl font-black tracking-tight md:text-6xl">High-stakes work needs visible controls.</h2>
-   <div className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-4">{[
+   <div className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-4">{([
     [ShieldCheck,"Human Authority","Consequential clinical decisions remain with appropriately authorized humans."],
     [FileCheck2,"Evidence by Design","Define required inputs, evidence, authority and completion criteria."],
     [BrainCircuit,"Policy Lifecycle","Analyze proposed rules without silently making them production authority."],
     [BarChart3,"Economic Metering","Workflow Units™, Cost-to-Goal™, contribution and ROI make operations measurable."]
-   ].map(([I,t,d]:any)=><div key={t} className="rounded-3xl border border-white/10 bg-white/[.035] p-7"><I className="h-8 w-8 text-cyan-300"/><h3 className="mt-5 text-xl font-black">{t}</h3><p className="mt-3 leading-7 text-slate-400">{d}</p></div>)}</div>
+   ] as const).map(([I,t,d])=><div key={t} className="rounded-3xl border border-white/10 bg-white/[.035] p-7"><I className="h-8 w-8 text-cyan-300"/><h3 className="mt-5 text-xl font-black">{t}</h3><p className="mt-3 leading-7 text-slate-400">{d}</p></div>)}</div>
   </div></section>
 
   <section className="bg-white text-slate-950"><div className="mx-auto max-w-7xl px-6 py-24">
