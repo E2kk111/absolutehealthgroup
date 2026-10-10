@@ -1,5 +1,5 @@
 import React from 'react';
-import { Activity, ArrowRight, Brain, Building2, HeartPulse, Home, ShieldCheck, Stethoscope } from 'lucide-react';
+import { Activity, ArrowRight, Brain, Building2, HeartPulse, Home, ShieldCheck, Stethoscope, Scale, LockKeyhole } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const programs = [
@@ -13,18 +13,45 @@ const programs = [
   { name: 'Behavioral Care', sub: 'Behavioral health support', icon: Brain, tone: 'bg-fuchsia-700', bullets: ['Screening + monitoring', 'Care plans + engagement', 'Escalation + resources'] },
 ];
 
+
+const enterprisePrograms = [
+  {
+    name: 'Regulation-in-a-Box™',
+    subtitle: 'Powered by RegOS™',
+    promise: 'Know what changed. Know what applies. Know what to do. Prove what was done.',
+    icon: Scale,
+    tone: 'bg-indigo-800',
+    bullets: ['CMS policy and requirement monitoring', 'Obligation mapping and provider readiness', 'Documentation, remediation and audit evidence'],
+    buyer: 'Compliance, operations and clinical leadership',
+    cta: 'Explore regulatory operations',
+    query: 'Regulation-in-a-Box',
+  },
+  {
+    name: 'Cybersecurity-in-a-Box™',
+    subtitle: 'LokDon technology under evaluation',
+    promise: 'Protect sensitive data. Govern access. Detect risk. Demonstrate security controls.',
+    icon: LockKeyhole,
+    tone: 'bg-teal-800',
+    bullets: ['Security risk and safeguard assessment', 'Encryption, identity and access-control evaluation', 'Incident workflows and documented control evidence'],
+    buyer: 'CIO, CISO, IT and privacy leadership',
+    cta: 'Explore security assessment',
+    query: 'Cybersecurity-in-a-Box',
+  },
+];
+
 const CarePortfolioSection: React.FC = () => (
   <section className="py-20 md:py-28 bg-white" id="care-programs">
     <div className="container">
       <div className="max-w-4xl">
         <p className="text-sm font-bold tracking-[0.2em] uppercase text-blue-600">Care-in-a-Box™ portfolio</p>
-        <h2 className="mt-3 text-4xl md:text-6xl font-black tracking-tight text-slate-950">Choose the care program. We bring the operating infrastructure.</h2>
+        <h2 className="mt-3 text-4xl md:text-6xl font-black tracking-tight text-slate-950">One platform. Ten clinical and enterprise solutions.</h2>
         <p className="mt-5 text-lg md:text-xl text-slate-600 leading-relaxed">
-          Care-in-a-Box™ is the deployable product. Each program combines defined workflows, implementation support, coordination, evidence capture and measurement around the population you serve.
+          Eight clinical care programs and two enterprise operations offerings use existing GitHealth infrastructure. Choose a defined workflow, deploy with human authority, and measure the work completed.
         </p>
       </div>
 
-      <div className="mt-12 grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+      <h3 className="mt-12 text-2xl font-black text-slate-950">Clinical Care · Eight Solutions</h3>
+      <div className="mt-6 grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
         {programs.map(({ name, sub, icon: Icon, tone, bullets }) => (
           <div key={name} className="rounded-2xl border border-slate-200 bg-white overflow-hidden shadow-sm hover:shadow-xl transition-shadow">
             <div className={`${tone} p-5 text-white`}>
@@ -40,6 +67,33 @@ const CarePortfolioSection: React.FC = () => (
             </div>
           </div>
         ))}
+      </div>
+
+
+      <div className="mt-14" id="enterprise-operations">
+        <p className="text-sm font-bold uppercase tracking-[0.18em] text-blue-600">Enterprise Operations · Two Solutions</p>
+        <h3 className="mt-2 text-3xl md:text-4xl font-black text-slate-950">Regulatory readiness and security governance, delivered as defined programs.</h3>
+        <p className="mt-3 max-w-4xl text-slate-600 leading-relaxed">These are commercial offerings built on existing GitHealth workflows, evidence and provenance—not additional architectural layers. Licensed compliance, privacy and security professionals retain authority for consequential decisions.</p>
+        <div className="mt-7 grid gap-6 lg:grid-cols-2">
+          {enterprisePrograms.map(({name, subtitle, promise, icon: Icon, tone, bullets, buyer, cta, query}) => (
+            <article key={name} className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+              <div className={`${tone} p-6 text-white`}>
+                <Icon className="h-8 w-8" />
+                <h4 className="mt-4 text-2xl font-black">{name}</h4>
+                <p className="mt-1 text-sm font-bold text-white/85">{subtitle}</p>
+                <p className="mt-4 text-lg font-semibold leading-snug">{promise}</p>
+              </div>
+              <div className="p-6">
+                <p className="text-xs font-bold uppercase tracking-wider text-slate-500">Designed for {buyer}</p>
+                <ul className="mt-5 space-y-3 text-sm text-slate-700">
+                  {bullets.map(b => <li key={b} className="flex gap-2"><span className="font-black text-emerald-600">✓</span><span>{b}</span></li>)}
+                </ul>
+                <Link to={"/contact?buyer="+encodeURIComponent(query)} className="mt-6 inline-flex items-center gap-2 font-bold text-blue-700">{cta} <ArrowRight className="h-4 w-4" /></Link>
+              </div>
+            </article>
+          ))}
+        </div>
+        <p className="mt-5 text-sm leading-6 text-slate-500">LokDon is a prospective technology integration, subject to technical, security, legal and commercial validation. No established partnership, completed integration, HIPAA certification or verified post-quantum protection is represented. A security offering does not by itself establish HIPAA compliance.</p>
       </div>
 
       <div className="mt-8 rounded-2xl border border-blue-200 bg-blue-50 p-6 md:p-8">
