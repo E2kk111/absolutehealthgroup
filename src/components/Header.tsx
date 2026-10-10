@@ -16,6 +16,7 @@ const insights=[
  ["Podcast","/podcast"],
 ];
 const resources=[
+ ["GitHealth WorldOS™","/githealth/worldos"],
  ["AION Intelligence","/aion-intelligence"],
  ["Institutional Flyer","/flyer"],
  ["Technology","/technology"],
@@ -34,12 +35,12 @@ export default function Header(){
   <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6 md:h-24">
    <Link to="/" onClick={close} className="flex items-center"><img src="/logo.png" alt="Absolute Health Group" className="h-16 w-20 object-contain md:h-20 md:w-24"/></Link>
    <nav className="hidden items-center gap-8 md:flex">
-    <Link to="/" onClick={close} className="font-bold text-slate-700 hover:text-blue-700">Platform</Link>
+    <Link to="/" onClick={close} className="font-bold text-slate-700 hover:text-blue-700">Home</Link>
     {dropdown("Care Programs",programs)}
     {dropdown("Insights",insights)}
     {dropdown("Resources",resources)}
     <Link to="/about" onClick={close} className="font-bold text-slate-700 hover:text-blue-700">About</Link>
-    <Link to="/contact?topic=Opportunity%20Assessment" onClick={close} className="rounded-xl bg-blue-700 px-5 py-3 font-black text-white shadow-lg transition hover:bg-blue-800">Get Started</Link>
+    <Link to="/contact?topic=Opportunity%20Assessment" onClick={close} className="rounded-xl bg-blue-700 px-5 py-3 font-black text-white shadow-lg transition hover:bg-blue-800">Partner With Us</Link>
    </nav>
    <button onClick={()=>setOpen(!open)} className="rounded-xl border border-slate-200 p-2 md:hidden" aria-label="Toggle navigation">{open?<X/>:<Menu/>}</button>
   </div>
