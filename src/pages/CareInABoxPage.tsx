@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import CareAccessEconomics from "../components/CareAccessEconomics";
 import { Brain, HeartPulse, Home, Activity, ShieldCheck, Sparkles, ArrowRight, CheckCircle2, Building2, Database, LockKeyhole, BarChart3, Stethoscope, Workflow } from "lucide-react";
 
 const audiences = [
@@ -248,6 +249,8 @@ export default function CareInABoxPage(){
    <div className="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-5">{workflowClasses.map(x=><div key={x.name} className="rounded-2xl border border-slate-200 p-5"><div className="text-sm font-black text-blue-700">{x.name}</div><div className="mt-2 font-black">{x.label}</div><p className="mt-2 text-xs leading-5 text-slate-500">{x.example}</p></div>)}</div>
    <div className="mt-8 rounded-3xl bg-slate-950 p-8 text-white"><div className="flex items-start gap-4"><LockKeyhole className="mt-1 h-8 w-8 text-cyan-300"/><div><h3 className="text-2xl font-black">AION Intelligence + Authority™: the governed reasoning boundary.</h3><p className="mt-2 max-w-4xl text-slate-300">Medical Navigator and domain agents may observe, organize, assess, predict, recommend, navigate and prepare work within permissioned workflows. Consequential clinical, payment and PHI actions remain subject to applicable policy, authority and human review.</p></div></div></div>
   </section>
+
+  <CareAccessEconomics />
 
   <section className="bg-gradient-to-br from-blue-950 to-slate-950 text-white"><div className="mx-auto max-w-7xl px-6 py-20">
    <p className="font-bold uppercase tracking-widest text-cyan-300">AION Financial Health™ · Financial-to-Clinical Intelligence</p>
