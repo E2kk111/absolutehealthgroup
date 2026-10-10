@@ -27,6 +27,7 @@ import VMSHealthspanPage from "./pages/VMSHealthspanPage";
 import IndependentPhysicianPage from "./pages/IndependentPhysicianPage";
 import BlogPage from "./pages/BlogPage";
 import NewsletterPage from "./pages/NewsletterPage";
+import WhitePapersPage from "./pages/WhitePapersPage";
 import FlyerPage from "./pages/FlyerPage";
 import SocialMediaPage from "./pages/SocialMediaPage";
 import AIONIntelligencePage from "./pages/AIONIntelligencePage";
@@ -41,7 +42,7 @@ const App = () => (
    <Route path="/clinic" element={<ClinicPage/>}/><Route path="/clinic/care-at-home" element={<CareAtHomePage/>}/><Route path="/clinic/whole-person-navigation" element={<WholePersonNavigationPage/>}/><Route path="/clinic/chronic-condition-optimization" element={<ChronicConditionOptimizationPage/>}/>
    <Route path="/technology" element={<TechnologyPage/>}/><Route path="/technology/ar-vr" element={<ARVRPage/>}/><Route path="/technology/blockchain" element={<BlockchainPage/>}/><Route path="/technology/ai-generative" element={<AIGenerativeAIPage/>}/><Route path="/technology/iomt" element={<IOMTPage/>}/>
    <Route path="/our-solutions" element={<OurSolutionsPage/>}/><Route path="/care-in-a-box" element={<CareInABoxPage/>}/><Route path="/independent-physician" element={<IndependentPhysicianPage/>}/><Route path="/vms-healthspan" element={<VMSHealthspanPage/>}/>
-   <Route path="/newsletter" element={<NewsletterPage/>}/><Route path="/blog" element={<BlogPage/>}/><Route path="/flyer" element={<FlyerPage/>}/><Route path="/social-media" element={<SocialMediaPage/>}/>
+   <Route path="/newsletter" element={<NewsletterPage/>}/><Route path="/white-papers" element={<WhitePapersPage/>}/><Route path="/blog" element={<BlogPage/>}/><Route path="/flyer" element={<FlyerPage/>}/><Route path="/social-media" element={<SocialMediaPage/>}/>
    <Route path="/podcast" element={<PodcastPage/>}/>
    <Route path="/about" element={<AboutPage/>}/><Route path="/about/leadership" element={<LeadershipPage/>}/><Route path="/careers" element={<CareersPage/>}/><Route path="/about/press" element={<PressPage/>}/>
    <Route path="/contact" element={<ContactUsPage/>}/><Route path="*" element={<NotFound/>}/>
