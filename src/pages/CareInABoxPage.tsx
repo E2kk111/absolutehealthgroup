@@ -22,6 +22,31 @@ const applications = [
   { name:"Regenerative / Longevity", tag:"Governed Clinical Workflows", icon:Brain, text:"Eligibility, evidence review, authorized treatment, longitudinal monitoring and service lines such as clinician-governed hydration where appropriate." },
 ];
 
+const enterpriseSolutions = [
+  {
+    name:"Regulation-in-a-Box™",
+    technology:"Powered by RegOS™",
+    icon:ShieldCheck,
+    promise:"Know what changed. Know what applies. Know what to do. Prove what was done.",
+    summary:"A deployable regulatory operations program for healthcare compliance, operational and clinical leaders.",
+    workflows:["CMS and payer policy change monitoring","Applicable requirement and obligation mapping","Documentation and provider readiness reviews","Corrective-action tracking and audit evidence"],
+    deliverables:"Obligation register, approved rule mapping, remediation tracker and evidence package.",
+    cta:"Regulatory Readiness Assessment",
+    href:"/contact?topic=Regulation-in-a-Box%20Assessment",
+  },
+  {
+    name:"Cybersecurity-in-a-Box™",
+    technology:"Proposed LokDon technology evaluation",
+    icon:LockKeyhole,
+    promise:"Protect sensitive data. Govern access. Detect risk. Demonstrate security controls.",
+    summary:"A packaged healthcare cybersecurity assessment and security-governance workflow; any LokDon deployment is subject to vendor, technical, legal and security validation.",
+    workflows:["Security risk assessment and control inventory","Encryption and identity-control evaluation","Risk and incident workflow coordination","Safeguard evidence and remediation tracking"],
+    deliverables:"Security assessment, gap register, integration test plan and documented remediation evidence.",
+    cta:"Cybersecurity Readiness Assessment",
+    href:"/contact?topic=Cybersecurity-in-a-Box%20Assessment",
+  },
+];
+
 const clinicalNetwork = [
   { name:"PAC Solutions", role:"Physician authority + specialty network" },
   { name:"Joint & Neuro", role:"Continuous rehabilitation + functional outcomes" },
@@ -142,6 +167,20 @@ export default function CareInABoxPage(){
    <p className="mt-4 max-w-4xl text-lg text-slate-600">Specialty Care-in-a-Box™ is the flagship institutional deployment model. PIN, ACCESS, CJR-X, Burn, Wound, Rural, Senior and Regenerative/Longevity are applications of the same platform. Recovery, brain, cardiac, care-at-home, post-acute and behavioral capabilities remain clinical modules and workflows rather than separate top-level products.</p>
    <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-4">{applications.map(a=>{const Icon=a.icon;return <article key={a.name} className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm"><Icon className="h-8 w-8 text-blue-700"/><h3 className="mt-5 text-xl font-black">{a.name}</h3><p className="mt-1 font-semibold text-cyan-700">{a.tag}</p><p className="mt-4 text-sm leading-6 text-slate-600">{a.text}</p></article>})}</div>
   </section>
+
+  <section id="enterprise-solutions" className="scroll-mt-36 border-y border-slate-200 bg-slate-50"><div className="mx-auto max-w-7xl px-6 py-20">
+   <p className="font-bold uppercase tracking-widest text-blue-700">Enterprise Operations · Two Additional Commercial Offerings</p>
+   <h2 className="mt-2 text-4xl font-black">Regulation and cybersecurity. Same governed execution infrastructure.</h2>
+   <p className="mt-4 max-w-4xl text-lg leading-8 text-slate-600">These packaged enterprise services complement the clinical Care-in-a-Box™ applications. They use existing RegOS™, GitHealth™, evidence and economics capabilities; neither introduces a new architecture layer.</p>
+   <div className="mt-10 grid gap-6 lg:grid-cols-2">{enterpriseSolutions.map(s=>{const Icon=s.icon;return <article key={s.name} className="flex flex-col rounded-3xl border border-slate-200 bg-white p-8 shadow-sm">
+    <Icon className="h-10 w-10 text-blue-700"/><p className="mt-5 text-sm font-black uppercase tracking-wider text-cyan-700">{s.technology}</p><h3 className="mt-2 text-3xl font-black">{s.name}</h3>
+    <p className="mt-5 text-lg font-bold text-blue-950">{s.promise}</p><p className="mt-4 leading-7 text-slate-600">{s.summary}</p>
+    <h4 className="mt-7 font-black">Included workflow scope</h4><ul className="mt-3 space-y-3">{s.workflows.map(w=><li key={w} className="flex gap-2 text-sm text-slate-600"><CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-emerald-700"/>{w}</li>)}</ul>
+    <p className="mt-7 text-sm leading-6 text-slate-600"><strong className="text-slate-900">Pilot deliverables:</strong> {s.deliverables}</p>
+    <Link to={s.href} className="mt-8 inline-flex items-center gap-2 self-start rounded-xl bg-blue-700 px-5 py-3 font-black text-white hover:bg-blue-800">{s.cta}<ArrowRight className="h-4 w-4"/></Link>
+   </article>})}</div>
+   <p className="mt-7 max-w-5xl text-sm leading-7 text-slate-600">Governance boundary: compliance professionals approve applicable regulatory interpretations and corrective actions. Cybersecurity-in-a-Box™ is a proposed offering, not a claim of an executed LokDon partnership, completed integration, HIPAA certification or independently verified encryption/security performance. HIPAA obligations require administrative, physical and technical safeguards; encryption alone does not establish compliance.</p>
+  </div></section>
 
   <section className="bg-blue-950 text-white"><div className="mx-auto max-w-7xl px-6 py-20">
    <p className="font-bold uppercase tracking-widest text-cyan-300">Clinical / Product Layer</p><h2 className="mt-2 text-4xl font-black">The operating network that enables care.</h2>
