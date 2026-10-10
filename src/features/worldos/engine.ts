@@ -1,10 +1,11 @@
+import { evaluateEpisode, type EpisodeDecision } from './decision-agent.ts';
 export type ScenarioId = 'homeTomorrow' | 'homeLater' | 'facilityTomorrow';
 export type DemoActor = 'reviewer' | 'agent';
 export type EvidenceKey = 'medications' | 'clinical' | 'homeSupport' | 'homeServices' | 'facility' | 'coverage';
 export type Assumptions = { acuteDaily: number; homeDaily: number; facilityDaily: number; transport: number };
 export type Approval = { scenario: ScenarioId; version: number; reviewer: string; expiresAt: string };
 export type Model = { version: number; selected: ScenarioId; evidence: Record<EvidenceKey, boolean>; assumptions: Assumptions; approval: Approval | null; executed: boolean };
-export type AuditEvent = { sequence: number; time: string; actor: string; action: string; result: string; policy: string; previousHash: string; snapshot: Model; hash: string };
+export type AuditEvent = { sequence: number; time: string; actor: string; action: string; result: string; policy: string; previousHash: string; snapshot: Model; agentDecision?: EpisodeDecision; hash: string };
 export type Session = { schema: 'worldos-demo-v1'; events: AuditEvent[]; model: Model };
 export const policy = 'DEMO-TRANSITION-1.0';
 export const episodeId = 'EP-SYN-001';
@@ -26,18 +27,22 @@ export function approvalValid(model:Model, now=Date.now()) {
  return !!model.approval && !model.executed && model.approval.version===model.version && model.approval.scenario===model.selected && Date.parse(model.approval.expiresAt)>now && estimate(model,model.selected).missing.length===0;
 }
 const hash=async(value:unknown)=>Array.from(new Uint8Array(await crypto.subtle.digest('SHA-256',new TextEncoder().encode(JSON.stringify(value))))).map(b=>b.toString(16).padStart(2,'0')).join('');
-async function append(session:Session,actor:string,action:string,result:string,model:Model,time:string):Promise<Session>{
- const payload={sequence:session.events.length+1,time,actor,action,result,policy,previousHash:session.events[session.events.length-1]?.hash??'GENESIS',snapshot:structuredClone(model)};
+async function append(session:Session,actor:string,action:string,result:string,model:Model,time:string,agentDecision?:EpisodeDecision):Promise<Session>{
+ const payload={sequence:session.events.length+1,time,actor,action,result,policy,previousHash:session.events[session.events.length-1]?.hash??'GENESIS',snapshot:structuredClone(model),...(agentDecision?{agentDecision}:{})};
  const event={...payload,hash:await hash(payload)};
  return {schema:'worldos-demo-v1',model,events:[...session.events,event]};
 }
 export async function createSession():Promise<Session>{
  const m=initialModel();return append({schema:'worldos-demo-v1',model:m,events:[]},'system-demo','EPISODE_INITIALIZED','Synthetic episode loaded; no patient systems connected.',m,new Date().toISOString());
 }
-export type Action = {type:'select';value:ScenarioId}|{type:'evidence';key:EvidenceKey;value:boolean}|{type:'assumptions';value:Assumptions}|{type:'compare'}|{type:'approve'}|{type:'execute'}|{type:'hold'};
+export type Action = {type:'select';value:ScenarioId}|{type:'evidence';key:EvidenceKey;value:boolean}|{type:'assumptions';value:Assumptions}|{type:'compare'}|{type:'agent_decide'}|{type:'approve'}|{type:'execute'}|{type:'hold'};
 export async function act(session:Session, actor:DemoActor, action:Action, now=Date.now()):Promise<Session>{
  const m=structuredClone(session.model); const time=new Date(now).toISOString();
  let result=''; let label=action.type.toUpperCase();
+ if(action.type==='agent_decide'){
+  const decision=evaluateEpisode({episode_id:episodeId,episode_version:m.version,scenario_id:m.selected,policy_version:policy,simulation_mode:true,executed:m.executed,evidence:(Object.keys(evidenceLabels) as EvidenceKey[]).map(key=>({key,status:m.evidence[key]?'confirmed':'unknown',source_ref:m.evidence[key]?`synthetic://${episodeId}/${key}`:null}))});
+  return append(session,'episode-decision-agent','AGENT_DECISION',`Next workflow step: ${decision.choice.value}. Clinical readiness not assessed; human review required.`,m,time,decision);
+ }
  if(action.type==='compare') result='Three deterministic scenarios compared; assumptions only, no clinical prediction.';
  else if(action.type==='approve') {
   if(actor!=='reviewer'){label='APPROVAL_DENIED';result='AI self-approval prohibited by demo policy.';}

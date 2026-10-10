@@ -15,4 +15,5 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
+      - run: npm ci --ignore-scripts
       - run: node --experimental-strip-types --test episode-twin/tests/*.test.mjs

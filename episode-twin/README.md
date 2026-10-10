@@ -97,3 +97,28 @@ node --experimental-strip-types --test episode-twin/tests/*.test.mjs
 The foundation HTTP/PostgreSQL adapter remains pending. The visual prototype advances M1-07 for a single synthetic episode without completing the full application-level M1 acceptance criteria.
 
 Validation for this update: 23 local domain tests passed; TypeScript and production build passed; new/modified application files passed scoped ESLint. Full repository lint remains blocked by a pre-existing `no-explicit-any` in `src/pages/AIONIntelligencePage.tsx`. Browser checks passed in headless Chromium at 1440px and 390px: evidence hold, evidence toggles, AI denial, human approval, simulated handoff, reload persistence, JSON export, edit invalidation, no horizontal mobile overflow, and no runtime errors. Desktop and mobile screenshots were visually inspected. Remote CI and deployment status must be checked separately.
+
+## Episode Decision Agent — Jev-inspired interface
+
+`src/features/worldos/decision-agent.ts` implements a runnable, deterministic decision agent; `/worldos` exposes **Run decision agent**. This is an interface pattern inspired by TypeSafe's atomic typed questions, not a Jev model, training reproduction, TypeSafe integration, or performance-equivalent substitute.
+
+Input and output have strict Zod schemas. Input is limited to the synthetic episode, versioned policy, selected scenario, execution state, and six unique evidence records. Arbitrary extra fields are rejected. Per-requirement assertions return `confirmed`, `unknown`, or `conflicting` with source references. Missing sources cannot count as confirmed. Unknown evidence is not treated as a negative clinical finding.
+
+Three output concepts:
+- **Choice:** gather evidence, resolve conflict, request human review, or inspect an already completed handoff.
+- **Score:** confirmed required records divided by required records. This is a count ratio, not model confidence or clinical risk.
+- **Assertions:** source-linked, three-state evidence checks. These are not TypeSafe Noul probabilities.
+
+`confidence` and `probabilities` are explicitly null. `clinical_readiness` is `not_assessed`; `human_review_required` is true and `execution_authorized` is always false. Confidence and autonomy cannot be fabricated without violating the current output schema. Each run is attached to the audit event before hashing; exports include the complete typed output. Scenario/evidence/cost edits mark earlier outputs stale. Agent output cannot modify AION approval.
+
+### Future model adapter, not yet implemented
+
+Evaluate an actual model behind a server boundary using the same atomic evidence questions. Keep model estimates separate from deterministic evidence checks and AION permissions. Validate response types, model/policy versions, source references and input version before use. Timeouts, invalid output, missing evidence and out-of-distribution inputs must route to review. Keep the probability/confidence fields unavailable until the adapter and evaluation record are implemented; changing this schema requires explicit versioning.
+
+Measure factual accuracy, calibration, abstention coverage and subgroup performance on representative held-out episodes with independently reviewed labels. A model-reported confidence value is not demonstrated clinical calibration. No clinical execution should follow merely from a high score. This work does not train a foundation model.
+
+Reference reviewed: https://docs.typesafe.ai/introduction (October 8, 2026). TypeSafe documents Choice, Score and Noul primitives and composing narrow questions in code. GitHealth uses its own evidence-triage contract and does not call this API.
+
+Validation: 32 domain tests, TypeScript, production build and scoped lint pass. The CI job now installs the locked dependencies before running tests because the agent uses the repository's existing Zod dependency. No new npm dependencies were added.
+
+Agent browser checks passed at desktop/mobile widths: gather-evidence route, unset confidence, staleness after edits, human-review route, typed JSON inspection, persistence after reload, exported decision records, and no horizontal overflow or runtime errors. Use `/worldos#episode-agent` to open the agent panel directly.
