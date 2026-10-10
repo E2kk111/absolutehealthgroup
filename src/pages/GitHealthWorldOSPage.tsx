@@ -2,6 +2,7 @@ import { useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight, Activity, ShieldCheck, FlaskConical, Download, RotateCcw, AlertTriangle } from "lucide-react";
 import Footer from "../components/Footer";
+import WorldOSAccessLabs from "../components/WorldOSAccessLabs";
 
 type Acuity = "low" | "moderate" | "high";
 type Scenario = { id: string; label: string; inpatientDays: number; homeSupport: number; riskAdjustment: number };
@@ -90,6 +91,7 @@ export default function GitHealthWorldOSPage() {
         </div>
       </div>
     </div></section>
+    <WorldOSAccessLabs />
     <section className="mx-auto max-w-7xl px-6 py-20"><p className="text-sm font-bold uppercase tracking-widest text-blue-700">From model to measured value</p><h2 className="mt-3 text-4xl font-black text-slate-950">Model before deployment. Measure after deployment.</h2><div className="mt-9 grid gap-5 md:grid-cols-3">{[{icon:FlaskConical,title:"Simulate",description:"Compare pathways and uncertainty with reproducible, versioned assumptions."},{icon:ShieldCheck,title:"Govern",description:"AION evaluates evidence and rules; qualified humans authorize consequential action."},{icon:Activity,title:"Measure",description:"After a real pilot, reconcile delivered work, observed outcomes and actual economics."}].map(({icon:Icon,title,description})=><article key={title} className="rounded-2xl border border-slate-200 p-6"><Icon className="h-8 w-8 text-blue-700"/><h3 className="mt-4 text-2xl font-black">{title}</h3><p className="mt-3 text-slate-600">{description}</p></article>)}</div><p className="mt-9 text-slate-600">GitHealth is the governed intelligence infrastructure for independent healthcare organizations. WorldOS is a research and planning capability within the established Care-in-a-Box architecture, not an additional architecture layer or an approved clinical device.</p><Link to="/contact?topic=GitHealth%20WorldOS%20Demo" className="mt-7 inline-flex items-center gap-2 font-bold text-blue-700">Discuss an enterprise pilot <ArrowRight className="h-4 w-4"/></Link></section>
     <Footer/>
   </>;
