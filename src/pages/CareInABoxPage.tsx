@@ -136,6 +136,32 @@ export default function CareInABoxPage(){
    <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-4">{rails.map((r,i)=><div key={r.name} className="rounded-2xl bg-white p-6 shadow-sm"><div className="text-sm font-black text-blue-700">RAIL {i+1}</div><h3 className="mt-2 text-xl font-black">{r.name}</h3><p className="mt-3 text-sm leading-6 text-slate-600">{r.text}</p></div>)}</div>
   </div></section>
 
+
+  <section id="enterprise-operations" className="scroll-mt-36 bg-slate-50"><div className="mx-auto max-w-7xl px-6 py-20">
+   <p className="font-bold uppercase tracking-widest text-blue-700">Enterprise Operations · Two Additional Boxes</p>
+   <h2 className="mt-2 text-4xl font-black">Extend the portfolio beyond clinical care.</h2>
+   <p className="mt-4 max-w-5xl text-lg text-slate-600">Regulation-in-a-Box™ and Cybersecurity-in-a-Box™ are deployable commercial programs using the existing GitHealth infrastructure. They do not introduce new architectural layers or replace responsible compliance and security professionals.</p>
+   <div className="mt-9 grid gap-6 lg:grid-cols-2">
+    <article className="rounded-2xl border border-indigo-200 bg-white p-7 shadow-sm">
+     <p className="text-sm font-black uppercase tracking-wider text-indigo-700">Powered by RegOS™</p>
+     <h3 className="mt-3 text-3xl font-black">Regulation-in-a-Box™</h3>
+     <p className="mt-3 text-lg font-semibold text-slate-700">Know what changed. Know what applies. Know what to do. Prove what was done.</p>
+     <p className="mt-4 leading-7 text-slate-600">Regulatory change monitoring, applicable requirement mapping, provider readiness, documentation integrity, corrective-action tracking and audit evidence packages—with accountable human review.</p>
+     <p className="mt-5 text-sm font-bold text-indigo-700">Deliverables: obligation register · remediation plan · audit evidence record</p>
+     <Link to="/contact?buyer=Regulation-in-a-Box" className="mt-6 inline-flex items-center gap-2 font-bold text-blue-700">Request a regulatory readiness assessment <ArrowRight className="h-4 w-4" /></Link>
+    </article>
+    <article className="rounded-2xl border border-teal-200 bg-white p-7 shadow-sm">
+     <p className="text-sm font-black uppercase tracking-wider text-teal-700">LokDon technology under evaluation</p>
+     <h3 className="mt-3 text-3xl font-black">Cybersecurity-in-a-Box™</h3>
+     <p className="mt-3 text-lg font-semibold text-slate-700">Protect sensitive data. Govern access. Detect risk. Demonstrate security controls.</p>
+     <p className="mt-4 leading-7 text-slate-600">A proposed packaged security assessment, safeguard and access-control review, encryption and identity technology evaluation, incident workflows and documented control evidence.</p>
+     <p className="mt-5 text-sm font-bold text-teal-700">Pilot deliverables: security risk assessment · integration evaluation · gap register</p>
+     <Link to="/contact?buyer=Cybersecurity-in-a-Box" className="mt-6 inline-flex items-center gap-2 font-bold text-blue-700">Request a security pilot discussion <ArrowRight className="h-4 w-4" /></Link>
+    </article>
+   </div>
+   <p className="mt-6 text-sm leading-6 text-slate-500">LokDon integration and commercial terms have not been verified. This page does not claim a partnership, certification, complete HIPAA compliance, proven post-quantum protection or independently validated security outcomes. Security obligations require administrative, physical and technical safeguards.</p>
+  </div></section>
+
   <section id="applications" className="scroll-mt-36 mx-auto max-w-7xl px-6 py-20">
    <p className="font-bold uppercase tracking-widest text-blue-700">Market / Distribution Layer</p>
    <h2 className="mt-2 text-4xl font-black">One institutional platform. Multiple care applications.</h2>
