@@ -23,7 +23,7 @@ export default function WhitePapersPage() {
       <div className="mx-auto max-w-7xl px-6 py-20 md:py-28">
         <div className="inline-flex items-center gap-2 rounded-full border border-cyan-400/30 bg-cyan-300/10 px-4 py-2 text-xs font-bold uppercase tracking-widest text-cyan-200"><BookOpen className="h-4 w-4"/> Flagship white paper · October 2026</div>
         <h1 className="mt-6 max-w-5xl text-5xl font-black leading-tight md:text-7xl">Simulate Before You Deploy™</h1>
-        <p className="mt-6 max-w-4xl text-xl leading-8 text-blue-100">A new infrastructure for healthcare decisions, patient access, payment intelligence and proven outcomes.</p>
+        <p className="mt-6 max-w-4xl text-xl leading-8 text-blue-100">A new infrastructure for healthcare decisions, patient access, payment intelligence and measurable outcomes.</p>
         <p className="mt-5 max-w-3xl text-sm leading-7 text-blue-200">GitHealth WorldOS™ · AION™ · Absolute Health Group™</p>
         <div className="mt-8 flex flex-wrap gap-3">
           <Link to="/contact?topic=WorldOS%20White%20Paper%20Request" className="inline-flex items-center gap-2 rounded-xl bg-white px-6 py-4 font-bold text-blue-950"><Download className="h-5 w-5"/> Request the white paper</Link>
