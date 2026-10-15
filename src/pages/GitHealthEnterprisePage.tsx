@@ -6,6 +6,7 @@ const products = [
   { number: "02", name: "FWE Intelligence", description: "Structure Fraud, Waste & Error evidence review, investigation, and accountable resolution.", icon: ShieldCheck, status: "Reference concept · verify live integration" },
   { number: "03", name: "WorldOS™", description: "Explore synthetic healthcare episode pathways before consequential real-world decisions.", icon: Workflow, status: "Synthetic demonstration" },
 ];
+const carePathway = ["Population selection", "Outreach", "Monitoring", "Physician review", "Follow-up", "Measurement"];
 const steps = ["Identify the problem", "Evaluate the evidence", "Simulate the options", "Authorize the decision", "Prove what happened"];
 
 export default function GitHealthEnterprisePage() {
@@ -59,6 +60,27 @@ export default function GitHealthEnterprisePage() {
           <h2 className="mt-4 max-w-3xl text-4xl font-semibold tracking-tight md:text-5xl">From uncertainty to accountable action.</h2>
           <ol className="mt-12 grid gap-4 md:grid-cols-5">{steps.map((step,i)=><li key={step} className="border-t-2 border-[#366E9B] pt-5"><span className="text-sm text-[#68798D]">0{i+1}</span><p className="mt-4 text-xl font-semibold">{step}</p></li>)}</ol>
           <p className="mt-8 max-w-3xl text-sm leading-relaxed text-[#506076]">AI-generated proposals are not clinical authorizations. Consequential decisions require the appropriate authorized human reviewer and verified evidence.</p>
+        </div>
+      </section>
+
+      <section id="care-pathway" className="border-t border-[#D8DFE5] bg-[#F1F5F8] py-24">
+        <div className="mx-auto max-w-7xl px-6 md:px-10">
+          <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#366E9B]">Care-in-a-Box™ · Partner-enabled pathway</p>
+          <h2 className="mt-4 max-w-4xl text-4xl font-semibold tracking-tight md:text-5xl">One connected pathway. Clear clinical accountability.</h2>
+          <p className="mt-6 max-w-3xl text-lg leading-relaxed text-[#506076]">A proposed operating model connects population selection, outreach, monitoring, physician review, follow-up, and measurement. The technology coordinates the work. Qualified clinicians retain diagnostic and treatment authority.</p>
+          <ol className="mt-12 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+            {carePathway.map((step, index) => (
+              <li key={step} className="rounded-lg border border-[#D8DFE5] bg-white p-6">
+                <span className="text-sm font-semibold text-[#366E9B]">0{index + 1}</span>
+                <h3 className="mt-4 text-xl font-semibold">{step}</h3>
+              </li>
+            ))}
+          </ol>
+          <div className="mt-8 rounded-lg border-l-4 border-[#366E9B] bg-white p-6">
+            <p className="font-semibold">Partner roles are explicit.</p>
+            <p className="mt-2 text-[#506076]">Care-in-a-Box™ proposes to coordinate specialty partners and operational handoffs. Qualified clinical partners remain responsible for their own services, interpretations, and treatment decisions. Integration, contracting, privacy, and outcome claims require verification before real-world use.</p>
+          </div>
+          <Link to="/care-in-a-box" className="mt-8 inline-flex items-center gap-2 font-semibold text-[#245E8B] underline underline-offset-4">Explore Care-in-a-Box™ <ArrowRight size={18}/></Link>
         </div>
       </section>
 
