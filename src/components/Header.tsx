@@ -17,7 +17,7 @@ const insights=[
 ];
 const resources=[
  ["GitHealth™ Enterprise","/githealth"],
- ["Partner Onboarding","/githealth/partner-onboarding"],
+ ["Care-in-a-Box™ Partner Access","/githealth/partner-onboarding"],
  ["AION Intelligence","/aion-intelligence"],
  ["Institutional Flyer","/flyer"],
  ["Technology","/technology"],

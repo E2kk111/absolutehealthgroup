@@ -69,7 +69,7 @@ const workflowClasses = [
   {name:"WU-1", label:"Eligibility / Rule Check", example:"ACCESS eligibility, policy or track validation"},
   {name:"WU-2", label:"Documentation Validation", example:"Evidence completeness and documentation requirements"},
   {name:"WU-3", label:"Reimbursement / Evidence Packet", example:"Coverage, coding and defensible submission support"},
-  {name:"WU-4", label:"Investigation / Reconciliation", example:"FWA, denial, payment or complex wound investigation"},
+  {name:"WU-4", label:"Investigation / Reconciliation", example:"FWE, denial, payment or complex wound investigation"},
   {name:"WU-5", label:"Longitudinal Governed Episode", example:"CJR-X 90-day episode or complex recovery journey"},
 ];
 
@@ -124,12 +124,13 @@ export default function CareInABoxPage(){
      <p className="mt-6 max-w-4xl text-xl leading-8 text-blue-100">Bring specialty care into your organization — without building the specialty infrastructure yourself. Care-in-a-Box™ is what the customer buys; intelligence, regulatory control, governed execution, evidence and economics operate underneath.</p>
      <p className="mt-5 max-w-5xl text-sm font-bold uppercase tracking-wider text-cyan-200">Delivered by Absolute Health Group™ · Clinical Navigation by Medical Navigator AI™ · Intelligence + Authority by AION™ · Governed Execution by GitHealth™</p>
      <div className="mt-7 grid max-w-4xl gap-3 text-base font-bold sm:grid-cols-2"><div>✓ Your Brand. Your Patients. Your Clinical Authority.</div><div>✓ Our Infrastructure Underneath.</div></div>
-     <div className="mt-9 flex flex-wrap gap-4"><a href="#opportunity" className="rounded-xl bg-amber-400 px-6 py-3 font-bold text-slate-950">Get an Opportunity Assessment</a><a href="#applications" className="rounded-xl border border-white/30 px-6 py-3 font-bold">Explore Care Programs</a></div>
+     <div className="mt-9 flex flex-wrap gap-4"><a href="#opportunity" className="rounded-xl bg-amber-400 px-6 py-3 font-bold text-slate-950">Get an Opportunity Assessment</a><a href="#applications" className="rounded-xl border border-white/30 px-6 py-3 font-bold">Explore Care Programs</a><Link to="/githealth/partner-onboarding" className="rounded-xl border border-cyan-200 bg-white px-6 py-3 font-bold text-blue-950">Partner Onboarding <ArrowRight className="ml-2 inline h-4 w-4"/></Link></div>
     </div>
    </div>
   </section>
 
-  <section className="bg-slate-950 text-white"><div className="mx-auto max-w-7xl px-6 py-16">
+  <section className="border-b border-slate-200 bg-cyan-50"><div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-6 px-6 py-9"><div><p className="text-sm font-black uppercase tracking-widest text-blue-700">Research · Technology · Services</p><h2 className="mt-2 text-2xl font-black text-blue-950">Bring your capabilities into a governed care pathway.</h2><p className="mt-2 max-w-3xl text-slate-700">We evaluate vendor-neutral specialty partnerships for population selection, outreach, monitoring, qualified clinician review, follow-up, and measurement. Clinical authority remains with licensed professionals.</p></div><Link to="/githealth/partner-onboarding" className="inline-flex items-center gap-2 rounded-xl bg-blue-950 px-6 py-4 font-bold text-white">Start partner onboarding <ArrowRight className="h-5 w-5"/></Link></div></section>
+\n  <section className="bg-slate-950 text-white"><div className="mx-auto max-w-7xl px-6 py-16">
    <div className="grid gap-8 lg:grid-cols-2 lg:items-center">
     <div>
      <p className="font-bold uppercase tracking-widest text-cyan-300">Architecture v2.0 · Canonical Master Story</p>
