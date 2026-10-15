@@ -11,6 +11,7 @@ export default function CarePartnerOnboardingPage() {
   const [step, setStep] = useState(0);
   const [data, setData] = useState(initial);
   const [copied, setCopied] = useState(false);
+  const [copyError, setCopyError] = useState(false);
   const set = (key: keyof typeof initial, value: string) => setData((prev) => ({ ...prev, [key]: value }));
   const summary = useMemo(() => [
     "Care-in-a-Box™ — Partnership Introduction",
@@ -22,7 +23,7 @@ export default function CarePartnerOnboardingPage() {
     "Partner capability: " + (data.capability || "Not specified"),
     "Business objective: " + (data.objective || "Not provided"),
     "",
-    "No patient or sensitive health information included.",
+    "Business inquiry only. Do not include patient identifiers, medical records, or other sensitive health information.",
   ].join("\n"), [data]);
   const mailto = "mailto:info@absolutehealthgroup.com?subject=" + encodeURIComponent("Care-in-a-Box Partner Introduction") + "&body=" + encodeURIComponent(summary);
   const nextEnabled = step === 0 ? Boolean(data.audience && data.interest) : step === 1 ? Boolean(data.organization.trim() && data.contact.trim() && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email.trim())) : true;
@@ -56,8 +57,9 @@ export default function CarePartnerOnboardingPage() {
             <pre className="whitespace-pre-wrap break-words rounded-lg bg-[#F1F5F8] p-5 text-sm leading-relaxed">{summary}</pre>
             <div className="flex flex-wrap gap-3">
               <a href={mailto} className="inline-flex items-center gap-2 rounded-md bg-[#17243A] px-5 py-3 font-semibold text-white hover:bg-[#294364]"><Mail size={18}/> Open email to send</a>
-              <button type="button" onClick={async()=>{try{await navigator.clipboard.writeText(summary);setCopied(true)}catch{setCopied(false)}}} className="inline-flex items-center gap-2 rounded-md border border-[#A8B7C6] px-5 py-3 font-semibold"><Copy size={18}/>{copied?"Copied":"Copy summary"}</button>
+              <button type="button" onClick={async()=>{try{await navigator.clipboard.writeText(summary);setCopied(true);setCopyError(false)}catch{setCopied(false);setCopyError(true)}}} className="inline-flex items-center gap-2 rounded-md border border-[#A8B7C6] px-5 py-3 font-semibold"><Copy size={18}/>{copied?"Copied":"Copy summary"}</button>
             </div>
+            {copyError && <p role="alert" className="text-sm text-red-700">Copy is unavailable in this browser. Select the summary above to copy it manually.</p>}
             <p className="text-sm text-[#68798D]">Email delivery requires you to press Send in your email app. No account, backend submission, or automated partner approval is implied.</p>
           </div>}
           <div className="mt-10 flex items-center justify-between border-t border-[#D8DFE5] pt-6">
