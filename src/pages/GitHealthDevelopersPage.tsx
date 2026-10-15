@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import AgentTrustAssessment from "@/components/AgentTrustAssessment";
 import { ArrowRight, BookOpen, Code2, ExternalLink, GitBranch, LockKeyhole, ShieldCheck, Terminal, Workflow } from "lucide-react";
 
 const repo = "https://github.com/E2kk111/githealth-agent-sdk";
@@ -46,6 +47,7 @@ export default function GitHealthDevelopersPage() {
       <p className="text-xs font-bold uppercase tracking-[.2em] text-[#366E9B]">MCP tools</p><h2 className="mt-4 text-4xl font-semibold tracking-tight">Three tools. Explicit limits.</h2>
       <div className="mt-10 grid gap-4 lg:grid-cols-3">{tools.map(tool=><article key={tool.name} className="rounded-lg border border-[#D8DFE5] bg-white p-7"><Code2 className="h-6 w-6 text-[#366E9B]" aria-hidden="true"/><h3 className="mt-6 break-words font-mono text-lg font-semibold">{tool.name}</h3><p className="mt-4 leading-relaxed text-[#506076]">{tool.detail}</p></article>)}</div>
     </div></section>
+    <AgentTrustAssessment />
     <section id="governance" className="mx-auto max-w-7xl px-6 py-20 md:px-10">
       <div className="grid gap-10 lg:grid-cols-2"><div><p className="text-xs font-bold uppercase tracking-[.2em] text-[#366E9B]">Authority boundary</p><h2 className="mt-4 text-4xl font-semibold tracking-tight">AI can propose. Experts authorize. GitHealth proves what happened.</h2><p className="mt-6 leading-relaxed text-[#506076]">This is the intended governance model. Today’s workshop demonstrates typed, simulated state transitions; it does not verify a clinician’s identity, store immutable audit records, or execute real-world care or payment decisions.</p></div>
       <div className="rounded-lg border border-[#D8DFE5] bg-white p-8"><LockKeyhole className="h-8 w-8 text-[#366E9B]" aria-hidden="true"/><h3 className="mt-5 text-2xl font-semibold">Synthetic-only release guardrails</h3><ul className="mt-6 list-disc space-y-3 pl-5 leading-relaxed text-[#506076]"><li>No real patient information or live clinical systems.</li><li>No authenticated clinical approvals or production security controls.</li><li>No validated clinical predictions, payer integrations, or guaranteed savings.</li><li>REA is an optional, separately installed developer tool for authorized investigations only.</li></ul></div></div>
