@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { ArrowLeft, ArrowRight, CheckCircle2, Copy, Mail } from "lucide-react";
 
 const audiences = ["Independent physician / medical group", "Healthcare organization / facility", "Research partner", "Technology vendor", "Services vendor"];
-const interests = ["Heart & Brain specialty access", "Cardiac screening / monitoring", "Wound care", "Post-acute transitions", "Research / evaluation", "Other specialty workflow"];
+const interests = ["Heart & Brain specialty access", "Cardiac screening / monitoring", "Nighttime resident safety / monitoring", "Wound care", "Post-acute transitions", "Research / evaluation", "Other specialty workflow"];
 const capabilities = ["Research and evidence", "Device / diagnostics technology", "Clinical services", "Operational services", "Software / interoperability"];
 const initial = { audience: "", interest: "", capability: "", organization: "", contact: "", email: "", objective: "" };
 
