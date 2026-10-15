@@ -99,8 +99,8 @@ export default function GitHealthEnterprisePage() {
       <section id="developers" className="mx-auto max-w-7xl px-6 py-24 md:px-10">
         <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#366E9B]">For developers</p>
         <h2 className="mt-4 max-w-3xl text-4xl font-semibold tracking-tight md:text-5xl">Build on the same foundation.</h2>
-        <p className="mt-5 max-w-2xl leading-relaxed text-[#506076]">Explore the canonical GitHealth Harness repository for the evolving SDK architecture. Prototype examples use synthetic data and are not production healthcare infrastructure.</p>
-        <a className="mt-8 inline-flex items-center gap-2 font-semibold text-[#245E8B] underline underline-offset-4" href="https://github.com/githealth-inc/githealth-harness" target="_blank" rel="noopener noreferrer">View GitHealth Harness on GitHub <ArrowRight size={18}/></a>
+        <p className="mt-5 max-w-2xl leading-relaxed text-[#506076]">Explore the GitHealth Agent SDK™ Developer Workshop, including synthetic MCP tools, AION-style governance, SimLab evaluations, and optional REA integration. This draft preview is not production healthcare infrastructure.</p>
+        <Link className="mt-8 inline-flex items-center gap-2 font-semibold text-[#245E8B] underline underline-offset-4" to="/githealth/developers">Explore GitHealth Developer Hub <ArrowRight size={18}/></Link>
       </section>
       <section className="border-t border-[#D8DFE5] bg-white py-16">
         <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-8 px-6 md:px-10"><div><h2 className="text-3xl font-semibold">Bring a problem worth solving.</h2><p className="mt-3 text-[#506076]">Start with your workflow, evidence requirements, and decision boundaries.</p></div><Link to="/githealth/partner-onboarding" className="rounded-md bg-[#17243A] px-6 py-4 font-semibold text-white hover:bg-[#294364]">Start Onboarding</Link></div>
