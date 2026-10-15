@@ -65,7 +65,7 @@ export default function GitHealthEnterprisePage() {
 
       <section id="care-pathway" className="border-t border-[#D8DFE5] bg-[#F1F5F8] py-24">
         <div className="mx-auto max-w-7xl px-6 md:px-10">
-          <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#366E9B]">Care-in-a-Box™ · Partner-enabled pathway</p>
+          <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#366E9B]">Care-in-a-Box™ · Vendor-neutral partner ecosystem</p>
           <h2 className="mt-4 max-w-4xl text-4xl font-semibold tracking-tight md:text-5xl">One connected pathway. Clear clinical accountability.</h2>
           <p className="mt-6 max-w-3xl text-lg leading-relaxed text-[#506076]">A proposed operating model connects population selection, outreach, monitoring, physician review, follow-up, and measurement. The technology coordinates the work. Qualified clinicians retain diagnostic and treatment authority.</p>
           <ol className="mt-12 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
@@ -76,9 +76,10 @@ export default function GitHealthEnterprisePage() {
               </li>
             ))}
           </ol>
+          <div className="mt-8 grid gap-3 md:grid-cols-3">{["Research partners · evidence and evaluation", "Technology partners · devices and digital tools", "Service partners · clinical and operational delivery"].map((role) => <div key={role} className="rounded-lg border border-[#D8DFE5] bg-white p-5 font-medium">{role}</div>)}</div>
           <div className="mt-8 rounded-lg border-l-4 border-[#366E9B] bg-white p-6">
             <p className="font-semibold">Partner roles are explicit.</p>
-            <p className="mt-2 text-[#506076]">Care-in-a-Box™ proposes to coordinate specialty partners and operational handoffs. Qualified clinical partners remain responsible for their own services, interpretations, and treatment decisions. Integration, contracting, privacy, and outcome claims require verification before real-world use.</p>
+            <p className="mt-2 text-[#506076]">Independent physicians and healthcare organizations own patient relationships and retain clinical authority. Care-in-a-Box™ coordinates Medical Navigator AI™, AION™ governance, human authorization, and research, technology, or services vendors. GitHealth™ infrastructure supports proposed Prove™, ZScore™, Cost-to-Goal™, and Economics™ functions. Qualified providers remain responsible for monitoring, interpretation, diagnosis, and treatment. Integrations, contracting, privacy, and outcomes require verification before real-world use.</p>
           </div>
           <Link to="/care-in-a-box" className="mt-8 inline-flex items-center gap-2 font-semibold text-[#245E8B] underline underline-offset-4">Explore Care-in-a-Box™ <ArrowRight size={18}/></Link>
         </div>
