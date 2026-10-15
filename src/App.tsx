@@ -25,6 +25,7 @@ import IOMTPage from "./pages/technology/IOMTPage";
 import CareInABoxPage from "./pages/CareInABoxPage";
 import VMSHealthspanPage from "./pages/VMSHealthspanPage";
 import IndependentPhysicianPage from "./pages/IndependentPhysicianPage";
+import NewsletterPage from "./pages/NewsletterPage";
 
 const queryClient = new QueryClient();
 
@@ -58,6 +59,7 @@ const App = () => (
               <Route path="/care-in-a-box" element={<CareInABoxPage />} />
               <Route path="/independent-physician" element={<IndependentPhysicianPage />} />
               <Route path="/vms-healthspan" element={<VMSHealthspanPage />} />
+              <Route path="/newsletter" element={<NewsletterPage />} />
 
               {/* Podcast Route */}
               <Route path="/podcast" element={<PodcastPage />} />
