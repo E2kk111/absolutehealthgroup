@@ -27,7 +27,7 @@ export default function GitHealthEnterprisePage() {
           <h1 className="max-w-5xl text-5xl font-semibold leading-[1.09] tracking-tight md:text-7xl">Turn Healthcare Complexity Into Decisions You Can Defend.</h1>
           <p className="mt-8 max-w-2xl text-lg leading-relaxed text-[#506076] md:text-xl">Identify operational problems, evaluate evidence, simulate alternatives, and prepare governed workflows for accountable human decisions.</p>
           <div className="mt-10 flex flex-wrap gap-3">
-            <Link to="/contact" className="inline-flex items-center gap-2 rounded-md bg-[#17243A] px-6 py-4 font-semibold text-white hover:bg-[#294364]">Discuss Your Use Case <ArrowRight size={18}/></Link>
+            <Link to="/githealth/partner-onboarding" className="inline-flex items-center gap-2 rounded-md bg-[#17243A] px-6 py-4 font-semibold text-white hover:bg-[#294364]">Start Partner Onboarding <ArrowRight size={18}/></Link>
             <a href="#solutions" className="inline-flex items-center gap-2 rounded-md border border-[#A8B7C6] px-6 py-4 font-semibold hover:bg-white">Explore Solutions</a>
           </div>
         </div>
@@ -81,7 +81,7 @@ export default function GitHealthEnterprisePage() {
             <p className="font-semibold">Partner roles are explicit.</p>
             <p className="mt-2 text-[#506076]">Independent physicians and healthcare organizations own patient relationships and retain clinical authority. Care-in-a-Box™ coordinates Medical Navigator AI™, AION™ governance, human authorization, and research, technology, or services vendors. GitHealth™ infrastructure supports proposed Prove™, ZScore™, Cost-to-Goal™, and Economics™ functions. Qualified providers remain responsible for monitoring, interpretation, diagnosis, and treatment. Integrations, contracting, privacy, and outcomes require verification before real-world use.</p>
           </div>
-          <Link to="/care-in-a-box" className="mt-8 inline-flex items-center gap-2 font-semibold text-[#245E8B] underline underline-offset-4">Explore Care-in-a-Box™ <ArrowRight size={18}/></Link>
+          <div className="mt-8 flex flex-wrap gap-6"><Link to="/care-in-a-box" className="inline-flex items-center gap-2 font-semibold text-[#245E8B] underline underline-offset-4">Explore Care-in-a-Box™ <ArrowRight size={18}/></Link><Link to="/githealth/partner-onboarding" className="inline-flex items-center gap-2 font-semibold text-[#245E8B] underline underline-offset-4">Partner onboarding <ArrowRight size={18}/></Link></div>
         </div>
       </section>
 
@@ -103,7 +103,7 @@ export default function GitHealthEnterprisePage() {
         <a className="mt-8 inline-flex items-center gap-2 font-semibold text-[#245E8B] underline underline-offset-4" href="https://github.com/githealth-inc/githealth-harness" target="_blank" rel="noopener noreferrer">View GitHealth Harness on GitHub <ArrowRight size={18}/></a>
       </section>
       <section className="border-t border-[#D8DFE5] bg-white py-16">
-        <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-8 px-6 md:px-10"><div><h2 className="text-3xl font-semibold">Bring a problem worth solving.</h2><p className="mt-3 text-[#506076]">Start with your workflow, evidence requirements, and decision boundaries.</p></div><Link to="/contact" className="rounded-md bg-[#17243A] px-6 py-4 font-semibold text-white hover:bg-[#294364]">Request a Conversation</Link></div>
+        <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-8 px-6 md:px-10"><div><h2 className="text-3xl font-semibold">Bring a problem worth solving.</h2><p className="mt-3 text-[#506076]">Start with your workflow, evidence requirements, and decision boundaries.</p></div><Link to="/githealth/partner-onboarding" className="rounded-md bg-[#17243A] px-6 py-4 font-semibold text-white hover:bg-[#294364]">Start Onboarding</Link></div>
       </section>
     </div>
   );
