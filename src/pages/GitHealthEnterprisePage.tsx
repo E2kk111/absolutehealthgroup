@@ -19,7 +19,7 @@ export default function GitHealthEnterprisePage() {
             <a href="#solutions" className="hover:underline">Solutions</a>
             <a href="#method" className="hover:underline">Method</a>
             <a href="#platform" className="hover:underline">Platform</a>
-            <a href="#developers" className="hover:underline">Developers</a>
+            <a href="#developers" className="hover:underline">Developers</a><Link to="/githealth/partner-onboarding" className="font-semibold text-[#245E8B] hover:underline">Partner Access</Link>
           </nav>
         </div>
         <div className="max-w-5xl">
