@@ -48,6 +48,35 @@ export default function GitHealthDevelopersPage() {
       <div className="mt-10 grid gap-4 lg:grid-cols-3">{tools.map(tool=><article key={tool.name} className="rounded-lg border border-[#D8DFE5] bg-white p-7"><Code2 className="h-6 w-6 text-[#366E9B]" aria-hidden="true"/><h3 className="mt-6 break-words font-mono text-lg font-semibold">{tool.name}</h3><p className="mt-4 leading-relaxed text-[#506076]">{tool.detail}</p></article>)}</div>
     </div></section>
     <AgentTrustAssessment />
+    <section id="trust-services" className="border-t border-[#D8DFE5] bg-[#F1F5F8] py-20">
+      <div className="mx-auto max-w-7xl px-6 md:px-10">
+        <p className="text-xs font-bold uppercase tracking-[.2em] text-[#366E9B]">From self-assessment to operational assurance</p>
+        <h2 className="mt-4 max-w-4xl text-4xl font-semibold tracking-tight md:text-5xl">Start free. Verify the evidence. Govern the work.</h2>
+        <p className="mt-6 max-w-3xl leading-relaxed text-[#506076]">The self-assessment is a free developer entry point. Organizations seeking deeper review can discuss scoped, paid implementation and ongoing assurance services. These are proposed commercial offerings; availability, pricing and scope are confirmed through consultation.</p>
+        <div className="mt-10 grid gap-5 lg:grid-cols-3">
+          <article className="flex flex-col rounded-lg border border-[#D8DFE5] bg-white p-8">
+            <p className="text-xs font-bold uppercase tracking-widest text-[#366E9B]">01 · Free</p>
+            <h3 className="mt-4 text-2xl font-semibold">Trust & readiness self-assessment</h3>
+            <p className="mt-4 flex-1 leading-relaxed text-[#506076]">Explore agent-level or organizational readiness, identify self-reported control gaps and download an illustrative synthetic test plan. No patient data, independent audit or certification.</p>
+            <a href="#trust-score" className="mt-8 inline-flex justify-center rounded-md bg-[#17243A] px-5 py-3 font-semibold text-white hover:bg-[#294364]">Start free assessment</a>
+          </article>
+          <article className="flex flex-col rounded-lg border border-[#D8DFE5] bg-white p-8">
+            <p className="text-xs font-bold uppercase tracking-widest text-[#366E9B]">02 · Scoped engagement</p>
+            <h3 className="mt-4 text-2xl font-semibold">Governance implementation</h3>
+            <p className="mt-4 flex-1 leading-relaxed text-[#506076]">Define agent/task boundaries, collect and review control evidence, design AION policy gates, map human approval roles and plan SimLab synthetic failure tests. Deliverable: a reviewed implementation roadmap and control register.</p>
+            <Link to="/contact?interest=governance-implementation" className="mt-8 inline-flex justify-center rounded-md border border-[#17243A] px-5 py-3 font-semibold hover:bg-[#F1F5F8]">Discuss implementation</Link>
+          </article>
+          <article className="flex flex-col rounded-lg border border-[#D8DFE5] bg-white p-8">
+            <p className="text-xs font-bold uppercase tracking-widest text-[#366E9B]">03 · Ongoing service</p>
+            <h3 className="mt-4 text-2xl font-semibold">Agent assurance</h3>
+            <p className="mt-4 flex-1 leading-relaxed text-[#506076]">Proposed recurring reviews of evidence drift, policy changes, synthetic regression tests, exceptions and authorization boundaries. Cadence, responsibilities and reporting are agreed with each organization; no continuous monitoring is claimed today.</p>
+            <Link to="/contact?interest=agent-assurance" className="mt-8 inline-flex justify-center rounded-md border border-[#17243A] px-5 py-3 font-semibold hover:bg-[#F1F5F8]">Discuss assurance</Link>
+          </article>
+        </div>
+        <p className="mt-8 max-w-4xl text-sm leading-relaxed text-[#68798D]">A readiness score is advisory, not a clinical or regulatory certification. No score overrides AION's independent execution controls or qualified human authorization. Commercial services do not guarantee compliance, clinical outcomes or financial returns.</p>
+      </div>
+    </section>
+
     <section id="governance" className="mx-auto max-w-7xl px-6 py-20 md:px-10">
       <div className="grid gap-10 lg:grid-cols-2"><div><p className="text-xs font-bold uppercase tracking-[.2em] text-[#366E9B]">Authority boundary</p><h2 className="mt-4 text-4xl font-semibold tracking-tight">AI can propose. Experts authorize. GitHealth proves what happened.</h2><p className="mt-6 leading-relaxed text-[#506076]">This is the intended governance model. Today’s workshop demonstrates typed, simulated state transitions; it does not verify a clinician’s identity, store immutable audit records, or execute real-world care or payment decisions.</p></div>
       <div className="rounded-lg border border-[#D8DFE5] bg-white p-8"><LockKeyhole className="h-8 w-8 text-[#366E9B]" aria-hidden="true"/><h3 className="mt-5 text-2xl font-semibold">Synthetic-only release guardrails</h3><ul className="mt-6 list-disc space-y-3 pl-5 leading-relaxed text-[#506076]"><li>No real patient information or live clinical systems.</li><li>No authenticated clinical approvals or production security controls.</li><li>No validated clinical predictions, payer integrations, or guaranteed savings.</li><li>REA is an optional, separately installed developer tool for authorized investigations only.</li></ul></div></div>
