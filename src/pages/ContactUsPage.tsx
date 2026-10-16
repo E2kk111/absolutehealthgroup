@@ -54,7 +54,13 @@ const ContactUsPage: React.FC = () => {
   };
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
-  const [message, setMessage] = useState('');
+  const interest = searchParams.get('interest') || '';
+  const serviceInterest = interest === 'governance-implementation'
+    ? 'I would like to discuss a scoped GitHealth governance implementation engagement for our healthcare AI agents. Please contact me about scope, timeline and commercial terms.'
+    : interest === 'agent-assurance'
+      ? 'I would like to discuss ongoing GitHealth agent assurance, including evidence reviews, policy changes, synthetic tests and escalation controls. Please contact me about service scope and pricing.'
+      : '';
+  const [message, setMessage] = useState(serviceInterest);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   // EmailJS configuration - these should be set as environment variables
