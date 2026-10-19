@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Header from "./components/Header";
 import GitHealthEnterprisePage from "./pages/GitHealthEnterprisePage";
 import GitHealthDevelopersPage from "./pages/GitHealthDevelopersPage";
+import GitHealthNavigatorStudioPage from "./pages/GitHealthNavigatorStudioPage";
 import CarePartnerOnboardingPage from "./pages/CarePartnerOnboardingPage";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
@@ -42,7 +43,7 @@ const queryClient = new QueryClient();
 const App = () => (
  <QueryClientProvider client={queryClient}><TooltipProvider><Toaster/><Sonner/><BrowserRouter>
   <div className="flex min-h-screen flex-col"><Header/><main className="flex-grow pt-20 md:pt-24"><Routes>
-   <Route path="/" element={<Index/>}/><Route path="/githealth" element={<GitHealthEnterprisePage/>}/><Route path="/githealth/developers" element={<GitHealthDevelopersPage/>}/><Route path="/githealth/partner-onboarding" element={<CarePartnerOnboardingPage/>}/><Route path="/aion-intelligence" element={<AIONIntelligencePage/>}/><Route path="/dermalq" element={<DermalQPage/>}/>
+   <Route path="/" element={<Index/>}/><Route path="/githealth" element={<GitHealthEnterprisePage/>}/><Route path="/githealth/developers" element={<GitHealthDevelopersPage/>}/><Route path="/githealth/navigator-studio" element={<GitHealthNavigatorStudioPage/>}/><Route path="/githealth/partner-onboarding" element={<CarePartnerOnboardingPage/>}/><Route path="/aion-intelligence" element={<AIONIntelligencePage/>}/><Route path="/dermalq" element={<DermalQPage/>}/>
    <Route path="/clinic" element={<ClinicPage/>}/><Route path="/clinic/care-at-home" element={<CareAtHomePage/>}/><Route path="/clinic/whole-person-navigation" element={<WholePersonNavigationPage/>}/><Route path="/clinic/chronic-condition-optimization" element={<ChronicConditionOptimizationPage/>}/>
    <Route path="/technology" element={<TechnologyPage/>}/><Route path="/technology/ar-vr" element={<ARVRPage/>}/><Route path="/technology/blockchain" element={<BlockchainPage/>}/><Route path="/technology/ai-generative" element={<AIGenerativeAIPage/>}/><Route path="/technology/iomt" element={<IOMTPage/>}/>
    <Route path="/our-solutions" element={<OurSolutionsPage/>}/><Route path="/care-in-a-box" element={<CareInABoxPage/>}/><Route path="/pe-underwriting-demo" element={<PEUnderwritingDemoPage/>}/><Route path="/independent-physician" element={<IndependentPhysicianPage/>}/><Route path="/vms-healthspan" element={<VMSHealthspanPage/>}/>
