@@ -1,0 +1,40 @@
+import { Link } from "react-router-dom";
+import { ArrowRight, BookOpen, Database, FileCheck2, LockKeyhole, Network, ShieldCheck, Stethoscope } from "lucide-react";
+
+const connections = [
+  { title: "EHR / EMR", description: "SMART on FHIR launch and authorized FHIR R4 read access first; vendor registration and scopes required." },
+  { title: "Clinical exchange", description: "HL7 v2, C-CDA and HIE adapters where supported; identity matching and provenance required." },
+  { title: "Care ecosystem", description: "Labs, imaging, claims and devices through contracted, authorized connectors; no live feeds in this preview." }
+];
+const evidence = [
+  { title: "PubMed", href: "https://pubmed.ncbi.nlm.nih.gov/", description: "Published biomedical literature and citations." },
+  { title: "ClinicalTrials.gov", href: "https://clinicaltrials.gov/", description: "Research and trial information." },
+  { title: "CMS Medicare Coverage Database", href: "https://www.cms.gov/medicare-coverage-database/", description: "Coverage and billing policies; verify current applicability." },
+  { title: "HL7 FHIR", href: "https://hl7.org/fhir/", description: "Healthcare exchange specification, not a clinical evidence source." }
+];
+const stages = ["Connect authorized sources", "Normalize patient context and provenance", "Identify clinical and operational dependencies", "Retrieve and assess applicable evidence", "AION policy checks and clinician authorization", "Coordinate care, prove work and measure outcomes"];
+export default function GitHealthNavigatorStudioPage() {
+ return <div className="bg-[#F9F8F5] text-[#17243A]">
+  <section className="mx-auto max-w-7xl px-6 py-20 md:px-10 md:py-28">
+   <p className="text-xs font-bold uppercase tracking-[.2em] text-[#366E9B]">GitHealth™ · Navigator Studio · Proposed product</p>
+   <h1 className="mt-6 max-w-5xl text-5xl font-semibold leading-tight tracking-tight md:text-7xl">Create Your Own Medical Navigator™</h1>
+   <p className="mt-7 max-w-3xl text-xl leading-relaxed text-[#506076]">Connect to clinical systems. Ground workflows in open evidence. Keep licensed professionals in control.</p>
+   <p className="mt-5 max-w-3xl leading-relaxed text-[#506076]">Your Brand. Your Patients. Your Clinical Authority. Our Infrastructure Underneath. A proposed provider-branded AI engagement experience, human-led navigation workflow and governed interoperability foundation.</p>
+   <div className="mt-9 flex flex-wrap gap-3"><Link to="/contact?interest=medical-navigator-interoperability" className="inline-flex items-center gap-2 rounded-md bg-[#17243A] px-6 py-4 font-semibold text-white">Discuss a sandbox pilot <ArrowRight size={18}/></Link><a href="#architecture" className="rounded-md border border-[#A8B7C6] px-6 py-4 font-semibold">Explore architecture</a></div>
+   <p className="mt-6 max-w-3xl text-sm text-[#68798D]">Concept and integration roadmap, not a production EHR connection, clinical decision support deployment, or promise of universal vendor compatibility.</p>
+  </section>
+  <section id="architecture" className="border-y border-[#D8DFE5] bg-white py-20"><div className="mx-auto max-w-7xl px-6 md:px-10">
+   <p className="text-xs font-bold uppercase tracking-[.2em] text-[#366E9B]">Interoperability architecture</p><h2 className="mt-4 text-4xl font-semibold">One embedded experience. Authorized data from many systems.</h2>
+   <div className="mt-10 grid gap-5 md:grid-cols-3">{connections.map(c=><article key={c.title} className="rounded-lg border border-[#D8DFE5] p-7"><Database className="text-[#366E9B]"/><h3 className="mt-5 text-2xl font-semibold">{c.title}</h3><p className="mt-3 leading-relaxed text-[#506076]">{c.description}</p></article>)}</div>
+   <div className="mt-10 rounded-lg bg-[#F1F5F8] p-8"><Network className="text-[#366E9B]"/><h3 className="mt-4 text-2xl font-semibold">Embedded systems-thinking interface</h3><p className="mt-4 leading-relaxed text-[#506076]">Bring conditions, medications, appointments, social barriers, care teams and operational dependencies into one patient-context workspace. Label observed facts, missing data, inferred relationships and proposed actions separately. Every consequential action is routed to an appropriately authorized human.</p></div>
+  </div></section>
+  <section className="mx-auto max-w-7xl px-6 py-20 md:px-10"><p className="text-xs font-bold uppercase tracking-[.2em] text-[#366E9B]">Open evidence</p><h2 className="mt-4 text-4xl font-semibold">Trace recommendations to verifiable sources.</h2><p className="mt-5 max-w-3xl leading-relaxed text-[#506076]">Retrieve relevant published guidance and research using curated connectors. Preserve source, publication date, policy version, applicability, limitations, and conflicting evidence. External evidence services must not receive patient-identifying data through unrestricted queries.</p>
+   <div className="mt-9 grid gap-4 md:grid-cols-2">{evidence.map(e=><a key={e.title} href={e.href} target="_blank" rel="noopener noreferrer" className="rounded-lg border border-[#D8DFE5] bg-white p-6 hover:border-[#366E9B]"><BookOpen className="text-[#366E9B]"/><h3 className="mt-4 text-xl font-semibold">{e.title} ↗</h3><p className="mt-2 text-[#506076]">{e.description}</p></a>)}</div>
+  </section>
+  <section className="bg-[#17243A] py-20 text-white"><div className="mx-auto max-w-7xl px-6 md:px-10"><p className="text-xs font-bold uppercase tracking-[.2em] text-[#9AC2E1]">Governed workflow</p><h2 className="mt-4 text-4xl font-semibold">Models suggest. AION evaluates. Physicians authorize. GitHealth proves.</h2><ol className="mt-10 grid gap-4 md:grid-cols-3">{stages.map((s,i)=><li key={s} className="rounded-lg border border-[#52667D] p-6"><span className="text-sm text-[#9AC2E1]">0{i+1}</span><p className="mt-4 text-lg font-semibold">{s}</p></li>)}</ol></div></section>
+  <section className="mx-auto max-w-7xl px-6 py-20 md:px-10"><h2 className="text-4xl font-semibold">First milestone: synthetic SMART on FHIR sandbox</h2><div className="mt-8 grid gap-5 md:grid-cols-3"><div className="rounded-lg border border-[#D8DFE5] p-6"><Stethoscope className="text-[#366E9B]"/><h3 className="mt-4 text-xl font-semibold">Patient context</h3><p className="mt-3 text-[#506076]">Synthetic patient data and one sandbox EHR, with explicit authorization scopes.</p></div><div className="rounded-lg border border-[#D8DFE5] p-6"><FileCheck2 className="text-[#366E9B]"/><h3 className="mt-4 text-xl font-semibold">Evidence & navigation</h3><p className="mt-3 text-[#506076]">Curated evidence, staff work queues and AI versus qualifying human service-time separation for PIN review.</p></div><div className="rounded-lg border border-[#D8DFE5] p-6"><ShieldCheck className="text-[#366E9B]"/><h3 className="mt-4 text-xl font-semibold">Authority controls</h3><p className="mt-3 text-[#506076]">Simulated clinician approval, provenance and audit events; no real clinical actions.</p></div></div>
+  <div className="mt-10 rounded-lg border-l-4 border-[#366E9B] bg-white p-7"><LockKeyhole className="text-[#366E9B]"/><p className="mt-3 leading-relaxed text-[#506076]">Production prerequisites include verified identity matching, consent and access controls, HIPAA contracting, tenant isolation, encryption, auditability, minimum-necessary disclosure, vendor-specific permissions, and security and clinical safety review. AI conversation minutes do not count as human PIN navigation time. No live integrations or validated outcomes are claimed.</p></div>
+  <div className="mt-9 flex flex-wrap gap-6"><Link to="/githealth" className="font-semibold text-[#245E8B] underline underline-offset-4">GitHealth Enterprise</Link><Link to="/githealth/developers" className="font-semibold text-[#245E8B] underline underline-offset-4">Developer Hub</Link><Link to="/contact?interest=medical-navigator-interoperability" className="font-semibold text-[#245E8B] underline underline-offset-4">Explore partnership <ArrowRight className="inline" size={16}/></Link></div>
+  </section>
+ </div>;
+}

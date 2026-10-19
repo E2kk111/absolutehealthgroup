@@ -19,7 +19,7 @@ export default function GitHealthEnterprisePage() {
             <a href="#solutions" className="hover:underline">Solutions</a>
             <a href="#method" className="hover:underline">Method</a>
             <a href="#platform" className="hover:underline">Platform</a>
-            <a href="#developers" className="hover:underline">Developers</a><Link to="/githealth/partner-onboarding" className="font-semibold text-[#245E8B] hover:underline">Partner Access</Link>
+            <a href="#developers" className="hover:underline">Developers</a><Link to="/githealth/navigator-studio" className="font-semibold text-[#245E8B] hover:underline">Navigator Studio</Link><Link to="/githealth/partner-onboarding" className="font-semibold text-[#245E8B] hover:underline">Partner Access</Link>
           </nav>
         </div>
         <div className="max-w-5xl">
@@ -28,7 +28,7 @@ export default function GitHealthEnterprisePage() {
           <p className="mt-8 max-w-2xl text-lg leading-relaxed text-[#506076] md:text-xl">Identify operational problems, evaluate evidence, simulate alternatives, and prepare governed workflows for accountable human decisions.</p>
           <div className="mt-10 flex flex-wrap gap-3">
             <Link to="/githealth/partner-onboarding" className="inline-flex items-center gap-2 rounded-md bg-[#17243A] px-6 py-4 font-semibold text-white hover:bg-[#294364]">Start Partner Onboarding <ArrowRight size={18}/></Link>
-            <a href="#solutions" className="inline-flex items-center gap-2 rounded-md border border-[#A8B7C6] px-6 py-4 font-semibold hover:bg-white">Explore Solutions</a>
+            <Link to="/githealth/navigator-studio" className="inline-flex items-center gap-2 rounded-md border border-[#A8B7C6] px-6 py-4 font-semibold hover:bg-white">Explore Medical Navigator Studio</Link>
           </div>
         </div>
         <div className="mt-20 grid gap-4 border-t border-[#D8DFE5] pt-7 text-sm text-[#506076] md:grid-cols-3">
