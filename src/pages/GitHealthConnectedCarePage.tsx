@@ -32,7 +32,7 @@ export default function GitHealthConnectedCarePage() {
   const [selectedScenario, setSelectedScenario] = useState("");
   const [notice, setNotice] = useState("");
   const risk = classifySymptom(intake.symptom);
-  const change = <K extends keyof SyntheticIntake>(key: K, value: SyntheticIntake[K]) => setIntake(previous => ({ ...previous, [key]: value }));
+  const change = <K extends keyof SyntheticIntake,>(key: K, value: SyntheticIntake[K]) => setIntake(previous => ({ ...previous, [key]: value }));
   const submit = () => {
     if (!intake.consentToDemo) return;
     setWorkflow(previous => submitSyntheticIntake(previous, intake));
