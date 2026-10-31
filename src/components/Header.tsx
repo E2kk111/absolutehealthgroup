@@ -17,6 +17,7 @@ const insights=[
 ];
 const resources=[
  ["GitHealth™ Enterprise","/githealth"],
+ ["ANIKA™ VoiceOS Prototype","/githealth/voiceos"],
  ["GitHealth™ Developers","/githealth/developers"],
  ["Care-in-a-Box™ Partner Access","/githealth/partner-onboarding"],
  ["AION Intelligence","/aion-intelligence"],
