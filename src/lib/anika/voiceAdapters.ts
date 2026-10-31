@@ -40,6 +40,7 @@ export class OpenAIRealtimeWebRTCAdapter implements AnikaVoiceAdapter {
       }
       const payload = await response.json() as { value?: string };
       if (!payload.value) throw new Error("No temporary session credential received.");
+      if (this.closing) return;
       const peer = new RTCPeerConnection();
       this.peer = peer;
       peer.onconnectionstatechange = () => {
@@ -54,6 +55,7 @@ export class OpenAIRealtimeWebRTCAdapter implements AnikaVoiceAdapter {
       this.audio = audio;
       peer.ontrack = event => { audio.srcObject = event.streams[0]; void audio.play().catch(() => events.onNotice("Tap the screen to enable audio playback.")); };
       const stream = await navigator.mediaDevices.getUserMedia({ audio: { echoCancellation: true, noiseSuppression: true } });
+      if (this.closing) { stream.getTracks().forEach(track => track.stop()); return; }
       this.microphone = stream;
       for (const track of stream.getAudioTracks()) peer.addTrack(track, stream);
       const channel = peer.createDataChannel("oai-events");
@@ -71,6 +73,7 @@ export class OpenAIRealtimeWebRTCAdapter implements AnikaVoiceAdapter {
         headers: { Authorization: `Bearer ${payload.value}`, "Content-Type": "application/sdp" },
         body: offer.sdp
       });
+      if (this.closing) return;
       if (!answer.ok) throw new Error("Voice connection could not be established.");
       await peer.setRemoteDescription({ type: "answer", sdp: await answer.text() });
       if (this.closing) return;
