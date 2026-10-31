@@ -41,6 +41,13 @@ const OurSolutionsPage: React.FC = () => {
   // Featured Solutions - Carousel items
   const featuredSolutions = [
     {
+      title: "ANIKA™ — GitHealth VoiceOS™",
+      description: "Explore a synthetic, interactive healthcare voice companion with care navigation, a replaceable speech layer, and AION™ review gates. Prototype only.",
+      image: "/logo.png",
+      url: "/githealth/voiceos",
+      gradient: "from-violet-500 to-blue-600"
+    },
+    {
       title: "DermaIQ™",
       description: "Wound full care navigation app using AI-powered image analysis for accurate diagnosis and treatment planning.",
       image: "/dermaiq.png",
@@ -92,6 +99,7 @@ const OurSolutionsPage: React.FC = () => {
   ];
 
   const handleOpenSolution = (url: string) => {
+    if (url.startsWith('/')) { window.location.assign(url); return; }
     window.open(url, '_blank', 'noopener,noreferrer');
   };
 
