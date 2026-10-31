@@ -22,18 +22,19 @@ const HeroSection: React.FC = () => {
           <div>
             <div className="inline-flex items-center gap-2 border border-blue-200 bg-blue-50 px-4 py-2 rounded-full mb-7">
               <Workflow className="w-4 h-4 text-blue-700" />
-              <span className="text-sm font-bold text-blue-900">GitHealth™ · Governed Intelligence for Healthcare Outcomes</span>
+              <span className="text-sm font-bold text-blue-900">Absolute Health Group™ · Value-Based Healthcare Optimization</span>
             </div>
             <h1 className="text-5xl sm:text-6xl xl:text-7xl font-black leading-[0.98] tracking-tight text-slate-950">
-              Put Your Healthcare
-              <span className="block text-blue-600">Workload to Work.</span>
+              Optimize Care.
+              <span className="block text-blue-600">Prove Outcomes.</span>
+              <span className="block text-slate-950">Create Value.</span>
             </h1>
             <p className="mt-7 text-xl md:text-2xl leading-relaxed text-slate-700 max-w-2xl">
-              Identify healthcare value. Deploy governed workflows. Preserve human authority. Prove the outcome.
+              Clinical, operational, financial and population health optimization—powered by connected care delivery, GitHealth™ workflows and AION™ governance.
             </p>
             <div className="mt-9 flex flex-col sm:flex-row gap-4">
               <Link to="/contact?buyer=Population%20Opportunity%20Assessment" className="inline-flex items-center justify-center gap-2 rounded-xl bg-blue-600 hover:bg-blue-700 text-white px-7 py-4 font-bold text-lg shadow-lg shadow-blue-600/20 transition-all hover:-translate-y-0.5">
-                Assess Your Population <ArrowRight className="w-5 h-5" />
+                Request an Optimization Assessment <ArrowRight className="w-5 h-5" />
               </Link>
               <Link to="/care-in-a-box" className="inline-flex items-center justify-center gap-2 rounded-xl border border-slate-300 bg-white hover:border-blue-300 hover:bg-blue-50 text-slate-900 px-7 py-4 font-bold text-lg transition-all">
                 Explore Care-in-a-Box™ <ArrowRight className="w-5 h-5" />
@@ -44,7 +45,7 @@ const HeroSection: React.FC = () => {
                 { label: 'Human Authority', icon: ShieldCheck },
                 { label: 'Evidence Driven', icon: FileCheck2 },
                 { label: 'Measurable Outcomes', icon: BarChart3 },
-                { label: 'Deploy in Weeks', icon: Workflow },
+                { label: 'Governed Execution', icon: Workflow },
               ].map(({ label, icon: Icon }) => (
                 <div key={label} className="flex items-center gap-3 text-sm md:text-base font-bold text-slate-700">
                   <div className="w-9 h-9 rounded-xl bg-blue-50 flex items-center justify-center"><Icon className="w-5 h-5 text-blue-700" /></div>
@@ -70,7 +71,7 @@ const HeroSection: React.FC = () => {
               <div className="flex-1 p-5 md:p-6 bg-slate-50/70 min-w-0">
                 <div className="flex items-start justify-between gap-4">
                   <div>
-                    <p className="text-xs font-bold uppercase tracking-[0.16em] text-blue-600">Client Operations Console</p>
+                    <p className="text-xs font-bold uppercase tracking-[0.16em] text-blue-600">GitHealth™ · Illustrative Operations Console</p>
                     <h2 className="mt-1 text-xl md:text-2xl font-black text-slate-950">Population Value Overview</h2>
                   </div>
                   <span className="hidden md:inline-flex rounded-lg border border-slate-200 bg-white px-3 py-2 text-xs font-bold text-slate-600">Illustrative</span>
@@ -82,7 +83,7 @@ const HeroSection: React.FC = () => {
                     { value: '142K', label: 'Workflow Units', text: 'text-emerald-700', bg: 'bg-emerald-50' },
                     { value: '96.8%', label: 'Evidence Complete', text: 'text-violet-700', bg: 'bg-violet-50' },
                     { value: '$1.1M', label: 'Cost-to-Goal', text: 'text-amber-700', bg: 'bg-amber-50' },
-                    { value: '$4.6M', label: 'Realized Value', text: 'text-emerald-800', bg: 'bg-emerald-50' },
+                    { value: '$4.6M', label: 'Illustrative Value', text: 'text-emerald-800', bg: 'bg-emerald-50' },
                   ].map(({ value, label, text, bg }) => (
                     <div key={label} className={`rounded-xl border border-slate-200 ${bg} p-3.5`}>
                       <div className={`text-xl md:text-2xl font-black ${text}`}>{value}</div>
@@ -112,7 +113,7 @@ const HeroSection: React.FC = () => {
                   <div className="rounded-2xl border border-slate-200 bg-white p-5">
                     <p className="text-xs font-bold text-slate-500 uppercase tracking-wider">Value Efficiency</p>
                     <div className="mt-2 text-4xl font-black text-slate-950">4.18×</div>
-                    <p className="mt-1 text-xs text-slate-500">Verified attributable value ÷ Cost-to-Goal</p>
+                    <p className="mt-1 text-xs text-slate-500">Illustrative attributable value ÷ Cost-to-Goal</p>
                     <div className="mt-6 space-y-3 text-sm">
                       <div className="flex justify-between gap-3"><span className="text-slate-500">Attributable Value</span><strong>$4.6M</strong></div>
                       <div className="flex justify-between gap-3"><span className="text-slate-500">Cost-to-Goal</span><strong>($1.1M)</strong></div>
@@ -130,7 +131,7 @@ const HeroSection: React.FC = () => {
         </div>
 
         <p className="mt-8 text-xs md:text-sm text-slate-500 max-w-5xl">
-          Dashboard values are illustrative and are not performance claims. GitHealth supports governed workflows and evidence;
+          All dashboard values are fictional demonstration assumptions, not measured customer performance, verified ROI or reimbursement claims. GitHealth supports governed workflows and evidence;
           licensed professionals retain clinical authority, and applicable payers and CMS retain coverage and payment authority.
         </p>
       </div>
