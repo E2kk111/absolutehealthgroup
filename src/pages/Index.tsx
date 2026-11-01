@@ -1,5 +1,6 @@
 import React from 'react';
 import HeroSection from '../components/HeroSection';
+import BrandIdentitySection from '../components/BrandIdentitySection';
 import CarePortfolioSection from '../components/CarePortfolioSection';
 import ThreePillarsSection from '../components/ThreePillarsSection';
 import TechnologyWorkflowSection from '../components/TechnologyWorkflowSection';
@@ -11,6 +12,7 @@ const Index: React.FC = () => {
   return (
     <>
       <HeroSection />
+      <BrandIdentitySection />
       <CarePortfolioSection />
       <ThreePillarsSection />
       <TechnologyWorkflowSection />

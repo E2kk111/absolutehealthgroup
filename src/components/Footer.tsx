@@ -161,7 +161,7 @@ const Footer: React.FC = () => {
             <p className="text-white/70 text-sm text-center md:text-left">
               &copy; {new Date().getFullYear()} Absolute Health Group. All rights reserved.
               <br className="md:hidden" />
-              <span className="md:ml-2 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent font-semibold">Powered by TransformativeCare™</span>
+              <span className="md:ml-2 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent font-semibold">Optimize Care. Prove Outcomes. Create Value.</span>
             </p>
           </div>
         </div>
