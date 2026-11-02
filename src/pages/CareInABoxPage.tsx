@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import CareAccessEconomics from "../components/CareAccessEconomics";
-import { Brain, HeartPulse, Home, Activity, ShieldCheck, Sparkles, ArrowRight, CheckCircle2, Building2, Database, LockKeyhole, BarChart3, Stethoscope, Workflow } from "lucide-react";
+import { Brain, HeartPulse, Home, Activity, ShieldCheck, Sparkles, ArrowRight, CheckCircle2, Building2, Database, LockKeyhole, BarChart3, Stethoscope, Workflow, MonitorPlay } from "lucide-react";
 
 const audiences = [
   { name:"Health Systems", offer:"Coverage → coding → payment → proof assessment", product:"GitHealth Enterprise" },
@@ -18,6 +18,7 @@ const applications = [
   { name:"CJR-X Recovery-in-a-Box™", tag:"90-Day Orthopedic Episodes", icon:Building2, text:"Readiness, transitions, recovery, quality measurement and episode-economics infrastructure." },
   { name:"Burn Recovery-in-a-Box™", tag:"Burn + Reconstruction + Recovery", icon:HeartPulse, text:"Connected burn, wound, reconstruction, orthopedic and rehabilitation recovery workflows." },
   { name:"Wound Care-in-a-Box™", tag:"WoundOS + DermalQ", icon:ShieldCheck, text:"Assessment, DermalQ™ image intelligence, clinician-reviewed infection flags, documentation integrity, specialty coordination and outcomes." },
+  { name:"SurgicalOS™ / Surgery-in-a-Box™", tag:"Proposed Surgeon-Controlled Visualization", icon:MonitorPlay, text:"Proposed unified view of live surgical video, surgical navigation data and patient imaging, with source verification, surgeon authority, documentation and quality evidence.", href:"/surgicalos" },
   { name:"RuralCare AI™", tag:"Distributed Specialty Care", icon:Home, text:"Community clinicians connected to virtual specialists, longitudinal records and coordinated care." },
   { name:"Senior Care-in-a-Box™", tag:"Healthy Aging + Specialty Access", icon:Activity, text:"Longitudinal senior-care workflows combining specialty access, navigation, monitoring and escalation." },
   { name:"Regenerative / Longevity", tag:"Governed Clinical Workflows", icon:Brain, text:"Eligibility, evidence review, authorized treatment, longitudinal monitoring and service lines such as clinician-governed hydration where appropriate." },
@@ -192,8 +193,8 @@ export default function CareInABoxPage(){
   <section id="applications" className="scroll-mt-36 mx-auto max-w-7xl px-6 py-20">
    <p className="font-bold uppercase tracking-widest text-blue-700">Market / Distribution Layer</p>
    <h2 className="mt-2 text-4xl font-black">One institutional platform. Multiple care applications.</h2>
-   <p className="mt-4 max-w-4xl text-lg text-slate-600">Specialty Care-in-a-Box™ is the flagship institutional deployment model. PIN, ACCESS, CJR-X, Burn, Wound, Rural, Senior and Regenerative/Longevity are applications of the same platform. Recovery, brain, cardiac, care-at-home, post-acute and behavioral capabilities remain clinical modules and workflows rather than separate top-level products.</p>
-   <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-4">{applications.map(a=>{const Icon=a.icon;return <article key={a.name} className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm"><Icon className="h-8 w-8 text-blue-700"/><h3 className="mt-5 text-xl font-black">{a.name}</h3><p className="mt-1 font-semibold text-cyan-700">{a.tag}</p><p className="mt-4 text-sm leading-6 text-slate-600">{a.text}</p></article>})}</div>
+   <p className="mt-4 max-w-4xl text-lg text-slate-600">Specialty Care-in-a-Box™ is the flagship institutional deployment model. PIN, ACCESS, CJR-X, Burn, Wound, SurgicalOS, Rural, Senior and Regenerative/Longevity are applications of the same platform. Recovery, brain, cardiac, care-at-home, post-acute and behavioral capabilities remain clinical modules and workflows rather than separate top-level products.</p>
+   <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-4">{applications.map(a=>{const Icon=a.icon;return <article key={a.name} className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm"><Icon className="h-8 w-8 text-blue-700"/><h3 className="mt-5 text-xl font-black">{a.name}</h3><p className="mt-1 font-semibold text-cyan-700">{a.tag}</p><p className="mt-4 text-sm leading-6 text-slate-600">{a.text}</p>{"href" in a && a.href && <Link to={a.href} className="mt-5 inline-flex items-center gap-2 text-sm font-black text-blue-700">Explore concept <ArrowRight className="h-4 w-4"/></Link>}</article>})}</div>
   </section>
 
   <section id="enterprise-solutions" className="scroll-mt-36 border-y border-slate-200 bg-slate-50"><div className="mx-auto max-w-7xl px-6 py-20">
