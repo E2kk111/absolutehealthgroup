@@ -41,6 +41,13 @@ const OurSolutionsPage: React.FC = () => {
   // Featured Solutions - Carousel items
   const featuredSolutions = [
     {
+      title: "GitHealth™ Connected Care Studio",
+      description: "Synthetic workflow demo connecting patient intake, ANIKA™ conversations, AION™ review gates and investigational MOTS-c research education. No PHI or EHR integration.",
+      image: "/logo.png",
+      url: "/githealth/connected-care",
+      gradient: "from-blue-600 to-violet-600"
+    },
+    {
       title: "ANIKA™ — GitHealth VoiceOS™",
       description: "Explore a synthetic, interactive healthcare voice companion with care navigation, a replaceable speech layer, and AION™ review gates. Prototype only.",
       image: "/logo.png",
