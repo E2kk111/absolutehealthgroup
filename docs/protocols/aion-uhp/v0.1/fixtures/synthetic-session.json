@@ -1,0 +1,38 @@
+{
+  "protocol": "aion-uhp",
+  "version": "0.1.0-draft",
+  "session_id": "synthetic-session-001",
+  "agent": {
+    "id": "githealth-documentation-agent",
+    "owner": "absolute-health-group",
+    "purpose": "documentation-quality-review"
+  },
+  "task": {
+    "id": "task-001",
+    "input_classification": "SYNTHETIC",
+    "allowed_capabilities": [
+      "read_synthetic_wound_record",
+      "propose_documentation_clarification"
+    ],
+    "prohibited_capabilities": [
+      "sign_clinical_note",
+      "submit_claim",
+      "modify_ehr"
+    ]
+  },
+  "authority": {
+    "policy_version": "synthetic-demo-v1",
+    "decision": "ALLOW",
+    "expires_at": "2026-11-02T12:00:00Z",
+    "authorization_token": null
+  },
+  "execution": {
+    "adapter": "replaceable-runtime",
+    "status": "PENDING"
+  },
+  "evidence": {
+    "source_ids": [],
+    "event_ids": [],
+    "integrity_status": "NOT_ATTESTED"
+  }
+}
