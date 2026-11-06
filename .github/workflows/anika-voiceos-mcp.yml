@@ -1,0 +1,27 @@
+name: ANIKA VoiceOS synthetic MCP conformance
+on:
+  pull_request:
+    paths:
+      - 'tools/anika-voiceos-mcp/**'
+      - '.github/workflows/anika-voiceos-mcp.yml'
+  push:
+    paths:
+      - 'tools/anika-voiceos-mcp/**'
+      - '.github/workflows/anika-voiceos-mcp.yml'
+jobs:
+  synthetic-mcp-tests:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Syntax check
+        run: |
+          node --check tools/anika-voiceos-mcp/core.mjs
+          node --check tools/anika-voiceos-mcp/server.mjs
+          node --check tools/anika-voiceos-mcp/core.test.mjs
+      - name: Run synthetic-only negative authorization and provenance tests
+        run: node --test tools/anika-voiceos-mcp/core.test.mjs
