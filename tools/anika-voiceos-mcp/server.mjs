@@ -57,7 +57,7 @@ const definitions = [
         provenance: { type: 'object' },
       },
     },
-  },,
+  },
   {
     name: TOOLS[2],
     description: 'Plan simulated follow-up from two hash-matching GENERATED signal records and a fixed fictional concern code. No diagnosis or real scheduling.',
