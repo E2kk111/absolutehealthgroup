@@ -7,7 +7,7 @@ export const VERSIONS = Object.freeze({
   policy: 'anika-synthetic-policy-v1',
   algorithm: 'generated-numeric-signal-v1',
 });
-export const TOOLS = Object.freeze(['anika_analyze_synthetic_voice', 'anika_verify_synthetic_provenance']);
+export const TOOLS = Object.freeze(['anika_analyze_synthetic_voice', 'anika_verify_synthetic_provenance', 'anika_plan_synthetic_followup']);
 const CONTEXT_KEYS = ['agentId', 'tenantId', 'classification', 'origin', 'purpose', 'capability'];
 const EXPECTED = Object.freeze({
   agentId: 'anika-voiceos-demo',
