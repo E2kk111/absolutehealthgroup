@@ -54,3 +54,20 @@ The tests deny PHI classifications, recorded origin, cross-tenant access, unknow
 6. Conduct human studies with appropriate statistical validation and regulatory review before any diagnostic, monitoring, risk prediction or treatment-related biomarker claims.
 
 No clinical claim, patient recruitment, consent collection, IRB approval, data capture or clinical deployment is authorized by this PR.
+
+## Synthetic signal change and follow-up (v0.1)
+
+A third MCP tool, `anika_plan_synthetic_followup`, compares two **generated, hash-matching** synthetic feature records. It accepts only a fixed fictional concern code: `NONE`, `REPORTED_VOICE_CHANGE`, `REPORTED_BREATHING_CONCERN` or `REPORTED_MOOD_CONCERN`. It rejects arbitrary patient text and unverified/tampered inputs.
+
+Its deterministic dispositions are `NO_FOLLOWUP_TRIGGER`, `SIMULATED_REPEAT_MEASUREMENT`, and `SIMULATED_HUMAN_REVIEW`. The illustrative RMS-amplitude delta threshold (0.05) is **not** a medical threshold, disease risk score, biomarker or diagnostic criterion. Self-reported concerns route to a simulated human review queue regardless of the acoustic delta; no actual alert, appointment, referral or message is sent.
+
+The output includes a versioned, content-addressed follow-up plan and an `UNVALIDATED_ENGINEERING_DEMONSTRATION` evidence grade. It is an **unsigned hash**, not proof of authenticity. The module has no clinical detection claims, diagnostic labels, patient identities, scheduling, EHR integration or real voice capture.
+
+To validate both test suites:
+```bash
+node --test tools/anika-voiceos-mcp/*.test.mjs
+```
+
+### Research-to-clinical progression
+
+A proposed human study must independently establish a specific intended use, consented data collection protocol, validated reference assessment, recruitment population, confounder control, acoustic feature reproducibility, prespecified clinical endpoints, statistical plan, subgroup/fairness analysis and regulatory/ethics approval. Anxiety, depression, neurological and cardiopulmonary indications require distinct evidence and cannot be inferred from the demonstration's signal-delta threshold. Clinical safety triage must be separately validated and reviewed.
