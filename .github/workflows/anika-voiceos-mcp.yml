@@ -23,5 +23,7 @@ jobs:
           node --check tools/anika-voiceos-mcp/core.mjs
           node --check tools/anika-voiceos-mcp/server.mjs
           node --check tools/anika-voiceos-mcp/core.test.mjs
+          node --check tools/anika-voiceos-mcp/followup.mjs
+          node --check tools/anika-voiceos-mcp/followup.test.mjs
       - name: Run synthetic-only negative authorization and provenance tests
-        run: node --test tools/anika-voiceos-mcp/core.test.mjs
+        run: node --test tools/anika-voiceos-mcp/*.test.mjs
