@@ -3,6 +3,8 @@
  * Not an authenticated MCP gateway, clinical product, or PHI-safe server.
  */
 import readline from 'node:readline';
+import { resolve } from 'node:path';
+import { pathToFileURL } from 'node:url';
 import { analyzeSyntheticVoice, verifySyntheticProvenance, TOOLS } from './core.mjs';
 
 const PROTOCOL_VERSION = '2025-06-18';
@@ -85,7 +87,7 @@ export function handleRequest(request) {
   }
   return err(-32601, 'Method not found');
 }
-if (process.argv[1] && import.meta.url === new URL('file://' + process.argv[1]).href) {
+if (process.argv[1] && import.meta.url === pathToFileURL(resolve(process.argv[1])).href) {
   const lines = readline.createInterface({ input: process.stdin, crlfDelay: Infinity });
   lines.on('line', line => {
     if (Buffer.byteLength(line, 'utf8') > 4_000_000) {
