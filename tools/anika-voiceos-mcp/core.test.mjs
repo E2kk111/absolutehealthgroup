@@ -69,7 +69,7 @@ test('MCP initialize, tool discovery and authorized tool invocation', () => {
   const initialize = handleRequest({ jsonrpc: '2.0', id: 1, method: 'initialize', params: {} });
   assert.equal(initialize.result.serverInfo.name, 'anika-voiceos-synthetic-mcp');
   const tools = handleRequest({ jsonrpc: '2.0', id: 2, method: 'tools/list' });
-  assert.equal(tools.result.tools.length, 2);
+  assert.equal(tools.result.tools.length, 3);
   const result = handleRequest({ jsonrpc: '2.0', id: 3, method: 'tools/call',
     params: { name: TOOLS[0], arguments: input() } });
   assert.equal(result.result.isError, false);
