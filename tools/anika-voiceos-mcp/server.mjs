@@ -6,6 +6,7 @@ import readline from 'node:readline';
 import { resolve } from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { analyzeSyntheticVoice, verifySyntheticProvenance, TOOLS } from './core.mjs';
+import { planSyntheticFollowup } from './followup.mjs';
 
 const PROTOCOL_VERSION = '2025-06-18';
 const definitions = [
@@ -56,7 +57,32 @@ const definitions = [
         provenance: { type: 'object' },
       },
     },
-  },
+  },,
+  {
+    name: TOOLS[2],
+    description: 'Plan simulated follow-up from two hash-matching GENERATED signal records and a fixed fictional concern code. No diagnosis or real scheduling.',
+    inputSchema: {
+      type: 'object', additionalProperties: false,
+      required: ['context', 'baselineProvenance', 'currentProvenance', 'reportedConcern'],
+      properties: {
+        context: {
+          type: 'object', additionalProperties: false,
+          required: ['agentId', 'tenantId', 'classification', 'origin', 'purpose', 'capability'],
+          properties: {
+            agentId: { const: 'anika-voiceos-demo' },
+            tenantId: { const: 'synthetic-lab' },
+            classification: { const: 'SYNTHETIC' },
+            origin: { const: 'GENERATED' },
+            purpose: { const: 'nonclinical-signal-research' },
+            capability: { const: TOOLS[2] },
+          },
+        },
+        baselineProvenance: { type: 'object' },
+        currentProvenance: { type: 'object' },
+        reportedConcern: { type: 'string', enum: ['NONE', 'REPORTED_VOICE_CHANGE', 'REPORTED_BREATHING_CONCERN', 'REPORTED_MOOD_CONCERN'] },
+      },
+    },
+  }
 ];
 export function handleRequest(request) {
   if (!request || request.jsonrpc !== '2.0' || typeof request.method !== 'string')
@@ -76,10 +102,11 @@ export function handleRequest(request) {
     const { name, arguments: args } = request.params ?? {};
     if (!TOOLS.includes(name)) return err(-32602, 'Tool not allowed');
     try {
-      const output = name === TOOLS[0] ? analyzeSyntheticVoice(args) : verifySyntheticProvenance(args);
+      const output = name === TOOLS[0] ? analyzeSyntheticVoice(args) :
+        name === TOOLS[1] ? verifySyntheticProvenance(args) : planSyntheticFollowup(args);
       const denied = output.authorization?.decision !== 'ALLOW';
       const failed = output.quality?.pass === false || output.verification?.integrity === 'INVALID' ||
-        output.verification?.integrity === 'HASH_MISMATCH';
+        output.verification?.integrity === 'HASH_MISMATCH' || output.status === 'REJECTED';
       return ok({ content: [{ type: 'text', text: JSON.stringify(output) }], isError: denied || failed });
     } catch {
       return ok({ content: [{ type: 'text', text: JSON.stringify({ error: 'INVALID_SYNTHETIC_REQUEST' }) }], isError: true });
