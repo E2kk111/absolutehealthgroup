@@ -115,7 +115,13 @@ export function verifySyntheticProvenance(args) {
     verification: { integrity: 'INVALID', reason: 'INVALID_REQUEST_SCHEMA' } };
   const p = args.provenance;
   if (!exactKeys(p, ['record', 'recordHashSha256', 'attestation']) ||
-      !isPlainObject(p.record) || p.record.origin !== 'GENERATED' ||
+      !isPlainObject(p.record) ||
+      !exactKeys(p.record, ['schemaVersion', 'algorithmVersion', 'featureVersion', 'qualityVersion',
+        'policyVersion', 'origin', 'source', 'context', 'authorization', 'quality', 'features', 'disclaimer']) ||
+      authorize(p.record.context, TOOLS[0]).decision !== 'ALLOW' ||
+      !exactKeys(p.record.source, ['sampleRate', 'sampleCount', 'inputSha256']) ||
+      !/^[a-f0-9]{64}$/.test(p.record.source.inputSha256) ||
+      p.record.origin !== 'GENERATED' ||
       p.record.schemaVersion !== VERSIONS.schema || p.record.featureVersion !== VERSIONS.features ||
       p.record.qualityVersion !== VERSIONS.quality || p.record.policyVersion !== VERSIONS.policy ||
       p.attestation !== 'UNSIGNED_HASH_ONLY' || !/^[a-f0-9]{64}$/.test(p.recordHashSha256))
