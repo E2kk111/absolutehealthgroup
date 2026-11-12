@@ -110,14 +110,25 @@ export default function AnikaVoiceOSPage() {
           <div><p className="text-sm font-black uppercase tracking-[.18em] text-cyan-200">✚ GitHealth™ VoiceOS™ · Your Healthcare Voice Companion</p>
             <h1 className="mt-4 text-6xl font-black tracking-tight md:text-8xl">ANIKA<span className="align-top text-2xl">™</span></h1>
             <p className="mt-3 text-2xl font-semibold">The Voice of Connected Care.</p>
-            <p className="mt-4 max-w-2xl text-lg leading-relaxed text-indigo-100">Natural conversations, care navigation and authorized follow-up—built on a replaceable speech layer.</p>
+            <p className="mt-4 max-w-2xl text-lg leading-relaxed text-indigo-100">Natural conversations and authorized care coordination, with voice-only depression research for people living with cancer or congestive heart failure (CHF).</p>
             <p className="mt-6 inline-flex rounded-full border border-white/40 px-4 py-2 text-xs font-semibold">Talk Naturally. Get Care. Stay on Track.</p>
           </div>
           <div className="flex h-32 w-32 items-center justify-center rounded-full border-4 border-cyan-200 bg-white/10 text-7xl shadow-[0_0_50px_rgba(110,214,255,.35)] md:h-48 md:w-48" aria-label="ANIKA brand symbol">✦</div>
         </div>
       </section>
+      <section className={`${panel} mt-6`} aria-labelledby="voice-research-title">
+        <p className="text-xs font-bold uppercase tracking-wide text-violet-700">Proposed research program · Investigational</p>
+        <h2 id="voice-research-title" className="mt-2 text-2xl font-bold">Voice-based depression assessment in oncology and CHF</h2>
+        <p className="mt-3 text-sm leading-relaxed text-slate-600">Our long-term ambition is to investigate whether speaking with ANIKA can support clinically validated depression assessment. The proposed measurement pipeline uses voice alone: no laboratory results, imaging, camera capture or wearable measurements.</p>
+        <div className="mt-5 grid gap-4 md:grid-cols-2">
+          <article className="rounded-2xl bg-violet-50 p-4"><h3 className="font-bold">Oncology–depression</h3><p className="mt-2 text-sm">Study whether candidate speech features add useful information to spoken symptom reports when assessing depression in people with an established cancer diagnosis.</p></article>
+          <article className="rounded-2xl bg-cyan-50 p-4"><h3 className="font-bold">CHF–depression</h3><p className="mt-2 text-sm">Study the same question in people with established congestive heart failure, with a separate protocol and population-specific validation.</p></article>
+        </div>
+        <p className="mt-4 text-sm leading-relaxed text-slate-600">Cancer and CHF define the study populations; depression is the research target. Pitch, pauses, speaking rate, vocal energy and language patterns are candidate features. Independent clinician assessments provide the reference standard for validation and are not inputs to the voice model. These studies do not establish voice-based diagnosis of cancer or CHF.</p>
+        <p className="mt-3 text-sm font-semibold text-violet-900">Current demo: browser transcription and scripted responses only. It does not extract acoustic features, calculate biomarker scores or diagnose depression.</p>
+      </section>
       <div className="mt-6 grid gap-6 lg:grid-cols-[1.2fr_.8fr]">
-        <section className={panel}><h2 className="text-2xl font-bold">Talk with ANIKA</h2>
+        <section className={panel}><h2 className="text-2xl font-bold">Talk with ANIKA — care-coordination demo</h2>
           <p className="mt-2 text-sm text-slate-500">Synthetic patient: Jordan, age 81, receiving rehabilitation services. Do not enter real patient information.</p>
           <div className="mt-5 flex h-80 flex-col gap-3 overflow-y-auto rounded-2xl border border-slate-200 bg-slate-50 p-4" aria-live="polite">
             {messages.map((message, i) => <div key={i} className={`max-w-[88%] rounded-2xl px-4 py-3 ${message.role === "ANIKA™" ? "self-start bg-violet-100" : "self-end bg-cyan-100"}`}>
