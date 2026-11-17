@@ -1,0 +1,23 @@
+name: VoiceOS synthetic policy tests
+on:
+  pull_request:
+    paths:
+      - 'packages/yovak-healthcare/**'
+      - '.github/workflows/voiceos-synthetic-policy.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'packages/yovak-healthcare/**'
+      - '.github/workflows/voiceos-synthetic-policy.yml'
+permissions:
+  contents: read
+jobs:
+  synthetic-policy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Test synthetic-only fail-closed example
+        run: node --test packages/yovak-healthcare/test/policy.test.mjs
