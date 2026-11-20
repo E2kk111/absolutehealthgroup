@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
+import AnikaRealtimePanel from "@/components/anika/AnikaRealtimePanel";
 import { Activity, ArrowLeft, Download, Mic, Phone, RotateCcw, Send, ShieldCheck, Volume2, Network } from "lucide-react";
 
 type Message = { role: "ANIKA™" | "Patient"; text: string };
@@ -116,6 +117,7 @@ export default function AnikaVoiceOSPage() {
           <div className="flex h-32 w-32 items-center justify-center rounded-full border-4 border-cyan-200 bg-white/10 text-7xl shadow-[0_0_50px_rgba(110,214,255,.35)] md:h-48 md:w-48" aria-label="ANIKA brand symbol">✦</div>
         </div>
       </section>
+      <AnikaRealtimePanel />
       <div className="mt-6 grid gap-6 lg:grid-cols-[1.2fr_.8fr]">
         <section className={panel}><h2 className="text-2xl font-bold">Talk with ANIKA</h2>
           <p className="mt-2 text-sm text-slate-500">Synthetic patient: Jordan, age 81, receiving rehabilitation services. Do not enter real patient information.</p>
